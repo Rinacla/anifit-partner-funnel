@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Guide: Dein Start als Anifit-Tierernährungsberater",
   description: "Alles was du wissen musst um als Anifit-Fachberater zu starten: Verdienst, Voraussetzungen, Ablauf und Tipps vom erfahrenen Mentor.",
+  alternates: {
+    canonical: "/guide",
+  },
 };
 
 export default function GuidePage() {

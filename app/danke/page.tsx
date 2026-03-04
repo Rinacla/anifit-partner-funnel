@@ -1,5 +1,9 @@
 export const metadata = {
   title: "Danke! — Dein Guide ist unterwegs",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function DankePage() {

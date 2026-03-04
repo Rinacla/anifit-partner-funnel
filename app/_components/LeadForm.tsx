@@ -54,8 +54,8 @@ export default function LeadForm() {
           placeholder="z. B. Sarah"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-base transition-shadow"
-          style={{ focusRingColor: "#4CAF50" }}
+          className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
+          style={{ ["--tw-ring-color" as string]: "#4CAF50" }}
           disabled={loading}
         />
       </div>
@@ -74,7 +74,7 @@ export default function LeadForm() {
           placeholder="sarah@beispiel.de"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-base transition-shadow"
+          className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
           disabled={loading}
         />
       </div>

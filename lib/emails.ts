@@ -105,7 +105,7 @@ export function faqEmail(name: string) {
 
 export function ctaEmail(name: string) {
   return {
-    subject: "${name}, bereit für deinen Start?",
+    subject: `${name}, bereit für deinen Start?`,
     html: WRAPPER(`
       <h1>Es ist so weit, ${name}.</h1>
       <p>Du weißt jetzt:</p>

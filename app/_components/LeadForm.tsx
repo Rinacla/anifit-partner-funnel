@@ -1,0 +1,102 @@
+"use client";
+
+import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
+
+export default function LeadForm() {
+  const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error ?? "Ein Fehler ist aufgetreten. Bitte versuche es erneut.");
+        setLoading(false);
+        return;
+      }
+
+      router.push("/danke");
+    } catch {
+      setError("Netzwerkfehler. Bitte prüfe deine Verbindung.");
+      setLoading(false);
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700 mb-1.5"
+        >
+          Dein Name
+        </label>
+        <input
+          id="name"
+          type="text"
+          required
+          autoComplete="given-name"
+          placeholder="z. B. Sarah"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-base transition-shadow"
+          style={{ focusRingColor: "#4CAF50" }}
+          disabled={loading}
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700 mb-1.5"
+        >
+          Deine E-Mail-Adresse
+        </label>
+        <input
+          id="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="sarah@beispiel.de"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-base transition-shadow"
+          disabled={loading}
+        />
+      </div>
+      {error && (
+        <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-lg">
+          {error}
+        </p>
+      )}
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full py-4 px-6 rounded-xl font-bold text-white text-lg transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
+        style={{
+          background: loading ? "#81C784" : "#4CAF50",
+          boxShadow: loading ? "none" : "0 4px 14px rgba(76,175,80,0.4)",
+        }}
+      >
+        {loading ? "Wird gesendet…" : "Gratis-Guide anfordern →"}
+      </button>
+      <p className="text-xs text-center text-gray-400">
+        Kein Spam. Keine Weitergabe deiner Daten. Jederzeit abmeldbar.
+      </p>
+    </form>
+  );
+}

@@ -1,65 +1,195 @@
-import Image from "next/image";
+import LeadForm from "./_components/LeadForm";
+import FAQAccordion from "./_components/FAQAccordion";
+
+export const metadata = {
+  title: "Anifit Berater werden — Dein Start als Tierernährungsberater",
+  description:
+    "Werde Anifit-Fachberater und verdiene 15–30 % Provision auf Premium-Hundefutter. Kostenloser Guide, persönlicher Mentor, flexible Zeiteinteilung.",
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-green-50 to-white">
+        <div className="mx-auto max-w-3xl px-6 pt-16 pb-20 text-center">
+          <p className="inline-block mb-4 text-sm font-semibold tracking-wide uppercase text-green-700 bg-green-100 px-4 py-1.5 rounded-full">
+            Kostenloser Guide
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
+            Dein Start als{" "}
+            <span className="text-green-600">Tierernährungsberater</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Erfahre, wie du mit Premium-Hundefutter 15–30&nbsp;% Provision verdienst
+            — flexibel, ohne Lager, mit persönlichem Mentor und lebenslangem
+            Kundenschutz.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Lead Form */}
+      <section id="guide" className="-mt-6 relative z-10 mx-auto max-w-md px-6">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+          <h2 className="text-xl font-bold text-center mb-1">
+            Gratis-Guide anfordern
+          </h2>
+          <p className="text-sm text-gray-500 text-center mb-6">
+            Alles, was du für deinen Start wissen musst — in einer kompakten Übersicht.
+          </p>
+          <LeadForm />
         </div>
-      </main>
+      </section>
+
+      {/* Vorteile */}
+      <section className="mx-auto max-w-3xl px-6 py-20">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Warum Anifit-Berater werden?
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-8">
+          {[
+            {
+              icon: "💰",
+              title: "15–30 % Provision",
+              text: "Auf jede Bestellung deiner Kunden — ein Leben lang dank Kundenschutz.",
+            },
+            {
+              icon: "🏠",
+              title: "Kein Lager, kein Versand",
+              text: "Provital übernimmt alles: Lager, Versand, Retouren, Zahlungen.",
+            },
+            {
+              icon: "⏰",
+              title: "Flexible Zeiteinteilung",
+              text: "Nebenjob oder Vollzeit — du entscheidest wann, wo und wie viel.",
+            },
+            {
+              icon: "🎓",
+              title: "Kostenlose Ausbildung",
+              text: "Online-Schulungen, Webinare und offizielle Zertifizierung inklusive.",
+            },
+            {
+              icon: "🐕",
+              title: "Premium-Produkt",
+              text: "90–99 % Fleischanteil, schwedische Qualität. Kunden bleiben jahrelang.",
+            },
+            {
+              icon: "🤝",
+              title: "Persönlicher Mentor",
+              text: "Enrico unterstützt dich beim Start — mit Erfahrung aus 1.000+ Kunden.",
+            },
+          ].map((v, i) => (
+            <div key={i} className="flex gap-4">
+              <span className="text-3xl flex-shrink-0">{v.icon}</span>
+              <div>
+                <h3 className="font-bold text-lg">{v.title}</h3>
+                <p className="text-gray-600 mt-1">{v.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Verdienst */}
+      <section className="bg-green-50 py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">
+            Was verdienst du als Anifit-Berater?
+          </h2>
+          <p className="text-center text-gray-600 mb-10 max-w-xl mx-auto">
+            Deine Provision steigt mit der Anzahl deiner Kunden. Hier ein paar
+            Beispiele (Quelle: Provital GmbH):
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { kunden: 12, stufe: "19 %", betrag: "~182 €" },
+              { kunden: 25, stufe: "23 %", betrag: "~460 €" },
+              { kunden: 50, stufe: "27 %", betrag: "~1.080 €" },
+              { kunden: 96, stufe: "30 %", betrag: "~2.304 €" },
+            ].map((e, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-xl p-6 text-center shadow-sm border border-green-100"
+              >
+                <p className="text-3xl font-extrabold text-green-600">
+                  {e.betrag}
+                </p>
+                <p className="text-sm text-gray-500 mt-2">
+                  {e.kunden} Kunden · {e.stufe}
+                </p>
+                <p className="text-xs text-gray-400 mt-1">monatlich</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-400 text-center mt-6">
+            Basierend auf durchschnittlichen Bestellsummen. Dazu kommen Boni für
+            Neukunden, Wiederholungen und mehr.
+          </p>
+        </div>
+      </section>
+
+      {/* Über Enrico */}
+      <section className="mx-auto max-w-3xl px-6 py-20">
+        <h2 className="text-3xl font-bold text-center mb-8">
+          Dein Mentor: Enrico Bachmann
+        </h2>
+        <div className="bg-gray-50 rounded-2xl p-8 sm:p-10">
+          <blockquote className="text-lg text-gray-700 leading-relaxed">
+            „Ich bin seit 2018 Anifit-Fachberater und habe mir ein Business mit
+            über 1.000 aktiven Kunden aufgebaut. Mein eigener Hund frisst Anifit
+            — ich empfehle nur, was ich selbst nutze. Als dein Mentor unterstütze
+            ich dich beim Start: mit Tipps für die ersten Kunden, E-Mail-Vorlagen,
+            Werbematerial und regelmäßigem Austausch."
+          </blockquote>
+          <p className="mt-4 font-semibold text-gray-900">
+            Enrico Bachmann
+          </p>
+          <p className="text-sm text-gray-500">
+            Zertifizierter Ernährungsberater für Hunde &amp; Katzen
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-gray-50 py-20">
+        <div className="mx-auto max-w-2xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-10">
+            Häufige Fragen
+          </h2>
+          <FAQAccordion />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-md px-6 py-20 text-center">
+        <h2 className="text-2xl font-bold mb-4">Bereit für den ersten Schritt?</h2>
+        <p className="text-gray-600 mb-8">
+          Fordere jetzt den kostenlosen Guide an und erfahre alles, was du für
+          deinen Start brauchst.
+        </p>
+        <a
+          href="#guide"
+          className="inline-block py-4 px-10 rounded-xl font-bold text-white text-lg transition-all"
+          style={{
+            background: "#4CAF50",
+            boxShadow: "0 4px 14px rgba(76,175,80,0.4)",
+          }}
+        >
+          Gratis-Guide anfordern →
+        </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-100 py-8">
+        <div className="mx-auto max-w-3xl px-6 text-center text-sm text-gray-400">
+          <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
+          <p className="mt-1">
+            <a href="https://www.anifutter-shop.de/content/partners/201289a/impressum/" className="hover:text-gray-600">Impressum</a>
+            {" · "}
+            <a href="https://www.anifutter-shop.de/content/partners/201289a/datenschutz/" className="hover:text-gray-600">Datenschutz</a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

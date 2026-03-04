@@ -1,398 +1,132 @@
-const baseStyle = `
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f5f5;
-  margin: 0;
-  padding: 0;
-`;
+const WRAPPER = (content: string) => `
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;background:#f9fafb}
+.container{max-width:560px;margin:0 auto;padding:32px 24px}
+.card{background:#fff;border-radius:12px;padding:32px 28px;border:1px solid #e5e7eb}
+h1{font-size:22px;margin:0 0 16px;color:#1a1a1a}
+p{font-size:16px;line-height:1.6;margin:0 0 16px;color:#4b5563}
+.btn{display:inline-block;background:#4CAF50;color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-weight:700;font-size:16px;margin:8px 0}
+.footer{text-align:center;padding:24px 0;font-size:13px;color:#9ca3af}
+ul{padding-left:20px}li{margin-bottom:8px;color:#4b5563}
+.highlight{background:#f0fdf4;border-left:4px solid #4CAF50;padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
+</style></head><body><div class="container"><div class="card">${content}</div>
+<div class="footer">Enrico Bachmann · Anifit-Fachberater<br>
+<a href="https://partner.anifutter-shop.de" style="color:#9ca3af">partner.anifutter-shop.de</a></div>
+</div></body></html>`;
 
-const containerStyle = `
-  max-width: 600px;
-  margin: 0 auto;
-  background: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-`;
-
-const headerStyle = `
-  background: #4CAF50;
-  padding: 32px 40px;
-  text-align: center;
-`;
-
-const bodyStyle = `
-  padding: 40px;
-  color: #1a1a1a;
-  line-height: 1.7;
-`;
-
-const footerStyle = `
-  background: #f9f9f9;
-  border-top: 1px solid #e8e8e8;
-  padding: 24px 40px;
-  text-align: center;
-  color: #888;
-  font-size: 13px;
-`;
-
-const h1Style = `
-  color: #ffffff;
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-`;
-
-const h2Style = `
-  color: #1a1a1a;
-  font-size: 22px;
-  font-weight: 700;
-  margin: 0 0 16px 0;
-`;
-
-const pStyle = `
-  margin: 0 0 16px 0;
-  font-size: 16px;
-  color: #333;
-`;
-
-const ctaStyle = `
-  display: inline-block;
-  background: #4CAF50;
-  color: #ffffff;
-  padding: 14px 32px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  margin: 8px 0 24px 0;
-`;
-
-const dividerStyle = `
-  border: none;
-  border-top: 1px solid #e8e8e8;
-  margin: 24px 0;
-`;
-
-const highlightBoxStyle = `
-  background: #E8F5E9;
-  border-left: 4px solid #4CAF50;
-  padding: 16px 20px;
-  border-radius: 0 6px 6px 0;
-  margin: 20px 0;
-`;
-
-function wrapHtml(content: string, preheader: string): string {
-  return `<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anifit Partner</title>
-</head>
-<body style="${baseStyle}">
-  <span style="display:none;max-height:0;overflow:hidden;">${preheader}</span>
-  <div style="${containerStyle}">
-    ${content}
-  </div>
-  <p style="text-align:center;color:#aaa;font-size:12px;margin:16px 0;">
-    Enrico Bachmann · Anifit-Fachberater seit 2018 · partner@anifutter-shop.de
-  </p>
-</body>
-</html>`;
-}
-
-export function welcomeEmail(name: string): { subject: string; html: string } {
-  const subject = "Willkommen! Dein Gratis-Guide ist da 🐾";
-  const html = wrapHtml(
-    `
-    <div style="${headerStyle}">
-      <h1 style="${h1Style}">Willkommen bei Anifit, ${name}!</h1>
-    </div>
-    <div style="${bodyStyle}">
-      <h2 style="${h2Style}">Schön, dass du dabei bist.</h2>
-      <p style="${pStyle}">
-        Ich bin Enrico – seit 2018 Anifit-Fachberater und mittlerweile habe ich über 1.000 aktive
-        Kunden aufgebaut. Was mich jeden Tag antreibt? Das Wissen, dass Hunde mit Anifit wirklich
-        besser ernährt werden – und dass ich dabei ein stabiles Einkommen aufbaue.
-      </p>
-      <p style="${pStyle}">
-        In den nächsten Tagen zeige ich dir alles, was du wissen musst:
-        Was du verdienen kannst, wie der Start aussieht und ob das für dich passt.
-      </p>
-      <div style="${highlightBoxStyle}">
-        <strong>Dein Gratis-Guide:</strong> „So starte ich als Anifit-Berater – Die ersten 30 Tage"
+export function welcomeEmail(name: string) {
+  return {
+    subject: "Dein Guide: So startest du als Tierernährungsberater",
+    html: WRAPPER(`
+      <h1>Hallo ${name},</h1>
+      <p>schön, dass du dich für den Einstieg als Tierernährungsberater interessierst.</p>
+      <p>In den nächsten Tagen bekommst du von mir alles, was du für eine fundierte Entscheidung brauchst — Zahlen, Fakten und ehrliche Einblicke.</p>
+      <div class="highlight">
+        <strong>Kurz zusammengefasst:</strong><br>
+        Als Anifit-Fachberater empfiehlst du Premium-Hundefutter (90–99 % Fleisch, schwedische Qualität) und verdienst 15–30 % Provision auf jede Bestellung — ein Leben lang.
       </div>
-      <p style="text-align:center;">
-        <a href="https://provital.com/registrierung?code=EB-Hundeo" style="${ctaStyle}">
-          Guide herunterladen →
-        </a>
-      </p>
-      <hr style="${dividerStyle}" />
-      <p style="${pStyle}">
-        Bis in zwei Tagen – dann zeige ich dir, was andere Berater wirklich verdienen.
-      </p>
-      <p style="${pStyle}">
-        Herzliche Grüße,<br />
-        <strong>Enrico</strong><br />
-        Anifit-Fachberater &amp; dein Mentor
-      </p>
-    </div>
-    <div style="${footerStyle}">
-      Du erhältst diese E-Mail, weil du dich für mehr Infos zu Anifit angemeldet hast.
-      <br />
-      <a href="#" style="color:#4CAF50;">Abmelden</a>
-    </div>
-  `,
-    `Willkommen ${name}! Dein Guide und die ersten Schritte warten auf dich.`
-  );
-  return { subject, html };
+      <p>Keine Lagerhaltung, kein Versand, kein Risiko. Provital übernimmt alles. Du konzentrierst dich auf Beratung.</p>
+      <p>Morgen zeige ich dir, was Berater konkret verdienen.</p>
+      <p>Bis bald,<br><strong>Enrico</strong></p>
+    `),
+  };
 }
 
-export function earningsEmail(name: string): { subject: string; html: string } {
-  const subject = "Was verdient ein Anifit-Berater wirklich?";
-  const html = wrapHtml(
-    `
-    <div style="${headerStyle}">
-      <h1 style="${h1Style}">Die ehrlichen Zahlen.</h1>
-    </div>
-    <div style="${bodyStyle}">
-      <p style="${pStyle}">Hi ${name},</p>
-      <p style="${pStyle}">
-        Ich hasse unrealistische Versprechen. Deshalb zeige ich dir konkrete Beispielrechnungen –
-        keine Phantasiezahlen, sondern was bei normalem Einsatz möglich ist.
-      </p>
-      <h2 style="${h2Style}">Anifit-Provision: 15–30% auf jede Bestellung</h2>
-      <table style="width:100%;border-collapse:collapse;margin:20px 0;">
-        <thead>
-          <tr style="background:#E8F5E9;">
-            <th style="padding:12px 16px;text-align:left;font-size:14px;color:#388E3C;border-bottom:2px solid #4CAF50;">Kundenstamm</th>
-            <th style="padding:12px 16px;text-align:left;font-size:14px;color:#388E3C;border-bottom:2px solid #4CAF50;">Monatsumsatz</th>
-            <th style="padding:12px 16px;text-align:left;font-size:14px;color:#388E3C;border-bottom:2px solid #4CAF50;">Deine Provision</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid #f0f0f0;">
-            <td style="padding:12px 16px;font-size:15px;">5 Kunden</td>
-            <td style="padding:12px 16px;font-size:15px;">500 €</td>
-            <td style="padding:12px 16px;font-size:15px;font-weight:700;color:#388E3C;">75 €</td>
-          </tr>
-          <tr style="background:#fafafa;border-bottom:1px solid #f0f0f0;">
-            <td style="padding:12px 16px;font-size:15px;">20 Kunden</td>
-            <td style="padding:12px 16px;font-size:15px;">1.600 €</td>
-            <td style="padding:12px 16px;font-size:15px;font-weight:700;color:#388E3C;">320 €</td>
-          </tr>
-          <tr>
-            <td style="padding:12px 16px;font-size:15px;">50 Kunden</td>
-            <td style="padding:12px 16px;font-size:15px;">4.000 €</td>
-            <td style="padding:12px 16px;font-size:15px;font-weight:700;color:#388E3C;">1.000 €</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style="${highlightBoxStyle}">
-        <strong>Das Besondere:</strong> Kundenschutz. Jede Nachbestellung deiner Kunden –
-        auch in 3 Jahren – bringt dir Provision. Du baust echtes passives Einkommen auf.
-      </div>
-      <p style="${pStyle}">
-        Ich selbst bin 2018 mit 5 Kunden gestartet. Heute reicht mein Kundenstamm für ein
-        stabiles Nebeneinkommen. Das Schöne: Hunde fressen regelmäßig. Die Bestellungen kommen von selbst.
-      </p>
-      <p style="text-align:center;">
-        <a href="https://provital.com/registrierung?code=EB-Hundeo" style="${ctaStyle}">
-          Jetzt kostenlos registrieren →
-        </a>
-      </p>
-      <p style="${pStyle}">
-        Bis übermorgen – dann erkläre ich dir, was dir mein Team bietet.
-      </p>
-      <p style="${pStyle}">Enrico</p>
-    </div>
-    <div style="${footerStyle}">
-      Du erhältst diese E-Mail, weil du dich für mehr Infos zu Anifit angemeldet hast.
-      <br />
-      <a href="#" style="color:#4CAF50;">Abmelden</a>
-    </div>
-  `,
-    "Die ehrlichen Zahlen: Was verdient ein Anifit-Berater wirklich? Mit konkreten Beispielrechnungen."
-  );
-  return { subject, html };
-}
-
-export function mentorEmail(name: string): { subject: string; html: string } {
-  const subject = "Dein Mentor-Vorteil – warum du nicht alleine startest";
-  const html = wrapHtml(
-    `
-    <div style="${headerStyle}">
-      <h1 style="${h1Style}">Du startest nicht bei Null.</h1>
-    </div>
-    <div style="${bodyStyle}">
-      <p style="${pStyle}">Hi ${name},</p>
-      <p style="${pStyle}">
-        Viele scheitern beim Start eines Nebenbusiness, weil sie alleine loslegen müssen.
-        Das ist bei Anifit anders – zumindest wenn du über mich einsteigst.
-      </p>
-      <h2 style="${h2Style}">Was du von mir bekommst:</h2>
-      <ul style="margin:0 0 20px 0;padding-left:20px;font-size:16px;color:#333;line-height:2;">
-        <li><strong>Persönliches Onboarding</strong> in den ersten 4 Wochen</li>
-        <li><strong>Bewährte Gesprächsleitfäden</strong> für Erstgespräche</li>
-        <li><strong>Vorlagen</strong> für Social Media und WhatsApp</li>
-        <li><strong>Direkte Antworten</strong> auf deine Fragen (kein Forum, kein Ticket)</li>
-        <li><strong>Zugang zur Team-Gruppe</strong> mit 40+ aktiven Beratern</li>
+export function earningsEmail(name: string) {
+  return {
+    subject: "Was verdient ein Anifit-Berater wirklich?",
+    html: WRAPPER(`
+      <h1>${name}, reden wir über Zahlen.</h1>
+      <p>Viele fragen sich: Lohnt sich das überhaupt? Hier sind echte Zahlen von Provital:</p>
+      <ul>
+        <li><strong>12 Kunden, 19 % Provision → ~182 € / Monat</strong></li>
+        <li><strong>25 Kunden, 23 % Provision → ~460 € / Monat</strong></li>
+        <li><strong>50 Kunden, 27 % Provision → ~1.080 € / Monat</strong></li>
+        <li><strong>96 Kunden, 30 % Provision → ~2.304 € / Monat</strong></li>
       </ul>
-      <div style="${highlightBoxStyle}">
-        Anifit selbst bietet kostenlose Schulungen und die offizielle Zertifizierung zum
-        <strong>Tierernährungsberater</strong>. Das steigert deine Glaubwürdigkeit und macht
-        Gespräche mit Hundebesitzern viel einfacher.
+      <p>Das Besondere: Durch den <strong>lebenslangen Kundenschutz</strong> bleiben dir einmal gewonnene Kunden dauerhaft zugeordnet. Jede Nachbestellung bringt dir Provision — ohne dass du etwas dafür tun musst.</p>
+      <div class="highlight">
+        Ein Kunde, der jeden Monat für 80 € bestellt, bringt dir bei 23 % Provision <strong>über 220 € pro Jahr</strong> — automatisch.
       </div>
-      <p style="${pStyle}">
-        Provital (der Hersteller) übernimmt Lagerung, Versand und Retouren.
-        Du musst nichts vorfinanzieren. Dein Job: Beziehungen aufbauen und empfehlen.
-      </p>
-      <p style="text-align:center;">
-        <a href="https://provital.com/registrierung?code=EB-Hundeo" style="${ctaStyle}">
-          Jetzt meinem Team beitreten →
-        </a>
-      </p>
-      <p style="${pStyle}">
-        In drei Tagen sende ich dir die häufigsten Fragen – und ehrliche Antworten darauf.
-      </p>
-      <p style="${pStyle}">Enrico</p>
-    </div>
-    <div style="${footerStyle}">
-      Du erhältst diese E-Mail, weil du dich für mehr Infos zu Anifit angemeldet hast.
-      <br />
-      <a href="#" style="color:#4CAF50;">Abmelden</a>
-    </div>
-  `,
-    "Warum du als Anifit-Berater nicht allein startest – und was mein Team dir bietet."
-  );
-  return { subject, html };
+      <p>Dazu kommen Boni: Neukundenbonus (ab 5 NK/Monat), Wiederholungsbonus, Autobonus.</p>
+      <p>In meiner nächsten Mail zeige ich dir, warum der richtige Mentor den Unterschied macht.</p>
+      <p>Enrico</p>
+    `),
+  };
 }
 
-export function faqEmail(name: string): { subject: string; html: string } {
-  const subject = "Die 5 Fragen, die mir alle stellen (ehrlich beantwortet)";
-  const html = wrapHtml(
-    `
-    <div style="${headerStyle}">
-      <h1 style="${h1Style}">Deine Fragen – meine ehrlichen Antworten.</h1>
-    </div>
-    <div style="${bodyStyle}">
-      <p style="${pStyle}">Hi ${name},</p>
-      <p style="${pStyle}">
-        Nach 6 Jahren als Anifit-Berater kenne ich die Einwände. Hier sind die fünf,
-        die ich am häufigsten höre:
-      </p>
-
-      <div style="margin:24px 0;">
-        <p style="font-weight:700;font-size:16px;color:#1a1a1a;margin:0 0 8px 0;">
-          „Ich habe keine Zeit für sowas."
-        </p>
-        <p style="${pStyle}">
-          Die meisten Berater starten mit 2–3 Stunden pro Woche. Du empfiehlst bei Gesprächen,
-          die du sowieso führst. Kein Büro, keine Ladenöffnungszeiten.
-        </p>
+export function mentorEmail(name: string) {
+  return {
+    subject: "Warum dein Mentor den Unterschied macht",
+    html: WRAPPER(`
+      <h1>${name}, kurze Frage:</h1>
+      <p>Würdest du lieber allein starten — oder mit jemandem, der den Weg schon kennt?</p>
+      <p>Ich bin seit 2018 Anifit-Fachberater und betreue über 1.000 aktive Kunden. Mein Hund frisst selbst Anifit. Ich empfehle nur, wovon ich überzeugt bin.</p>
+      <p><strong>Was ich dir als Mentor biete:</strong></p>
+      <ul>
+        <li>Persönliche Einarbeitung nach deiner Registrierung</li>
+        <li>Bewährte Vorlagen für Kundengespräche und E-Mails</li>
+        <li>Tipps für deine ersten 10 Kunden</li>
+        <li>Laufender Austausch — du bist nicht allein</li>
+      </ul>
+      <div class="highlight">
+        Viele Berater scheitern nicht am Produkt, sondern am fehlenden Support. Bei mir bekommst du beides: ein Spitzenprodukt und echte Unterstützung.
       </div>
-
-      <div style="margin:24px 0;">
-        <p style="font-weight:700;font-size:16px;color:#1a1a1a;margin:0 0 8px 0;">
-          „Ich muss doch etwas verkaufen?"
-        </p>
-        <p style="${pStyle}">
-          Nein. Du empfiehlst ein Produkt, das du selbst überzeugt – genau wie du ein gutes
-          Restaurant weiterempfiehlst. Kein Kaltakquise, kein Druck.
-        </p>
-      </div>
-
-      <div style="margin:24px 0;">
-        <p style="font-weight:700;font-size:16px;color:#1a1a1a;margin:0 0 8px 0;">
-          „Muss ich etwas vorfinanzieren?"
-        </p>
-        <p style="${pStyle}">
-          Nein. Die Registrierung ist kostenlos. Provital übernimmt alles Logistische.
-          Du trägst null finanzielles Risiko.
-        </p>
-      </div>
-
-      <div style="margin:24px 0;">
-        <p style="font-weight:700;font-size:16px;color:#1a1a1a;margin:0 0 8px 0;">
-          „Kenne ich genug Leute?"
-        </p>
-        <p style="${pStyle}">
-          Du musst kein Netzwerk haben. Viele Berater gewinnen Kunden über Social Media,
-          lokale Hundevereine oder Empfehlungen. Ich zeige dir, wie das funktioniert.
-        </p>
-      </div>
-
-      <div style="margin:24px 0;">
-        <p style="font-weight:700;font-size:16px;color:#1a1a1a;margin:0 0 8px 0;">
-          „Ist das ein MLM-System?"
-        </p>
-        <p style="${pStyle}">
-          Nein. Du verdienst ausschließlich an deinen eigenen Kunden. Es gibt keine
-          Voraussetzung, andere Berater zu rekrutieren. Provision = echte Produktverkäufe.
-        </p>
-      </div>
-
-      <p style="text-align:center;">
-        <a href="https://provital.com/registrierung?code=EB-Hundeo" style="${ctaStyle}">
-          Noch eine Frage? Schreib mir direkt →
-        </a>
-      </p>
-      <p style="${pStyle}">Enrico</p>
-    </div>
-    <div style="${footerStyle}">
-      Du erhältst diese E-Mail, weil du dich für mehr Infos zu Anifit angemeldet hast.
-      <br />
-      <a href="#" style="color:#4CAF50;">Abmelden</a>
-    </div>
-  `,
-    "5 häufige Fragen zu Anifit – ehrlich und ohne Marketingfloskeln beantwortet."
-  );
-  return { subject, html };
+      <p>In ein paar Tagen beantworte ich die häufigsten Fragen, die Einsteiger haben.</p>
+      <p>Enrico</p>
+    `),
+  };
 }
 
-export function ctaEmail(name: string): { subject: string; html: string } {
-  const subject = "Letzter Schritt: Dein Anifit-Profil in 5 Minuten";
-  const html = wrapHtml(
-    `
-    <div style="${headerStyle}">
-      <h1 style="${h1Style}">Bereit für den Start?</h1>
-    </div>
-    <div style="${bodyStyle}">
-      <p style="${pStyle}">Hi ${name},</p>
-      <p style="${pStyle}">
-        Die letzten zwei Wochen haben wir uns viel angeschaut: die Zahlen, das Konzept,
-        mein Angebot als Mentor. Jetzt ist die Frage: Machst du den Schritt?
-      </p>
-      <p style="${pStyle}">
-        Die Registrierung dauert keine 5 Minuten. Du trägst kein Risiko – sie ist kostenlos.
-        Und wenn du merkst, es passt nicht: Kein Problem.
-      </p>
-      <div style="${highlightBoxStyle}">
-        <strong>Dein Bonus für sofortige Registrierung:</strong><br />
-        Mein persönliches 60-Minuten-Onboarding-Gespräch – wir planen gemeinsam deinen ersten Monat.
+export function faqEmail(name: string) {
+  return {
+    subject: "Die 5 häufigsten Fragen zum Start als Anifit-Berater",
+    html: WRAPPER(`
+      <h1>${name}, diese Fragen höre ich am häufigsten:</h1>
+      <p><strong>1. Muss ich etwas investieren?</strong><br>
+      Nein. Die Registrierung ist kostenlos. Optional gibt es ein Einstiegspaket (~80 €), aber das ist kein Muss.</p>
+      <p><strong>2. Brauche ich einen Gewerbeschein?</strong><br>
+      Ja, da du als freier Handelsvertreter arbeitest. Anifit hilft dir bei der Beantragung — dauert 15 Minuten.</p>
+      <p><strong>3. Wie viel Zeit brauche ich?</strong><br>
+      Die meisten starten mit 2–5 Stunden pro Woche. Es gibt keine Mindestanforderungen.</p>
+      <p><strong>4. Ist das ein MLM / Schneeballsystem?</strong><br>
+      Nein. Du verdienst an echten Produktverkäufen deiner Kunden. Kein Recruiting nötig.</p>
+      <p><strong>5. Muss ich Produkte lagern oder verschicken?</strong><br>
+      Nein. Provital übernimmt Lager, Versand, Retouren und Zahlungen komplett.</p>
+      <div class="highlight">
+        Noch unsicher? Schreib mir einfach eine Antwort auf diese Mail. Ich beantworte jede Frage persönlich.
       </div>
-      <p style="text-align:center;margin:32px 0;">
-        <a href="https://provital.com/registrierung?code=EB-Hundeo" style="${ctaStyle}">
-          Jetzt kostenlos als Anifit-Berater registrieren →
+      <p>In meiner letzten Mail zeige ich dir, wie du in 5 Minuten startest.</p>
+      <p>Enrico</p>
+    `),
+  };
+}
+
+export function ctaEmail(name: string) {
+  return {
+    subject: "${name}, bereit für deinen Start?",
+    html: WRAPPER(`
+      <h1>Es ist so weit, ${name}.</h1>
+      <p>Du weißt jetzt:</p>
+      <ul>
+        <li>✅ 15–30 % Provision auf jede Bestellung</li>
+        <li>✅ Lebenslanger Kundenschutz</li>
+        <li>✅ Kein Lager, kein Versand, kein Risiko</li>
+        <li>✅ Kostenlose Schulungen + Zertifizierung</li>
+        <li>✅ Persönlicher Mentor an deiner Seite</li>
+      </ul>
+      <p>Die Registrierung dauert keine 5 Minuten. Du brauchst nur deinen Namen und eine E-Mail-Adresse.</p>
+      <p style="text-align:center;margin:24px 0">
+        <a href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=email&utm_medium=sequence&utm_campaign=teampartner" class="btn">
+          Jetzt als Anifit-Berater registrieren →
         </a>
       </p>
-      <p style="${pStyle}">
-        Nach der Registrierung melde dich kurz bei mir per E-Mail oder WhatsApp –
-        damit wir deinen Start gemeinsam planen können.
-      </p>
-      <p style="${pStyle}">
-        Ich freue mich, dich im Team zu begrüßen.<br />
-        <strong>Enrico</strong>
-      </p>
-    </div>
-    <div style="${footerStyle}">
-      Du erhältst diese E-Mail, weil du dich für mehr Infos zu Anifit angemeldet hast.
-      <br />
-      <a href="#" style="color:#4CAF50;">Abmelden</a>
-    </div>
-  `,
-    "Dein letzter Schritt: In 5 Minuten kostenlos als Anifit-Berater registrieren."
-  );
-  return { subject, html };
+      <div class="highlight">
+        <strong>Willkommensbonus:</strong> Registriere dich jetzt und erhalte nach deiner Startschulung ein zusätzliches Futterpaket im Wert von über 80 € gratis.
+      </div>
+      <p>Ich freue mich darauf, dich in meinem Team willkommen zu heißen.</p>
+      <p>Enrico</p>
+    `),
+  };
 }

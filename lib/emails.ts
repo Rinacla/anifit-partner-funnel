@@ -27,7 +27,9 @@ export function welcomeEmail(name: string) {
         Als Anifit-Fachberater empfiehlst du Premium-Hundefutter (90–99 % Fleisch, schwedische Qualität) und verdienst 15–30 % Provision auf jede Bestellung — ein Leben lang.
       </div>
       <p>Keine Lagerhaltung, kein Versand, kein Risiko. Provital übernimmt alles. Du konzentrierst dich auf Beratung.</p>
-      <p>Morgen zeige ich dir, was Berater konkret verdienen.</p>
+      <p>Hier ist dein Guide — alles Wichtige auf einer Seite:</p>
+      <p style="text-align:center;margin:16px 0"><a href="https://partner.anifutter-shop.de/guide?utm_source=email&utm_medium=sequence&utm_campaign=welcome" class="btn">Guide lesen →</a></p>
+      <p>In 2 Tagen zeige ich dir, was Berater konkret verdienen.</p>
       <p>Bis bald,<br><strong>Enrico</strong></p>
     `),
   };

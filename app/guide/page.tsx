@@ -172,6 +172,11 @@ export default function GuidePage() {
             Die Registrierung dauert keine 5 Minuten. Du bekommst sofort Zugang zu deinem Beraterbereich
             und ich melde mich persönlich bei dir.
           </p>
+          <div className="bg-white rounded-xl border border-gray-100 p-6 mb-8 text-center">
+            <p className="font-bold text-gray-900 mb-2">📞 Lieber erstmal telefonieren?</p>
+            <p className="text-sm text-gray-600 mb-3">Unsere Beraterin Lisa beantwortet alle Fragen zum Start — kostenlos.</p>
+            <a href="tel:+4932212619379" className="text-green-600 font-bold hover:underline">+49 322 126 19 379 anrufen</a>
+          </div>
           <a
             href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=guide&utm_medium=web&utm_campaign=teampartner"
             className="inline-block py-4 px-10 rounded-xl font-bold text-white text-lg transition-all"

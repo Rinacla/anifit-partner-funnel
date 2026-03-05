@@ -5,7 +5,6 @@ import Script from "next/script";
 
 export default function DankePage() {
   useEffect(() => {
-    // Fire Meta Pixel Lead event
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq("track", "Lead");
     }
@@ -56,6 +55,23 @@ export default function DankePage() {
             </div>
           </div>
 
+          {/* Phone CTA */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8 text-center">
+            <p className="text-2xl mb-2">📞</p>
+            <h3 className="font-bold text-gray-900 mb-2">Fragen? Ruf einfach an.</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Unsere Beraterin Lisa erklärt dir alles rund um den Start als Anifit-Berater — kostenlos und unverbindlich.
+            </p>
+            <a
+              href="tel:+4932212619379"
+              className="inline-block py-3 px-8 rounded-xl font-bold text-white text-sm transition-colors"
+              style={{ background: "#4CAF50" }}
+            >
+              +49 322 126 19 379 anrufen
+            </a>
+            <p className="text-xs text-gray-400 mt-2">Mo–Fr, deutschsprachig, KI-Beratung</p>
+          </div>
+
           <div className="bg-green-50 rounded-xl p-6 border border-green-100 mb-8">
             <p className="text-sm text-green-800 leading-relaxed">
               <strong>Tipp:</strong> Speichere die Absenderadresse{" "}
@@ -65,9 +81,6 @@ export default function DankePage() {
           </div>
 
           <div className="text-center">
-            <p className="text-gray-500 text-sm mb-4">
-              Du willst schon jetzt mehr über Anifit erfahren?
-            </p>
             <a
               href="https://www.anifutter-shop.de"
               className="inline-block py-3 px-8 rounded-xl font-semibold text-green-700 border-2 border-green-200 hover:bg-green-50 transition-colors text-sm"

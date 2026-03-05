@@ -11,7 +11,7 @@ p{font-size:16px;line-height:1.6;margin:0 0 16px;color:#4b5563}
 ul{padding-left:20px}li{margin-bottom:8px;color:#4b5563}
 .highlight{background:#f0fdf4;border-left:4px solid #4CAF50;padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
 </style></head><body><div class="container"><div class="card">${content}</div>
-<div class="footer">Enrico Bachmann · Anifit-Fachberater<br>
+<div class="footer">📞 Fragen? Ruf an: <a href="tel:+4932212619379" style="color:#4CAF50;font-weight:700">+49 322 126 19 379</a><br>Enrico Bachmann · Anifit-Fachberater<br>
 <a href="https://partner.anifutter-shop.de" style="color:#9ca3af">partner.anifutter-shop.de</a></div>
 </div></body></html>`;
 

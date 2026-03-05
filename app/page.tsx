@@ -4,6 +4,7 @@ import ProvisionsRechner from "./_components/ProvisionsRechner";
 import FAQAccordion from "./_components/FAQAccordion";
 import StickyMobileCTA from "./_components/StickyMobileCTA";
 import StartbonusTimer from "./_components/StartbonusTimer";
+import LeadForm from "./_components/LeadForm";
 import ScrollTracker from "./_components/ScrollTracker";
 import Testimonials from "./_components/Testimonials";
 
@@ -252,14 +253,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
+      {/* Für wen ist das? */}
+      <section className="bg-gray-50 py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">Ist das was für dich?</h2>
+          <p className="text-center text-gray-500 mb-10 max-w-lg mx-auto">
+            Du brauchst keine Ausbildung und kein Startkapital. Aber ein paar Dinge sollten auf dich zutreffen:
+          </p>
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5 max-w-2xl mx-auto">
+            {[
+              { check: true, text: "Du hast einen Hund oder eine Katze" },
+              { check: true, text: "Dir liegt artgerechte Ernährung am Herzen" },
+              { check: true, text: "Du redest gern mit anderen Tierbesitzern" },
+              { check: true, text: "Du suchst einen flexiblen Nebenverdienst" },
+              { check: true, text: "Du willst etwas empfehlen, hinter dem du stehst" },
+              { check: true, text: "Du bist bereit, 2-5 Stunden pro Woche zu investieren" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="text-green-500 font-bold text-lg mt-0.5">✓</span>
+                <p className="text-gray-700">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 max-w-2xl mx-auto grid sm:grid-cols-2 gap-x-8 gap-y-5 opacity-60">
+            {[
+              { text: "Du willst schnell reich werden" },
+              { text: "Du hast kein Interesse an Tieren" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="text-red-400 font-bold text-lg mt-0.5">✗</span>
+                <p className="text-gray-500">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom Inline Lead Form */}
       <section className="bg-green-600 py-16">
-        <div className="mx-auto max-w-lg px-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Finde heraus, ob es zu dir passt</h2>
-          <p className="text-green-100 mb-8">3 kurze Fragen, dann bekommst du den Guide mit allen Details per Mail.</p>
-          <a href="#quiz" className="inline-block py-4 px-10 rounded-xl font-bold text-green-700 bg-white text-lg hover:bg-green-50 transition-colors shadow-lg">
-            Werde Ernährungsberater
-          </a>
+        <div className="mx-auto max-w-md px-6">
+          <h2 className="text-2xl font-bold text-white text-center mb-3">Klingt nach dir?</h2>
+          <p className="text-green-100 text-center mb-8">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
+            <LeadForm idPrefix="bottom-" />
+          </div>
         </div>
       </section>
 

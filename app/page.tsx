@@ -24,6 +24,7 @@ export default function Home() {
       { "@type": "Question", name: "Was bedeutet lebenslanger Kundenschutz?", acceptedAnswer: { "@type": "Answer", text: "Jeder Kunde bleibt dauerhaft dir zugeordnet." } },
       { "@type": "Question", name: "Ist das MLM?", acceptedAnswer: { "@type": "Answer", text: "Nein. 100% Provision aus echten Produktverkaeufen." } },
       { "@type": "Question", name: "Wie viel Zeit brauche ich?", acceptedAnswer: { "@type": "Answer", text: "Die meisten starten mit 2-5 Stunden pro Woche." } },
+      { "@type": "Question", name: "Wie läuft die Anmeldung ab?", acceptedAnswer: { "@type": "Answer", text: "Klick auf den Registrierungslink, fülle das kurze Formular aus – fertig. Das dauert keine 5 Minuten. Danach bekommst du Zugang zu deinem Beraterbereich und Enrico meldet sich persönlich bei dir." } },
     ]}
   };
 

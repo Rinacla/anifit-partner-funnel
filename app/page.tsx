@@ -93,6 +93,56 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Das Produkt im Detail */}
+      <section className="py-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">Das Produkt, das sich von selbst verkauft</h2>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
+            Warum Anifit-Kunden jahrelang nachbestellen — und warum das für dich als Berater Gold wert ist.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-8 items-start mb-12">
+            <div className="rounded-2xl overflow-hidden">
+              <Image src="/images/sortiment.jpg" alt="Anifit Produktsortiment" width={500} height={350} className="w-full h-auto rounded-2xl" />
+            </div>
+            <div className="space-y-5">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">90–99 % Fleisch in Lebensmittelqualität</h3>
+                <p className="text-gray-600 text-sm">Hergestellt in Schweden unter strengsten Standards. Kein Zucker, kein Getreide, keine künstlichen Zusätze. Was draufsteht, ist drin — deklariert bis zur letzten Zutat.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Kein Supermarkt, kein Amazon</h3>
+                <p className="text-gray-600 text-sm">Anifit gibt es nur über Fachberater. Das bedeutet: kein Preiskampf, keine Vergleichbarkeit. Deine Kunden kaufen bei dir, weil sie die Qualität und deine Beratung schätzen.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Kunden bleiben jahrelang</h3>
+                <p className="text-gray-600 text-sm">Wiederkaufrate über 30 % im Folgejahr. Viele Kunden bestellen monatlich über das Lieferservice-Abo. Ein Kunde, der 3 Jahre bleibt, bringt dir bei 23 % Provision über 660 € — automatisch.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Sortiment-Highlights */}
+          <div className="grid sm:grid-cols-3 gap-6">
+            <div className="bg-gray-50 rounded-xl p-5 text-center">
+              <Image src="/images/schnupperpaket.jpg" alt="Schnupperpaket" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
+              <h4 className="font-bold text-sm text-gray-900">Schnupperpaket</h4>
+              <p className="text-xs text-gray-500 mt-1">9,90 € für Neukunden — niedrige Hürde, hohe Conversion</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-5 text-center">
+              <Image src="/images/gockels-duett.jpg" alt="Gockels Duett" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
+              <h4 className="font-bold text-sm text-gray-900">Gockels Duett</h4>
+              <p className="text-xs text-gray-500 mt-1">Bestseller — 93 % Fleisch, Huhn + Pute</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-5 text-center">
+              <Image src="/images/sortiment.jpg" alt="Volles Sortiment" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
+              <h4 className="font-bold text-sm text-gray-900">Breites Sortiment</h4>
+              <p className="text-xs text-gray-500 mt-1">Nassfutter, Trockenfutter, Snacks, Ergänzungen — für Hund & Katze</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Warum Anifit */}
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">

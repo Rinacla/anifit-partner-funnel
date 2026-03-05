@@ -3,6 +3,7 @@ import QuizFunnel from "./_components/QuizFunnel";
 import ProvisionsRechner from "./_components/ProvisionsRechner";
 import FAQAccordion from "./_components/FAQAccordion";
 import StickyMobileCTA from "./_components/StickyMobileCTA";
+import StartbonusTimer from "./_components/StartbonusTimer";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -154,6 +155,7 @@ export default function Home() {
             <strong> 3 Monate lang 30 % Provision</strong> auf alle Kundenumsätze —
             fast das Doppelte der normalen Einstiegsprovision.
           </p>
+          <StartbonusTimer />
         </div>
       </section>
 

@@ -46,6 +46,8 @@ export default function QuizFunnel() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [wantsCall, setWantsCall] = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
@@ -69,7 +71,7 @@ export default function QuizFunnel() {
       await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), quiz: answers }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers }),
       });
       setDone(true);
       window.location.href = "/danke";
@@ -149,6 +151,24 @@ export default function QuizFunnel() {
                 required
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
               />
+              <label className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={wantsCall}
+                  onChange={(e) => setWantsCall(e.target.checked)}
+                  className="mt-0.5 rounded"
+                />
+                <span>Ja, ich möchte einen kurzen Rückruf (optional)</span>
+              </label>
+              {wantsCall && (
+                <input
+                  type="tel"
+                  placeholder="Deine Telefonnummer"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
+                />
+              )}
               <label className="flex items-start gap-2 text-xs text-gray-500 cursor-pointer">
                 <input
                   type="checkbox"

@@ -17,11 +17,21 @@ const stats: StatItem[] = [
   { target: 78, prefix: "ab ", suffix: " €", label: "Einstiegspaket", duration: 1200 },
 ];
 
-function useCountUp(target: number, duration: number, start: boolean) {
-  const [value, setValue] = useState(0);
+function useCountUp(target: number, duration: number, start: boolean, hydrated: boolean) {
+  // SSR and pre-hydration: show real target value (SEO + no-JS fallback)
+  const [value, setValue] = useState(target);
+  const hasReset = useRef(false);
 
   useEffect(() => {
-    if (!start) return;
+    // After hydration, reset to 0 so animation can play from 0 -> target
+    if (!hasReset.current) {
+      setValue(0);
+      hasReset.current = true;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!start || !hydrated) return;
     let startTime: number | null = null;
     let raf: number;
 
@@ -36,13 +46,13 @@ function useCountUp(target: number, duration: number, start: boolean) {
 
     raf = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(raf);
-  }, [target, duration, start]);
+  }, [target, duration, start, hydrated]);
 
-  return start ? value : 0;
+  return value;
 }
 
-function StatCounter({ item, visible }: { item: StatItem; visible: boolean }) {
-  const value = useCountUp(item.target, item.duration ?? 1500, visible);
+function StatCounter({ item, visible, hydrated }: { item: StatItem; visible: boolean; hydrated: boolean }) {
+  const value = useCountUp(item.target, item.duration ?? 1500, visible, hydrated);
   const display = `${item.prefix ?? ""}${value.toLocaleString("de-DE")}${item.suffix}`;
 
   return (
@@ -56,6 +66,11 @@ function StatCounter({ item, visible }: { item: StatItem; visible: boolean }) {
 export default function AnimatedStats() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -76,7 +91,7 @@ export default function AnimatedStats() {
   return (
     <div ref={ref} className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
       {stats.map((item, i) => (
-        <StatCounter key={i} item={item} visible={visible} />
+        <StatCounter key={i} item={item} visible={visible} hydrated={hydrated} />
       ))}
     </div>
   );

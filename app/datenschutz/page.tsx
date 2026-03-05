@@ -1,9 +1,9 @@
 export const metadata = {
-  title: "Datenschutz",
+  title: "Datenschutzerklärung",
   robots: { index: false, follow: false },
 };
 
-export default function Datenschutz() {
+export default function DatenschutzPage() {
   return (
     <div className="min-h-screen bg-white py-16 px-6">
       <div className="max-w-2xl mx-auto prose prose-gray">
@@ -11,41 +11,68 @@ export default function Datenschutz() {
 
         <h2>1. Verantwortlicher</h2>
         <p>
-          Enrico Bachmann / RINACLA LTD<br />
+          Enrico Bachmann<br />
           E-Mail: partner@anifutter-shop.de
         </p>
 
-        <h2>2. Erhebung und Verarbeitung von Daten</h2>
+        <h2>2. Erhebung und Verarbeitung personenbezogener Daten</h2>
         <p>
-          Wenn du dich über das Formular auf dieser Seite einträgst, speichern wir deinen
-          Namen und deine E-Mail-Adresse. Diese Daten verwenden wir ausschließlich, um dir
-          die angeforderten Informationen per E-Mail zuzusenden.
+          Wenn du dich für unseren Guide anmeldest, erheben wir folgende Daten:
+        </p>
+        <ul>
+          <li>Vorname</li>
+          <li>E-Mail-Adresse</li>
+        </ul>
+        <p>
+          Diese Daten werden ausschließlich für den Versand des Guides und der
+          nachfolgenden E-Mail-Serie verwendet. Rechtsgrundlage ist deine
+          Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
         </p>
 
         <h2>3. E-Mail-Versand</h2>
         <p>
-          Wir nutzen den Dienst <strong>emailit</strong> (emailit.com) zum Versand der E-Mails.
-          Deine Daten werden auf Servern in der EU verarbeitet. Du kannst dich jederzeit
-          von unseren E-Mails abmelden.
+          Wir nutzen den Dienst <strong>emailit</strong> (emailit.com) für den
+          Versand von E-Mails. Deine E-Mail-Adresse wird an emailit übermittelt.
+          emailit verarbeitet Daten gemäß ihrer Datenschutzrichtlinie.
         </p>
 
-        <h2>4. Meta Pixel</h2>
+        <h2>4. Meta Pixel (Facebook)</h2>
         <p>
-          Auf dieser Seite setzen wir das Meta (Facebook) Pixel ein. Dieses erfasst anonymisierte
-          Nutzungsdaten zur Optimierung unserer Werbeanzeigen. Du kannst dem Tracking widersprechen
-          unter: <a href="https://www.facebook.com/settings?tab=ads">Facebook Ads-Einstellungen</a>.
+          Diese Website nutzt das Meta Pixel (Facebook Pixel) der Meta Platforms
+          Ireland Limited. Dabei werden pseudonymisierte Nutzungsdaten erhoben,
+          um Werbeanzeigen zu optimieren. Du kannst der Nutzung widersprechen
+          unter: <a href="https://www.facebook.com/settings/?tab=ads" className="text-green-600">Facebook Ad-Einstellungen</a>.
         </p>
 
-        <h2>5. Deine Rechte</h2>
+        <h2>5. Hosting</h2>
         <p>
-          Du hast das Recht auf Auskunft, Berichtigung, Löschung und Widerspruch.
-          Kontaktiere uns unter partner@anifutter-shop.de.
+          Diese Website wird bei Vercel Inc. gehostet. Beim Besuch werden
+          technisch notwendige Daten (IP-Adresse, Zeitpunkt, Browser) in
+          Server-Logs gespeichert.
         </p>
 
-        <p className="text-sm text-gray-400 mt-8">
-          <a href="https://www.anifutter-shop.de/content/partners/201289a/datenschutz/" className="text-gray-400 hover:text-gray-600">
-            Vollständige Datenschutzerklärung auf anifutter-shop.de →
-          </a>
+        <h2>6. Deine Rechte</h2>
+        <p>Du hast das Recht auf:</p>
+        <ul>
+          <li>Auskunft über deine gespeicherten Daten</li>
+          <li>Berichtigung unrichtiger Daten</li>
+          <li>Löschung deiner Daten</li>
+          <li>Widerruf deiner Einwilligung</li>
+          <li>Beschwerde bei einer Aufsichtsbehörde</li>
+        </ul>
+        <p>
+          Zur Ausübung deiner Rechte schreibe an: partner@anifutter-shop.de
+        </p>
+
+        <h2>7. Abmeldung</h2>
+        <p>
+          Du kannst dich jederzeit von unserer E-Mail-Liste abmelden, indem du
+          auf den Abmelde-Link am Ende jeder E-Mail klickst oder uns direkt
+          kontaktierst.
+        </p>
+
+        <p className="mt-8">
+          <a href="/" className="text-green-600 hover:underline">← Zurück zur Startseite</a>
         </p>
       </div>
     </div>

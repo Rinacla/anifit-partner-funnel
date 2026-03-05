@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactForm from "../_components/ContactForm";
 
 export const metadata = {
   title: "Anifit für Tierärzte, THP & Züchter | 30% Rabatt",
@@ -125,23 +126,32 @@ export default function TierberufePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-blue-600 py-16">
-        <div className="mx-auto max-w-lg px-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Interesse? Kontaktieren Sie mich.</h2>
-          <p className="text-blue-100 mb-8">
-            Ich erkläre Ihnen alles zum Partner-Programm — persönlich und unverbindlich.
-          </p>
-          <div className="space-y-4">
-            <a
-              href="tel:+4932212619379"
-              className="inline-block py-4 px-10 rounded-xl font-bold text-blue-700 bg-white text-lg hover:bg-blue-50 transition-colors shadow-lg w-full sm:w-auto"
-            >
-              📞 +49 322 126 19 379 anrufen
-            </a>
-            <p className="text-blue-200 text-sm">
-              Oder schreiben Sie an: <a href="mailto:partner@anifutter-shop.de" className="text-white underline">partner@anifutter-shop.de</a>
-            </p>
+      {/* CTA + Kontaktformular */}
+      <section className="bg-blue-600 py-16" id="kontakt">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="flex-1 text-center lg:text-left">
+              <h2 className="text-2xl font-bold text-white mb-4">Interesse am Partner-Programm?</h2>
+              <p className="text-blue-100 mb-6">
+                Ich erkläre Ihnen alles persönlich und unverbindlich. Schreiben Sie mir oder rufen Sie direkt an.
+              </p>
+              <a
+                href="tel:+4932212619379"
+                className="inline-block py-3 px-8 rounded-xl font-bold text-blue-700 bg-white text-base hover:bg-blue-50 transition-colors shadow-lg"
+              >
+                📞 +49 322 126 19 379
+              </a>
+              <p className="text-blue-200 text-sm mt-4">
+                Lisa (KI-Beraterin) beantwortet erste Fragen sofort.
+                <br />Für Details meldet sich Enrico persönlich.
+              </p>
+            </div>
+            <div className="w-full lg:w-[400px] flex-shrink-0">
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+                <p className="font-bold text-gray-900 text-center mb-4">Unverbindlich anfragen</p>
+                <ContactForm />
+              </div>
+            </div>
           </div>
         </div>
       </section>

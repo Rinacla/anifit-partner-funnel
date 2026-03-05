@@ -132,3 +132,45 @@ export function ctaEmail(name: string) {
     `),
   };
 }
+
+export function followUp1Email(name: string) {
+  return {
+    subject: `${name}, hast du noch Fragen?`,
+    html: WRAPPER(`
+      <h1>Hallo ${name},</h1>
+      <p>vor ein paar Tagen habe ich dir den Registrierungslink geschickt. Vielleicht hast du noch Fragen — das ist voellig normal.</p>
+      <p>Die haefigsten Gruende, warum Interessenten zoegern:</p>
+      <ul>
+        <li><strong>"Ich bin unsicher, ob ich das kann."</strong> — Die meisten erfolgreichen Berater hatten null Erfahrung beim Start. Die Schulungen machen dich fit.</li>
+        <li><strong>"Ich habe gerade keine Zeit."</strong> — 2 Stunden pro Woche reichen fuer den Anfang. Und du bestimmst wann.</li>
+        <li><strong>"Ich kenne niemanden der Hundefutter braucht."</strong> — Deutschland hat 10 Millionen Hunde. Du wirst ueberrascht sein, wie schnell du Kunden findest.</li>
+      </ul>
+      <p>Antworte einfach auf diese Mail — ich beantworte jede Frage persoenlich.</p>
+      <p>Enrico</p>
+    `),
+  };
+}
+
+export function followUp2Email(name: string) {
+  return {
+    subject: "Letzte Erinnerung: Dein Platz als Anifit-Berater",
+    html: WRAPPER(`
+      <h1>${name}, eine letzte Nachricht von mir.</h1>
+      <p>Ich moechte ehrlich sein: Nicht jeder ist fuer diesen Weg gemacht. Und das ist okay.</p>
+      <p>Aber wenn du bis hierhin gelesen hast, dann interessiert dich das Thema. Und genau solche Menschen suche ich fuer mein Team.</p>
+      <div class="highlight">
+        <strong>Was du bekommst, wenn du dich heute registrierst:</strong><br>
+        ✅ Persoenliche Einarbeitung von mir<br>
+        ✅ Bewrahrte Vorlagen fuer deine ersten Kundengespraeche<br>
+        ✅ Willkommenspaket im Wert von 80 EUR nach deiner Startschulung
+      </div>
+      <p style="text-align:center;margin:24px 0">
+        <a href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=email&utm_medium=sequence&utm_campaign=teampartner-followup" class="btn">
+          Jetzt als Anifit-Berater registrieren →
+        </a>
+      </p>
+      <p>Wenn du Fragen hast, antworte einfach auf diese Mail. Ansonsten wuensche ich dir alles Gute.</p>
+      <p>Enrico</p>
+    `),
+  };
+}

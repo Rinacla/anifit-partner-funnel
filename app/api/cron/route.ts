@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { listContacts, parseState, updateContactStep, sendEmail } from "@/lib/emailit";
-import { earningsEmail, mentorEmail, faqEmail, ctaEmail } from "@/lib/emails";
+import { earningsEmail, mentorEmail, faqEmail, ctaEmail, followUp1Email, followUp2Email } from "@/lib/emails";
 
 const SEQUENCE = [
   { day: 2, step: 1, getEmail: earningsEmail },
   { day: 4, step: 2, getEmail: mentorEmail },
   { day: 7, step: 3, getEmail: faqEmail },
   { day: 10, step: 4, getEmail: ctaEmail },
+  { day: 14, step: 5, getEmail: followUp1Email },
+  { day: 18, step: 6, getEmail: followUp2Email },
 ];
 
 function daysBetween(dateStr: string, now: Date): number {
@@ -28,7 +30,7 @@ export async function GET(req: Request) {
   for (const contact of contacts) {
     if (contact.unsubscribed) continue;
     const { step, signupDate } = parseState(contact);
-    if (step >= 4) continue; // Sequence complete
+    if (step >= 6) continue; // Sequence complete
 
     const daysSinceSignup = daysBetween(signupDate, now);
     const nextEmail = SEQUENCE.find((s) => s.step === step + 1 && daysSinceSignup >= s.day);

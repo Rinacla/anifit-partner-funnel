@@ -3,7 +3,6 @@ import QuizFunnel from "./_components/QuizFunnel";
 import ProvisionsRechner from "./_components/ProvisionsRechner";
 import FAQAccordion from "./_components/FAQAccordion";
 import StickyMobileCTA from "./_components/StickyMobileCTA";
-import WhatsAppButton from "./_components/WhatsAppButton";
 import StartbonusTimer from "./_components/StartbonusTimer";
 
 export const metadata = {
@@ -287,7 +286,6 @@ export default function Home() {
         </div>
       </footer>
       <StickyMobileCTA />
-      <WhatsAppButton />
     </div>
   );
 }

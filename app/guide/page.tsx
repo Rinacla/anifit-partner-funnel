@@ -1,9 +1,9 @@
+import Image from "next/image";
+
 export const metadata = {
   title: "Guide: Dein Start als Anifit-Tierernährungsberater",
   description: "Alles was du wissen musst um als Anifit-Fachberater zu starten: Verdienst, Voraussetzungen, Ablauf und Tipps vom erfahrenen Mentor.",
-  alternates: {
-    canonical: "/guide",
-  },
+  alternates: { canonical: "/guide" },
 };
 
 export default function GuidePage() {
@@ -12,9 +12,7 @@ export default function GuidePage() {
       {/* Header */}
       <div className="bg-gradient-to-br from-green-50 to-white py-16 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm font-semibold text-green-700 bg-green-100 inline-block px-4 py-1.5 rounded-full mb-4">
-            Dein Gratis-Guide
-          </p>
+          <p className="text-sm font-semibold text-green-700 bg-green-100 inline-block px-4 py-1.5 rounded-full mb-4">Dein Gratis-Guide</p>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
             Dein Start als Anifit-Tierernährungsberater
           </h1>
@@ -29,6 +27,9 @@ export default function GuidePage() {
         {/* 1. Was ist Anifit */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Was ist Anifit?</h2>
+          <div className="rounded-2xl overflow-hidden mb-6">
+            <Image src="/images/sortiment.jpg" alt="Anifit Produktsortiment" width={700} height={400} className="w-full h-auto" />
+          </div>
           <p className="text-gray-700 leading-relaxed mb-4">
             Anifit (Marke der Provital GmbH) ist Premium-Tiernahrung aus Schweden mit 90–99 % Fleischanteil.
             Kein Zucker, kein Gluten, keine künstlichen Zusatzstoffe. Das Unternehmen existiert seit über 20 Jahren
@@ -40,7 +41,7 @@ export default function GuidePage() {
           </p>
         </section>
 
-        {/* 2. Wie funktioniert das Geschäftsmodell */}
+        {/* 2. Geschäftsmodell */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Wie funktioniert das Geschäftsmodell?</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
@@ -48,31 +49,26 @@ export default function GuidePage() {
             Den Rest übernimmt Provital — Lager, Versand, Retouren, Zahlungsabwicklung.
           </p>
           <div className="bg-gray-50 rounded-xl p-6 space-y-3">
-            <div className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-lg">1.</span>
-              <p className="text-gray-700">Du empfiehlst Anifit (online, im Hundepark, bei Freunden, über Social Media)</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-lg">2.</span>
-              <p className="text-gray-700">Der Kunde bestellt über deinen persönlichen Shop-Link</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-lg">3.</span>
-              <p className="text-gray-700">Provital liefert direkt zum Kunden</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-lg">4.</span>
-              <p className="text-gray-700">Du bekommst 15–30 % Provision — auf jede Bestellung, ein Leben lang</p>
-            </div>
+            {[
+              "Du empfiehlst Anifit (online, im Hundepark, bei Freunden, über Social Media)",
+              "Der Kunde bestellt über deinen persönlichen Shop-Link",
+              "Provital liefert direkt zum Kunden",
+              "Du bekommst 15–30 % Provision — auf jede Bestellung, ein Leben lang",
+            ].map((t, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="text-green-600 font-bold text-lg">{i + 1}.</span>
+                <p className="text-gray-700">{t}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* 3. Was verdienst du */}
+        {/* 3. Verdienst */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Was verdienst du konkret?</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Deine Provision steigt mit der Anzahl deiner Kunden (Provisionsstufen).
-            Hier echte Beispielrechnungen auf Basis durchschnittlicher Bestellsummen (Quelle: Provital GmbH):
+            Echte Beispielrechnungen auf Basis durchschnittlicher Bestellsummen:
           </p>
           <div className="space-y-3">
             {[
@@ -90,9 +86,6 @@ export default function GuidePage() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-gray-500 mt-4">
-            Dazu kommen Boni: Neukundenbonus (ab 5 NK/Monat), Wiederholungsbonus, Autobonus, Wachstumsbonus.
-          </p>
           <div className="bg-green-50 border-l-4 border-green-500 p-5 rounded-r-lg mt-6">
             <p className="text-gray-700">
               <strong>Das Besondere:</strong> Durch den lebenslangen Kundenschutz bleiben dir einmal gewonnene Kunden
@@ -100,6 +93,16 @@ export default function GuidePage() {
               über <strong>220 € pro Jahr</strong> — automatisch, ohne weiteres Zutun.
             </p>
           </div>
+        </section>
+
+        {/* Schnupperpaket Bild */}
+        <section>
+          <div className="rounded-2xl overflow-hidden">
+            <Image src="/images/schnupperpaket.jpg" alt="Anifit Schnupperpaket" width={700} height={400} className="w-full h-auto" />
+          </div>
+          <p className="text-center text-sm text-gray-500 mt-2">
+            Das Anifit Schnupperpaket — der ideale Einstieg für Neukunden (9,90 €)
+          </p>
         </section>
 
         {/* 4. Voraussetzungen */}
@@ -122,75 +125,78 @@ export default function GuidePage() {
           </div>
         </section>
 
-        {/* 5. Dein Mentor */}
+        {/* 5. Mentor */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Dein Mentor: Enrico Bachmann</h2>
-          <div className="bg-gray-50 rounded-xl p-6">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Ich bin seit 2018 Anifit-Fachberater und habe mir ein Business mit über 1.000 aktiven Kunden aufgebaut.
-              Mein eigener Hund frisst Anifit — ich empfehle nur, was ich selbst nutze.
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Als dein Mentor begleite ich dich beim Start:
-            </p>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex gap-2"><span className="text-green-600">✓</span> Persönliche Einarbeitung nach deiner Registrierung</li>
-              <li className="flex gap-2"><span className="text-green-600">✓</span> Bewährte Vorlagen für Kundengespräche und E-Mails</li>
-              <li className="flex gap-2"><span className="text-green-600">✓</span> Praktische Tipps für deine ersten 10 Kunden</li>
-              <li className="flex gap-2"><span className="text-green-600">✓</span> Laufender Austausch und Support per E-Mail</li>
-            </ul>
+          <div className="bg-gray-50 rounded-xl p-6 flex flex-col sm:flex-row gap-6 items-start">
+            <Image src="/images/enrico-bachmann.jpg" alt="Enrico Bachmann" width={120} height={120} className="rounded-full w-24 h-24 object-cover border-4 border-white shadow-lg flex-shrink-0" />
+            <div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Ich bin seit 2018 Anifit-Fachberater und habe mir ein Business mit über 1.000 aktiven Kunden aufgebaut.
+                Mein eigener Hund frisst Anifit — ich empfehle nur, was ich selbst nutze.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex gap-2"><span className="text-green-600">✓</span> Persönliche Einarbeitung nach deiner Registrierung</li>
+                <li className="flex gap-2"><span className="text-green-600">✓</span> Bewährte Vorlagen für Kundengespräche und E-Mails</li>
+                <li className="flex gap-2"><span className="text-green-600">✓</span> Praktische Tipps für deine ersten 10 Kunden</li>
+                <li className="flex gap-2"><span className="text-green-600">✓</span> Laufender Austausch und Support</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* 6. Häufige Einwände */}
+        {/* Lifestyle Image */}
+        <section>
+          <div className="rounded-2xl overflow-hidden">
+            <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund" width={700} height={400} className="w-full h-auto" />
+          </div>
+        </section>
+
+        {/* 6. FAQ */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Ehrliche Antworten auf häufige Bedenken</h2>
           <div className="space-y-6">
-            <div>
-              <p className="font-semibold text-gray-900 mb-1">&quot;Ist das nicht so ein MLM / Schneeballsystem?&quot;</p>
-              <p className="text-gray-600">Nein. Du verdienst an echten Produktverkäufen deiner Kunden. Es gibt keine Pflicht, andere Berater zu rekrutieren. 100 % deiner Provision kommt aus Produktumsatz.</p>
-            </div>
-            <div>
-              <p className="font-semibold text-gray-900 mb-1">&quot;Ich kenne mich nicht mit Tierernährung aus.&quot;</p>
-              <p className="text-gray-600">Musst du auch nicht. Anifit bietet kostenlose Online-Schulungen, Webinare und einen vollständigen Zertifizierungskurs. Du lernst alles, was du brauchst.</p>
-            </div>
-            <div>
-              <p className="font-semibold text-gray-900 mb-1">&quot;Ich habe keine Zeit für einen Nebenjob.&quot;</p>
-              <p className="text-gray-600">Die meisten starten mit 2–3 Stunden pro Woche. Du empfiehlst bei Gesprächen, die du ohnehin führst. Es gibt keine Mindestanforderungen.</p>
-            </div>
-            <div>
-              <p className="font-semibold text-gray-900 mb-1">&quot;Ich bin kein Verkäufer.&quot;</p>
-              <p className="text-gray-600">Musst du nicht sein. Du berätst Hundebesitzer, die aktiv nach besserem Futter suchen. Das Produkt verkauft sich durch Qualität — du hilfst nur bei der Entscheidung.</p>
-            </div>
+            {[
+              { q: "Ist das nicht so ein MLM / Schneeballsystem?", a: "Nein. Du verdienst an echten Produktverkäufen deiner Kunden. Es gibt keine Pflicht, andere Berater zu rekrutieren. 100 % deiner Provision kommt aus Produktumsatz." },
+              { q: "Ich kenne mich nicht mit Tierernährung aus.", a: "Musst du auch nicht. Anifit bietet kostenlose Online-Schulungen, Webinare und einen vollständigen Zertifizierungskurs. Du lernst alles, was du brauchst." },
+              { q: "Ich habe keine Zeit für einen Nebenjob.", a: "Die meisten starten mit 2–3 Stunden pro Woche. Du empfiehlst bei Gesprächen, die du ohnehin führst. Es gibt keine Mindestanforderungen." },
+              { q: "Ich bin kein Verkäufer.", a: "Musst du nicht sein. Du berätst Hundebesitzer, die aktiv nach besserem Futter suchen. Das Produkt verkauft sich durch Qualität — du hilfst nur bei der Entscheidung." },
+            ].map((item, i) => (
+              <div key={i}>
+                <p className="font-semibold text-gray-900 mb-1">&quot;{item.q}&quot;</p>
+                <p className="text-gray-600">{item.a}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* 7. Nächster Schritt */}
+        {/* CTA */}
         <section className="text-center py-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Bereit für den nächsten Schritt?</h2>
-          <p className="text-gray-600 mb-8 max-w-md mx-auto">
+          <p className="text-gray-600 mb-6 max-w-md mx-auto">
             Die Registrierung dauert keine 5 Minuten. Du bekommst sofort Zugang zu deinem Beraterbereich
             und ich melde mich persönlich bei dir.
           </p>
-          <div className="bg-white rounded-xl border border-gray-100 p-6 mb-8 text-center">
+          <div className="bg-white rounded-xl border border-gray-100 p-6 mb-8 inline-block">
             <p className="font-bold text-gray-900 mb-2">📞 Lieber erstmal telefonieren?</p>
-            <p className="text-sm text-gray-600 mb-3">Unsere Beraterin Lisa beantwortet alle Fragen zum Start — kostenlos.</p>
+            <p className="text-sm text-gray-600 mb-3">Unsere Beraterin Lisa beantwortet alle Fragen — kostenlos.</p>
             <a href="tel:+4932212619379" className="text-green-600 font-bold hover:underline">+49 322 126 19 379 anrufen</a>
           </div>
-          <a
-            href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=guide&utm_medium=web&utm_campaign=teampartner"
-            className="inline-block py-4 px-10 rounded-xl font-bold text-white text-lg transition-all"
-            style={{ background: "#4CAF50", boxShadow: "0 4px 14px rgba(76,175,80,0.4)" }}
-          >
-            Jetzt als Anifit-Berater registrieren →
-          </a>
+          <div>
+            <a
+              href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=guide&utm_medium=web&utm_campaign=teampartner"
+              className="inline-block py-4 px-10 rounded-xl font-bold text-white text-lg transition-all"
+              style={{ background: "#4CAF50", boxShadow: "0 4px 14px rgba(76,175,80,0.4)" }}
+            >
+              Jetzt als Anifit-Berater registrieren →
+            </a>
+          </div>
           <p className="text-sm text-gray-400 mt-4">
             Willkommensbonus: Warenproben-Paket (80–100 € Wert) nach deiner Startschulung.
           </p>
         </section>
       </div>
 
-      {/* Footer */}
       <footer className="border-t border-gray-100 py-8">
         <div className="max-w-2xl mx-auto px-6 text-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>

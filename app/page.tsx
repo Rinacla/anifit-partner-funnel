@@ -1,3 +1,4 @@
+import StickyMobileCTA from "./_components/StickyMobileCTA";
 import LeadForm from "./_components/LeadForm";
 import FAQAccordion from "./_components/FAQAccordion";
 import Testimonials from "./_components/Testimonials";
@@ -281,6 +282,7 @@ export default function Home() {
           </p>
         </div>
       </footer>
+      <StickyMobileCTA />
     </div>
   );
 }

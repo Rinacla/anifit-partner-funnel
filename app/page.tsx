@@ -82,6 +82,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Was du im Guide erfährst */}
+      <section className="py-20 border-t border-gray-100">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">Was du im Guide erfährst</h2>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
+            5 kompakte Emails mit allem, was du für deine Entscheidung brauchst. Kein Verkaufsdruck.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {[
+              { num: "1", title: "Das Provisionsmodell im Detail", text: "Wie viel du pro Bestellung verdienst, welche Stufen es gibt und ab wann sich der Einstieg rechnet." },
+              { num: "2", title: "Die Produkte und warum Kunden bleiben", text: "Was Anifit von normalem Hundefutter unterscheidet und warum 67 % der Kunden nachbestellen." },
+              { num: "3", title: "Deine ersten 5 Kunden", text: "Konkreter Fahrplan: wo du Kunden findest, was du sagst und welche Fehler du vermeiden solltest." },
+              { num: "4", title: "Kosten, Risiken und ehrliche Zahlen", text: "Was der Einstieg kostet, was nicht funktioniert und welche Erwartungen realistisch sind." },
+              { num: "5", title: "Enricos persönliche Einladung", text: "Registrierungslink, Startschulung und wie dein Mentor dich in den ersten Wochen begleitet." },
+            ].map((item, i) => (
+              <div key={i} className={`flex gap-4 ${i === 4 ? "sm:col-span-2 sm:max-w-md sm:mx-auto" : ""}`}>
+                <div className="flex-shrink-0 w-10 h-10 bg-green-100 text-green-700 font-bold rounded-full flex items-center justify-center text-sm">
+                  {item.num}
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <a href="#quiz" className="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-700 transition-colors text-sm shadow-lg shadow-green-600/20">
+              Guide jetzt anfordern
+            </a>
+            <p className="text-xs text-gray-400 mt-3">Kostenlos. Kein Abo. Jederzeit abbestellbar.</p>
+          </div>
+        </div>
+      </section>
+
       {/* So funktioniert es */}
       <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-3xl px-6">

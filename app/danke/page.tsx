@@ -35,10 +35,10 @@ export default function DankePage() {
             <div className="space-y-4">
               {[
                 { day: "Heute", icon: "📩", text: "Dein Guide: So funktioniert Anifit im Überblick" },
-                { day: "Tag 2", icon: "💰", text: "Konkrete Verdienst-Zahlen und Beispielrechnungen" },
-                { day: "Tag 4", icon: "🤝", text: "Warum der richtige Mentor den Unterschied macht" },
-                { day: "Tag 7", icon: "❓", text: "Antworten auf die häufigsten Fragen zum Start" },
-                { day: "Tag 10", icon: "🚀", text: "Dein persönlicher Registrierungslink + Willkommensbonus" },
+                { day: "Tag 2", icon: "💰", text: "Was du konkret verdienst (echte Zahlen von Provital)" },
+                { day: "Tag 4", icon: "📋", text: "Registrierung + Einstiegspaket: Schritt für Schritt erklärt" },
+                { day: "Tag 7", icon: "📝", text: "Gewerbeschein: Einfacher als du denkst (mit Anleitung)" },
+                { day: "Tag 10", icon: "🚀", text: "So gewinnst du deine ersten 5 Kunden" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-16 text-center">

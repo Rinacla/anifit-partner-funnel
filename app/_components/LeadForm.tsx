@@ -76,7 +76,7 @@ export default function LeadForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
-          disabled={loading}
+          disabled={loading || !consent}
         />
       </div>
       <div className="flex items-start gap-3">

@@ -10,8 +10,29 @@ export const metadata = {
 };
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Anifit Berater werden",
+    description: "Werde Anifit-Fachberater und verdiene 15-30% Provision auf Premium-Hundefutter.",
+    url: "https://partner.anifutter-shop.de",
+    publisher: { "@type": "Person", name: "Enrico Bachmann", jobTitle: "Zertifizierter Ernährungsberater für Hunde & Katzen" },
+    mainEntity: {
+      "@type": "FAQPage",
+      mainEntity: [
+        { "@type": "Question", name: "Muss ich etwas vorab investieren?", acceptedAnswer: { "@type": "Answer", text: "Nein. Die Registrierung ist kostenlos." } },
+        { "@type": "Question", name: "Ist das ein MLM-System?", acceptedAnswer: { "@type": "Answer", text: "Nein. Provision entsteht zu 100% aus echten Produktverkäufen." } },
+        { "@type": "Question", name: "Wie viel Zeit muss ich investieren?", acceptedAnswer: { "@type": "Answer", text: "Die meisten Berater starten mit 2-5 Stunden pro Woche." } },
+      ],
+    },
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-green-50 to-white">
         <div className="mx-auto max-w-3xl px-6 pt-16 pb-20 text-center">
@@ -128,6 +149,11 @@ export default function Home() {
             Neukunden, Wiederholungen und mehr.
           </p>
         </div>
+      </section>
+
+      {/* Provisionsrechner */}
+      <section className="mx-auto max-w-md px-6 py-20">
+        <ProvisionsRechner />
       </section>
 
       {/* Über Enrico */}

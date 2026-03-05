@@ -195,6 +195,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Nebenverdienst-Vergleich */}
+      <section className="py-20 border-t border-gray-100">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">Warum nicht einfach Nachhilfe geben?</h2>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
+            Viele Nebenjobs tauschen deine Zeit gegen Geld. Anifit baut dir ein Einkommen auf, das bleibt.
+          </p>
+          <div className="space-y-4">
+            {[
+              { job: "Lieferdienst (Lieferando, Wolt)", hours: "15-20 h/Woche", income: "450-800 €/Monat", passive: false, note: "Aufhören = kein Geld" },
+              { job: "Nachhilfe / Freelancing", hours: "8-15 h/Woche", income: "400-1.200 €/Monat", passive: false, note: "Aufhören = kein Geld" },
+              { job: "Dropshipping / Etsy", hours: "10-20 h/Woche", income: "0-500 €/Monat", passive: false, note: "Hohe Startkosten, viel Konkurrenz" },
+              { job: "Anifit-Fachberater", hours: "2-5 h/Woche", income: "300-2.000+ €/Monat", passive: true, note: "Kunden bestellen von selbst weiter" },
+            ].map((item, i) => (
+              <div key={i} className={`rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 ${item.passive ? "bg-green-50 border-2 border-green-200 ring-1 ring-green-100" : "bg-gray-50 border border-gray-100"}`}>
+                <div className="sm:w-1/4">
+                  <p className={`font-bold text-sm ${item.passive ? "text-green-800" : "text-gray-800"}`}>{item.job}</p>
+                </div>
+                <div className="sm:w-1/5">
+                  <p className="text-xs text-gray-400 sm:hidden">Zeitaufwand</p>
+                  <p className="text-sm text-gray-600">{item.hours}</p>
+                </div>
+                <div className="sm:w-1/5">
+                  <p className="text-xs text-gray-400 sm:hidden">Verdienst</p>
+                  <p className={`text-sm font-semibold ${item.passive ? "text-green-700" : "text-gray-700"}`}>{item.income}</p>
+                </div>
+                <div className="sm:w-1/3">
+                  <span className={`inline-block text-xs px-2 py-1 rounded-full ${item.passive ? "bg-green-100 text-green-800 font-semibold" : "bg-gray-100 text-gray-500"}`}>
+                    {item.passive ? "✓ Passives Einkommen" : item.note}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-400 text-center mt-6">
+            Basierend auf typischen Nebenverdiensten in Deutschland. Anifit-Werte aus der tatsächlichen Berater-Statistik.
+          </p>
+        </div>
+      </section>
+
+      {/* Mid-page CTA */}
+      <section className="py-12 text-center">
+        <div className="mx-auto max-w-xl px-6">
+          <p className="text-lg text-gray-700 mb-5">Klingt nach dem richtigen Nebenverdienst?</p>
+          <a href="#quiz" className="inline-block bg-green-600 text-white font-bold py-3.5 px-10 rounded-xl hover:bg-green-700 transition-colors text-sm shadow-lg shadow-green-600/20">
+            Kostenlosen Guide holen
+          </a>
+        </div>
+      </section>
+
       {/* Mentor */}
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-6">

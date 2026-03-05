@@ -252,23 +252,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-md px-6 py-20 text-center">
-        <h2 className="text-2xl font-bold mb-4">Bereit für den ersten Schritt?</h2>
-        <p className="text-gray-600 mb-8">
-          Fordere jetzt den kostenlosen Guide an und erfahre alles, was du für
-          deinen Start brauchst.
-        </p>
-        <a
-          href="#guide"
-          className="inline-block py-4 px-10 rounded-xl font-bold text-white text-lg transition-all"
-          style={{
-            background: "#4CAF50",
-            boxShadow: "0 4px 14px rgba(76,175,80,0.4)",
-          }}
-        >
-          Gratis-Guide anfordern →
-        </a>
+      {/* Bottom CTA with inline form */}
+      <section className="bg-green-50 py-20">
+        <div className="mx-auto max-w-md px-6">
+          <h2 className="text-2xl font-bold text-center mb-2">Bereit für den ersten Schritt?</h2>
+          <p className="text-center text-gray-600 mb-8">
+            Fordere jetzt den kostenlosen Guide an — dauert nur 30 Sekunden.
+          </p>
+          <LeadForm idPrefix="bottom-" />
+        </div>
       </section>
 
       {/* Footer */}

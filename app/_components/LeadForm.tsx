@@ -3,7 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
-export default function LeadForm() {
+export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -42,13 +42,13 @@ export default function LeadForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label
-          htmlFor="name"
+          htmlFor={`${idPrefix}name`}
           className="block text-sm font-medium text-gray-700 mb-1.5"
         >
           Dein Name
         </label>
         <input
-          id="name"
+          id={`${idPrefix}name`}
           type="text"
           required
           autoComplete="given-name"
@@ -62,13 +62,13 @@ export default function LeadForm() {
       </div>
       <div>
         <label
-          htmlFor="email"
+          htmlFor={`${idPrefix}email`}
           className="block text-sm font-medium text-gray-700 mb-1.5"
         >
           Deine E-Mail-Adresse
         </label>
         <input
-          id="email"
+          id={`${idPrefix}email`}
           type="email"
           required
           autoComplete="email"
@@ -81,14 +81,14 @@ export default function LeadForm() {
       </div>
       <div className="flex items-start gap-3">
         <input
-          id="consent"
+          id={`${idPrefix}consent`}
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-1 w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
           disabled={loading}
         />
-        <label htmlFor="consent" className="text-xs text-gray-500 leading-relaxed">
+        <label htmlFor={`${idPrefix}consent`} className="text-xs text-gray-500 leading-relaxed">
           Ich stimme zu, dass meine Daten für den Versand des Guides und der
           E-Mail-Serie verarbeitet werden.{" "}
           <a href="/datenschutz" className="text-green-600 underline">Datenschutz</a>

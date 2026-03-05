@@ -143,6 +143,20 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Startbonus FOMO */}
+      <section className="bg-amber-50 py-12 border-y border-amber-100">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="text-3xl mb-2">🔥</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Startbonus: 30 % Provision ab Tag 1</h2>
+          <p className="text-gray-700 max-w-lg mx-auto">
+            Gewinnst du <strong>3 Kunden in deinen ersten 30 Tagen</strong>, bekommst du
+            <strong> 3 Monate lang 30 % Provision</strong> auf alle Kundenumsätze —
+            fast das Doppelte der normalen Einstiegsprovision.
+          </p>
+        </div>
+      </section>
+
       {/* Verdienst Rechner */}
       <section className="bg-green-50 py-20">
         <div className="mx-auto max-w-md px-6">

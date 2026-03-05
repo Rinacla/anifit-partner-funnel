@@ -21,9 +21,12 @@ export default function Home() {
     mainEntity: {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "Muss ich etwas vorab investieren?", acceptedAnswer: { "@type": "Answer", text: "Nein. Die Registrierung ist kostenlos." } },
-        { "@type": "Question", name: "Ist das ein MLM-System?", acceptedAnswer: { "@type": "Answer", text: "Nein. Provision entsteht zu 100% aus echten Produktverkäufen." } },
-        { "@type": "Question", name: "Wie viel Zeit muss ich investieren?", acceptedAnswer: { "@type": "Answer", text: "Die meisten Berater starten mit 2-5 Stunden pro Woche." } },
+        { "@type": "Question", name: "Muss ich etwas vorab investieren?", acceptedAnswer: { "@type": "Answer", text: "Nein. Die Registrierung ist vollständig kostenlos. Provital übernimmt Lagerung, Versand und Retouren. Du trägst kein finanzielles Risiko." } },
+        { "@type": "Question", name: "Brauche ich Vorkenntnisse in Tierernährung?", acceptedAnswer: { "@type": "Answer", text: "Nicht zwingend – du bekommst kostenlose Schulungen direkt von Anifit und kannst die offizielle Zertifizierung zum Tierernährungsberater ablegen." } },
+        { "@type": "Question", name: "Was bedeutet lebenslanger Kundenschutz?", acceptedAnswer: { "@type": "Answer", text: "Sobald ein Kunde über deinen Link bestellt, ist er dauerhaft dir zugeordnet. Jede Nachbestellung bringt dir Provision – auch Jahre später." } },
+        { "@type": "Question", name: "Ist das ein MLM- oder Schneeballsystem?", acceptedAnswer: { "@type": "Answer", text: "Nein. Du verdienst ausschließlich an deinen eigenen Kunden und deren Bestellungen. Provision entsteht zu 100% aus echten Produktverkäufen." } },
+        { "@type": "Question", name: "Wie viel Zeit muss ich investieren?", acceptedAnswer: { "@type": "Answer", text: "Die meisten Berater starten mit 2–5 Stunden pro Woche. Es gibt keine Mindestanforderungen." } },
+        { "@type": "Question", name: "Wie läuft die Anmeldung ab?", acceptedAnswer: { "@type": "Answer", text: "Registrierungslink klicken, kurzes Formular ausfüllen – fertig in unter 5 Minuten. Danach meldet sich Enrico persönlich bei dir." } },
       ],
     },
   };

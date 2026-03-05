@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const faqs = [
   {
@@ -29,53 +29,73 @@ const faqs = [
   },
 ];
 
+function FAQItem({ faq, isOpen, onToggle }: { faq: { q: string; a: string }; isOpen: boolean; onToggle: () => void }) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [isOpen]);
+
+  return (
+    <div className="border border-gray-200 rounded-xl overflow-hidden">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+        aria-expanded={isOpen}
+      >
+        <span className="font-semibold text-gray-900 text-base pr-4">
+          {faq.q}
+        </span>
+        <span
+          className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-200"
+          style={{
+            background: isOpen ? "#4CAF50" : "#E8F5E9",
+            transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+          }}
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            style={{ color: isOpen ? "#fff" : "#4CAF50" }}
+          >
+            <path
+              d="M6 2v8M2 6h8"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        className="transition-all duration-300 ease-in-out overflow-hidden"
+        style={{ maxHeight: isOpen ? height : 0, opacity: isOpen ? 1 : 0 }}
+      >
+        <div ref={contentRef} className="px-6 pb-5">
+          <p className="text-gray-600 leading-relaxed text-base">{faq.a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
     <div className="space-y-3">
       {faqs.map((faq, i) => (
-        <div
+        <FAQItem
           key={i}
-          className="border border-gray-200 rounded-xl overflow-hidden"
-        >
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
-            aria-expanded={open === i}
-          >
-            <span className="font-semibold text-gray-900 text-base pr-4">
-              {faq.q}
-            </span>
-            <span
-              className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-200"
-              style={{
-                background: open === i ? "#4CAF50" : "#E8F5E9",
-                transform: open === i ? "rotate(45deg)" : "rotate(0deg)",
-              }}
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                style={{ color: open === i ? "#fff" : "#4CAF50" }}
-              >
-                <path
-                  d="M6 2v8M2 6h8"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-          </button>
-          {open === i && (
-            <div className="px-6 pb-5">
-              <p className="text-gray-600 leading-relaxed text-base">{faq.a}</p>
-            </div>
-          )}
-        </div>
+          faq={faq}
+          isOpen={open === i}
+          onToggle={() => setOpen(open === i ? null : i)}
+        />
       ))}
     </div>
   );

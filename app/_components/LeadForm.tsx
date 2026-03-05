@@ -57,7 +57,7 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
           onChange={(e) => setName(e.target.value)}
           className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
           style={{ ["--tw-ring-color" as string]: "#4CAF50" }}
-          disabled={loading || !consent}
+          disabled={loading}
         />
       </div>
       <div>
@@ -76,7 +76,7 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
-          disabled={loading || !consent}
+          disabled={loading}
         />
       </div>
       <div className="flex items-start gap-3">
@@ -101,7 +101,7 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
       )}
       <button
         type="submit"
-        disabled={loading}
+        disabled={loading || !consent}
         className="w-full py-4 px-6 rounded-xl font-bold text-white text-lg transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
         style={{
           background: loading ? "#81C784" : "#4CAF50",

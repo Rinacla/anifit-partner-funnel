@@ -195,9 +195,9 @@ export default function Home() {
         <div className="mx-auto max-w-3xl px-6 text-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
           <p className="mt-1">
-            <a href="https://www.anifutter-shop.de/content/partners/201289a/impressum/" className="hover:text-gray-600">Impressum</a>
+            <a href="/impressum" className="hover:text-gray-600">Impressum</a>
             {" · "}
-            <a href="https://www.anifutter-shop.de/content/partners/201289a/datenschutz/" className="hover:text-gray-600">Datenschutz</a>
+            <a href="/datenschutz" className="hover:text-gray-600">Datenschutz</a>
           </p>
         </div>
       </footer>

@@ -7,10 +7,10 @@ import StartbonusTimer from "./_components/StartbonusTimer";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
-  description: "Werde Anifit-Fachberater: 15-30% Provision auf Premium-Hundefutter, lebenslanger Kundenschutz, keine Lagerhaltung. Kostenloser Start.",
+  description: "Anifit-Fachberater werden: 15-30% lebenslange Provision auf Premium-Hundefutter. Testsieger 2026 (52 Marken). Einstieg ab 78 €, persönliche Einarbeitung.",
   robots: "index, follow",
   alternates: { canonical: "https://partner.anifutter-shop.de" },
-  openGraph: { title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann", description: "Werde Anifit-Fachberater: 15-30% Provision auf Premium-Hundefutter.", locale: "de_DE" },
+  openGraph: { title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann", description: "Anifit-Fachberater werden: 15-30% lebenslange Provision auf Premium-Hundefutter.", locale: "de_DE" },
 };
 
 export default function Home() {
@@ -19,12 +19,12 @@ export default function Home() {
     name: "Anifit Berater werden", url: "https://partner.anifutter-shop.de",
     publisher: { "@type": "Person", name: "Enrico Bachmann" },
     mainEntity: { "@type": "FAQPage", mainEntity: [
-      { "@type": "Question", name: "Muss ich etwas vorab investieren?", acceptedAnswer: { "@type": "Answer", text: "Nein. Die Registrierung ist kostenlos." } },
-      { "@type": "Question", name: "Brauche ich Vorkenntnisse?", acceptedAnswer: { "@type": "Answer", text: "Nein. Kostenlose Schulungen inklusive." } },
-      { "@type": "Question", name: "Was bedeutet lebenslanger Kundenschutz?", acceptedAnswer: { "@type": "Answer", text: "Jeder Kunde bleibt dauerhaft dir zugeordnet." } },
-      { "@type": "Question", name: "Ist das MLM?", acceptedAnswer: { "@type": "Answer", text: "Nein. 100% Provision aus echten Produktverkaeufen." } },
-      { "@type": "Question", name: "Wie viel Zeit brauche ich?", acceptedAnswer: { "@type": "Answer", text: "Die meisten starten mit 2-5 Stunden pro Woche." } },
-      { "@type": "Question", name: "Wie läuft die Anmeldung ab?", acceptedAnswer: { "@type": "Answer", text: "Klick auf den Registrierungslink, fülle das kurze Formular aus – fertig. Das dauert keine 5 Minuten. Danach bekommst du Zugang zu deinem Beraterbereich und Enrico meldet sich persönlich bei dir." } },
+      { "@type": "Question", name: "Was kostet der Einstieg?", acceptedAnswer: { "@type": "Answer", text: "Das Einstiegspaket kostet ab 78 € und enthält Warenproben zum Selbsttesten. Nach der Startschulung bekommst du Werbematerial im Wert von 80–100 € gratis dazu." } },
+      { "@type": "Question", name: "Brauche ich Vorkenntnisse?", acceptedAnswer: { "@type": "Answer", text: "Nein. Du bekommst kostenlose Schulungen und einen persönlichen Mentor, der dich einarbeitet." } },
+      { "@type": "Question", name: "Was bedeutet lebenslanger Kundenschutz?", acceptedAnswer: { "@type": "Answer", text: "Jeder Kunde, den du gewinnst, bleibt dauerhaft dir zugeordnet. Auch bei Nachbestellungen Jahre später verdienst du mit." } },
+      { "@type": "Question", name: "Ist das MLM?", acceptedAnswer: { "@type": "Answer", text: "Nein. 100% der Provision kommt aus echten Produktverkäufen. Du verdienst an deinen Kunden, nicht am Recruiting." } },
+      { "@type": "Question", name: "Wie viel Zeit brauche ich?", acceptedAnswer: { "@type": "Answer", text: "Die meisten starten mit 2-5 Stunden pro Woche neben dem Hauptjob." } },
+      { "@type": "Question", name: "Wie läuft die Anmeldung ab?", acceptedAnswer: { "@type": "Answer", text: "Registrierungsformular ausfüllen, Einstiegspaket bestellen, Startschulung absolvieren. Das dauert keine 5 Minuten. Danach meldet sich dein Mentor persönlich bei dir." } },
     ]}
   };
 
@@ -44,8 +44,8 @@ export default function Home() {
                 <span className="text-green-600">etwas Sinnvolles verdienen?</span>
               </h1>
               <p className="mt-5 text-lg text-gray-600 leading-relaxed max-w-xl">
-                Werde zertifizierter Ernährungsberater für Hunde. Hilf Besitzern bei der Futterumstellung und verdiene
-                15–30&nbsp;% Provision — flexibel, ohne Lager, mit persönlichem Mentor.
+                Als Anifit-Fachberater hilfst du Hundebesitzern bei der Futterumstellung
+                auf 90 % Fleischanteil. Dafür bekommst du 15 bis 30 % Provision. Lebenslang, auf jede Nachbestellung.
               </p>
               <div className="mt-8 flex items-center gap-4">
                 <Image src="/images/enrico-bachmann.jpg" alt="Enrico Bachmann" width={56} height={56} className="rounded-full w-14 h-14 object-cover border-2 border-white shadow" />
@@ -68,7 +68,7 @@ export default function Home() {
       <section className="bg-white py-12">
         <div className="mx-auto max-w-4xl px-6">
           <div className="rounded-2xl overflow-hidden shadow-lg">
-            <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund und ANIfit Produkten" width={800} height={450} className="w-full h-auto" priority />
+            <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund und Anifit Produkten" width={800} height={450} className="w-full h-auto" priority />
           </div>
         </div>
       </section>
@@ -76,16 +76,15 @@ export default function Home() {
       {/* So funktioniert es */}
       <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-4">So funktioniert&apos;s</h2>
-          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">Kein Lager, kein Versand, kein Risiko. Provital übernimmt alles — du empfiehlst.</p>
+          <h2 className="text-3xl font-bold text-center mb-4">Vom Guide zur ersten Provision in 3 Schritten</h2>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">Du empfiehlst. Provital lagert, verpackt und liefert. Du verdienst.</p>
           <div className="grid sm:grid-cols-3 gap-10">
             {[
-              { title: "Guide lesen", text: "Alle Infos zu Provision, Produkten und Ablauf — kompakt per E-Mail.", icon: "📩" },
-              { title: "Registrieren + Einstiegspaket", text: "Melde dich an und bestelle dein Einstiegspaket (ab 78 €, inkl. Warenproben).", icon: "✅" },
-              { title: "Erste Kunden gewinnen", text: "Mit Enricos Unterstützung und Vorlagen startest du sofort.", icon: "🚀" },
+              { title: "1. Guide lesen", text: "Provision, Produkte, Ablauf: alles kompakt per E-Mail. Dauert 5 Minuten." },
+              { title: "2. Registrieren", text: "Einstiegspaket bestellen (ab 78 €). Darin: Warenproben zum Selbsttesten. Werbematerial kommt gratis nach der Startschulung." },
+              { title: "3. Erste Kunden gewinnen", text: "Dein Mentor gibt dir Vorlagen und einen Fahrplan für die ersten 5 Kunden. Du bist nicht allein." },
             ].map((s, i) => (
               <div key={i} className="text-center">
-                <span className="text-4xl mb-3 block">{s.icon}</span>
                 <h3 className="font-bold text-lg mb-2">{s.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{s.text}</p>
               </div>
@@ -94,13 +93,12 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Das Produkt im Detail */}
+      {/* Das Produkt */}
       <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-4">Das Produkt, das sich von selbst verkauft</h2>
-          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
-            Warum Anifit-Kunden jahrelang nachbestellen — und warum das für dich als Berater Gold wert ist.
+          <h2 className="text-3xl font-bold text-center mb-4">Ein Produkt, bei dem Kunden von selbst nachbestellen</h2>
+          <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
+            67 % der Hundekunden bestellen erneut. Viele jahrelang, jeden Monat. Das macht deine Provision planbar.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-8 items-start mb-12">
@@ -109,16 +107,16 @@ export default function Home() {
             </div>
             <div className="space-y-5">
               <div>
-                <h3 className="font-bold text-gray-900 mb-1">90–99 % Fleisch in Lebensmittelqualität</h3>
-                <p className="text-gray-600 text-sm">Hergestellt in Schweden unter strengsten Standards. Kein Zucker, kein Getreide, keine künstlichen Zusätze. Was draufsteht, ist drin — deklariert bis zur letzten Zutat.</p>
+                <h3 className="font-bold text-gray-900 mb-1">90 bis 99 % Fleisch, schwedische Produktion</h3>
+                <p className="text-gray-600 text-sm">Kein Zucker, kein Getreide, keine künstlichen Zusätze. Jede Zutat ist deklariert. Hundebesitzer merken den Unterschied beim ersten Napf: besseres Fell, mehr Energie, fester Kot.</p>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-1">Kein Supermarkt, kein Amazon</h3>
-                <p className="text-gray-600 text-sm">Anifit gibt es nur über Fachberater. Das bedeutet: kein Preiskampf, keine Vergleichbarkeit. Deine Kunden kaufen bei dir, weil sie die Qualität und deine Beratung schätzen.</p>
+                <h3 className="font-bold text-gray-900 mb-1">Gibt es nur über Berater</h3>
+                <p className="text-gray-600 text-sm">Kein Amazon, kein Fressnapf. Dein Kunde kann nicht woanders günstiger kaufen. Das schützt deine Marge und deinen Kundenstamm.</p>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-1">Kunden bleiben jahrelang</h3>
-                <p className="text-gray-600 text-sm">Wiederkaufrate über 30 % im Folgejahr. Viele Kunden bestellen monatlich über das Lieferservice-Abo. Ein Kunde, der 3 Jahre bleibt, bringt dir bei 23 % Provision über 660 € — automatisch.</p>
+                <h3 className="font-bold text-gray-900 mb-1">Ein Kunde bringt 660 € in 3 Jahren</h3>
+                <p className="text-gray-600 text-sm">Durchschnittlicher Bestellwert: 107 €. Bei 23 % Provision und regelmäßiger Nachbestellung summiert sich das. Ohne dass du nochmal etwas tun musst.</p>
               </div>
             </div>
           </div>
@@ -128,47 +126,21 @@ export default function Home() {
             <div className="bg-gray-50 rounded-xl p-5 text-center">
               <Image src="/images/schnupperpaket.jpg" alt="Schnupperpaket" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
               <h4 className="font-bold text-sm text-gray-900">Schnupperpaket</h4>
-              <p className="text-xs text-gray-500 mt-1">9,90 € für Neukunden — niedrige Hürde, hohe Conversion</p>
+              <p className="text-xs text-gray-500 mt-1">9,90 € für Neukunden. Niedrige Hürde, hohe Umwandlung in Stammkunden.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-5 text-center">
               <Image src="/images/gockels-duett.jpg" alt="Gockels Duett" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
               <h4 className="font-bold text-sm text-gray-900">Gockels Duett</h4>
-              <p className="text-xs text-gray-500 mt-1">Bestseller — 93 % Fleisch, Huhn + Pute</p>
+              <p className="text-xs text-gray-500 mt-1">Bestseller mit 93 % Fleisch. Huhn und Pute, die Sorte die fast jeder Hund frisst.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-5 text-center">
               <Image src="/images/sortiment.jpg" alt="Volles Sortiment" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
-              <h4 className="font-bold text-sm text-gray-900">Breites Sortiment</h4>
-              <p className="text-xs text-gray-500 mt-1">Nassfutter, Trockenfutter, Snacks, Ergänzungen — für Hund & Katze</p>
+              <h4 className="font-bold text-sm text-gray-900">Über 120 Produkte</h4>
+              <p className="text-xs text-gray-500 mt-1">Nassfutter, Trockenfutter, Snacks und Ergänzungen. Für Hunde und Katzen.</p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Warum Anifit */}
-      <section className="py-20">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Warum Hundebesitzer Anifit lieben</h2>
-          <div className="grid sm:grid-cols-2 gap-8 items-center">
-            <div className="rounded-2xl overflow-hidden">
-              <Image src="/images/schnupperpaket.jpg" alt="ANIfit Schnupperpaket" width={400} height={300} className="w-full h-auto rounded-2xl" />
-            </div>
-            <div className="space-y-5">
-              {[
-                { bold: "90–99 % Fleischanteil", text: "Schwedische Lebensmittelqualität" },
-                { bold: "Kein Supermarkt-Vertrieb", text: "Kein Preiskampf mit Amazon" },
-                { bold: "Kunden bestellen jahrelang nach", text: "Du verdienst automatisch mit" },
-                { bold: "Lebenslanger Kundenschutz", text: "Einmal gewonnen, für immer deiner" },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-3 items-start">
-                  <span className="text-green-600 font-bold text-lg mt-0.5">✓</span>
-                  <p className="text-gray-700"><strong>{item.bold}</strong> — {item.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
 
       {/* Hundeo Testsieger */}
       <section className="py-12 border-t border-gray-100">
@@ -182,13 +154,10 @@ export default function Home() {
             </div>
             <div>
               <p className="text-gray-700 leading-relaxed">
-                <strong>Anifit ist Testsieger im Hundefutter-Test 2026</strong> auf hundeo.com —
-                Deutschlands gr\u00f6\u00dftem Hunde-Portal mit 52 getesteten Marken.
-                Tier\u00e4rztlich gepr\u00fcft von Mag.med.vet. Emin Jasarevic.
+                <strong>Testsieger im Hundefutter-Test 2026</strong> auf hundeo.com, Deutschlands größtem Hunde-Portal. 52 Marken im Vergleich, tierärztlich geprüft von Mag.med.vet. Emin Jasarevic.
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                <em>\u201eAnifit geh\u00f6rt zu den besten Nassfutter-Marken. 93% Fleischanteil in Lebensmittelqualit\u00e4t,
-                vorbildliche Deklaration, schwedische Produktion.\u201c</em>
+                &ldquo;93 % Fleischanteil in Lebensmittelqualität, vorbildliche Deklaration, schwedische Produktion.&rdquo;
               </p>
             </div>
           </div>
@@ -199,12 +168,10 @@ export default function Home() {
       {/* Startbonus FOMO */}
       <section className="bg-amber-50 py-12 border-y border-amber-100">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="text-3xl mb-2">🔥</p>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Startbonus: 30 % Provision ab Tag 1</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Startbonus: 3 Monate lang 30 % Provision</h2>
           <p className="text-gray-700 max-w-lg mx-auto">
-            Gewinnst du <strong>3 Kunden in deinen ersten 30 Tagen</strong>, bekommst du
-            <strong> 3 Monate lang 30 % Provision</strong> auf alle Kundenumsätze —
-            fast das Doppelte der normalen Einstiegsprovision.
+            Gewinnst du <strong>3 Kunden in deinen ersten 30 Tagen</strong>, steigt deine Provision
+            für 3 Monate auf 30 %. Das ist fast das Doppelte der normalen Einstiegsprovision.
           </p>
           <StartbonusTimer />
         </div>
@@ -213,8 +180,8 @@ export default function Home() {
       {/* Verdienst Rechner */}
       <section className="bg-green-50 py-20">
         <div className="mx-auto max-w-md px-6">
-          <h2 className="text-3xl font-bold text-center mb-4">Was verdienst du?</h2>
-          <p className="text-center text-gray-600 mb-8 text-sm">Berechne deinen monatlichen Verdienst:</p>
+          <h2 className="text-3xl font-bold text-center mb-4">Wie viel bleibt bei dir hängen?</h2>
+          <p className="text-center text-gray-600 mb-8 text-sm">Schieb den Regler auf deine Wunsch-Kundenzahl:</p>
           <ProvisionsRechner />
         </div>
       </section>
@@ -222,18 +189,20 @@ export default function Home() {
       {/* Mentor */}
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">Dein Mentor</h2>
+          <h2 className="text-3xl font-bold text-center mb-10">Wer dich einarbeitet</h2>
           <div className="bg-gray-50 rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row gap-8 items-center">
             <Image src="/images/enrico-bachmann.jpg" alt="Enrico Bachmann" width={160} height={160} className="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-lg flex-shrink-0" />
             <div>
-              <blockquote className="text-gray-700 leading-relaxed">
-                &ldquo;Ich bin seit 2018 Anifit-Fachberater und habe über 1.000 aktive Kunden.
-                Mein Hund frisst Anifit — ich empfehle nur, was ich selbst nutze.
-                Als dein Mentor begleite ich dich persönlich: Einarbeitung, Vorlagen,
-                Tipps für die ersten Kunden und laufender Austausch.&rdquo;
-              </blockquote>
+              <p className="text-gray-700 leading-relaxed">
+                Ich bin seit 2018 Anifit-Fachberater. Über 1.000 aktive Kunden, 34 Teampartner.
+                Mein Hund frisst Anifit, ich empfehle nur was ich selbst nutze.
+              </p>
+              <p className="text-gray-700 leading-relaxed mt-3">
+                Als dein Mentor bekommst du von mir: persönliche Einarbeitung, fertige Vorlagen für die Kundenansprache,
+                einen Fahrplan für deine ersten 5 Kunden und laufenden Austausch per Chat oder Telefon.
+              </p>
               <p className="mt-4 font-bold text-gray-900">Enrico Bachmann</p>
-              <p className="text-sm text-gray-500">Zertifizierter Ernährungsberater für Hunde &amp; Katzen</p>
+              <p className="text-sm text-gray-500">Zertifizierter Ernährungsberater für Hunde und Katzen</p>
             </div>
           </div>
         </div>
@@ -269,10 +238,10 @@ export default function Home() {
       {/* Bottom CTA */}
       <section className="bg-green-600 py-16">
         <div className="mx-auto max-w-lg px-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Bereit für deinen Start?</h2>
-          <p className="text-green-100 mb-8">Finde in 60 Sekunden heraus, ob Anifit-Berater zu dir passt.</p>
+          <h2 className="text-2xl font-bold text-white mb-4">Finde heraus, ob es zu dir passt</h2>
+          <p className="text-green-100 mb-8">3 kurze Fragen, dann bekommst du den Guide mit allen Details per Mail.</p>
           <a href="#quiz" className="inline-block py-4 px-10 rounded-xl font-bold text-green-700 bg-white text-lg hover:bg-green-50 transition-colors shadow-lg">
-            Quiz starten →
+            Werde Ernährungsberater
           </a>
         </div>
       </section>

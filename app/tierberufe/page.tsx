@@ -2,8 +2,8 @@ import Image from "next/image";
 import ContactForm from "../_components/ContactForm";
 
 export const metadata = {
-  title: "Anifit für Tierärzte, THP & Züchter | 30% Rabatt",
-  description: "Als Tierarzt, Tierheilpraktiker oder Züchter: 30% Sofortrabatt auf Anifit Premium-Tiernahrung + 5% Provision auf Kundenempfehlungen.",
+  title: "Anifit für Tierärzte, THP & Züchter | 30 % Rabatt auf Premium-Tiernahrung",
+  description: "30 % Sofortrabatt auf das gesamte Anifit-Sortiment für Tierärzte, Tierheilpraktiker und Züchter. Testsieger 2026 (52 Marken). Kostenlose Registrierung.",
   robots: "index, follow",
   alternates: { canonical: "https://partner.anifutter-shop.de/tierberufe" },
 };
@@ -22,17 +22,16 @@ export default function TierberufePage() {
                 Für Tierärzte, THP & Züchter
               </p>
               <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold leading-tight tracking-tight">
-                30 % Rabatt auf <span className="text-blue-600">Premium-Tiernahrung</span> für Ihre Praxis
+                30 % Rabatt auf <span className="text-blue-600">Anifit Premium-Tiernahrung</span> für Ihre Praxis
               </h1>
               <p className="mt-5 text-lg text-gray-600 leading-relaxed max-w-xl">
-                Anifit — Testsieger bei hundeo.com (52 Marken). 90–99 % Fleisch, schwedische Qualität.
-                Als Partner erhalten Sie Sofortrabatt + Provision auf Kundenempfehlungen.
+                Testsieger bei hundeo.com (52 Marken, tierärztlich geprüft). 90 bis 99 % Fleisch in Lebensmittelqualität. Als Partner bestellen Sie zum Einkaufspreis und verdienen 5 % auf Kundenempfehlungen.
               </p>
               <div className="mt-6 flex items-center gap-4">
                 <Image src="/images/enrico-bachmann.jpg" alt="Enrico Bachmann" width={56} height={56} className="rounded-full w-14 h-14 object-cover border-2 border-white shadow" />
                 <div className="text-left">
                   <p className="font-semibold text-sm text-gray-900">Enrico Bachmann</p>
-                  <p className="text-xs text-gray-500">Ihr Ansprechpartner · Anifit seit 2018 · 1.000+ Kunden</p>
+                  <p className="text-xs text-gray-500">Anifit-Fachberater seit 2018, 1.000+ Kunden</p>
                 </div>
               </div>
             </div>
@@ -41,7 +40,7 @@ export default function TierberufePage() {
             <div className="w-full lg:w-[400px] flex-shrink-0">
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8" id="kontakt">
                 <p className="font-bold text-gray-900 text-center mb-1">Unverbindlich anfragen</p>
-                <p className="text-xs text-gray-500 text-center mb-5">Ich melde mich innerhalb von 24 Stunden.</p>
+                <p className="text-xs text-gray-500 text-center mb-5">Antwort innerhalb von 24 Stunden.</p>
                 <ContactForm />
               </div>
             </div>
@@ -49,18 +48,17 @@ export default function TierberufePage() {
         </div>
       </section>
 
-      {/* Vorteile — kompakt */}
+      {/* Vorteile */}
       <section className="bg-gray-50 py-14">
         <div className="mx-auto max-w-4xl px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {[
-              { icon: "💰", title: "30 % Rabatt", text: "Auf alle eigenen Einkäufe, sofort" },
-              { icon: "🐾", title: "5 % Provision", text: "Auf Kundenempfehlungen, lebenslang" },
-              { icon: "🐕", title: "Welpen-Pakete", text: "Für Ihre Welpenkäufer" },
-              { icon: "📦", title: "Null Aufwand", text: "Kein Lager, kein Versand" },
+              { title: "30 % Rabatt", text: "Auf alle eigenen Einkäufe, ab der ersten Bestellung" },
+              { title: "5 % Provision", text: "Auf jede Kundenbestellung, dauerhaft" },
+              { title: "Welpen-Pakete", text: "Fertige Abschiedspakete für Ihre Welpenkäufer" },
+              { title: "Null Aufwand", text: "Provital lagert, verpackt und liefert direkt" },
             ].map((v, i) => (
               <div key={i}>
-                <span className="text-3xl mb-2 block">{v.icon}</span>
                 <h3 className="font-bold text-gray-900 text-sm mb-1">{v.title}</h3>
                 <p className="text-gray-500 text-xs">{v.text}</p>
               </div>
@@ -72,24 +70,28 @@ export default function TierberufePage() {
       {/* Produkt + Warum Anifit */}
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-2xl font-bold text-center mb-10">Warum Anifit in Ihrer Praxis?</h2>
+          <h2 className="text-2xl font-bold text-center mb-10">Futter, das Sie guten Gewissens empfehlen können</h2>
           <div className="grid sm:grid-cols-2 gap-8 items-center">
             <div className="rounded-2xl overflow-hidden">
               <Image src="/images/schnupperpaket.jpg" alt="Anifit Produkte" width={400} height={300} className="w-full h-auto rounded-2xl" />
             </div>
             <div className="space-y-4">
-              {[
-                { bold: "90–99 % Fleischanteil", text: "Schwedische Lebensmittelqualität" },
-                { bold: "Testsieger 2026", text: "hundeo.com — 52 Marken, tierärztlich geprüft" },
-                { bold: "Exklusiver Vertrieb", text: "Kein Supermarkt, kein Amazon — kein Preiskampf" },
-                { bold: "Ideal bei Futterumstellung", text: "Für sensible Mägen, Allergiker und Welpen" },
-                { bold: "Lebenslanger Kundenschutz", text: "Ihre Kunden bleiben Ihre Kunden" },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-3 items-start">
-                  <span className="text-blue-600 font-bold text-lg mt-0.5">✓</span>
-                  <p className="text-gray-700 text-sm"><strong>{item.bold}</strong> — {item.text}</p>
-                </div>
-              ))}
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1 text-sm">90 bis 99 % Fleisch, schwedische Produktion</h3>
+                <p className="text-gray-600 text-sm">Lebensmittelqualität, vollständig deklariert. Kein Zucker, kein Getreide. Ideal bei Allergien und sensiblen Mägen.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1 text-sm">Testsieger 2026 bei hundeo.com</h3>
+                <p className="text-gray-600 text-sm">52 Marken im Vergleich. Tierärztlich geprüft von Mag.med.vet. Emin Jasarevic. 4,9 Sterne bei Trusted Shops.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1 text-sm">Exklusiver Vertrieb über Fachberater</h3>
+                <p className="text-gray-600 text-sm">Kein Supermarkt, kein Amazon. Ihre Patienten kaufen das Futter nicht woanders günstiger.</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1 text-sm">Lebenslanger Kundenschutz</h3>
+                <p className="text-gray-600 text-sm">Jeder Kunde, den Sie empfehlen, bleibt dauerhaft Ihnen zugeordnet. Jede Nachbestellung bringt Provision.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -98,19 +100,20 @@ export default function TierberufePage() {
       {/* Für wen */}
       <section className="bg-blue-50 py-14">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-2xl font-bold text-center mb-10">Für wen ist das Partner-Programm?</h2>
-          <div className="grid sm:grid-cols-3 gap-6 text-center">
-            {[
-              { icon: "🩺", title: "Tierärzte", text: "Empfehlen Sie Futter, dem Sie vertrauen." },
-              { icon: "🌿", title: "Tierheilpraktiker", text: "Ernährung als Teil Ihres Therapiekonzepts." },
-              { icon: "🐶", title: "Züchter", text: "Beste Ernährung + Pakete für Welpenkäufer." },
-            ].map((p, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 border border-blue-100">
-                <span className="text-3xl mb-3 block">{p.icon}</span>
-                <h3 className="font-bold text-gray-900 mb-2">{p.title}</h3>
-                <p className="text-gray-600 text-sm">{p.text}</p>
-              </div>
-            ))}
+          <h2 className="text-2xl font-bold text-center mb-10">Wer kann Partner werden?</h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xl p-6 border border-blue-100">
+              <h3 className="font-bold text-gray-900 mb-2">Tierärzte</h3>
+              <p className="text-gray-600 text-sm">Sie sehen täglich Hunde mit Futterproblemen. Empfehlen Sie ein Futter, bei dem Sie wissen was drin ist. 30 % günstiger für Ihre Praxis.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-blue-100">
+              <h3 className="font-bold text-gray-900 mb-2">Tierheilpraktiker</h3>
+              <p className="text-gray-600 text-sm">Ganzheitliche Behandlung beginnt beim Futter. Anifit passt zu einem naturnahen Therapiekonzept. Ihre Kunden vertrauen Ihrer Empfehlung.</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 border border-blue-100">
+              <h3 className="font-bold text-gray-900 mb-2">Züchter</h3>
+              <p className="text-gray-600 text-sm">Spezielle Welpen- und Kittenpakete für Ihre Käufer. Statt einem Zettel mit Futterempfehlung geben Sie ein hochwertiges Starterpaket mit.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -118,13 +121,13 @@ export default function TierberufePage() {
       {/* Ablauf */}
       <section className="py-14">
         <div className="mx-auto max-w-2xl px-6">
-          <h2 className="text-2xl font-bold text-center mb-8">So werden Sie Partner</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">Partner werden in 4 Schritten</h2>
           <div className="space-y-3">
             {[
               "Formular ausfüllen oder anrufen",
-              "Tätigkeitsnachweis einreichen (Mitgliedskarte oder Webseite)",
-              "Provital registriert Sie als Partner (kostenlos)",
-              "Sofort 30 % Rabatt auf alle Bestellungen",
+              "Tätigkeitsnachweis einreichen (Mitgliedskarte, Webseite oder Zertifikat)",
+              "Provital registriert Sie als Partner. Kostenlos.",
+              "Ab sofort 30 % Rabatt auf alle eigenen Bestellungen",
             ].map((s, i) => (
               <div key={i} className="flex gap-4 items-start bg-gray-50 rounded-xl p-4">
                 <span className="text-blue-600 font-bold text-lg flex-shrink-0">{i + 1}.</span>
@@ -138,14 +141,14 @@ export default function TierberufePage() {
       {/* Bottom CTA */}
       <section className="bg-blue-600 py-14">
         <div className="mx-auto max-w-lg px-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Noch Fragen?</h2>
-          <p className="text-blue-100 mb-6">Rufen Sie an oder schreiben Sie mir — unverbindlich.</p>
+          <h2 className="text-2xl font-bold text-white mb-4">Fragen zum Partner-Programm?</h2>
+          <p className="text-blue-100 mb-6">Ich erkläre Ihnen alles persönlich. Unverbindlich.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="tel:+4932212619379" className="inline-block py-3 px-8 rounded-xl font-bold text-blue-700 bg-white hover:bg-blue-50 transition-colors shadow-lg">
-              📞 Anrufen
+              Anrufen: +49 322 126 19 379
             </a>
             <a href="#kontakt" className="inline-block py-3 px-8 rounded-xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-colors">
-              ✉️ Formular →
+              Zum Kontaktformular
             </a>
           </div>
         </div>

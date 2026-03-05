@@ -7,6 +7,7 @@ import StartbonusTimer from "./_components/StartbonusTimer";
 import LeadForm from "./_components/LeadForm";
 import ScrollTracker from "./_components/ScrollTracker";
 import Testimonials from "./_components/Testimonials";
+import AnimatedStats from "./_components/AnimatedStats";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -267,22 +268,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Zahlen */}
+      {/* Zahlen (animated counters) */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
-            {[
-              { value: "1.000+", label: "aktive Kunden" },
-              { value: "seit 2018", label: "dabei" },
-              { value: "30 %", label: "max. Provision" },
-              { value: "ab 78 €", label: "Einstiegspaket" },
-            ].map((item, i) => (
-              <div key={i}>
-                <p className="text-3xl font-extrabold text-green-600">{item.value}</p>
-                <p className="text-xs text-gray-500 mt-1">{item.label}</p>
-              </div>
-            ))}
-          </div>
+          <AnimatedStats />
         </div>
       </section>
 

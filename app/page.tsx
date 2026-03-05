@@ -1,6 +1,7 @@
 import LeadForm from "./_components/LeadForm";
 import FAQAccordion from "./_components/FAQAccordion";
 import Testimonials from "./_components/Testimonials";
+import ProvisionsRechner from "./_components/ProvisionsRechner";
 
 export const metadata = {
   title: "Anifit Berater werden — Dein Start als Tierernährungsberater",

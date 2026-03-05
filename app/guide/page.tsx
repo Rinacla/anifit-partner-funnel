@@ -180,7 +180,7 @@ export default function GuidePage() {
             Jetzt als Anifit-Berater registrieren →
           </a>
           <p className="text-sm text-gray-400 mt-4">
-            Willkommensbonus: Futterpaket im Wert von 80 € nach deiner Startschulung.
+            Willkommensbonus: Warenproben-Paket (80–100 € Wert) nach deiner Startschulung.
           </p>
         </section>
       </div>

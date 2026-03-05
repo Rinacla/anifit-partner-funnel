@@ -125,7 +125,7 @@ export function ctaEmail(name: string) {
         </a>
       </p>
       <div class="highlight">
-        <strong>Willkommensbonus:</strong> Registriere dich jetzt und erhalte nach deiner Startschulung ein zusätzliches Futterpaket im Wert von über 80 € gratis.
+        <strong>Willkommensbonus:</strong> Registriere dich jetzt und erhalte nach deiner Startschulung ein zusätzliches Warenproben-Paket im Wert von über 80 € gratis.
       </div>
       <p>Ich freue mich darauf, dich in meinem Team willkommen zu heißen.</p>
       <p>Enrico</p>

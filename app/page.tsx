@@ -113,6 +113,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* So funktioniert's */}
+      <section className="bg-gray-50 py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            So funktioniert&apos;s — in 3 Schritten
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-8">
+            {[
+              {
+                step: "1",
+                title: "Guide lesen",
+                text: "Du bekommst alle Infos zu Provision, Produkten und Ablauf — kompakt per E-Mail.",
+              },
+              {
+                step: "2",
+                title: "Kostenlos registrieren",
+                text: "Melde dich bei Provital an. Keine Kosten, kein Risiko, kein Mindestabsatz.",
+              },
+              {
+                step: "3",
+                title: "Erste Kunden gewinnen",
+                text: "Mit Enricos Unterstützung, Vorlagen und Schulungen startest du sofort.",
+              },
+            ].map((s, i) => (
+              <div key={i} className="text-center">
+                <div className="mx-auto w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center mb-4">
+                  {s.step}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{s.title}</h3>
+                <p className="text-gray-600 text-sm">{s.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Verdienst */}
       <section className="bg-green-50 py-20">
         <div className="mx-auto max-w-3xl px-6">

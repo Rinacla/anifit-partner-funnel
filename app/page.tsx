@@ -17,7 +17,7 @@ export default function Home() {
           <p className="inline-block mb-4 text-sm font-semibold tracking-wide uppercase text-green-700 bg-green-100 px-4 py-1.5 rounded-full">
             Kostenloser Guide
           </p>
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
+          <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
             Dein Start als{" "}
             <span className="text-green-600">Tierernährungsberater</span>
           </h1>

@@ -245,17 +245,17 @@ export default function Home() {
           Dein Mentor: Enrico Bachmann
         </h2>
         <div className="bg-gray-50 rounded-2xl p-8 sm:p-10">
-          <div className="flex flex-col sm:flex-row gap-8 items-start">
-          <div className="sm:w-48 flex-shrink-0">
-            <Image
-              src="/images/gockels-duett.jpg"
-              alt="ANIfit Gockels Duett — Premium Hundefutter"
-              width={192}
-              height={192}
-              className="rounded-xl w-full"
-            />
-          </div>
-          <div>
+          <div className="flex flex-col sm:flex-row gap-8 items-center">
+            <div className="flex-shrink-0">
+              <Image
+                src="/images/enrico-bachmann.jpg"
+                alt="Enrico Bachmann — Anifit-Fachberater seit 2018"
+                width={160}
+                height={160}
+                className="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-lg"
+              />
+            </div>
+            <div>
           <blockquote className="text-lg text-gray-700 leading-relaxed">
             „Ich bin seit 2018 Anifit-Fachberater und habe mir ein Business mit
             über 1.000 aktiven Kunden aufgebaut. Mein eigener Hund frisst Anifit
@@ -266,10 +266,18 @@ export default function Home() {
           <p className="mt-4 font-semibold text-gray-900">
             Enrico Bachmann
           </p>
-          </div></div>
-          <p className="text-sm text-gray-500">
-            Zertifizierter Ernährungsberater für Hunde &amp; Katzen
-          </p>
+            </div>
+          </div>
+        </div>
+        {/* Lifestyle image */}
+        <div className="mt-8 rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/magazin-hero.jpg"
+            alt="Enrico Bachmann mit Hund — ANIfit Fachberater"
+            width={800}
+            height={500}
+            className="w-full h-auto"
+          />
         </div>
       </section>
 

@@ -8,26 +8,50 @@ export default function ImpressumPage() {
     <div className="min-h-screen bg-white py-16 px-6">
       <div className="max-w-2xl mx-auto prose prose-gray">
         <h1>Impressum</h1>
-        <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+
+        <p><strong>Angaben gemäß § 5 TMG / EU-Richtlinie 2000/31/EG:</strong></p>
+
         <p>
-          Enrico Bachmann<br />
-          Anifit-Fachberater (Handelsvertreter gem. § 84 HGB)<br />
-          Provital GmbH — Fachberater-Nr. 201289
+          RINACLA LTD<br />
+          Georgiou Karaiskaki, 11-13<br />
+          CARISA SALONICA, Flat/Office 102<br />
+          Pervolia, 7560, Larnaca<br />
+          Cyprus
         </p>
+
+        <p>
+          <strong>Company Registration:</strong><br />
+          Registration Number: ΗΕ 469019
+        </p>
+
+        <p>
+          <strong>Vertretungsberechtigt:</strong><br />
+          Managing Director: Enrico Bachmann
+        </p>
+
         <p>
           <strong>Kontakt:</strong><br />
           E-Mail: partner@anifutter-shop.de
         </p>
+
         <p>
-          <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
-          Enrico Bachmann
+          <strong>Anifit-Fachberater:</strong><br />
+          Handelsvertreter gem. § 84 HGB<br />
+          Provital GmbH — Fachberater-Nr. 201289
         </p>
+
+        <p>
+          <strong>Verantwortlich für den Inhalt:</strong><br />
+          Enrico Bachmann, Anschrift wie oben
+        </p>
+
         <p>
           <strong>Haftungshinweis:</strong><br />
           Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung
           für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten
           sind ausschließlich deren Betreiber verantwortlich.
         </p>
+
         <p className="mt-8">
           <a href="/" className="text-green-600 hover:underline">← Zurück zur Startseite</a>
         </p>

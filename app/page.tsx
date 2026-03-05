@@ -1,5 +1,6 @@
 import LeadForm from "./_components/LeadForm";
 import FAQAccordion from "./_components/FAQAccordion";
+import Testimonials from "./_components/Testimonials";
 
 export const metadata = {
   title: "Anifit Berater werden — Dein Start als Tierernährungsberater",
@@ -150,6 +151,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="mx-auto max-w-4xl px-6 py-20">
+        <h2 className="text-3xl font-bold text-center mb-4">
+          Das sagen unsere Berater
+        </h2>
+        <p className="text-center text-gray-500 mb-10 text-sm">
+          Echte Erfahrungen von Anifit-Fachberatern aus unserem Team
+        </p>
+        <Testimonials />
+      </section>
       {/* FAQ */}
       <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-2xl px-6">

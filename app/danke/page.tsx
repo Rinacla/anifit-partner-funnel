@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Script from "next/script";
 
 export default function DankePage() {
   useEffect(() => {
@@ -12,9 +11,6 @@ export default function DankePage() {
 
   return (
     <>
-      <Script id="meta-lead-event" strategy="afterInteractive">{`
-        if(typeof fbq === 'function') { fbq('track', 'Lead'); }
-      `}</Script>
       <div className="min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-6 py-16">
         <div className="max-w-lg">
           <div className="text-center mb-10">

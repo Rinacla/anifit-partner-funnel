@@ -4,6 +4,7 @@ import ProvisionsRechner from "./_components/ProvisionsRechner";
 import FAQAccordion from "./_components/FAQAccordion";
 import StickyMobileCTA from "./_components/StickyMobileCTA";
 import StartbonusTimer from "./_components/StartbonusTimer";
+import ScrollTracker from "./_components/ScrollTracker";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -76,15 +77,16 @@ export default function Home() {
       {/* So funktioniert es */}
       <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-4">Vom Guide zur ersten Provision in 3 Schritten</h2>
-          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">Du empfiehlst. Provital lagert, verpackt und liefert. Du verdienst.</p>
+          <h2 className="text-3xl font-bold text-center mb-4">So funktioniert&apos;s</h2>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">Kein Lager, kein Versand, kein Risiko. Provital übernimmt alles — du empfiehlst.</p>
           <div className="grid sm:grid-cols-3 gap-10">
             {[
-              { title: "1. Guide lesen", text: "Provision, Produkte, Ablauf: alles kompakt per E-Mail. Dauert 5 Minuten." },
-              { title: "2. Registrieren", text: "Einstiegspaket bestellen (ab 78 €). Darin: Warenproben zum Selbsttesten. Werbematerial kommt gratis nach der Startschulung." },
-              { title: "3. Erste Kunden gewinnen", text: "Dein Mentor gibt dir Vorlagen und einen Fahrplan für die ersten 5 Kunden. Du bist nicht allein." },
+              { icon: "📩", title: "Guide lesen", text: "Alle Infos zu Provision, Produkten und Ablauf — kompakt per E-Mail." },
+              { icon: "✅", title: "Registrieren + Einstiegspaket", text: "Melde dich an und bestelle dein Einstiegspaket (ab 78 €, inkl. Warenproben)." },
+              { icon: "🚀", title: "Erste Kunden gewinnen", text: "Mit Enricos Unterstützung und Vorlagen startest du sofort." },
             ].map((s, i) => (
               <div key={i} className="text-center">
+                <div className="text-3xl mb-3">{s.icon}</div>
                 <h3 className="font-bold text-lg mb-2">{s.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{s.text}</p>
               </div>
@@ -255,6 +257,7 @@ export default function Home() {
         </div>
       </footer>
       <StickyMobileCTA />
+      <ScrollTracker />
     </div>
   );
 }

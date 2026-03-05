@@ -52,13 +52,25 @@ export default function QuizFunnel() {
   const [done, setDone] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
+  const trackPixel = (event: string, params?: Record<string, unknown>) => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      if (params) {
+        (window as any).fbq("trackCustom", event, params);
+      } else {
+        (window as any).fbq("trackCustom", event);
+      }
+    }
+  };
+
   const handleAnswer = (value: string) => {
     const newAnswers = [...answers, value];
     setAnswers(newAnswers);
+    trackPixel("QuizAnswer", { step: step + 1, question: STEPS[step].question, answer: value });
     if (step < STEPS.length - 1) {
       setStep(step + 1);
     } else {
       setShowResult(true);
+      trackPixel("QuizComplete", { answers: newAnswers.join(",") });
       setTimeout(() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }), 300);
     }
   };
@@ -73,6 +85,7 @@ export default function QuizFunnel() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers }),
       });
+      trackPixel("FormSubmit", { wantsCall, quizAnswers: answers.join(",") });
       setDone(true);
       window.location.href = "/danke";
     } catch {

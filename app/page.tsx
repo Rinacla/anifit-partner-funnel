@@ -5,11 +5,11 @@ import FAQAccordion from "./_components/FAQAccordion";
 import StickyMobileCTA from "./_components/StickyMobileCTA";
 
 export const metadata = {
-  title: "Anifit-Fachberater werden | Enrico Bachmann",
+  title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
   description: "Werde Anifit-Fachberater: 15-30% Provision auf Premium-Hundefutter, lebenslanger Kundenschutz, keine Lagerhaltung. Kostenloser Start.",
   robots: "index, follow",
   alternates: { canonical: "https://partner.anifutter-shop.de" },
-  openGraph: { title: "Anifit-Fachberater werden | Enrico Bachmann", description: "Werde Anifit-Fachberater: 15-30% Provision auf Premium-Hundefutter.", locale: "de_DE" },
+  openGraph: { title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann", description: "Werde Anifit-Fachberater: 15-30% Provision auf Premium-Hundefutter.", locale: "de_DE" },
 };
 
 export default function Home() {
@@ -38,11 +38,11 @@ export default function Home() {
             <div className="flex-1 text-center lg:text-left">
               <p className="inline-block mb-4 text-xs font-bold tracking-widest uppercase text-green-700 bg-green-100 px-4 py-1.5 rounded-full">Kostenloser Guide</p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
-                Du liebst Hunde und willst ein{" "}
-                <span className="text-green-600">Einkommen mit Freiheit?</span>
+                Du liebst Hunde und willst dabei{" "}
+                <span className="text-green-600">etwas Sinnvolles verdienen?</span>
               </h1>
               <p className="mt-5 text-lg text-gray-600 leading-relaxed max-w-xl">
-                Werde Anifit-Fachberater. Empfiehl Premium-Hundefutter und verdiene
+                Werde zertifizierter Ernährungsberater für Hunde. Hilf Besitzern bei der Futterumstellung und verdiene
                 15–30&nbsp;% Provision — flexibel, ohne Lager, mit persönlichem Mentor.
               </p>
               <div className="mt-8 flex items-center gap-4">

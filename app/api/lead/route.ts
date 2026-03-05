@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
   }
 
-  const { name, email, source, beruf, message, phone, wantsCall, quiz } = body as {
+  const { name, email, source, beruf, message, phone, wantsCall, quiz, utm } = body as {
     name?: string;
     email?: string;
     source?: string;
@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
     phone?: string;
     wantsCall?: boolean;
     quiz?: string[];
+    utm?: Record<string, string>;
   };
 
   if (!name || typeof name !== "string" || name.trim().length < 2) {
@@ -50,6 +51,15 @@ export async function POST(req: NextRequest) {
 
   const sent = await sendEmail(cleanEmail, emailData.subject, emailData.html);
 
+  // Build UTM attribution string for notifications
+  const utmParts: string[] = [];
+  if (utm && typeof utm === "object") {
+    for (const [k, v] of Object.entries(utm)) {
+      if (v) utmParts.push(`${k}=${v}`);
+    }
+  }
+  const utmLine = utmParts.length > 0 ? utmParts.join(", ") : "direkt / organisch";
+
   // Also notify Enrico about tierberufe leads
   if (isTierberufe) {
     const notifyHtml = `
@@ -58,6 +68,7 @@ export async function POST(req: NextRequest) {
       <p><strong>Email:</strong> ${cleanEmail}</p>
       <p><strong>Berufsgruppe:</strong> ${beruf || "nicht angegeben"}</p>
       <p><strong>Nachricht:</strong> ${message || "keine"}</p>
+      <p><strong>Quelle:</strong> ${utmLine}</p>
     `;
     await sendEmail("partner@anifutter-shop.de", `Neue Tierberufe-Anfrage: ${cleanName} (${beruf || "?"})`, notifyHtml);
   }
@@ -70,8 +81,14 @@ export async function POST(req: NextRequest) {
       <p><strong>Email:</strong> ${cleanEmail}</p>
       <p><strong>Telefon:</strong> ${phone}</p>
       <p><strong>Quiz:</strong> ${quiz?.join(", ") || "?"}</p>
+      <p><strong>Quelle:</strong> ${utmLine}</p>
     `;
     await sendEmail("partner@anifutter-shop.de", `Rückruf gewünscht: ${cleanName} (${phone})`, phoneHtml);
+  }
+
+  // Log attribution for all non-tierberufe leads (console for Vercel logs)
+  if (!isTierberufe) {
+    console.log(`[LEAD] ${cleanName} <${cleanEmail}> | quiz: ${quiz?.join(",") || "-"} | utm: ${utmLine}`);
   }
 
   if (!sent) {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useUtmParams } from "@/lib/useUtmParams";
 
 const STEPS = [
   {
@@ -51,6 +52,7 @@ export default function QuizFunnel() {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const utm = useUtmParams();
 
   const trackPixel = (event: string, params?: Record<string, unknown>) => {
     if (typeof window !== "undefined" && (window as any).fbq) {
@@ -83,7 +85,7 @@ export default function QuizFunnel() {
       await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm }),
       });
       trackPixel("FormSubmit", { wantsCall, quizAnswers: answers.join(",") });
       setDone(true);

@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { useUtmParams } from "@/lib/useUtmParams";
 
 export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
   const router = useRouter();
@@ -10,6 +11,7 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [consent, setConsent] = useState(false);
+  const utm = useUtmParams();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -20,7 +22,7 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name, email, utm }),
       });
 
       const data = await res.json();

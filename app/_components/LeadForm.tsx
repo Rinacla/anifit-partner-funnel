@@ -9,6 +9,7 @@ export default function LeadForm() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [consent, setConsent] = useState(false);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -56,7 +57,7 @@ export default function LeadForm() {
           onChange={(e) => setName(e.target.value)}
           className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
           style={{ ["--tw-ring-color" as string]: "#4CAF50" }}
-          disabled={loading}
+          disabled={loading || !consent}
         />
       </div>
       <div>
@@ -77,6 +78,21 @@ export default function LeadForm() {
           className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
           disabled={loading}
         />
+      </div>
+      <div className="flex items-start gap-3">
+        <input
+          id="consent"
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-1 w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+          disabled={loading}
+        />
+        <label htmlFor="consent" className="text-xs text-gray-500 leading-relaxed">
+          Ich stimme zu, dass meine Daten für den Versand des Guides und der
+          E-Mail-Serie verarbeitet werden.{" "}
+          <a href="/datenschutz" className="text-green-600 underline">Datenschutz</a>
+        </label>
       </div>
       {error && (
         <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-lg">

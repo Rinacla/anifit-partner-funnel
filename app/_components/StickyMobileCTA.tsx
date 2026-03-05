@@ -7,9 +7,9 @@ export default function StickyMobileCTA() {
 
   useEffect(() => {
     const onScroll = () => {
-      const guide = document.getElementById("guide");
-      if (!guide) return;
-      const rect = guide.getBoundingClientRect();
+      const quiz = document.getElementById("quiz");
+      if (!quiz) return;
+      const rect = quiz.getBoundingClientRect();
       setVisible(rect.bottom < 0);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -24,7 +24,7 @@ export default function StickyMobileCTA() {
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <a
-        href="#guide"
+        href="#quiz"
         className="block w-full py-3 rounded-xl font-bold text-white text-center text-base transition-all"
         style={{
           background: "#4CAF50",

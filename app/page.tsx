@@ -8,6 +8,7 @@ import LeadForm from "./_components/LeadForm";
 import ScrollTracker from "./_components/ScrollTracker";
 import Testimonials from "./_components/Testimonials";
 import AnimatedStats from "./_components/AnimatedStats";
+import StickyHeader from "./_components/StickyHeader";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -382,6 +383,7 @@ export default function Home() {
           </p>
         </div>
       </footer>
+      <StickyHeader />
       <StickyMobileCTA />
       <ScrollTracker />
     </div>

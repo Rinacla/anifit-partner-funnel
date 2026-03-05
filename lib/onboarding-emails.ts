@@ -20,19 +20,19 @@ ul{padding-left:20px}li{margin-bottom:8px;color:#4b5563}
 WhatsApp: <a href="https://wa.me/4915204000990" style="color:#9ca3af">0152 0400 0990</a></div>
 </div></body></html>`;
 
-/** Onboarding 1 — Sofort nach Registrierung */
+/** Onboarding 1. Sofort nach Registrierung */
 export function onboarding1Welcome(name: string) {
   return {
     subject: `Willkommen im Team, ${name}!`,
     html: WRAPPER(`
       <h1>Herzlich willkommen, ${name}!</h1>
-      <p>Du hast dich als Anifit-Fachberater registriert — das freut mich.</p>
+      <p>Du hast dich als Anifit-Fachberater registriert. Das freut mich.</p>
       <p>Ich bin Enrico, dein Mentor. Ich begleite dich durch die ersten Wochen und stehe dir bei jeder Frage zur Seite.</p>
       <p><strong>Deine naechsten 3 Schritte:</strong></p>
       <ul>
-        <li><span class="step-number">1</span> <strong>Startschulung buchen</strong> — ca. 25 Minuten, online. Danach bekommst du dein Willkommenspaket (60 Dosen gratis).</li>
-        <li><span class="step-number">2</span> <strong>Fachberaterbereich kennenlernen</strong> — Unter <a href="https://provital.com/content/fachberaterbereich/">provital.com</a> findest du dein CRM, Bestelluebersichten und Schulungsmaterial.</li>
-        <li><span class="step-number">3</span> <strong>Erste Produkte testen</strong> — Bestelle dir ein Startpaket und probiere das Futter selbst. Du kannst nur empfehlen, was du kennst.</li>
+        <li><span class="step-number">1</span> <strong>Startschulung buchen</strong>. Ca. 25 Minuten, online. Danach bekommst du dein Willkommenspaket (60 Dosen gratis).</li>
+        <li><span class="step-number">2</span> <strong>Fachberaterbereich kennenlernen</strong>. Unter <a href="https://provital.com/content/fachberaterbereich/">provital.com</a> findest du dein CRM, Bestelluebersichten und Schulungsmaterial.</li>
+        <li><span class="step-number">3</span> <strong>Erste Produkte testen</strong>. Bestelle dir ein Startpaket und probiere das Futter selbst. Du kannst nur empfehlen, was du kennst.</li>
       </ul>
       <div class="highlight">
         <strong>Tipp:</strong> Die Startschulung ist der wichtigste Schritt. Buchst du sie im gleichen Monat wie deine Registrierung, bekommst du das 60-Dosen-Paket kostenlos dazu.
@@ -43,10 +43,10 @@ export function onboarding1Welcome(name: string) {
   };
 }
 
-/** Onboarding 2 — Tag 3: Startschulung + Akademie */
+/** Onboarding 2. Tag 3: Startschulung + Akademie */
 export function onboarding2Training(name: string) {
   return {
-    subject: "Deine Startschulung — so funktioniert's",
+    subject: "Deine Startschulung. So funktioniert's",
     html: WRAPPER(`
       <h1>${name}, hast du deine Startschulung schon gebucht?</h1>
       <p>Die Schulung dauert ca. 25 Minuten und ist komplett online. Du lernst:</p>
@@ -66,18 +66,18 @@ export function onboarding2Training(name: string) {
   };
 }
 
-/** Onboarding 3 — Tag 7: Erste Kunden */
+/** Onboarding 3. Tag 7: Erste Kunden */
 export function onboarding3FirstCustomers(name: string) {
   return {
     subject: "So gewinnst du deine ersten 3 Kunden",
     html: WRAPPER(`
       <h1>${name}, lass uns ueber deine ersten Kunden sprechen.</h1>
-      <p>Die ersten 3 Kunden sind entscheidend — danach wird alles leichter. Und sie sind naeher als du denkst.</p>
+      <p>Die ersten 3 Kunden sind entscheidend. Danach wird alles leichter. Und sie sind naeher als du denkst.</p>
       <p><strong>Wo du anfangen kannst:</strong></p>
       <ul>
-        <li><strong>Freunde und Familie mit Hund</strong> — Du musst nicht verkaufen. Erzaehle einfach, was du machst und warum du von dem Futter ueberzeugt bist.</li>
-        <li><strong>Hundewiese / Hundeschule</strong> — Gespraeche ueber Futter ergeben sich von allein. Wenn jemand fragt: "Was fuetterst du?" — das ist dein Moment.</li>
-        <li><strong>Social Media</strong> — Ein ehrlicher Post ueber die Ernaehrung deines Hundes bringt oft mehr als jede Werbung.</li>
+        <li><strong>Freunde und Familie mit Hund</strong>. Du musst nicht verkaufen. Erzaehle einfach, was du machst und warum du von dem Futter ueberzeugt bist.</li>
+        <li><strong>Hundewiese / Hundeschule</strong>. Gespraeche ueber Futter ergeben sich von allein. Wenn jemand fragt: "Was fuetterst du?". Das ist dein Moment.</li>
+        <li><strong>Social Media</strong>. Ein ehrlicher Post ueber die Ernaehrung deines Hundes bringt oft mehr als jede Werbung.</li>
       </ul>
       <div class="highlight">
         <strong>Startbonus:</strong> Wenn du in den ersten 30 Tagen 3 neue Kunden gewinnst, erhaeltst du in den ersten 3 Monaten 30 % Provision statt 15 %. Das kann hunderte Euro ausmachen.
@@ -88,23 +88,23 @@ export function onboarding3FirstCustomers(name: string) {
   };
 }
 
-/** Onboarding 4 — Tag 14: Tools + Nachfrage */
+/** Onboarding 4. Tag 14: Tools + Nachfrage */
 export function onboarding4Tools(name: string) {
   return {
     subject: `${name}, nutzt du schon alle deine Tools?`,
     html: WRAPPER(`
-      <h1>Zwei Wochen als Berater — wie laeuft's?</h1>
+      <h1>Zwei Wochen als Berater. Wie laeuft's?</h1>
       <p>${name}, ich wollte kurz nachfragen, wie deine ersten Tage waren. Hast du schon Kunden angesprochen?</p>
       <p><strong>Deine wichtigsten Werkzeuge:</strong></p>
       <ul class="checklist">
-        <li>☐ <strong>Dein persoenlicher Shop-Link</strong> — Kunden bestellen darueber direkt bei dir</li>
-        <li>☐ <strong>Ernaehrungsfibel</strong> — <a href="https://www.anifit.com/partners/Ernaehrungsfibel/index.html">Online lesen</a>, perfekt zum Weiterleiten</li>
-        <li>☐ <strong>Produktkatalog</strong> — <a href="https://www.provital.com/content/partners/Produktkatalog/index.html">Alle Sorten auf einen Blick</a></li>
-        <li>☐ <strong>Futter-Rechner</strong> — Auf deinem Shop, hilft Kunden die richtige Menge zu bestimmen</li>
-        <li>☐ <strong>Rabattcode JETZT10</strong> — 10 % Neukunden-Rabatt, dein bestes Argument</li>
+        <li>☐ <strong>Dein persoenlicher Shop-Link</strong>. Kunden bestellen darueber direkt bei dir</li>
+        <li>☐ <strong>Ernaehrungsfibel</strong>. <a href="https://www.anifit.com/partners/Ernaehrungsfibel/index.html">Online lesen</a>, perfekt zum Weiterleiten</li>
+        <li>☐ <strong>Produktkatalog</strong>. <a href="https://www.provital.com/content/partners/Produktkatalog/index.html">Alle Sorten auf einen Blick</a></li>
+        <li>☐ <strong>Futter-Rechner</strong>. Auf deinem Shop, hilft Kunden die richtige Menge zu bestimmen</li>
+        <li>☐ <strong>Rabattcode JETZT10</strong>. 10 % Neukunden-Rabatt, dein bestes Argument</li>
       </ul>
       <div class="highlight">
-        Jeder Kunde, den du einmal gewinnst, bleibt dir durch den Kundenschutz dauerhaft zugeordnet. Jede Nachbestellung bringt dir Provision — automatisch.
+        Jeder Kunde, den du einmal gewinnst, bleibt dir durch den Kundenschutz dauerhaft zugeordnet. Jede Nachbestellung bringt dir Provision. Automatisch.
       </div>
       <p>Schreib mir, wenn du Hilfe brauchst.</p>
       <p>Enrico</p>
@@ -112,7 +112,7 @@ export function onboarding4Tools(name: string) {
   };
 }
 
-/** Onboarding 5 — Tag 21: Langfristig + Stammkunden */
+/** Onboarding 5. Tag 21: Langfristig + Stammkunden */
 export function onboarding5Growth(name: string) {
   return {
     subject: "Dein Weg zu echtem passivem Einkommen",
@@ -126,7 +126,7 @@ export function onboarding5Growth(name: string) {
         <li><strong>Team aufbauen:</strong> Wenn du andere Berater anwirbst, profitierst du von deren Umsaetzen.</li>
       </ul>
       <div class="highlight">
-        <strong>Rechenbeispiel:</strong> 25 Stammkunden mit Lieferservice bestellen im Schnitt fuer 80 EUR/Monat. Bei 23 % Provision sind das 460 EUR monatlich — ohne aktives Zutun.
+        <strong>Rechenbeispiel:</strong> 25 Stammkunden mit Lieferservice bestellen im Schnitt fuer 80 EUR/Monat. Bei 23 % Provision sind das 460 EUR monatlich. Ohne aktives Zutun.
       </div>
       <p>Dein naechstes Ziel: Jeden Neukunden fragen, ob ein Lieferservice-Abo sinnvoll waere. Bei den meisten ist es das.</p>
       <p>Auf deinen Erfolg,<br><strong>Enrico</strong></p>

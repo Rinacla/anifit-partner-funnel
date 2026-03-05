@@ -78,10 +78,10 @@ export default function Home() {
       <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-3xl font-bold text-center mb-4">So funktioniert&apos;s</h2>
-          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">Kein Lager, kein Versand, kein Risiko. Provital übernimmt alles — du empfiehlst.</p>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">Kein Lager, kein Versand, kein Risiko. Provital übernimmt alles. Du empfiehlst.</p>
           <div className="grid sm:grid-cols-3 gap-10">
             {[
-              { icon: "📩", title: "Guide lesen", text: "Alle Infos zu Provision, Produkten und Ablauf — kompakt per E-Mail." },
+              { icon: "📩", title: "Guide lesen", text: "Alle Infos zu Provision, Produkten und Ablauf. Kompakt per E-Mail." },
               { icon: "✅", title: "Registrieren + Einstiegspaket", text: "Melde dich an und bestelle dein Einstiegspaket (ab 78 €, inkl. Warenproben)." },
               { icon: "🚀", title: "Erste Kunden gewinnen", text: "Mit Enricos Unterstützung und Vorlagen startest du sofort." },
             ].map((s, i) => (

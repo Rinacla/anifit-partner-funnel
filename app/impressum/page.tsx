@@ -37,7 +37,7 @@ export default function ImpressumPage() {
         <p>
           <strong>Anifit-Fachberater:</strong><br />
           Handelsvertreter gem. § 84 HGB<br />
-          Provital GmbH — Fachberater-Nr. 201289
+          Provital GmbH. Fachberater-Nr. 201289
         </p>
 
         <p>

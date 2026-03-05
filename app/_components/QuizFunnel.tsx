@@ -145,7 +145,7 @@ export default function QuizFunnel() {
           {/* Form */}
           <div className="border-t border-gray-100 pt-6">
             <p className="text-sm font-semibold text-gray-900 mb-4 text-center">
-              Hol dir deinen persönlichen Guide — kostenlos:
+              Hol dir deinen persönlichen Guide. Kostenlos:
             </p>
             <form onSubmit={handleSubmit} className="space-y-3">
               <input

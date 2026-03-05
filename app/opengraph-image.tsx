@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Anifit Berater werden — 15–30% Provision auf Premium-Hundefutter";
+export const alt = "Anifit Berater werden. 15–30% Provision auf Premium-Hundefutter";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

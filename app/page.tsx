@@ -50,6 +50,23 @@ export default function Home() {
           </p>
         </div>
       </section>
+      {/* Trust Bar */}
+      <section className="bg-white border-y border-gray-100 py-5">
+        <div className="mx-auto max-w-3xl px-6 flex flex-wrap justify-center gap-8 sm:gap-12 text-center">
+          {[
+            { value: "1.000+", label: "aktive Kunden" },
+            { value: "seit 2018", label: "aktiver Berater" },
+            { value: "30 %", label: "max. Provision" },
+            { value: "0 €", label: "Startkosten" },
+          ].map((item, i) => (
+            <div key={i} className="min-w-[100px]">
+              <p className="text-xl sm:text-2xl font-extrabold text-green-600">{item.value}</p>
+              <p className="text-xs text-gray-500 mt-0.5">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       {/* Lead Form */}
       <section id="guide" className="-mt-6 relative z-10 mx-auto max-w-md px-6">

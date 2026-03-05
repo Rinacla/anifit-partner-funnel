@@ -19,19 +19,15 @@ const stats: StatItem[] = [
 
 function useCountUp(target: number, duration: number, start: boolean, hydrated: boolean) {
   // SSR and pre-hydration: show real target value (SEO + no-JS fallback)
+  // Only reset to 0 when animation actually begins (visible + hydrated)
   const [value, setValue] = useState(target);
-  const hasReset = useRef(false);
+  const animating = useRef(false);
 
   useEffect(() => {
-    // After hydration, reset to 0 so animation can play from 0 -> target
-    if (!hasReset.current) {
-      setValue(0);
-      hasReset.current = true;
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!start || !hydrated) return;
+    if (!start || !hydrated || animating.current) return;
+    animating.current = true;
+    // Reset to 0, then animate up
+    setValue(0);
     let startTime: number | null = null;
     let raf: number;
 
@@ -44,6 +40,7 @@ function useCountUp(target: number, duration: number, start: boolean, hydrated: 
       if (progress < 1) raf = requestAnimationFrame(animate);
     };
 
+    // Small delay so the 0 state renders one frame before animating
     raf = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(raf);
   }, [target, duration, start, hydrated]);

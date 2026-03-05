@@ -2,15 +2,16 @@ import { NextResponse } from "next/server";
 import { listContacts, parseState, updateContactStep, sendEmail } from "@/lib/emailit";
 import { earningsEmail, registrationEmail, gewerbeEmail, firstCustomersEmail, ctaEmail, followUp1Email, followUp2Email } from "@/lib/emails";
 
+// Front-loaded: Kerninfos in 7 Tagen, CTA Tag 7, Follow-ups Tag 10+12
 const SEQUENCE = [
   // step 0 = welcome (sent immediately on signup)
-  { day: 2,  step: 1, getEmail: earningsEmail },
-  { day: 4,  step: 2, getEmail: registrationEmail },
-  { day: 7,  step: 3, getEmail: gewerbeEmail },
-  { day: 10, step: 4, getEmail: firstCustomersEmail },
-  { day: 14, step: 5, getEmail: ctaEmail },
-  { day: 18, step: 6, getEmail: followUp1Email },
-  { day: 22, step: 7, getEmail: followUp2Email },
+  { day: 1,  step: 1, getEmail: earningsEmail },        // Tag 1: Verdienst
+  { day: 3,  step: 2, getEmail: registrationEmail },     // Tag 3: Registrierung + Paket
+  { day: 5,  step: 3, getEmail: gewerbeEmail },          // Tag 5: Gewerbeschein
+  { day: 7,  step: 4, getEmail: firstCustomersEmail },   // Tag 7: Erste Kunden
+  { day: 9,  step: 5, getEmail: ctaEmail },              // Tag 9: Registrierungs-CTA
+  { day: 11, step: 6, getEmail: followUp1Email },        // Tag 11: Follow-up
+  { day: 14, step: 7, getEmail: followUp2Email },        // Tag 14: Letzte Erinnerung
 ];
 
 export async function GET(request: Request) {

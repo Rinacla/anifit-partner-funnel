@@ -25,22 +25,22 @@ export function welcomeEmail(name: string) {
     subject: "Dein Guide: So verdienst du mit Hundefutter 500\u20132.000 \u20ac/Monat",
     html: WRAPPER(`
       <h1>Hallo ${name},</h1>
-      <p>sch\u00f6n, dass du hier bist. Ich bin Enrico, seit 2018 Anifit-Fachberater. Ich verdiene heute \u00fcber 10.000 \u20ac monatlich mit Premium-Hundefutter \u2014 und ich zeige dir, wie du das auch schaffst.</p>
+      <p>sch\u00f6n, dass du hier bist. Ich bin Enrico, seit 2018 Anifit-Fachberater. Ich verdiene heute \u00fcber 10.000 \u20ac monatlich mit Premium-Hundefutter. Und ich zeige dir, wie du das auch schaffst.</p>
       <div class="highlight">
         <strong>Was ist Anifit?</strong><br>
-        Premium-Hundefutter aus Schweden, 90\u201399 % Fleisch. Testsieger bei hundeo.com (52 Marken getestet). Kein Supermarkt, kein Amazon \u2014 nur \u00fcber pers\u00f6nliche Fachberater wie dich.
+        Premium-Hundefutter aus Schweden, 90\u201399 % Fleisch. Testsieger bei hundeo.com (52 Marken getestet). Kein Supermarkt, kein Amazon. Nur \u00fcber pers\u00f6nliche Fachberater wie dich.
       </div>
       <p><strong>Das Modell in 30 Sekunden:</strong></p>
       <ul>
         <li>Du empfiehlst Anifit an Hundebesitzer</li>
-        <li>Kunden bestellen direkt bei Provital (Lager, Versand, Retouren \u2014 alles erledigt)</li>
-        <li>Du bekommst <strong>15\u201330 % Provision</strong> auf jede Bestellung \u2014 ein Leben lang</li>
+        <li>Kunden bestellen direkt bei Provital (Lager, Versand, Retouren: alles erledigt)</li>
+        <li>Du bekommst <strong>15\u201330 % Provision</strong> auf jede Bestellung. Ein Leben lang</li>
         <li>Lebenslanger Kundenschutz: Einmal dein Kunde, immer dein Kunde</li>
       </ul>
       <div class="urgency">
-        <strong>\u{1f525} Startbonus f\u00fcr Schnellstarter:</strong> Gewinnst du 3 Kunden in deinen ersten 30 Tagen, bekommst du <strong>3 Monate lang 30 % Provision auf ALLE Kundenums\u00e4tze</strong> \u2014 egal in welcher Stufe du bist. Das ist fast das Doppelte der normalen Einstiegsprovision.
+        <strong>\u{1f525} Startbonus f\u00fcr Schnellstarter:</strong> Gewinnst du 3 Kunden in deinen ersten 30 Tagen, bekommst du <strong>3 Monate lang 30 % Provision auf ALLE Kundenums\u00e4tze</strong>, egal in welcher Stufe du bist. Das ist fast das Doppelte der normalen Einstiegsprovision.
       </div>
-      <p><strong>Dein n\u00e4chster Schritt:</strong> Lies den Guide \u2014 alles Wichtige auf einer Seite:</p>
+      <p><strong>Dein n\u00e4chster Schritt:</strong> Lies den Guide. Alles Wichtige auf einer Seite:</p>
       <p style="text-align:center;margin:16px 0"><a href="https://partner.anifutter-shop.de/guide?utm_source=email&utm_medium=sequence&utm_campaign=welcome" class="btn">Guide lesen \u2192</a></p>
       <p>Morgen zeige ich dir die konkreten Verdienst-Zahlen.</p>
       <p>Enrico</p>
@@ -54,7 +54,7 @@ export function earningsEmail(name: string) {
     subject: "Echte Zahlen: So viel verdienen Anifit-Berater",
     html: WRAPPER(`
       <h1>${name}, stell dir vor:</h1>
-      <p>Du hast 25 Kunden, die monatlich Hundefutter bestellen. Bei einem Durchschnitt von 80 \u20ac pro Bestellung und 23 % Provision sind das <strong>460 \u20ac jeden Monat \u2014 automatisch.</strong></p>
+      <p>Du hast 25 Kunden, die monatlich Hundefutter bestellen. Bei einem Durchschnitt von 80 \u20ac pro Bestellung und 23 % Provision sind das <strong>460 \u20ac jeden Monat, automatisch.</strong></p>
       <p>Und das Beste: Du musst nichts weiter tun. Die Kunden bestellen nach, du kassierst.</p>
       <p><strong>Die Provisionsstufen:</strong></p>
       <ul>
@@ -64,7 +64,7 @@ export function earningsEmail(name: string) {
         <li><strong>96 Kunden \u2192 30 % \u2192 ~2.304 \u20ac/Monat</strong></li>
       </ul>
       <div class="highlight">
-        <strong>Langfristig denken:</strong> Ein Kunde, der 3 Jahre lang monatlich f\u00fcr 80 \u20ac bestellt, bringt dir bei 23 % Provision \u00fcber <strong>660 \u20ac</strong> \u2014 von einem einzigen Kunden. Bei 50 Kunden w\u00e4ren das 33.000 \u20ac in 3 Jahren.
+        <strong>Langfristig denken:</strong> Ein Kunde, der 3 Jahre lang monatlich f\u00fcr 80 \u20ac bestellt, bringt dir bei 23 % Provision \u00fcber <strong>660 \u20ac</strong>. Von einem einzigen Kunden. Bei 50 Kunden w\u00e4ren das 33.000 \u20ac in 3 Jahren.
       </div>
       <div class="urgency">
         <strong>Erinnerung \u{1f525} Startbonus:</strong> 3 Kunden in 30 Tagen = 30 % auf ALLE Ums\u00e4tze f\u00fcr 3 Monate. Wer fr\u00fch startet, verdient sofort mehr.
@@ -82,17 +82,17 @@ export function registrationEmail(name: string) {
     subject: "So startest du (Schritt f\u00fcr Schritt + Willkommenspaket)",
     html: WRAPPER(`
       <h1>${name}, heute wird\u2019s konkret.</h1>
-      <p>Hier ist der genaue Ablauf \u2014 einfacher als du denkst:</p>
+      <p>Hier ist der genaue Ablauf. Einfacher als du denkst:</p>
       <div class="step"><strong>1. Registrierung</strong> (5 Minuten online, Name + Adresse)</div>
-      <div class="step"><strong>2. Einstiegspaket bestellen</strong> (ab 78 \u20ac \u2014 echte Warenproben zum Selbsttesten)</div>
-      <div class="step"><strong>3. Startschulung mit mir</strong> (online, flexibler Termin \u2014 ich erkl\u00e4re dir alles)</div>
+      <div class="step"><strong>2. Einstiegspaket bestellen</strong> (ab 78 \u20ac, echte Warenproben zum Selbsttesten)</div>
+      <div class="step"><strong>3. Startschulung mit mir</strong> (online, flexibler Termin. Ich erkl\u00e4re dir alles)</div>
       <div class="step"><strong>4. Loslegen!</strong> Erste Kunden ansprechen mit meinen fertigen Vorlagen</div>
       <div class="highlight">
         <strong>\u{1f381} Willkommens-Deal:</strong><br>
         Du kaufst ein Einstiegspaket (ab 78 \u20ac) und bekommst nach der Startschulung ein <strong>zus\u00e4tzliches Warenproben-Paket im Wert von 80\u2013100 \u20ac GRATIS</strong> dazu.<br><br>
         Du investierst 78 \u20ac und bekommst Ware f\u00fcr ~160\u2013180 \u20ac. Das ist ein echtes 2-f\u00fcr-1.
       </div>
-      <p><strong>Übrigens:</strong> Als Berater bekommst du auch auf deine eigenen Einkäufe Provision — das sind mindestens 15 % Rabatt auf das Futter für deinen eigenen Hund. Für viele lohnt sich allein das schon.</p>
+      <p><strong>Übrigens:</strong> Als Berater bekommst du auch auf deine eigenen Einkäufe Provision, das sind mindestens 15 % Rabatt auf das Futter für deinen eigenen Hund. Für viele lohnt sich allein das schon.</p>
       <p><strong>Gewerbeschein?</strong> Brauchst du, ist aber in 15 Min. erledigt (online m\u00f6glich). Gewerbesteuer f\u00e4llt erst ab 24.500 \u20ac Jahresgewinn an \u2014 als Nebent\u00e4tigkeit bist du weit darunter. Ich helfe dir mit dem genauen Wortlaut.</p>
       <p><strong>Was du NICHT brauchst:</strong></p>
       <ul>
@@ -128,8 +128,8 @@ export function firstCustomersEmail(name: string) {
       </ul>
       <div class="highlight">
         <strong>\u{1f3c6} Mein Angebot als Mentor:</strong><br>
-        Ich mache \u00fcber 10.000 \u20ac monatlich mit Anifit und habe 1.000+ Kunden. Dieses Wissen gebe ich 1:1 weiter \u2014 aber nur an Berater, die ihre Startschulung abgeschlossen haben.<br><br>
-        Du bekommst: fertige WhatsApp-Vorlagen, Instagram-Post-Ideen, E-Mail-Templates, und pers\u00f6nliches Coaching f\u00fcr deine ersten 10 Kunden.
+        Ich mache \u00fcber 10.000 \u20ac monatlich mit Anifit und habe 1.000+ Kunden. Dieses Wissen gebe ich 1:1 weiter. Aber nur an Berater, die ihre Startschulung abgeschlossen haben.<br><br>
+        Du bekommst: fertige WhatsApp-Vorlagen, Instagram-Post-Ideen und E-Mail-Templates. Dazu pers\u00f6nliches Coaching f\u00fcr deine ersten 10 Kunden.
       </div>
       <p><strong>Dein Fahrplan:</strong></p>
       <ul>
@@ -166,7 +166,7 @@ export function ctaEmail(name: string) {
       <p style="text-align:center;margin:24px 0">
         <a href="${REG_LINK}" class="btn">Jetzt registrieren + Willkommenspaket sichern \u2192</a>
       </p>
-      <p>Oder ruf an: <a href="tel:+4932212619379" style="color:#4CAF50;font-weight:700">+49 322 126 19 379</a> \u2014 Lisa beantwortet alle Fragen sofort.</p>
+      <p>Oder ruf an: <a href="tel:+4932212619379" style="color:#4CAF50;font-weight:700">+49 322 126 19 379</a>. Lisa beantwortet alle Fragen sofort.</p>
       <p>Enrico</p>
     `),
   };
@@ -182,10 +182,10 @@ export function followUp1Email(name: string) {
       <p><strong>"78 \u20ac f\u00fcr das Einstiegspaket sind mir zu viel."</strong><br>
       Du bekommst echte Produkte + 80\u2013100 \u20ac Werbematerial gratis. Mit deinen ersten 3\u20134 Kunden hast du die Kosten drin. Und mit dem Startbonus verdienst du sofort 30 %.</p>
       <p><strong>"Ich bin kein Verk\u00e4ufer."</strong><br>
-      Musst du nicht sein. Hundebesitzer suchen aktiv nach besserem Futter. Du hilfst bei der Entscheidung \u2014 das Produkt verkauft sich durch Qualit\u00e4t.</p>
+      Musst du nicht sein. Hundebesitzer suchen aktiv nach besserem Futter. Du hilfst bei der Entscheidung. Das Produkt verkauft sich durch Qualit\u00e4t.</p>
       <p><strong>"Ich habe keine Zeit."</strong><br>
       2\u20133 Stunden pro Woche reichen. Kein B\u00fcro, keine festen Zeiten. Du bestimmst.</p>
-      <p>\u{1f4de} <strong>Ruf einfach an:</strong> <a href="tel:+4932212619379" style="color:#4CAF50">+49 322 126 19 379</a> \u2014 unsere Beraterin Lisa kl\u00e4rt alles in 5 Minuten.</p>
+      <p>\u{1f4de} <strong>Ruf einfach an:</strong> <a href="tel:+4932212619379" style="color:#4CAF50">+49 322 126 19 379</a>. Lisa kl\u00e4rt alles in 5 Minuten.</p>
       <p>Oder antworte auf diese Mail. Ich beantworte jede Frage pers\u00f6nlich.</p>
       <p>Enrico</p>
     `),

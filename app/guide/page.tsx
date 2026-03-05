@@ -17,7 +17,7 @@ export default function GuidePage() {
             Dein Start als Anifit-Tierernährungsberater
           </h1>
           <p className="mt-4 text-lg text-gray-600">
-            Von Enrico Bachmann — Anifit-Fachberater seit 2018, 1.000+ Kunden
+            Von Enrico Bachmann. Anifit-Fachberater seit 2018, 1.000+ Kunden
           </p>
         </div>
       </div>
@@ -33,7 +33,7 @@ export default function GuidePage() {
           <p className="text-gray-700 leading-relaxed mb-4">
             Anifit (Marke der Provital GmbH) ist Premium-Tiernahrung aus Schweden mit 90–99 % Fleischanteil.
             Kein Zucker, kein Gluten, keine künstlichen Zusatzstoffe. Das Unternehmen existiert seit über 20 Jahren
-            und vertreibt ausschließlich über persönliche Fachberater — nicht im Supermarkt.
+            und vertreibt ausschließlich über persönliche Fachberater. Nicht im Supermarkt.
           </p>
           <p className="text-gray-700 leading-relaxed">
             Das bedeutet für dich: Es gibt keinen Preiskampf mit Amazon oder Fressnapf. Deine Kunden kaufen
@@ -46,14 +46,14 @@ export default function GuidePage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Wie funktioniert das Geschäftsmodell?</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Du bist selbstständiger Handelsvertreter. Deine Aufgabe: Hundebesitzer beraten und ihnen Anifit empfehlen.
-            Den Rest übernimmt Provital — Lager, Versand, Retouren, Zahlungsabwicklung.
+            Den Rest übernimmt Provital. Lager, Versand, Retouren, Zahlungsabwicklung.
           </p>
           <div className="bg-gray-50 rounded-xl p-6 space-y-3">
             {[
               "Du empfiehlst Anifit (online, im Hundepark, bei Freunden, über Social Media)",
               "Der Kunde bestellt über deinen persönlichen Shop-Link",
               "Provital liefert direkt zum Kunden",
-              "Du bekommst 15–30 % Provision — auf jede Bestellung, ein Leben lang",
+              "Du bekommst 15–30 % Provision. Auf jede Bestellung, ein Leben lang",
             ].map((t, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="text-green-600 font-bold text-lg">{i + 1}.</span>
@@ -90,7 +90,7 @@ export default function GuidePage() {
             <p className="text-gray-700">
               <strong>Das Besondere:</strong> Durch den lebenslangen Kundenschutz bleiben dir einmal gewonnene Kunden
               dauerhaft zugeordnet. Ein Kunde, der monatlich für 80 € bestellt, bringt dir bei 23 % Provision
-              über <strong>220 € pro Jahr</strong> — automatisch, ohne weiteres Zutun.
+              über <strong>220 € pro Jahr</strong>. Automatisch, ohne weiteres Zutun.
             </p>
           </div>
         </section>
@@ -101,7 +101,7 @@ export default function GuidePage() {
             <Image src="/images/schnupperpaket.jpg" alt="Anifit Schnupperpaket" width={700} height={400} className="w-full h-auto" />
           </div>
           <p className="text-center text-sm text-gray-500 mt-2">
-            Das Anifit Schnupperpaket — der ideale Einstieg für Neukunden (9,90 €)
+            Das Anifit Schnupperpaket. Der ideale Einstieg für Neukunden (9,90 €)
           </p>
         </section>
 
@@ -111,7 +111,7 @@ export default function GuidePage() {
           <div className="space-y-4">
             {[
               { label: "Mindestalter", value: "18 Jahre" },
-              { label: "Gewerbeschein", value: "Anifit hilft dir bei der Beantragung — dauert 15 Min." },
+              { label: "Gewerbeschein", value: "Anifit hilft dir bei der Beantragung. Dauert 15 Min." },
               { label: "Vorkenntnisse", value: "Nicht nötig. Kostenlose Schulungen und Zertifizierung inklusive." },
               { label: "Startkosten", value: "Einstiegspaket ab ca. 78 € (Pflicht, inkl. Warenproben + 80–100 € Werbematerial gratis nach Startschulung)." },
               { label: "Zeitaufwand", value: "Die meisten starten mit 2–5 Stunden pro Woche." },
@@ -133,7 +133,7 @@ export default function GuidePage() {
             <div>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Ich bin seit 2018 Anifit-Fachberater und habe mir ein Business mit über 1.000 aktiven Kunden aufgebaut.
-                Mein eigener Hund frisst Anifit — ich empfehle nur, was ich selbst nutze.
+                Mein eigener Hund frisst Anifit. Ich empfehle nur, was ich selbst nutze.
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex gap-2"><span className="text-green-600">✓</span> Persönliche Einarbeitung nach deiner Registrierung</li>
@@ -160,7 +160,7 @@ export default function GuidePage() {
               { q: "Ist das nicht so ein MLM / Schneeballsystem?", a: "Nein. Du verdienst an echten Produktverkäufen deiner Kunden. Es gibt keine Pflicht, andere Berater zu rekrutieren. 100 % deiner Provision kommt aus Produktumsatz." },
               { q: "Ich kenne mich nicht mit Tierernährung aus.", a: "Musst du auch nicht. Anifit bietet kostenlose Online-Schulungen, Webinare und einen vollständigen Zertifizierungskurs. Du lernst alles, was du brauchst." },
               { q: "Ich habe keine Zeit für einen Nebenjob.", a: "Die meisten starten mit 2–3 Stunden pro Woche. Du empfiehlst bei Gesprächen, die du ohnehin führst. Es gibt keine Mindestanforderungen." },
-              { q: "Ich bin kein Verkäufer.", a: "Musst du nicht sein. Du berätst Hundebesitzer, die aktiv nach besserem Futter suchen. Das Produkt verkauft sich durch Qualität — du hilfst nur bei der Entscheidung." },
+              { q: "Ich bin kein Verkäufer.", a: "Musst du nicht sein. Du berätst Hundebesitzer, die aktiv nach besserem Futter suchen. Das Produkt verkauft sich durch Qualität. Du hilfst nur bei der Entscheidung." },
             ].map((item, i) => (
               <div key={i}>
                 <p className="font-semibold text-gray-900 mb-1">&quot;{item.q}&quot;</p>
@@ -179,7 +179,7 @@ export default function GuidePage() {
           </p>
           <div className="bg-white rounded-xl border border-gray-100 p-6 mb-8 inline-block">
             <p className="font-bold text-gray-900 mb-2">📞 Lieber erstmal telefonieren?</p>
-            <p className="text-sm text-gray-600 mb-3">Unsere Beraterin Lisa beantwortet alle Fragen — kostenlos.</p>
+            <p className="text-sm text-gray-600 mb-3">Unsere Beraterin Lisa beantwortet alle Fragen. Kostenlos.</p>
             <a href="tel:+4932212619379" className="text-green-600 font-bold hover:underline">+49 322 126 19 379 anrufen</a>
           </div>
           <div>

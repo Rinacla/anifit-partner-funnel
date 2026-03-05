@@ -16,7 +16,7 @@ export default function DankePage() {
           <div className="text-center mb-10">
             <div className="text-6xl mb-6">✅</div>
             <h1 className="text-3xl font-extrabold text-gray-900 mb-4">
-              Geschafft — dein Guide ist unterwegs!
+              Geschafft. Dein Guide ist unterwegs!
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed">
               Schau in dein Postfach (auch Spam checken). Die erste Mail kommt
@@ -56,7 +56,7 @@ export default function DankePage() {
             <p className="text-2xl mb-2">📞</p>
             <h3 className="font-bold text-gray-900 mb-2">Fragen? Ruf einfach an.</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Unsere Beraterin Lisa erklärt dir alles rund um den Start als Anifit-Berater — kostenlos und unverbindlich.
+              Unsere Beraterin Lisa erklärt dir alles rund um den Start als Anifit-Berater. Kostenlos und unverbindlich.
             </p>
             <a
               href="tel:+4932212619379"

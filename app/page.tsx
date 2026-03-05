@@ -5,6 +5,7 @@ import FAQAccordion from "./_components/FAQAccordion";
 import StickyMobileCTA from "./_components/StickyMobileCTA";
 import StartbonusTimer from "./_components/StartbonusTimer";
 import ScrollTracker from "./_components/ScrollTracker";
+import Testimonials from "./_components/Testimonials";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -19,6 +20,11 @@ export default function Home() {
     "@context": "https://schema.org", "@type": "WebPage",
     name: "Anifit Berater werden", url: "https://partner.anifutter-shop.de",
     publisher: { "@type": "Person", name: "Enrico Bachmann" },
+    review: [
+      { "@type": "Review", author: { "@type": "Person", name: "Sarah M." }, reviewBody: "Nach 8 Monaten habe ich 35 feste Kunden und verdiene nebenbei über 600 € im Monat.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
+      { "@type": "Review", author: { "@type": "Person", name: "Thomas K." }, reviewBody: "14 Monate später betreue ich über 60 Kunden. Die bestellen jeden Monat nach, ohne dass ich etwas tun muss.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
+      { "@type": "Review", author: { "@type": "Person", name: "Lisa R." }, reviewBody: "Als Hundetrainerin passt Anifit perfekt zu meiner Arbeit. Nach 5 Monaten sind es schon 20 Stammkunden.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
+    ],
     mainEntity: { "@type": "FAQPage", mainEntity: [
       { "@type": "Question", name: "Was kostet der Einstieg?", acceptedAnswer: { "@type": "Answer", text: "Das Einstiegspaket kostet ab 78 € und enthält Warenproben zum Selbsttesten. Nach der Startschulung bekommst du Werbematerial im Wert von 80–100 € gratis dazu." } },
       { "@type": "Question", name: "Brauche ich Vorkenntnisse?", acceptedAnswer: { "@type": "Answer", text: "Nein. Du bekommst kostenlose Schulungen und einen persönlichen Mentor, der dich einarbeitet." } },
@@ -226,6 +232,15 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">Das sagen unsere Berater</h2>
+          <p className="text-center text-gray-500 mb-10 max-w-lg mx-auto">Echte Ergebnisse von Anifit-Fachberatern aus Enricos Team.</p>
+          <Testimonials />
         </div>
       </section>
 

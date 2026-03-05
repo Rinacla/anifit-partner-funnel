@@ -1,3 +1,4 @@
+import Image from "next/image";
 import StickyMobileCTA from "./_components/StickyMobileCTA";
 import LeadForm from "./_components/LeadForm";
 import FAQAccordion from "./_components/FAQAccordion";
@@ -53,6 +54,22 @@ export default function Home() {
             Kundenschutz.
           </p>
         </div>
+        {/* Product Showcase */}
+        <div className="mx-auto max-w-2xl px-6 pb-12">
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+            <Image
+              src="/images/schnupperpaket.jpg"
+              alt="ANIfit Schnupperpaket — Premium Hundefutter mit 90-99% Fleischanteil"
+              width={800}
+              height={450}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+          <p className="text-center text-sm text-gray-400 mt-3">
+            ANIfit Schnupperpaket — Premium-Qualität aus Schweden
+          </p>
+        </div>
       </section>
       {/* Trust Bar */}
       <section className="bg-white border-y border-gray-100 py-5">
@@ -89,6 +106,15 @@ export default function Home() {
       <section className="mx-auto max-w-3xl px-6 py-20">
         <h2 className="text-3xl font-bold text-center mb-12">
           Warum Anifit-Berater werden?
+        <div className="mb-10 rounded-2xl overflow-hidden">
+          <Image
+            src="/images/sortiment.jpg"
+            alt="ANIfit Hundefutter Sortiment — verschiedene Sorten"
+            width={800}
+            height={400}
+            className="w-full h-auto rounded-2xl"
+          />
+        </div>
         </h2>
         <div className="grid sm:grid-cols-2 gap-8">
           {[
@@ -219,6 +245,17 @@ export default function Home() {
           Dein Mentor: Enrico Bachmann
         </h2>
         <div className="bg-gray-50 rounded-2xl p-8 sm:p-10">
+          <div className="flex flex-col sm:flex-row gap-8 items-start">
+          <div className="sm:w-48 flex-shrink-0">
+            <Image
+              src="/images/gockels-duett.jpg"
+              alt="ANIfit Gockels Duett — Premium Hundefutter"
+              width={192}
+              height={192}
+              className="rounded-xl w-full"
+            />
+          </div>
+          <div>
           <blockquote className="text-lg text-gray-700 leading-relaxed">
             „Ich bin seit 2018 Anifit-Fachberater und habe mir ein Business mit
             über 1.000 aktiven Kunden aufgebaut. Mein eigener Hund frisst Anifit
@@ -229,6 +266,7 @@ export default function Home() {
           <p className="mt-4 font-semibold text-gray-900">
             Enrico Bachmann
           </p>
+          </div></div>
           <p className="text-sm text-gray-500">
             Zertifizierter Ernährungsberater für Hunde &amp; Katzen
           </p>

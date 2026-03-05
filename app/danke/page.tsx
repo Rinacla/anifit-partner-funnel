@@ -34,11 +34,11 @@ export default function DankePage() {
             </h2>
             <div className="space-y-4">
               {[
-                { day: "Heute", icon: "📩", text: "Dein Guide: So funktioniert Anifit im Überblick" },
-                { day: "Tag 1", icon: "💰", text: "Was du konkret verdienst (echte Zahlen)" },
-                { day: "Tag 3", icon: "📋", text: "Registrierung + Einstiegspaket erklärt" },
-                { day: "Tag 5", icon: "📝", text: "Gewerbeschein: Einfacher als du denkst" },
-                { day: "Tag 7", icon: "🚀", text: "Deine ersten 5 Kunden gewinnen" },
+                { day: "Heute", icon: "📩", text: "Dein Guide + Startbonus-Infos" },
+                { day: "Morgen", icon: "💰", text: "Echte Verdienst-Zahlen und Rechenbeispiele" },
+                { day: "Tag 3", icon: "📋", text: "So startest du (Schritt für Schritt + Willkommenspaket)" },
+                { day: "Tag 5", icon: "🚀", text: "Deine ersten 5 Kunden + Mentor-Vorstellung" },
+                { day: "Tag 7", icon: "🎯", text: "Dein persönlicher Registrierungslink" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-16 text-center">

@@ -79,7 +79,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-3 gap-10">
             {[
               { title: "Guide lesen", text: "Alle Infos zu Provision, Produkten und Ablauf — kompakt per E-Mail.", icon: "📩" },
-              { title: "Kostenlos registrieren", text: "Melde dich bei Provital an. 0 € Kosten, kein Risiko.", icon: "✅" },
+              { title: "Registrieren + Einstiegspaket", text: "Melde dich an und bestelle dein Einstiegspaket (ab 78 €, inkl. Warenproben).", icon: "✅" },
               { title: "Erste Kunden gewinnen", text: "Mit Enricos Unterstützung und Vorlagen startest du sofort.", icon: "🚀" },
             ].map((s, i) => (
               <div key={i} className="text-center">
@@ -180,7 +180,7 @@ export default function Home() {
               { value: "1.000+", label: "aktive Kunden" },
               { value: "seit 2018", label: "dabei" },
               { value: "30 %", label: "max. Provision" },
-              { value: "0 €", label: "Startkosten" },
+              { value: "ab 78 €", label: "Einstiegspaket" },
             ].map((item, i) => (
               <div key={i}>
                 <p className="text-3xl font-extrabold text-green-600">{item.value}</p>

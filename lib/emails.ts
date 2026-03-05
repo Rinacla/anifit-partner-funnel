@@ -120,7 +120,7 @@ export function ctaEmail(name: string) {
       </ul>
       <p>Die Registrierung dauert keine 5 Minuten. Du brauchst nur deinen Namen und eine E-Mail-Adresse.</p>
       <p style="text-align:center;margin:24px 0">
-        <a href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=email&utm_medium=sequence&utm_campaign=teampartner" class="btn">
+        <a href="https://www.anifutter-shop.de/content/partners/201289a/anifit_berater_werden/?utm_source=email&utm_medium=sequence&utm_campaign=teampartner" class="btn">
           Jetzt als Anifit-Berater registrieren →
         </a>
       </p>
@@ -165,7 +165,7 @@ export function followUp2Email(name: string) {
         ✅ Willkommenspaket im Wert von 80 EUR nach deiner Startschulung
       </div>
       <p style="text-align:center;margin:24px 0">
-        <a href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=email&utm_medium=sequence&utm_campaign=teampartner-followup" class="btn">
+        <a href="https://www.anifutter-shop.de/content/partners/201289a/anifit_berater_werden/?utm_source=email&utm_medium=sequence&utm_campaign=teampartner-followup" class="btn">
           Jetzt als Anifit-Berater registrieren →
         </a>
       </p>

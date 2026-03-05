@@ -7,7 +7,7 @@ Ein Anifit-Fachberater empfiehlt Premium-Tiernahrung von Provital an Hunde- und 
 ## Anmeldung
 
 1. Online-Registrierung unter provital.com (5 Minuten)
-2. Komplett kostenlos, 0 Euro
+2. Einstiegspaket ab ca. 78 EUR (Pflicht, inkl. Warenproben + 60 EUR Werbematerial gratis)
 3. Sofort Zugang zum Beraterbereich
 4. Mentor Enrico Bachmann meldet sich persoenlich
 5. Kostenlose Startschulung
@@ -31,7 +31,7 @@ Jeder Kunde ist dauerhaft dir zugeordnet. Nachbestellungen bringen automatisch P
 ## FAQ
 
 ### Ist das MLM?
-Nein. 100% Provision aus echten Produktverkaeufen. Keine Einstiegsgebuehren, kein Mindestumsatz, kein Rekrutierungszwang.
+Nein. 100% Provision aus echten Produktverkaeufen. Einstiegspaket ab 78 EUR (einmalig), kein Mindestumsatz, kein Rekrutierungszwang.
 
 ### Vorkenntnisse noetig?
 Nein. Kostenlose Schulungen + Zertifizierung. Enrico begleitet dich.

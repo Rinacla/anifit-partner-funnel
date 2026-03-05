@@ -113,7 +113,7 @@ export default function GuidePage() {
               { label: "Mindestalter", value: "18 Jahre" },
               { label: "Gewerbeschein", value: "Anifit hilft dir bei der Beantragung — dauert 15 Min." },
               { label: "Vorkenntnisse", value: "Nicht nötig. Kostenlose Schulungen und Zertifizierung inklusive." },
-              { label: "Startkosten", value: "Die Registrierung ist kostenlos. Optionales Einstiegspaket ab ~80 €." },
+              { label: "Startkosten", value: "Einstiegspaket ab ca. 78 € (Pflicht, inkl. Warenproben + 60 € Werbematerial gratis)." },
               { label: "Zeitaufwand", value: "Die meisten starten mit 2–5 Stunden pro Woche." },
               { label: "Lagerhaltung", value: "Nicht nötig. Provital lagert, versendet und rechnet ab." },
             ].map((item, i) => (
@@ -184,7 +184,7 @@ export default function GuidePage() {
           </div>
           <div>
             <a
-              href="https://provital.com/registrierung?code=EB-Hundeo&utm_source=guide&utm_medium=web&utm_campaign=teampartner"
+              href="https://www.anifutter-shop.de/content/partners/201289a/anifit_berater_werden/?utm_source=guide&utm_medium=web&utm_campaign=teampartner"
               className="inline-block py-4 px-10 rounded-xl font-bold text-white text-lg transition-all"
               style={{ background: "#4CAF50", boxShadow: "0 4px 14px rgba(76,175,80,0.4)" }}
             >
@@ -192,7 +192,7 @@ export default function GuidePage() {
             </a>
           </div>
           <p className="text-sm text-gray-400 mt-4">
-            Willkommensbonus: Warenproben-Paket (80–100 € Wert) nach deiner Startschulung.
+            Willkommensbonus: Zusätzliches Futterpaket (80+ € Wert) gratis nach deiner Startschulung.
           </p>
         </section>
       </div>

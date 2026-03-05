@@ -113,7 +113,7 @@ export default function GuidePage() {
               { label: "Mindestalter", value: "18 Jahre" },
               { label: "Gewerbeschein", value: "Anifit hilft dir bei der Beantragung — dauert 15 Min." },
               { label: "Vorkenntnisse", value: "Nicht nötig. Kostenlose Schulungen und Zertifizierung inklusive." },
-              { label: "Startkosten", value: "Einstiegspaket ab ca. 78 € (Pflicht, inkl. Warenproben + 60 € Werbematerial gratis)." },
+              { label: "Startkosten", value: "Einstiegspaket ab ca. 78 € (Pflicht, inkl. Warenproben + 80–100 € Werbematerial gratis nach Startschulung)." },
               { label: "Zeitaufwand", value: "Die meisten starten mit 2–5 Stunden pro Woche." },
               { label: "Lagerhaltung", value: "Nicht nötig. Provital lagert, versendet und rechnet ab." },
             ].map((item, i) => (

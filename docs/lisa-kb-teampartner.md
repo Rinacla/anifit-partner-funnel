@@ -7,7 +7,7 @@ Ein Anifit-Fachberater empfiehlt Premium-Tiernahrung von Provital an Hunde- und 
 ## Anmeldung
 
 1. Online-Registrierung unter provital.com (5 Minuten)
-2. Einstiegspaket ab ca. 78 EUR (Pflicht, inkl. Warenproben + 60 EUR Werbematerial gratis)
+2. Einstiegspaket ab ca. 78 EUR (Pflicht, inkl. Warenproben + 80-100 EUR Werbematerial gratis nach Startschulung)
 3. Sofort Zugang zum Beraterbereich
 4. Mentor Enrico Bachmann meldet sich persoenlich
 5. Kostenlose Startschulung

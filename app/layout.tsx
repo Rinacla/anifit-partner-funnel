@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import Script from "next/script";
 import CookieBanner from "./_components/CookieBanner";
+import ExitIntentPopup from "./_components/ExitIntentPopup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -66,7 +67,7 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body className={`${geistSans.variable} antialiased`}>{children}<CookieBanner /></body>
+      <body className={`${geistSans.variable} antialiased`}>{children}<CookieBanner /><ExitIntentPopup /></body>
     </html>
   );
 }

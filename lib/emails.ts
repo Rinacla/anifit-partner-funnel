@@ -92,6 +92,7 @@ export function registrationEmail(name: string) {
         Du kaufst ein Einstiegspaket (ab 78 \u20ac) und bekommst nach der Startschulung ein <strong>zus\u00e4tzliches Warenproben-Paket im Wert von 80\u2013100 \u20ac GRATIS</strong> dazu.<br><br>
         Du investierst 78 \u20ac und bekommst Ware f\u00fcr ~160\u2013180 \u20ac. Das ist ein echtes 2-f\u00fcr-1.
       </div>
+      <p><strong>Übrigens:</strong> Als Berater bekommst du auch auf deine eigenen Einkäufe Provision — das sind mindestens 15 % Rabatt auf das Futter für deinen eigenen Hund. Für viele lohnt sich allein das schon.</p>
       <p><strong>Gewerbeschein?</strong> Brauchst du, ist aber in 15 Min. erledigt (online m\u00f6glich). Gewerbesteuer f\u00e4llt erst ab 24.500 \u20ac Jahresgewinn an \u2014 als Nebent\u00e4tigkeit bist du weit darunter. Ich helfe dir mit dem genauen Wortlaut.</p>
       <p><strong>Was du NICHT brauchst:</strong></p>
       <ul>

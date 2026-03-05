@@ -117,6 +117,32 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Hundeo Testsieger */}
+      <section className="py-12 border-t border-gray-100">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="bg-white rounded-2xl border border-gray-100 p-8 flex flex-col sm:flex-row gap-6 items-center">
+            <div className="flex-shrink-0 text-center">
+              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer">
+                <Image src="https://www.hundeo.com/wp-content/uploads/hundeo-logo.svg" alt="Hundeo" width={120} height={40} className="h-8 w-auto mx-auto mb-2" unoptimized />
+              </a>
+              <p className="text-xs text-gray-400">52 Marken getestet</p>
+            </div>
+            <div>
+              <p className="text-gray-700 leading-relaxed">
+                <strong>Anifit ist Testsieger im Hundefutter-Test 2026</strong> auf hundeo.com —
+                Deutschlands gr\u00f6\u00dftem Hunde-Portal mit 52 getesteten Marken.
+                Tier\u00e4rztlich gepr\u00fcft von Mag.med.vet. Emin Jasarevic.
+              </p>
+              <p className="text-sm text-gray-500 mt-2">
+                <em>\u201eAnifit geh\u00f6rt zu den besten Nassfutter-Marken. 93% Fleischanteil in Lebensmittelqualit\u00e4t,
+                vorbildliche Deklaration, schwedische Produktion.\u201c</em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Verdienst Rechner */}
       <section className="bg-green-50 py-20">
         <div className="mx-auto max-w-md px-6">

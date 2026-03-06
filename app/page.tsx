@@ -39,9 +39,27 @@ export default function Home() {
     ]}
   };
 
+  const videoJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "Anifit Geschäftsmodell – Business-Präsentation",
+    description: "Offizielle Provital/Anifit Geschäftspräsentation: Erfahre in 30 Minuten alles über das Provisionsmodell, Produkte und den Einstieg als Anifit-Fachberater.",
+    thumbnailUrl: "https://img.youtube.com/vi/jx_Bl4dWkQk/maxresdefault.jpg",
+    uploadDate: "2024-01-15",
+    duration: "PT30M12S",
+    contentUrl: "https://www.youtube.com/watch?v=jx_Bl4dWkQk",
+    embedUrl: "https://www.youtube-nocookie.com/embed/jx_Bl4dWkQk",
+    publisher: {
+      "@type": "Organization",
+      name: "Provital GmbH",
+    },
+    inLanguage: "de",
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
 
       {/* Hero with Quiz */}
       <section className="relative overflow-hidden">

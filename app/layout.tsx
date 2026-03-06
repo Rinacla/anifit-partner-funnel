@@ -43,10 +43,34 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
-        {/* Preconnect hints — only useful after consent, but low-cost */}
-        <link rel="preconnect" href="https://connect.facebook.net" />
-        <link rel="dns-prefetch" href="https://connect.facebook.net" />
-        {/* Meta Pixel is loaded AFTER consent via ConsentGatedPixel component (DSGVO) */}
+        {/* Facebook preconnect moved to lib/consent.ts loadMetaPixel() — DSGVO requires no
+            network requests to tracking providers before explicit user consent (even dns-prefetch
+            leaks IP to Facebook). Preconnect is now injected dynamically after "Akzeptieren". */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Enrico Bachmann — Anifit-Fachberater",
+              url: "https://partner.anifutter-shop.de",
+              logo: "https://partner.anifutter-shop.de/enrico.webp",
+              description:
+                "Werde Anifit-Fachberater: 15–30 % Provision auf Premium-Hundefutter mit lebenslangem Kundenschutz. Persönliche Einarbeitung durch Enrico Bachmann.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+49-322-12619379",
+                contactType: "customer service",
+                availableLanguage: "German",
+                email: "partner@anifutter-shop.de",
+              },
+              sameAs: [
+                "https://wa.me/4915204000990",
+                "https://www.anifutter-shop.de",
+              ],
+            }),
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} antialiased`}>{children}<LayoutOverlays /><ConsentGatedPixel /></body>
     </html>

@@ -21,6 +21,15 @@ export function loadMetaPixel(): void {
   if ((window as any).__metaPixelLoaded) return;
   (window as any).__metaPixelLoaded = true;
 
+  // Preconnect hint — injected here (not in layout) so no request
+  // reaches Facebook before explicit DSGVO consent.
+  if (!document.querySelector('link[href="https://connect.facebook.net"]')) {
+    const link = document.createElement("link");
+    link.rel = "preconnect";
+    link.href = "https://connect.facebook.net";
+    document.head.appendChild(link);
+  }
+
   // Initialize fbq via inline script (same as Meta's standard snippet)
   const script = document.createElement("script");
   script.innerHTML = `

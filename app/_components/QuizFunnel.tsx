@@ -75,6 +75,7 @@ export default function QuizFunnel() {
   const [wantsCall, setWantsCall] = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
   const utm = useUtmParams();
 
@@ -85,6 +86,17 @@ export default function QuizFunnel() {
       } else {
         (window as any).fbq("trackCustom", event);
       }
+    }
+  };
+
+  const handleBack = () => {
+    if (showResult) {
+      setShowResult(false);
+      setAnswers(answers.slice(0, -1));
+      setStep(STEPS.length - 1);
+    } else if (step > 0) {
+      setAnswers(answers.slice(0, -1));
+      setStep(step - 1);
     }
   };
 
@@ -105,17 +117,20 @@ export default function QuizFunnel() {
     e.preventDefault();
     if (!consent || !name.trim() || !email.trim()) return;
     setLoading(true);
+    setError("");
     try {
-      await fetch("/api/lead", {
+      const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm }),
       });
+      if (!res.ok) throw new Error("server");
       trackPixel("FormSubmit", { wantsCall, quizAnswers: answers.join(",") });
       setDone(true);
       window.location.href = "/danke";
     } catch {
       setLoading(false);
+      setError("Das hat leider nicht geklappt. Bitte versuch es nochmal.");
     }
   };
 
@@ -135,9 +150,20 @@ export default function QuizFunnel() {
 
       {!showResult ? (
         <div className="animate-fade-in" key={step}>
-          <p className="text-xs font-medium text-green-600 mb-2">
-            Frage {step + 1} von {STEPS.length}
-          </p>
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-xs font-medium text-green-600">
+              Frage {step + 1} von {STEPS.length}
+            </p>
+            {step > 0 && (
+              <button
+                onClick={handleBack}
+                className="text-xs text-gray-400 hover:text-gray-600 transition-colors flex items-center gap-1"
+              >
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                Zurück
+              </button>
+            )}
+          </div>
           <h3 className="text-xl font-bold text-gray-900 mb-6">
             {STEPS[step].question}
           </h3>
@@ -157,6 +183,14 @@ export default function QuizFunnel() {
         </div>
       ) : (
         <div ref={formRef}>
+          {/* Back to quiz */}
+          <button
+            onClick={handleBack}
+            className="text-xs text-gray-400 hover:text-gray-600 transition-colors flex items-center gap-1 mb-4"
+          >
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+            Zurück zur letzten Frage
+          </button>
           {/* Result */}
           {(() => {
             const result = getResult(answers);
@@ -241,6 +275,9 @@ export default function QuizFunnel() {
                   <a href="/datenschutz" className="underline">Datenschutz</a>
                 </span>
               </label>
+              {error && (
+                <p className="text-sm text-red-600 bg-red-50 rounded-lg px-4 py-2 text-center">{error}</p>
+              )}
               <button
                 type="submit"
                 disabled={loading || !consent}

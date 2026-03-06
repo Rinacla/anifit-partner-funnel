@@ -70,7 +70,10 @@ export default function Home() {
               <BenefitIcons />
             </div>
             <div className="w-full lg:w-[420px] flex-shrink-0">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8" id="quiz">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8 relative" id="quiz">
+                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg transform rotate-6 z-10 animate-bounce">
+                  HEUTE: 0€ STARTKOSTEN
+                </div>
                 <QuizFunnel />
               </div>
             </div>

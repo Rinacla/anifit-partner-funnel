@@ -257,7 +257,9 @@ export default function QuizFunnel() {
               {wantsCall && (
                 <input
                   type="tel"
-                  placeholder="Deine Telefonnummer"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="z. B. 0170 1234567"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"

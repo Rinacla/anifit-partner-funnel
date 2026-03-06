@@ -19,6 +19,8 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [wantsCall, setWantsCall] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [consent, setConsent] = useState(false);
@@ -33,7 +35,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, utm, source }),
+        body: JSON.stringify({ name, email, phone: phone.trim() || undefined, wantsCall, utm, source }),
       });
 
       const data = await res.json();
@@ -93,6 +95,40 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           disabled={loading}
         />
       </div>
+      <div className="flex items-start gap-3">
+        <input
+          id={`${idPrefix}callback`}
+          type="checkbox"
+          checked={wantsCall}
+          onChange={(e) => setWantsCall(e.target.checked)}
+          className="mt-1 w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+          disabled={loading}
+        />
+        <label htmlFor={`${idPrefix}callback`} className="text-sm text-gray-600 leading-relaxed">
+          Ja, ich möchte einen kurzen Rückruf (optional)
+        </label>
+      </div>
+      {wantsCall && (
+        <div>
+          <label
+            htmlFor={`${idPrefix}phone`}
+            className="block text-sm font-medium text-gray-700 mb-1.5"
+          >
+            Deine Telefonnummer
+          </label>
+          <input
+            id={`${idPrefix}phone`}
+            type="tel"
+            autoComplete="tel"
+            inputMode="tel"
+            placeholder="z. B. 0170 1234567"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="w-full px-4 py-3.5 rounded-xl border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-base transition-shadow"
+            disabled={loading}
+          />
+        </div>
+      )}
       <div className="flex items-start gap-3">
         <input
           id={`${idPrefix}consent`}

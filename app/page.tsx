@@ -10,6 +10,7 @@ import ContactSection from "./_components/ContactSection";
 import VideoSection from "./_components/VideoSection";
 import BenefitIcons from "./_components/BenefitIcons";
 import ClientOverlays from "./_components/ClientOverlays";
+import StartbonusMini from "./_components/StartbonusMini";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -479,7 +480,8 @@ export default function Home() {
       <section className="bg-green-600 py-16">
         <div className="mx-auto max-w-md px-6">
           <h2 className="text-2xl font-bold text-white text-center mb-3">Klingt nach dir?</h2>
-          <p className="text-green-100 text-center mb-8">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
+          <p className="text-green-100 text-center mb-2">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
+          <StartbonusMini />
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
             <LeadForm idPrefix="bottom-" source="bottom" />
           </div>

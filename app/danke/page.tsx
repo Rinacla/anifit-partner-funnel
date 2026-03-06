@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 const SHARE_URL = "https://partner.anifutter-shop.de";
 const SHARE_TEXT = "Ich hab mir gerade einen Guide geholt, wie man als Anifit-Fachberater nebenbei Geld verdienen kann. Schau mal rein:";
 const WHATSAPP_CONTACT = "https://wa.me/4915204000990?text=Hallo%20Enrico%2C%20ich%20habe%20gerade%20den%20Guide%20angefordert%20und%20h%C3%A4tte%20eine%20Frage.";
+const VIDEO_ID = "jx_Bl4dWkQk";
 
 export default function DankePage() {
   const [copied, setCopied] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).fbq) {
@@ -76,6 +78,56 @@ export default function DankePage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Next Step: Watch the video */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-8">
+            <div className="text-center mb-4">
+              <p className="text-xs font-bold tracking-widest uppercase text-green-700 bg-green-100 px-3 py-1 rounded-full inline-block mb-3">Empfohlener nächster Schritt</p>
+              <h2 className="font-bold text-lg text-gray-900 mb-2">
+                Schau dir das Geschäftsmodell an (30 Min.)
+              </h2>
+              <p className="text-sm text-gray-600">
+                Während du auf deine erste Mail wartest: Diese Präsentation erklärt Provision, Produkte und Ablauf.
+              </p>
+            </div>
+            {!showVideo ? (
+              <button
+                onClick={() => {
+                  setShowVideo(true);
+                  if ((window as any).fbq) (window as any).fbq("trackCustom", "DankeVideoPlay");
+                }}
+                className="relative w-full rounded-xl overflow-hidden group cursor-pointer block"
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                  alt="Anifit Business-Präsentation"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                  <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <svg className="w-7 h-7 text-green-600 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs font-mono px-2 py-1 rounded">
+                  30:12
+                </div>
+              </button>
+            ) : (
+              <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
+                  title="Anifit Business-Präsentation"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                />
+              </div>
+            )}
+            <p className="text-xs text-gray-400 text-center mt-3">
+              Offizielle Provital/Anifit Geschäftspräsentation
+            </p>
           </div>
 
           {/* Referral / Share */}

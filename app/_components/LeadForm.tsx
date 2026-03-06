@@ -44,7 +44,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
         return;
       }
 
-      trackPixel("Lead", { content_name: source }, true);
+      // Lead pixel fires on /danke page (single source of truth)
       router.push("/danke");
     } catch {
       setError("Netzwerkfehler. Bitte prüfe deine Verbindung.");

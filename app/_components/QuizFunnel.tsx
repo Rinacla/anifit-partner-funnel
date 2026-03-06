@@ -126,7 +126,7 @@ export default function QuizFunnel() {
         body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm, source: "quiz" }),
       });
       if (!res.ok) throw new Error("server");
-      trackPixel("Lead", { content_name: "quiz" }, true);
+      // Lead pixel fires on /danke page (single source of truth)
       setDone(true);
       window.location.href = "/danke";
     } catch {

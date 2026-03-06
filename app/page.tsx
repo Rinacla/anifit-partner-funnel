@@ -39,6 +39,31 @@ export default function Home() {
     ]}
   };
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Enrico Bachmann",
+    jobTitle: "Zertifizierter Ernährungsberater für Hunde und Katzen",
+    description: "Anifit-Fachberater seit 2018 mit über 1.000 aktiven Kunden und 34 Teampartnern.",
+    url: "https://partner.anifutter-shop.de",
+    image: "https://partner.anifutter-shop.de/images/enrico-bachmann.jpg",
+    sameAs: [
+      "https://www.anifutter-shop.de",
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Provital GmbH",
+      brand: "Anifit",
+      url: "https://www.anifit.com",
+    },
+    knowsAbout: ["Tierernährung", "Hundefutter", "Katzenfutter", "Anifit"],
+    areaServed: {
+      "@type": "GeoCircle",
+      geoMidpoint: { "@type": "GeoCoordinates", latitude: 51.1657, longitude: 10.4515 },
+      geoRadius: "500000",
+    },
+  };
+
   const videoJsonLd = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -59,6 +84,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
 
       {/* Hero with Quiz */}
@@ -363,6 +389,15 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-4">Das sagen unsere Berater</h2>
           <p className="text-center text-gray-500 mb-10 max-w-lg mx-auto">Echte Ergebnisse von Anifit-Fachberatern aus Enricos Team.</p>
           <Testimonials />
+          <div className="text-center mt-8">
+            <a
+              href="/erfahrungen"
+              className="inline-flex items-center gap-1.5 text-green-700 font-semibold text-sm hover:text-green-800 transition-colors"
+            >
+              Alle Erfahrungsberichte lesen
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
         </div>
       </section>
 

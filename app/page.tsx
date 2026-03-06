@@ -2,17 +2,14 @@ import Image from "next/image";
 import QuizFunnel from "./_components/QuizFunnel";
 import ProvisionsRechner from "./_components/ProvisionsRechner";
 import FAQAccordion from "./_components/FAQAccordion";
-import StickyMobileCTA from "./_components/StickyMobileCTA";
 import StartbonusTimer from "./_components/StartbonusTimer";
 import LeadForm from "./_components/LeadForm";
-import ScrollTracker from "./_components/ScrollTracker";
 import Testimonials from "./_components/Testimonials";
 import AnimatedStats from "./_components/AnimatedStats";
-import StickyHeader from "./_components/StickyHeader";
 import ContactSection from "./_components/ContactSection";
 import VideoSection from "./_components/VideoSection";
 import BenefitIcons from "./_components/BenefitIcons";
-import LeadProofBubble from "./_components/LeadProofBubble";
+import ClientOverlays from "./_components/ClientOverlays";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -466,10 +463,7 @@ export default function Home() {
           <p className="text-center text-xs text-gray-400 border-t border-gray-50 pt-4">© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
         </div>
       </footer>
-      <StickyHeader />
-      <StickyMobileCTA />
-      <ScrollTracker />
-      <LeadProofBubble />
+      <ClientOverlays />
     </div>
   );
 }

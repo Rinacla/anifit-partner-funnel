@@ -83,7 +83,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen bg-white text-gray-900">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
@@ -460,25 +460,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="py-10">
+      {/* Guarantee / Versprechen */}
+      <section className="py-12">
         <div className="mx-auto max-w-2xl px-6">
-          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 text-center">
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="text-2xl">🔒</span>
-              <p className="text-sm font-semibold text-gray-800">100 % kostenlos</p>
-              <p className="text-xs text-gray-500">Kein Abo, keine Kreditkarte</p>
+          <div className="rounded-2xl border-2 border-green-100 bg-green-50/50 p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-gray-900 text-center mb-6">Mein Versprechen an dich</h2>
+            <div className="grid sm:grid-cols-3 gap-5 text-center">
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                </div>
+                <p className="text-sm font-semibold text-gray-800">100 % kostenlos</p>
+                <p className="text-xs text-gray-500">Kein Abo, keine Kreditkarte, keine versteckten Kosten</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                </div>
+                <p className="text-sm font-semibold text-gray-800">5 Emails, dann Schluss</p>
+                <p className="text-xs text-gray-500">Kein endloser Newsletter, jederzeit abmeldbar</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                </div>
+                <p className="text-sm font-semibold text-gray-800">Persönlich von Enrico</p>
+                <p className="text-xs text-gray-500">Kein Chatbot, kein Callcenter. Ich antworte selbst.</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="text-2xl">📧</span>
-              <p className="text-sm font-semibold text-gray-800">5 Emails, dann Schluss</p>
-              <p className="text-xs text-gray-500">Kein endloser Newsletter</p>
-            </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="text-2xl">🤝</span>
-              <p className="text-sm font-semibold text-gray-800">Persönlicher Ansprechpartner</p>
-              <p className="text-xs text-gray-500">Enrico antwortet selbst</p>
-            </div>
+            <p className="text-xs text-gray-400 text-center mt-5">
+              Passt es nicht? Dann löschst du die Emails und gut ist. Kein Nachhaken, kein Kleingedrucktes.
+            </p>
           </div>
         </div>
       </section>
@@ -530,6 +542,6 @@ export default function Home() {
         </div>
       </footer>
       <ClientOverlays />
-    </div>
+    </main>
   );
 }

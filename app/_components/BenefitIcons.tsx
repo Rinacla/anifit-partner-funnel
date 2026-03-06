@@ -11,8 +11,8 @@ export default function BenefitIcons() {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
       {benefits.map((b, i) => (
-        <div key={i} className="flex flex-col items-center p-3 bg-white/50 backdrop-blur-sm rounded-xl border border-green-100/50 shadow-sm text-center transform transition-transform hover:scale-105">
-          <span className="text-2xl mb-1.5">{b.icon}</span>
+        <div key={i} className="flex flex-col items-center p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-green-100/50 shadow-sm text-center transform transition-all hover:scale-105 hover:shadow-md hover:border-green-200 group">
+          <span className="text-2xl mb-1.5 group-hover:animate-bounce">{b.icon}</span>
           <p className="text-[10px] font-bold text-green-800 uppercase tracking-wider mb-0.5">{b.label}</p>
           <p className="text-[11px] text-gray-600 font-medium leading-tight">{b.text}</p>
         </div>

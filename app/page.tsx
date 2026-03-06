@@ -10,6 +10,7 @@ import Testimonials from "./_components/Testimonials";
 import AnimatedStats from "./_components/AnimatedStats";
 import StickyHeader from "./_components/StickyHeader";
 import ContactSection from "./_components/ContactSection";
+import VideoSection from "./_components/VideoSection";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -304,6 +305,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Video: Business-Präsentation */}
+      <VideoSection />
 
       {/* Zahlen (animated counters) */}
       <section className="bg-gray-50 py-16">

@@ -424,6 +424,7 @@ export default function Home() {
             <div>
               <p className="font-bold text-gray-900 text-sm mb-2">Weitere Infos</p>
               <ul className="space-y-1 text-sm text-gray-500">
+                <li><a href="/einkommen-berechnen" className="hover:text-green-600 transition-colors font-semibold text-green-700">Verdienst-Rechner</a></li>
                 <li><a href="/nebenverdienst-mit-hunden" className="hover:text-green-600 transition-colors">Nebenverdienst mit Hunden</a></li>
                 <li><a href="/tierberufe" className="hover:text-green-600 transition-colors">Für Tierärzte, THP &amp; Züchter</a></li>
                 <li><a href="https://www.anifutter-shop.de" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors">Zum Anifit-Shop →</a></li>

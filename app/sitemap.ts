@@ -12,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/einkommen-berechnen`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/guide`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -21,19 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/nebenverdienst-mit-hunden`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/tierberufe`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/nebenverdienst-mit-hunden`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/impressum`,

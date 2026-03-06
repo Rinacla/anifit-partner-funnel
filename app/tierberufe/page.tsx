@@ -1,5 +1,34 @@
 import Image from "next/image";
 import ContactForm from "../_components/ContactForm";
+import FAQAccordion from "../_components/FAQAccordion";
+import type { FAQItem } from "../_components/FAQAccordion";
+
+const tierberufeFaqs: FAQItem[] = [
+  {
+    q: "Kostet die Registrierung als Partner etwas?",
+    a: "Nein. Die Registrierung ist kostenlos. Sie gehen keine Verpflichtungen ein und es gibt keine Mindestabnahme. Sie bestellen einfach zum Einkaufspreis, wenn Sie möchten.",
+  },
+  {
+    q: "Wie funktioniert der 30 % Rabatt?",
+    a: "Nach der Registrierung bestellen Sie das gesamte Anifit-Sortiment direkt zum Beraterpreis, das sind rund 30 % unter dem regulären Verkaufspreis. Das gilt ab der ersten Bestellung, ohne Mindestmenge.",
+  },
+  {
+    q: "Muss ich aktiv verkaufen oder Kunden werben?",
+    a: "Nein. Viele Tierärzte und THP nutzen den Partner-Status nur für den eigenen Rabatt. Wenn Sie Anifit Ihren Patienten empfehlen und diese über Ihren Link bestellen, erhalten Sie zusätzlich 5 % Provision. Das ist freiwillig.",
+  },
+  {
+    q: "Welche Nachweise brauche ich für die Registrierung?",
+    a: "Ein kurzer Tätigkeitsnachweis genügt: Ihre Praxis-Webseite, Ihre Mitgliedskarte im Berufsverband oder ein Ausbildungszertifikat. Provital prüft das unbürokratisch.",
+  },
+  {
+    q: "Gibt es spezielle Pakete für Welpenkäufer?",
+    a: "Ja. Züchter können fertige Welpen- und Kitten-Starterpakete bestellen und ihren Käufern als hochwertiges Abschiedspaket mitgeben. Die Käufer bestellen dann direkt nach, Sie erhalten die Provision.",
+  },
+  {
+    q: "Wie läuft der Versand? Muss ich Futter lagern?",
+    a: "Provital übernimmt Lagerung, Verpackung und Versand direkt an Ihre Kunden oder an Sie. Sie brauchen kein Lager und keinen logistischen Aufwand.",
+  },
+];
 
 export const metadata = {
   title: "Anifit für Tierärzte, THP & Züchter | 30 % Rabatt auf Premium-Tiernahrung",
@@ -147,6 +176,33 @@ export default function TierberufePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <section className="bg-gray-50 py-14">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-2xl font-bold text-center mb-8">Häufige Fragen zum Partner-Programm</h2>
+          <FAQAccordion items={tierberufeFaqs} />
+        </div>
+      </section>
+
+      {/* FAQ Schema JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: tierberufeFaqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
 
       {/* Bottom CTA */}
       <section className="bg-blue-600 py-14">

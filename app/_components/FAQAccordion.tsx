@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-const faqs = [
+const defaultFaqs = [
   {
     q: "Muss ich etwas vorab investieren?",
     a: "Nein. Die Registrierung ist vollständig kostenlos. Provital übernimmt Lagerung, Versand und Retouren. Du trägst kein finanzielles Risiko – du startest ohne Vorkosten.",
@@ -29,7 +29,9 @@ const faqs = [
   },
 ];
 
-function FAQItem({ faq, isOpen, onToggle }: { faq: { q: string; a: string }; isOpen: boolean; onToggle: () => void }) {
+export type FAQItem = { q: string; a: string };
+
+function FAQItemRow({ faq, isOpen, onToggle }: { faq: FAQItem; isOpen: boolean; onToggle: () => void }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
@@ -84,13 +86,14 @@ function FAQItem({ faq, isOpen, onToggle }: { faq: { q: string; a: string }; isO
   );
 }
 
-export default function FAQAccordion() {
+export default function FAQAccordion({ items }: { items?: FAQItem[] } = {}) {
   const [open, setOpen] = useState<number | null>(null);
+  const faqs = items || defaultFaqs;
 
   return (
     <div className="space-y-3">
       {faqs.map((faq, i) => (
-        <FAQItem
+        <FAQItemRow
           key={i}
           faq={faq}
           isOpen={open === i}

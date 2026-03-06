@@ -287,7 +287,7 @@ export default function QuizFunnel() {
                 className="w-full py-4 rounded-xl font-bold text-white text-base transition-all disabled:opacity-50"
                 style={{ background: "#4CAF50", boxShadow: "0 4px 14px rgba(76,175,80,0.4)" }}
               >
-                {loading ? "Wird gesendet…" : "Meinen Guide anfordern →"}
+                {loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Meinen Guide anfordern →"}
               </button>
             </form>
             <p className="text-center text-xs text-gray-400 mt-3">

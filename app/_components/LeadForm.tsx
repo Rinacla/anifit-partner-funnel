@@ -158,7 +158,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           boxShadow: loading ? "none" : "0 4px 14px rgba(76,175,80,0.4)",
         }}
       >
-        {loading ? "Wird gesendet…" : "Gratis-Guide anfordern →"}
+        {loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Gratis-Guide anfordern →"}
       </button>
       <p className="text-xs text-center text-gray-400">
         Kein Spam. Keine Weitergabe deiner Daten. Jederzeit abmeldbar.

@@ -86,8 +86,21 @@ export async function POST(req: NextRequest) {
     await sendEmail("partner@anifutter-shop.de", `Rückruf gewünscht: ${cleanName} (${phone})`, phoneHtml);
   }
 
-  // Log attribution for all non-tierberufe leads (console for Vercel logs)
+  // Notify Enrico about every new lead (not just tierberufe/callback)
   if (!isTierberufe) {
+    const quizSummary = quiz?.length ? quiz.join(" → ") : "kein Quiz";
+    const callbackInfo = wantsCall && phone ? `<p><strong>📞 Rückruf:</strong> ${phone}</p>` : "";
+    const notifyHtml = `
+      <h2>Neuer Lead: ${cleanName}</h2>
+      <p><strong>Email:</strong> ${cleanEmail}</p>
+      <p><strong>Quiz:</strong> ${quizSummary}</p>
+      <p><strong>Quelle:</strong> ${source || "unbekannt"} · ${utmLine}</p>
+      ${callbackInfo}
+    `;
+    // Fire-and-forget — don't block the response
+    sendEmail("partner@anifutter-shop.de", `Neuer Lead: ${cleanName}`, notifyHtml).catch((err) =>
+      console.error("Lead notification error:", err)
+    );
     console.log(`[LEAD] ${cleanName} <${cleanEmail}> | quiz: ${quiz?.join(",") || "-"} | utm: ${utmLine}`);
   }
 

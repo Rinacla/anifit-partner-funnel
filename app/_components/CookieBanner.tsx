@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { setConsent, loadMetaPixel, disableMetaPixel } from "../../lib/consent";
 
 export default function CookieBanner() {
   const [show, setShow] = useState(false);
@@ -11,17 +12,15 @@ export default function CookieBanner() {
   }, []);
 
   function accept() {
-    localStorage.setItem("cookie_consent", "accepted");
+    setConsent(true);
+    loadMetaPixel();
     setShow(false);
   }
 
   function decline() {
-    localStorage.setItem("cookie_consent", "declined");
+    setConsent(false);
+    disableMetaPixel();
     setShow(false);
-    // Disable Meta Pixel
-    if (typeof window !== "undefined") {
-      (window as any).fbq = function () {};
-    }
   }
 
   if (!show) return null;

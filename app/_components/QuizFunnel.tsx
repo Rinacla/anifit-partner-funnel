@@ -34,10 +34,34 @@ const STEPS = [
 ];
 
 function getResult(answers: string[]) {
+  const pet = answers[0];
   const time = answers[2];
-  if (time === "viel") return { emoji: "🚀", headline: "Du hast das Potenzial für ein Vollzeit-Einkommen!", sub: "Mit 10+ Stunden pro Woche kannst du dir schnell einen stabilen Kundenstamm aufbauen." };
-  if (time === "mittel") return { emoji: "💪", headline: "Perfekt für einen soliden Nebenverdienst!", sub: "5–10 Stunden reichen, um dir 500–1.000 € monatlich aufzubauen." };
-  return { emoji: "✨", headline: "Auch mit wenig Zeit kannst du starten!", sub: "Viele unserer Berater haben mit 2–3 Stunden pro Woche angefangen." };
+
+  // Earnings estimate based on time investment
+  const earnings = time === "viel"
+    ? { min: 800, max: 2000, customers: "30–60", months: "6–12" }
+    : time === "mittel"
+    ? { min: 400, max: 1000, customers: "15–30", months: "8–14" }
+    : { min: 150, max: 500, customers: "5–15", months: "10–18" };
+
+  // Pet-specific angle
+  const petText = pet === "katze"
+    ? "Katzenbesitzer sind eine treue Zielgruppe mit hoher Nachbestellrate."
+    : pet === "beides"
+    ? "Mit Hund und Katze erreichst du beide Zielgruppen gleichzeitig."
+    : pet === "keins"
+    ? "Auch ohne eigenes Tier kannst du Tierbesitzer kompetent beraten."
+    : "Hundebesitzer sind die größte Zielgruppe — perfekt für den Start.";
+
+  const headline = time === "viel"
+    ? "Du hast das Potenzial für ein Vollzeit-Einkommen!"
+    : time === "mittel"
+    ? "Perfekt für einen soliden Nebenverdienst!"
+    : "Auch mit wenig Zeit kannst du starten!";
+
+  const emoji = time === "viel" ? "🚀" : time === "mittel" ? "💪" : "✨";
+
+  return { emoji, headline, petText, earnings };
 }
 
 export default function QuizFunnel() {
@@ -134,15 +158,35 @@ export default function QuizFunnel() {
       ) : (
         <div ref={formRef}>
           {/* Result */}
-          <div className="text-center mb-8 animate-fade-in">
-            <span className="text-4xl mb-3 block">{getResult(answers).emoji}</span>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              {getResult(answers).headline}
-            </h3>
-            <p className="text-gray-600 text-sm">
-              {getResult(answers).sub}
-            </p>
-          </div>
+          {(() => {
+            const result = getResult(answers);
+            return (
+              <div className="mb-8 animate-fade-in">
+                <div className="text-center mb-5">
+                  <span className="text-4xl mb-3 block">{result.emoji}</span>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {result.headline}
+                  </h3>
+                </div>
+
+                {/* Personalized earnings preview */}
+                <div className="bg-green-50 rounded-xl p-4 mb-5 border border-green-100">
+                  <p className="text-xs font-semibold text-green-700 uppercase tracking-wide mb-3">Deine Prognose</p>
+                  <div className="grid grid-cols-2 gap-3 mb-3">
+                    <div className="bg-white rounded-lg p-3 text-center">
+                      <p className="text-lg font-extrabold text-green-600">{result.earnings.min}–{result.earnings.max} €</p>
+                      <p className="text-[10px] text-gray-500 mt-0.5">pro Monat möglich</p>
+                    </div>
+                    <div className="bg-white rounded-lg p-3 text-center">
+                      <p className="text-lg font-extrabold text-green-600">{result.earnings.customers}</p>
+                      <p className="text-[10px] text-gray-500 mt-0.5">Kunden in {result.earnings.months} Mon.</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{result.petText}</p>
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Form */}
           <div className="border-t border-gray-100 pt-6">

@@ -344,7 +344,7 @@ export default function Home() {
               E-Mail schreiben
             </a>
           </div>
-          <p className="text-xs text-gray-400 mt-4">Mo–Fr · Deutschsprachig · KI-Beratung</p>
+          <p className="text-xs text-gray-400 mt-4">Mo–Fr · Deutschsprachig · Antwort innerhalb von 24h</p>
         </div>
       </section>
 

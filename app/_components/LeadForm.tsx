@@ -4,12 +4,13 @@ import { useState, FormEvent, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
 
-function trackPixel(event: string, params?: Record<string, unknown>) {
+function trackPixel(event: string, params?: Record<string, unknown>, standard = false) {
   if (typeof window !== "undefined" && (window as any).fbq) {
+    const method = standard ? "track" : "trackCustom";
     if (params) {
-      (window as any).fbq("trackCustom", event, params);
+      (window as any).fbq(method, event, params);
     } else {
-      (window as any).fbq("trackCustom", event);
+      (window as any).fbq(method, event);
     }
   }
 }
@@ -43,7 +44,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
         return;
       }
 
-      trackPixel("Lead", { source, name, email });
+      trackPixel("Lead", { content_name: source }, true);
       router.push("/danke");
     } catch {
       setError("Netzwerkfehler. Bitte prüfe deine Verbindung.");

@@ -79,12 +79,13 @@ export default function QuizFunnel() {
   const formRef = useRef<HTMLDivElement>(null);
   const utm = useUtmParams();
 
-  const trackPixel = (event: string, params?: Record<string, unknown>) => {
+  const trackPixel = (event: string, params?: Record<string, unknown>, standard = false) => {
     if (typeof window !== "undefined" && (window as any).fbq) {
+      const method = standard ? "track" : "trackCustom";
       if (params) {
-        (window as any).fbq("trackCustom", event, params);
+        (window as any).fbq(method, event, params);
       } else {
-        (window as any).fbq("trackCustom", event);
+        (window as any).fbq(method, event);
       }
     }
   };
@@ -125,7 +126,7 @@ export default function QuizFunnel() {
         body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm, source: "quiz" }),
       });
       if (!res.ok) throw new Error("server");
-      trackPixel("Lead", { wantsCall, quizAnswers: answers.join(","), source: "quiz" });
+      trackPixel("Lead", { content_name: "quiz" }, true);
       setDone(true);
       window.location.href = "/danke";
     } catch {

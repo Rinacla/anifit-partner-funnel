@@ -72,12 +72,32 @@ export default function Home() {
             </div>
             <div className="w-full lg:w-[420px] flex-shrink-0">
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8 relative" id="quiz">
-                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg transform rotate-6 z-10 animate-bounce">
+                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg transform rotate-6 z-10 animate-bounce-3x">
                   HEUTE: 0€ STARTKOSTEN
                 </div>
                 <QuizFunnel />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testsieger Trust Strip */}
+      <section className="bg-gradient-to-r from-amber-50 via-amber-50/80 to-amber-50 border-y border-amber-100/60 py-4">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+            <div className="flex items-center gap-2">
+              <span className="text-xl" aria-hidden="true">🏆</span>
+              <p className="text-sm font-bold text-amber-900">
+                Testsieger 2026
+              </p>
+            </div>
+            <p className="text-xs sm:text-sm text-amber-800/80 text-center">
+              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="underline decoration-amber-300 hover:decoration-amber-500 transition-colors">
+                hundeo.com
+              </a>{" "}
+              — 52 Marken im Vergleich, tierärztlich geprüft · 93 % Fleisch, schwedische Produktion
+            </p>
           </div>
         </div>
       </section>

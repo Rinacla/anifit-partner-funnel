@@ -328,12 +328,12 @@ export default function KostenPage() {
       {/* Footer */}
       <footer className="border-t border-gray-100 py-8">
         <div className="mx-auto max-w-3xl px-6 text-center text-xs text-gray-400">
-          <div className="flex flex-wrap justify-center gap-4 mb-3">
+          <nav aria-label="Footer-Navigation" className="flex flex-wrap justify-center gap-4 mb-3">
             <Link href="/" className="hover:text-gray-600">Startseite</Link>
             <Link href="/guide" className="hover:text-gray-600">Guide</Link>
             <Link href="/impressum" className="hover:text-gray-600">Impressum</Link>
             <Link href="/datenschutz" className="hover:text-gray-600">Datenschutz</Link>
-          </div>
+          </nav>
           <p>© 2026 Enrico Bachmann · Anifit-Fachberater</p>
         </div>
       </footer>

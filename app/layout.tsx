@@ -71,6 +71,27 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Anifit-Fachberater werden",
+              url: "https://partner.anifutter-shop.de",
+              description:
+                "Werde Anifit-Fachberater: 15–30 % lebenslange Provision auf Premium-Hundefutter mit persönlicher Einarbeitung.",
+              publisher: {
+                "@type": "Person",
+                name: "Enrico Bachmann",
+              },
+              potentialAction: {
+                "@type": "ReadAction",
+                target: "https://partner.anifutter-shop.de/faq",
+              },
+            }),
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} antialiased`}>{children}<LayoutOverlays /><ConsentGatedPixel /></body>
     </html>

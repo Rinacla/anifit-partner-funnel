@@ -83,7 +83,10 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-gray-900">
+    <main id="main" className="min-h-screen bg-white text-gray-900">
+      <a href="#quiz" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-green-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-semibold">
+        Zum Quiz springen
+      </a>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
@@ -509,7 +512,7 @@ export default function Home() {
 
       <footer className="border-t border-gray-100 py-10">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="flex flex-col sm:flex-row sm:justify-between gap-6 mb-6">
+          <nav aria-label="Footer-Navigation" className="flex flex-col sm:flex-row sm:justify-between gap-6 mb-6">
             <div>
               <p className="font-bold text-gray-900 text-sm mb-2">Anifit-Fachberater werden</p>
               <ul className="space-y-1 text-sm text-gray-500">
@@ -538,7 +541,7 @@ export default function Home() {
                 <li><a href="/datenschutz" className="hover:text-green-600 transition-colors">Datenschutz</a></li>
               </ul>
             </div>
-          </div>
+          </nav>
           <p className="text-center text-xs text-gray-400 border-t border-gray-50 pt-4">© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
         </div>
       </footer>

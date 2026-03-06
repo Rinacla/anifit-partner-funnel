@@ -256,13 +256,13 @@ export default function GuidePage() {
 
       <footer className="border-t border-gray-100 py-8">
         <div className="mx-auto max-w-2xl px-6 text-center text-xs text-gray-400">
-          <div className="flex flex-wrap justify-center gap-4 mb-3">
+          <nav aria-label="Footer-Navigation" className="flex flex-wrap justify-center gap-4 mb-3">
             <Link href="/" className="hover:text-gray-600">Startseite</Link>
             <Link href="/anmeldung" className="hover:text-gray-600">Anmeldung</Link>
             <Link href="/tierberufe" className="hover:text-gray-600">Für Tierärzte &amp; Züchter</Link>
             <Link href="/impressum" className="hover:text-gray-600">Impressum</Link>
             <Link href="/datenschutz" className="hover:text-gray-600">Datenschutz</Link>
-          </div>
+          </nav>
           <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
         </div>
       </footer>

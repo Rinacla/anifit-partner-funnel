@@ -359,7 +359,7 @@ export default function ErfahrungenPage() {
       {/* Footer Nav */}
       <footer className="border-t border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-4xl px-6 py-8">
-          <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
+          <nav aria-label="Footer-Navigation" className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
             <Link href="/" className="hover:text-green-700 transition-colors">
               Startseite
             </Link>
@@ -399,7 +399,7 @@ export default function ErfahrungenPage() {
             >
               Datenschutz
             </Link>
-          </div>
+          </nav>
           <p className="text-center text-xs text-gray-400 mt-4">
             © 2026 Enrico Bachmann · Anifit-Fachberater
           </p>

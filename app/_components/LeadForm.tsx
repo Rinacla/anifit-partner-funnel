@@ -1,8 +1,18 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
+
+function trackPixel(event: string, params?: Record<string, unknown>) {
+  if (typeof window !== "undefined" && (window as any).fbq) {
+    if (params) {
+      (window as any).fbq("trackCustom", event, params);
+    } else {
+      (window as any).fbq("trackCustom", event);
+    }
+  }
+}
 
 export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
   const router = useRouter();
@@ -33,6 +43,11 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
         return;
       }
 
+      trackPixel("FormSubmit", { source: "inline-form", name, email });
+      // Standard Lead event for Meta Ads optimization
+      if ((window as any).fbq) {
+        (window as any).fbq("track", "Lead", { content_name: "inline-guide-request" });
+      }
       router.push("/danke");
     } catch {
       setError("Netzwerkfehler. Bitte prüfe deine Verbindung.");

@@ -8,11 +8,12 @@ interface StatItem {
   suffix: string;
   label: string;
   duration?: number;
+  noFormat?: boolean; // skip toLocaleString (e.g. for years)
 }
 
 const stats: StatItem[] = [
   { target: 1000, suffix: "+", label: "aktive Kunden", duration: 2000 },
-  { target: 2018, prefix: "seit ", suffix: "", label: "dabei", duration: 1500 },
+  { target: 2018, prefix: "seit ", suffix: "", label: "dabei", duration: 1500, noFormat: true },
   { target: 30, suffix: " %", label: "max. Provision", duration: 1200 },
   { target: 78, prefix: "ab ", suffix: " €", label: "Einstiegspaket", duration: 1200 },
 ];
@@ -50,7 +51,8 @@ function useCountUp(target: number, duration: number, start: boolean, hydrated: 
 
 function StatCounter({ item, visible, hydrated }: { item: StatItem; visible: boolean; hydrated: boolean }) {
   const value = useCountUp(item.target, item.duration ?? 1500, visible, hydrated);
-  const display = `${item.prefix ?? ""}${value.toLocaleString("de-DE")}${item.suffix}`;
+  const formatted = item.noFormat ? String(value) : value.toLocaleString("de-DE");
+  const display = `${item.prefix ?? ""}${formatted}${item.suffix}`;
 
   return (
     <div>

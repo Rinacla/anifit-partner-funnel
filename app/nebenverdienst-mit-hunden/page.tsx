@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import LeadForm from "../_components/LeadForm";
 
 export const metadata: Metadata = {
   title: "Nebenverdienst mit Hunden: 7 Wege im Vergleich (2026)",
@@ -309,21 +310,16 @@ export default function NebenverdienstMitHunden() {
             investieren, baust du dir etwas auf, das bleibt.
           </p>
 
-          <div className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 text-center">
-            <h3 className="text-xl font-bold mb-3">
+          <div className="bg-green-50 rounded-2xl border border-green-100 p-6 sm:p-8">
+            <h3 className="text-xl font-bold mb-3 text-center">
               Klingt nach dem Richtigen für dich?
             </h3>
-            <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto">
+            <p className="text-gray-500 mb-6 text-sm max-w-md mx-auto text-center">
               Hol dir den kostenlosen 5-teiligen Guide per Email. Alle Infos zu
               Provision, Produkten und Ablauf.
             </p>
-            <Link
-              href="/#quiz"
-              className="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-700 transition-colors text-sm shadow-lg shadow-green-600/20"
-            >
-              Kostenlosen Guide anfordern
-            </Link>
-            <p className="text-xs text-gray-400 mt-3">
+            <LeadForm idPrefix="nebenverdienst-" source="nebenverdienst" />
+            <p className="text-xs text-gray-400 mt-4 text-center">
               Kein Abo. Jederzeit abbestellbar.
             </p>
           </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import LeadForm from "../_components/LeadForm";
 
 export const metadata: Metadata = {
   title: "Erfahrungen als Anifit-Berater | Echte Berichte aus dem Team",
@@ -118,11 +119,34 @@ export default function ErfahrungenPage() {
     })),
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Startseite",
+        item: "https://partner.anifutter-shop.de",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Berater-Erfahrungen",
+        item: "https://partner.anifutter-shop.de/erfahrungen",
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       {/* Hero */}
@@ -315,24 +339,21 @@ export default function ErfahrungenPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-3xl px-6 py-14 text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-          Bereit für deine eigene Erfolgsgeschichte?
-        </h2>
-        <p className="text-gray-600 mb-8 max-w-lg mx-auto">
-          Hol dir den kostenlosen Guide mit allen Details zu Provision, Produkten
-          und deinem persönlichen Fahrplan.
-        </p>
-        <Link
-          href="/#quiz"
-          className="inline-block bg-green-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-lg"
-        >
-          Kostenlosen Guide anfordern
-        </Link>
-        <p className="text-xs text-gray-400 mt-3">
-          Kein Spam. Kein Abo. Jederzeit abmeldbar.
-        </p>
+      {/* Inline Lead Form */}
+      <section className="mx-auto max-w-xl px-6 py-14">
+        <div className="bg-green-50 border border-green-100 rounded-2xl p-6 sm:p-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-center">
+            Bereit für deine eigene Erfolgsgeschichte?
+          </h2>
+          <p className="text-gray-600 mb-6 text-center max-w-md mx-auto">
+            Hol dir den kostenlosen Guide mit Provision, Produkten und deinem
+            persönlichen Fahrplan.
+          </p>
+          <LeadForm idPrefix="erfahrungen-" source="erfahrungen" />
+          <p className="text-xs text-gray-400 mt-4 text-center">
+            Kein Spam. Kein Abo. Jederzeit abmeldbar.
+          </p>
+        </div>
       </section>
 
       {/* Footer Nav */}

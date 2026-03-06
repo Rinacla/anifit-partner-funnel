@@ -22,7 +22,7 @@ export default function StickyHeader() {
           : "-translate-y-full opacity-0 pointer-events-none"
       }`}
     >
-      <div className="bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm">
+      <div className="bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm mt-[3px]">
         <div className="mx-auto max-w-5xl px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-green-600 font-bold text-lg">Anifit</span>

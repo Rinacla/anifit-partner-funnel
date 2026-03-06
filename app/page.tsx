@@ -12,6 +12,7 @@ import StickyHeader from "./_components/StickyHeader";
 import ContactSection from "./_components/ContactSection";
 import VideoSection from "./_components/VideoSection";
 import BenefitIcons from "./_components/BenefitIcons";
+import LeadProofBubble from "./_components/LeadProofBubble";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -448,6 +449,7 @@ export default function Home() {
       <StickyHeader />
       <StickyMobileCTA />
       <ScrollTracker />
+      <LeadProofBubble />
     </div>
   );
 }

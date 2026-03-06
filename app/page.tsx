@@ -372,6 +372,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trust Badges */}
+      <section className="py-10">
+        <div className="mx-auto max-w-2xl px-6">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 text-center">
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-2xl">🔒</span>
+              <p className="text-sm font-semibold text-gray-800">100 % kostenlos</p>
+              <p className="text-xs text-gray-500">Kein Abo, keine Kreditkarte</p>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-2xl">📧</span>
+              <p className="text-sm font-semibold text-gray-800">5 Emails, dann Schluss</p>
+              <p className="text-xs text-gray-500">Kein endloser Newsletter</p>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <span className="text-2xl">🤝</span>
+              <p className="text-sm font-semibold text-gray-800">Persönlicher Ansprechpartner</p>
+              <p className="text-xs text-gray-500">Enrico antwortet selbst</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Bottom Inline Lead Form */}
       <section className="bg-green-600 py-16">
         <div className="mx-auto max-w-md px-6">
@@ -396,6 +419,7 @@ export default function Home() {
             <div>
               <p className="font-bold text-gray-900 text-sm mb-2">Weitere Infos</p>
               <ul className="space-y-1 text-sm text-gray-500">
+                <li><a href="/nebenverdienst-mit-hunden" className="hover:text-green-600 transition-colors">Nebenverdienst mit Hunden</a></li>
                 <li><a href="/tierberufe" className="hover:text-green-600 transition-colors">Für Tierärzte, THP &amp; Züchter</a></li>
                 <li><a href="/nebenverdienst-mit-hunden" className="hover:text-green-600 transition-colors">Nebenverdienst mit Hunden</a></li>
                 <li><a href="https://www.anifutter-shop.de" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors">Zum Anifit-Shop →</a></li>

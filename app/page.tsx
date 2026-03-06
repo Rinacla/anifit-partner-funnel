@@ -403,12 +403,32 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-gray-100 py-8">
-        <div className="mx-auto max-w-3xl px-6 text-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
-          <p className="mt-1">
-            <a href="/impressum" className="hover:text-gray-600">Impressum</a>{" · "}<a href="/datenschutz" className="hover:text-gray-600">Datenschutz</a>
-          </p>
+      <footer className="border-t border-gray-100 py-10">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="flex flex-col sm:flex-row sm:justify-between gap-6 mb-6">
+            <div>
+              <p className="font-bold text-gray-900 text-sm mb-2">Anifit-Fachberater werden</p>
+              <ul className="space-y-1 text-sm text-gray-500">
+                <li><a href="#quiz" className="hover:text-green-600 transition-colors">Gratis-Guide anfordern</a></li>
+                <li><a href="/guide" className="hover:text-green-600 transition-colors">Guide-Vorschau lesen</a></li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-bold text-gray-900 text-sm mb-2">Weitere Infos</p>
+              <ul className="space-y-1 text-sm text-gray-500">
+                <li><a href="/tierberufe" className="hover:text-green-600 transition-colors">Für Tierärzte, THP &amp; Züchter</a></li>
+                <li><a href="https://www.anifutter-shop.de" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors">Zum Anifit-Shop →</a></li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-bold text-gray-900 text-sm mb-2">Rechtliches</p>
+              <ul className="space-y-1 text-sm text-gray-500">
+                <li><a href="/impressum" className="hover:text-green-600 transition-colors">Impressum</a></li>
+                <li><a href="/datenschutz" className="hover:text-green-600 transition-colors">Datenschutz</a></li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-xs text-gray-400 border-t border-gray-50 pt-4">© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
         </div>
       </footer>
       <StickyHeader />

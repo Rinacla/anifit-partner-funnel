@@ -11,6 +11,16 @@ export const metadata = {
 export default function TierberufePage() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      {/* Back nav */}
+      <nav className="border-b border-gray-100 bg-white relative z-10">
+        <div className="mx-auto max-w-5xl px-6 py-3 flex items-center justify-between">
+          <a href="/" className="text-sm text-gray-500 hover:text-blue-600 transition-colors inline-flex items-center gap-1">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+            Fachberater werden
+          </a>
+          <span className="text-sm text-gray-400">Für Tierärzte, THP &amp; Züchter</span>
+        </div>
+      </nav>
 
       {/* Hero with Form */}
       <section className="relative overflow-hidden">
@@ -157,6 +167,11 @@ export default function TierberufePage() {
       <footer className="border-t border-gray-100 py-8">
         <div className="mx-auto max-w-3xl px-6 text-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
+          <p className="mt-2">
+            <a href="/" className="hover:text-blue-600">Fachberater werden</a>
+            {" · "}
+            <a href="/guide" className="hover:text-blue-600">Guide-Vorschau</a>
+          </p>
           <p className="mt-1">
             <a href="/impressum" className="hover:text-gray-600">Impressum</a>
             {" · "}

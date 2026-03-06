@@ -9,6 +9,15 @@ export const metadata = {
 export default function GuidePage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Back nav */}
+      <nav className="border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-2xl px-6 py-3">
+          <a href="/" className="text-sm text-gray-500 hover:text-green-600 transition-colors inline-flex items-center gap-1">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+            Zurück zur Startseite
+          </a>
+        </div>
+      </nav>
       {/* Header */}
       <div className="bg-gradient-to-br from-green-50 to-white py-16 px-6">
         <div className="max-w-2xl mx-auto text-center">
@@ -200,6 +209,11 @@ export default function GuidePage() {
       <footer className="border-t border-gray-100 py-8">
         <div className="max-w-2xl mx-auto px-6 text-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
+          <p className="mt-2">
+            <a href="/" className="hover:text-green-600">Fachberater werden</a>
+            {" · "}
+            <a href="/tierberufe" className="hover:text-green-600">Für Tierärzte &amp; Züchter</a>
+          </p>
           <p className="mt-1">
             <a href="/impressum" className="hover:text-gray-600">Impressum</a>
             {" · "}

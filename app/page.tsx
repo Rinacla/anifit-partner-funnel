@@ -350,15 +350,19 @@ export default function Home() {
           </p>
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5 max-w-2xl mx-auto">
             {[
-              { check: true, text: "Du hast einen Hund oder eine Katze" },
-              { check: true, text: "Dir liegt artgerechte Ernährung am Herzen" },
-              { check: true, text: "Du redest gern mit anderen Tierbesitzern" },
-              { check: true, text: "Du suchst einen flexiblen Nebenverdienst" },
-              { check: true, text: "Du willst etwas empfehlen, hinter dem du stehst" },
-              { check: true, text: "Du bist bereit, 2-5 Stunden pro Woche zu investieren" },
+              { text: "Du hast einen Hund oder eine Katze" },
+              { text: "Dir liegt artgerechte Ernährung am Herzen" },
+              { text: "Du redest gern mit anderen Tierbesitzern" },
+              { text: "Du suchst einen flexiblen Nebenverdienst" },
+              { text: "Du willst etwas empfehlen, hinter dem du stehst" },
+              { text: "Du bist bereit, 2-5 Stunden pro Woche zu investieren" },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span className="text-green-500 font-bold text-lg mt-0.5">✓</span>
+              <div key={i} className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                  <svg className="w-4 h-4 text-green-600 animate-draw-check" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
                 <p className="text-gray-700">{item.text}</p>
               </div>
             ))}
@@ -368,7 +372,7 @@ export default function Home() {
               { text: "Du willst schnell reich werden" },
               { text: "Du hast kein Interesse an Tieren" },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
+              <div key={i} className="flex items-start gap-4">
                 <span className="text-red-400 font-bold text-lg mt-0.5">✗</span>
                 <p className="text-gray-500">{item.text}</p>
               </div>

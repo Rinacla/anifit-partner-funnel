@@ -406,7 +406,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-white text-center mb-3">Klingt nach dir?</h2>
           <p className="text-green-100 text-center mb-8">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
-            <LeadForm idPrefix="bottom-" />
+            <LeadForm idPrefix="bottom-" source="bottom" />
           </div>
         </div>
       </section>

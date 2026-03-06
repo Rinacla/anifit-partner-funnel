@@ -79,7 +79,7 @@ export default function ExitIntentPopup() {
           </p>
         </div>
 
-        <LeadForm idPrefix="exit-" />
+        <LeadForm idPrefix="exit-" source="exit-intent" />
 
         <style>{`
           @keyframes popup-enter {

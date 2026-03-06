@@ -122,10 +122,10 @@ export default function QuizFunnel() {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm, source: "quiz" }),
       });
       if (!res.ok) throw new Error("server");
-      trackPixel("FormSubmit", { wantsCall, quizAnswers: answers.join(",") });
+      trackPixel("Lead", { wantsCall, quizAnswers: answers.join(","), source: "quiz" });
       setDone(true);
       window.location.href = "/danke";
     } catch {

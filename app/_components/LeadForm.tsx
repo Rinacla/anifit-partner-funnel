@@ -14,7 +14,7 @@ function trackPixel(event: string, params?: Record<string, unknown>) {
   }
 }
 
-export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
+export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefix?: string, source?: string }) {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, utm }),
+        body: JSON.stringify({ name, email, utm, source }),
       });
 
       const data = await res.json();
@@ -43,11 +43,7 @@ export default function LeadForm({ idPrefix = "" }: { idPrefix?: string }) {
         return;
       }
 
-      trackPixel("FormSubmit", { source: "inline-form", name, email });
-      // Standard Lead event for Meta Ads optimization
-      if ((window as any).fbq) {
-        (window as any).fbq("track", "Lead", { content_name: "inline-guide-request" });
-      }
+      trackPixel("Lead", { source, name, email });
       router.push("/danke");
     } catch {
       setError("Netzwerkfehler. Bitte prüfe deine Verbindung.");

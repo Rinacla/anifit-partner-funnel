@@ -408,8 +408,15 @@ export default function Home() {
       {/* FAQ */}
       <section className="py-20">
         <div className="mx-auto max-w-2xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">Häufige Fragen</h2>
+          <h2 className="text-3xl font-bold text-center mb-2">Häufige Fragen</h2>
+          <p className="text-center text-gray-500 mb-10">Die wichtigsten Fragen zum Einstieg als Anifit-Berater.</p>
           <FAQAccordion />
+          <div className="text-center mt-8">
+            <a href="/faq" className="inline-flex items-center gap-2 text-green-700 font-semibold hover:text-green-800 transition-colors">
+              Alle 30 Fragen und Antworten lesen
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </a>
+          </div>
         </div>
       </section>
 

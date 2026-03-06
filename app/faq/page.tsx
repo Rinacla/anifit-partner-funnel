@@ -284,7 +284,7 @@ export default function FAQPage() {
           </section>
         ))}
 
-        {/* CTA */}
+        {/* CTA with inline LeadForm */}
         <section className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 sm:p-12 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
             Noch mehr Fragen? Der Guide hat die Antworten.
@@ -293,15 +293,7 @@ export default function FAQPage() {
             5 kompakte Emails mit Provisionsmodell, echten Zahlen und einem
             Fahrplan für deine ersten Kunden. Kostenlos.
           </p>
-          <a
-            href="/#quiz"
-            className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-colors shadow-lg shadow-green-600/20"
-          >
-            Gratis-Guide anfordern
-          </a>
-          <p className="text-xs text-gray-400 mt-4">
-            Kein Spam. Keine Weitergabe. Jederzeit abmeldbar.
-          </p>
+          <LeadForm idPrefix="faq-" source="faq" />
         </section>
 
         {/* Internal links for SEO */}

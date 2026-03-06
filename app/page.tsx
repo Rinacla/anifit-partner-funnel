@@ -11,6 +11,7 @@ import AnimatedStats from "./_components/AnimatedStats";
 import StickyHeader from "./_components/StickyHeader";
 import ContactSection from "./_components/ContactSection";
 import VideoSection from "./_components/VideoSection";
+import BenefitIcons from "./_components/BenefitIcons";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -66,6 +67,7 @@ export default function Home() {
                   <p className="text-xs text-gray-500">Anifit-Berater seit 2018 · 1.000+ Kunden</p>
                 </div>
               </div>
+              <BenefitIcons />
             </div>
             <div className="w-full lg:w-[420px] flex-shrink-0">
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8" id="quiz">

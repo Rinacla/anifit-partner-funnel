@@ -507,6 +507,7 @@ export default function Home() {
                 <li><a href="/kosten" className="hover:text-green-600 transition-colors">Kosten &amp; Einstieg</a></li>
                 <li><a href="/anmeldung" className="hover:text-green-600 transition-colors">Anmeldung &amp; Registrierung</a></li>
                 <li><a href="/tierberufe" className="hover:text-green-600 transition-colors">Für Tierärzte, THP &amp; Züchter</a></li>
+                <li><a href="/faq" className="hover:text-green-600 transition-colors">Häufige Fragen (FAQ)</a></li>
                 <li><a href="https://www.anifutter-shop.de" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors">Zum Anifit-Shop →</a></li>
               </ul>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const SHARE_URL = "https://partner.anifutter-shop.de";
 const SHARE_TEXT = "Ich hab mir gerade einen Guide geholt, wie man als Anifit-Fachberater nebenbei Geld verdienen kann. Schau mal rein:";
@@ -8,6 +9,16 @@ const WHATSAPP_CONTACT = "https://wa.me/4915204000990?text=Hallo%20Enrico%2C%20i
 const VIDEO_ID = "jx_Bl4dWkQk";
 
 export default function DankePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-green-50 to-white" />}>
+      <DankeContent />
+    </Suspense>
+  );
+}
+
+function DankeContent() {
+  const searchParams = useSearchParams();
+  const userName = searchParams.get("name") || "";
   const [copied, setCopied] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
@@ -45,7 +56,7 @@ export default function DankePage() {
           <div className="text-center mb-10">
             <div className="text-6xl mb-6">✅</div>
             <h1 className="text-3xl font-extrabold text-gray-900 mb-4">
-              Geschafft. Dein Guide ist unterwegs!
+              {userName ? `Geschafft, ${userName}! Dein Guide ist unterwegs!` : "Geschafft. Dein Guide ist unterwegs!"}
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed">
               Schau in dein Postfach (auch Spam checken). Die erste Mail kommt
@@ -182,7 +193,7 @@ export default function DankePage() {
           {/* Direct Contact CTAs */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8 text-center">
             <p className="text-2xl mb-2">💬</p>
-            <h3 className="font-bold text-gray-900 mb-2">Fragen? Schreib Enrico direkt.</h3>
+            <h3 className="font-bold text-gray-900 mb-2">{userName ? `${userName}, noch Fragen? Schreib Enrico direkt.` : "Fragen? Schreib Enrico direkt."}</h3>
             <p className="text-sm text-gray-600 mb-4">
               Du erreichst mich per WhatsApp oder Telefon. Kostenlos und unverbindlich.
             </p>

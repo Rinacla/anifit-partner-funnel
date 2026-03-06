@@ -128,7 +128,7 @@ export default function QuizFunnel() {
       if (!res.ok) throw new Error("server");
       // Lead pixel fires on /danke page (single source of truth)
       setDone(true);
-      window.location.href = "/danke";
+      window.location.href = `/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`;
     } catch {
       setLoading(false);
       setError("Das hat leider nicht geklappt. Bitte versuch es nochmal.");

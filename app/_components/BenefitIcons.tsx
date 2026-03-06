@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function BenefitIcons() {
   const benefits = [
-    { icon: '💰', label: 'Provision', text: '15-30% lebenslang' },
-    { icon: '🏠', label: 'Home Office', text: 'Freie Zeiteinteilung' },
-    { icon: '🐕', label: 'Hundeliebe', text: 'Artgerechtes Futter' },
-    { icon: '📉', label: '0€ Risiko', text: 'Kein Lager notwendig' }
+    { icon: '💰', label: 'Verdienst', text: '15-30% lebenslang' },
+    { icon: '🏠', label: 'Flexibilität', text: 'Freie Zeiteinteilung' },
+    { icon: '🐕', label: 'Sinnhaftigkeit', text: 'Tieren aktiv helfen' },
+    { icon: '📉', label: 'Sicherheit', text: '0€ Risiko, kein Lager' }
   ];
 
   return (

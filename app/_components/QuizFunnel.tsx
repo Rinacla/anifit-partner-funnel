@@ -16,10 +16,10 @@ const STEPS = [
   {
     question: "Was beschreibt dich am besten?",
     options: [
-      { label: "🏠 Ich suche einen flexiblen Nebenverdienst", value: "nebenverdienst" },
+      { label: "💰 Ich suche einen flexiblen Nebenverdienst", value: "nebenverdienst" },
+      { label: "🤝 Ich suche eine sinnvolle Tätigkeit", value: "sinnvoll" },
       { label: "🔄 Ich möchte mich beruflich verändern", value: "berufswechsel" },
       { label: "🐾 Ich arbeite bereits mit Tieren", value: "tierprofi" },
-      { label: "🌱 Ich suche eine sinnvolle Beschäftigung", value: "sinnvoll" },
     ],
   },
   {

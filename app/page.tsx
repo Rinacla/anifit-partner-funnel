@@ -151,7 +151,7 @@ export default function Home() {
       <section className="bg-white py-12">
         <div className="mx-auto max-w-4xl px-6">
           <div className="rounded-2xl overflow-hidden shadow-lg">
-            <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund und Anifit Produkten" width={800} height={450} className="w-full h-auto" priority />
+            <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund und Anifit Produkten" width={800} height={450} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 768px" loading="lazy" />
           </div>
         </div>
       </section>
@@ -222,7 +222,7 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 gap-8 items-start mb-12">
             <div className="rounded-2xl overflow-hidden">
-              <Image src="/images/sortiment.jpg" alt="Anifit Produktsortiment" width={500} height={350} className="w-full h-auto rounded-2xl" />
+              <Image src="/images/sortiment.jpg" alt="Anifit Produktsortiment" width={500} height={350} className="w-full h-auto rounded-2xl" sizes="(max-width: 640px) 100vw, 450px" loading="lazy" />
             </div>
             <div className="space-y-5">
               <div>
@@ -243,17 +243,17 @@ export default function Home() {
           {/* Sortiment-Highlights */}
           <div className="grid sm:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-xl p-5 text-center">
-              <Image src="/images/schnupperpaket.jpg" alt="Schnupperpaket" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
+              <Image src="/images/schnupperpaket.jpg" alt="Schnupperpaket" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" sizes="(max-width: 640px) 100vw, 250px" loading="lazy" />
               <h4 className="font-bold text-sm text-gray-900">Schnupperpaket</h4>
               <p className="text-xs text-gray-500 mt-1">9,90 € für Neukunden. Niedrige Hürde, hohe Umwandlung in Stammkunden.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-5 text-center">
-              <Image src="/images/gockels-duett.jpg" alt="Gockels Duett" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
+              <Image src="/images/gockels-duett.jpg" alt="Gockels Duett" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" sizes="(max-width: 640px) 100vw, 250px" loading="lazy" />
               <h4 className="font-bold text-sm text-gray-900">Gockels Duett</h4>
               <p className="text-xs text-gray-500 mt-1">Bestseller mit 93 % Fleisch. Huhn und Pute, die Sorte die fast jeder Hund frisst.</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-5 text-center">
-              <Image src="/images/sortiment.jpg" alt="Volles Sortiment" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" />
+              <Image src="/images/sortiment.jpg" alt="Volles Sortiment" width={200} height={150} className="w-full h-32 object-cover rounded-lg mb-3" sizes="(max-width: 640px) 100vw, 250px" loading="lazy" />
               <h4 className="font-bold text-sm text-gray-900">Über 120 Produkte</h4>
               <p className="text-xs text-gray-500 mt-1">Nassfutter, Trockenfutter, Snacks und Ergänzungen. Für Hunde und Katzen.</p>
             </div>
@@ -360,7 +360,7 @@ export default function Home() {
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-3xl font-bold text-center mb-10">Wer dich einarbeitet</h2>
           <div className="bg-gray-50 rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row gap-8 items-center">
-            <Image src="/images/enrico-bachmann.jpg" alt="Enrico Bachmann" width={160} height={160} className="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-lg flex-shrink-0" />
+            <Image src="/images/enrico-bachmann.jpg" alt="Enrico Bachmann" width={160} height={160} className="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover border-4 border-white shadow-lg flex-shrink-0" sizes="160px" loading="lazy" />
             <div>
               <p className="text-gray-700 leading-relaxed">
                 Ich bin seit 2018 Anifit-Fachberater. Über 1.000 aktive Kunden, 34 Teampartner.

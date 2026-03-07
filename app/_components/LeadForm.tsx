@@ -17,6 +17,19 @@ function trackPixel(event: string, params?: Record<string, unknown>, standard = 
   }
 }
 
+function isValidEmail(v: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+}
+
+function ValidationIcon({ valid }: { valid: boolean }) {
+  if (!valid) return null;
+  return (
+    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-600 pointer-events-none animate-fade-in" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+    </span>
+  );
+}
+
 export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefix?: string, source?: string }) {
   const router = useRouter();
   const [name, setName] = useState("");
@@ -29,7 +42,13 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
   const [consent, setConsent] = useState(false);
   const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState("");
+  const [touched, setTouched] = useState<{ name?: boolean; email?: boolean }>({});
   const utm = useUtmParams();
+
+  const nameValid = name.trim().length >= 2;
+  const emailValid = isValidEmail(email);
+  const nameInvalid = touched.name && !nameValid;
+  const emailInvalid = touched.email && !emailValid && email.trim().length > 0;
 
   // Prefetch /danke for instant post-submit navigation
   useEffect(() => {
@@ -81,18 +100,25 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
         >
           Dein Name
         </label>
-        <input
-          id={`${idPrefix}name`}
-          type="text"
-          required
-          autoComplete="given-name"
-          placeholder="z. B. Sarah"
-          enterKeyHint="next"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="input"
-          disabled={loading}
-        />
+        <div className="relative">
+          <input
+            id={`${idPrefix}name`}
+            type="text"
+            required
+            autoComplete="given-name"
+            placeholder="z. B. Sarah"
+            enterKeyHint="next"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+            className={`input ${nameValid ? "input-valid" : ""} ${nameInvalid ? "input-invalid" : ""}`}
+            disabled={loading}
+          />
+          <ValidationIcon valid={nameValid} />
+        </div>
+        {nameInvalid && (
+          <p className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib deinen Namen ein.</p>
+        )}
       </div>
       <div>
         <label
@@ -101,19 +127,22 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
         >
           Deine E-Mail-Adresse
         </label>
-        <input
-          id={`${idPrefix}email`}
-          type="email"
-          required
-          autoComplete="email"
-          placeholder="sarah@beispiel.de"
-          enterKeyHint="done"
-          value={email}
-          onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
-          onBlur={() => setEmailSuggestion(suggestEmailCorrection(email))}
-          className="input"
-          disabled={loading}
-        />
+        <div className="relative">
+          <input
+            id={`${idPrefix}email`}
+            type="email"
+            required
+            autoComplete="email"
+            placeholder="sarah@beispiel.de"
+            enterKeyHint="done"
+            value={email}
+            onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
+            onBlur={() => { setTouched((t) => ({ ...t, email: true })); setEmailSuggestion(suggestEmailCorrection(email)); }}
+            className={`input ${emailValid ? "input-valid" : ""} ${emailInvalid ? "input-invalid" : ""}`}
+            disabled={loading}
+          />
+          <ValidationIcon valid={emailValid} />
+        </div>
         {emailSuggestion && (
           <button
             type="button"
@@ -122,6 +151,9 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           >
             Meintest du <strong>{emailSuggestion}</strong>?
           </button>
+        )}
+        {emailInvalid && !emailSuggestion && (
+          <p className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib eine gültige E-Mail-Adresse ein.</p>
         )}
       </div>
       {/* Honeypot — invisible to real users, catches bots */}

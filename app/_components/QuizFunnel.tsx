@@ -143,9 +143,15 @@ export default function QuizFunnel() {
   const [restored, setRestored] = useState(false);
   const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState("");
+  const [touched, setTouched] = useState<{ name?: boolean; email?: boolean }>({});
   const formRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const utm = useUtmParams();
+
+  const nameValid = name.trim().length >= 2;
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+  const nameInvalid = touched.name && !nameValid;
+  const emailInvalid = touched.email && !emailValid && email.trim().length > 0;
 
   // Restore quiz progress from sessionStorage on mount
   useEffect(() => {
@@ -413,32 +419,50 @@ export default function QuizFunnel() {
             <form onSubmit={handleSubmit} className="space-y-3">
               <div>
                 <label htmlFor="quiz-name" className="block text-xs font-medium text-gray-600 mb-1">Dein Vorname</label>
-                <input
-                  id="quiz-name"
-                  type="text"
-                  placeholder="z. B. Sarah"
-                  autoComplete="given-name"
-                  enterKeyHint="next"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="input text-sm"
-                />
+                <div className="relative">
+                  <input
+                    id="quiz-name"
+                    type="text"
+                    placeholder="z. B. Sarah"
+                    autoComplete="given-name"
+                    enterKeyHint="next"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+                    required
+                    className={`input text-sm ${nameValid ? "input-valid" : ""} ${nameInvalid ? "input-invalid" : ""}`}
+                  />
+                  {nameValid && (
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-600 pointer-events-none animate-fade-in" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                    </span>
+                  )}
+                </div>
+                {nameInvalid && (
+                  <p className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib deinen Namen ein.</p>
+                )}
               </div>
               <div>
                 <label htmlFor="quiz-email" className="block text-xs font-medium text-gray-600 mb-1">Deine E-Mail-Adresse</label>
-                <input
-                  id="quiz-email"
-                  type="email"
-                  placeholder="sarah@beispiel.de"
-                  autoComplete="email"
-                  enterKeyHint="done"
-                  value={email}
-                  onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
-                  onBlur={() => setEmailSuggestion(suggestEmailCorrection(email))}
-                  required
-                  className="input text-sm"
-                />
+                <div className="relative">
+                  <input
+                    id="quiz-email"
+                    type="email"
+                    placeholder="sarah@beispiel.de"
+                    autoComplete="email"
+                    enterKeyHint="done"
+                    value={email}
+                    onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
+                    onBlur={() => { setTouched((t) => ({ ...t, email: true })); setEmailSuggestion(suggestEmailCorrection(email)); }}
+                    required
+                    className={`input text-sm ${emailValid ? "input-valid" : ""} ${emailInvalid ? "input-invalid" : ""}`}
+                  />
+                  {emailValid && (
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-600 pointer-events-none animate-fade-in" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                    </span>
+                  )}
+                </div>
                 {emailSuggestion && (
                   <button
                     type="button"
@@ -447,6 +471,9 @@ export default function QuizFunnel() {
                   >
                     Meintest du <strong>{emailSuggestion}</strong>?
                   </button>
+                )}
+                {emailInvalid && !emailSuggestion && (
+                  <p className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib eine gültige E-Mail-Adresse ein.</p>
                 )}
               </div>
               {/* Honeypot — hidden from real users, catches bots */}

@@ -191,6 +191,15 @@ html {
   border-color: var(--brand);
   box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
 }
+.input-valid {
+  border-color: var(--brand) !important;
+}
+.input-invalid {
+  border-color: #ef4444 !important;
+}
+.input-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
 
 /* ─── Animations ─── */
 @keyframes draw-check {

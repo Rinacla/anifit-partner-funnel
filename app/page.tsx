@@ -11,6 +11,7 @@ import VideoSection from "./_components/VideoSection";
 import BenefitIcons from "./_components/BenefitIcons";
 import ClientOverlays from "./_components/ClientOverlays";
 import StartbonusMini from "./_components/StartbonusMini";
+import AnnouncementBar from "./_components/AnnouncementBar";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -104,6 +105,7 @@ export default function Home() {
 
   return (
     <main id="main" className="min-h-screen bg-white text-gray-900">
+      <AnnouncementBar />
       <a href="#quiz" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-green-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-semibold">
         Zum Quiz springen
       </a>

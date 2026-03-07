@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
 import { suggestEmailCorrection } from "@/lib/email-typo";
+import { getEmailProvider } from "@/lib/email-provider";
 
 function trackPixel(event: string, params?: Record<string, unknown>, standard = false) {
   if (typeof window !== "undefined" && (window as any).fbq) {
@@ -59,8 +60,11 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
       // Lead pixel fires on /danke page (single source of truth)
       setSuccess(true);
       // Brief success feedback before client-side navigation
+      const provider = getEmailProvider(email.trim());
       setTimeout(() => {
-        router.push(`/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`);
+        const params = new URLSearchParams({ name: name.trim().split(" ")[0] });
+        if (provider) params.set("p", provider);
+        router.push(`/danke?${params.toString()}`);
       }, 600);
     } catch {
       setError("Netzwerkfehler. Bitte prüfe deine Verbindung.");

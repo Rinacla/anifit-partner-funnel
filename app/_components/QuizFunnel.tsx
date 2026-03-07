@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
 import { suggestEmailCorrection } from "@/lib/email-typo";
+import { getEmailProvider } from "@/lib/email-provider";
 
 const STORAGE_KEY = "anifit_quiz_progress";
 
@@ -203,9 +204,12 @@ export default function QuizFunnel() {
       clearProgress();
       setSuccess(true);
       // Brief success feedback before client-side navigation (no full page reload)
+      const provider = getEmailProvider(email.trim());
       setTimeout(() => {
         setDone(true);
-        router.push(`/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`);
+        const params = new URLSearchParams({ name: name.trim().split(" ")[0] });
+        if (provider) params.set("p", provider);
+        router.push(`/danke?${params.toString()}`);
       }, 600);
     } catch {
       setLoading(false);

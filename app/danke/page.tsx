@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Footer from "@/app/_components/Footer";
+import { PROVIDER_TIPS } from "@/lib/email-provider";
 
 const SHARE_URL = "https://partner.anifutter-shop.de";
 const SHARE_TEXT = "Ich hab mir gerade einen Guide geholt, wie man als Anifit-Fachberater nebenbei Geld verdienen kann. Schau mal rein:";
@@ -20,6 +21,8 @@ export default function DankePage() {
 function DankeContent() {
   const searchParams = useSearchParams();
   const userName = searchParams.get("name") || "";
+  const providerKey = searchParams.get("p") || "";
+  const providerTip = PROVIDER_TIPS[providerKey] || null;
   const [copied, setCopied] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
@@ -64,6 +67,31 @@ function DankeContent() {
               innerhalb weniger Minuten.
             </p>
           </div>
+
+          {/* Provider-specific inbox instructions */}
+          {providerTip && (
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-8 flex items-start gap-4">
+              <span className="text-2xl flex-shrink-0" aria-hidden="true">{providerTip.icon}</span>
+              <div className="min-w-0">
+                <p className="font-bold text-sm text-blue-900 mb-1">
+                  Tipp für {providerTip.name}-Nutzer:
+                </p>
+                <p className="text-sm text-blue-800 leading-relaxed">
+                  {providerTip.tip}
+                </p>
+                {providerTip.link && (
+                  <a
+                    href={providerTip.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-sm font-semibold text-blue-700 hover:text-blue-900 underline decoration-blue-300 hover:decoration-blue-500 transition-colors"
+                  >
+                    {providerTip.name} öffnen →
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
             <h2 className="font-bold text-lg mb-4 text-gray-900">

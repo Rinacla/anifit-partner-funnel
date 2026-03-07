@@ -43,8 +43,16 @@ export default function Footer({ guideHref = "/#quiz" }: FooterProps) {
             <ul className="space-y-1 text-sm text-gray-500">
               <li>
                 <Link
-                  href="/einkommen-berechnen"
+                  href="/provision"
                   className="hover:text-brand-600 transition-colors font-semibold text-brand-700"
+                >
+                  Provisionsmodell
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/einkommen-berechnen"
+                  className="hover:text-brand-600 transition-colors"
                 >
                   Verdienst-Rechner
                 </Link>

@@ -87,6 +87,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           required
           autoComplete="given-name"
           placeholder="z. B. Sarah"
+          enterKeyHint="next"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="input"
@@ -106,6 +107,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           required
           autoComplete="email"
           placeholder="sarah@beispiel.de"
+          enterKeyHint="done"
           value={email}
           onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
           onBlur={() => setEmailSuggestion(suggestEmailCorrection(email))}

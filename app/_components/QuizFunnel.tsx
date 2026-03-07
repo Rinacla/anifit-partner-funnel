@@ -40,6 +40,7 @@ const STEPS = [
 
 function getResult(answers: string[]) {
   const pet = answers[0];
+  const motivation = answers[1];
   const time = answers[2];
 
   // Earnings estimate based on time investment
@@ -58,6 +59,15 @@ function getResult(answers: string[]) {
     ? "Auch ohne eigenes Tier kannst du Tierbesitzer kompetent beraten."
     : "Hundebesitzer sind die größte Zielgruppe — perfekt für den Start.";
 
+  // Motivation-specific reinforcement
+  const motivationText = motivation === "nebenverdienst"
+    ? "Anifit passt perfekt als flexibler Nebenverdienst — Kunden bestellen von selbst nach, du verdienst auch wenn du gerade nicht arbeitest."
+    : motivation === "sinnvoll"
+    ? "Als Berater hilfst du Tierbesitzern, besser zu füttern. Sinnvoller Nebenverdienst statt stumpfem Geldverdienen."
+    : motivation === "berufswechsel"
+    ? "Viele Berater starten nebenbei und steigen dann voll ein. Der Übergang ist fließend, weil dein Einkommen mit jedem Kunden wächst."
+    : "Dein Fachwissen als Tierprofi macht den Start besonders leicht — deine Kunden vertrauen dir von Anfang an.";
+
   const headline = time === "viel"
     ? "Du hast das Potenzial für ein Vollzeit-Einkommen!"
     : time === "mittel"
@@ -66,7 +76,7 @@ function getResult(answers: string[]) {
 
   const emoji = time === "viel" ? "🚀" : time === "mittel" ? "💪" : "✨";
 
-  return { emoji, headline, petText, earnings };
+  return { emoji, headline, petText, motivationText, earnings };
 }
 
 function loadSavedProgress(): { step: number; answers: string[]; showResult: boolean } | null {
@@ -329,6 +339,7 @@ export default function QuizFunnel() {
                     </div>
                   </div>
                   <p className="text-xs text-gray-600 leading-relaxed">{result.petText}</p>
+                  <p className="text-xs text-gray-600 leading-relaxed mt-2">{result.motivationText}</p>
                 </div>
               </div>
             );
@@ -336,6 +347,12 @@ export default function QuizFunnel() {
 
           {/* Form */}
           <div className="border-t border-gray-200 pt-6">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-700 bg-brand-100 px-3 py-1 rounded-full uppercase tracking-wide">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                Letzter Schritt
+              </span>
+            </div>
             <p className="text-sm font-semibold text-gray-900 mb-3 text-center">
               Hol dir deinen persönlichen Guide. Kostenlos:
             </p>
@@ -362,6 +379,7 @@ export default function QuizFunnel() {
                   type="text"
                   placeholder="z. B. Sarah"
                   autoComplete="given-name"
+                  enterKeyHint="next"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -375,6 +393,7 @@ export default function QuizFunnel() {
                   type="email"
                   placeholder="sarah@beispiel.de"
                   autoComplete="email"
+                  enterKeyHint="done"
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
                   onBlur={() => setEmailSuggestion(suggestEmailCorrection(email))}

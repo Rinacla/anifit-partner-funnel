@@ -2,12 +2,23 @@ import { NextRequest, NextResponse } from "next/server";
 import { createContact, sendEmail } from "@/lib/emailit";
 import { welcomeEmail } from "@/lib/emails";
 import { tierberufeConfirmEmail } from "@/lib/tierberufe-emails";
+import { isRateLimited, getClientIp } from "@/lib/rate-limit";
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 export async function POST(req: NextRequest) {
+  // Rate limit: max 5 submissions per IP per 15 minutes
+  const clientIp = getClientIp(req.headers);
+  if (isRateLimited(clientIp, 5, 15 * 60 * 1000)) {
+    console.warn(`[RATE_LIMIT] Blocked lead submission from ${clientIp}`);
+    return NextResponse.json(
+      { error: "Zu viele Anfragen. Bitte versuche es in ein paar Minuten erneut." },
+      { status: 429 }
+    );
+  }
+
   let body: unknown;
   try {
     body = await req.json();

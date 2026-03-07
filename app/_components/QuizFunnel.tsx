@@ -11,7 +11,7 @@ const STEPS = [
   {
     question: "Hast du einen Hund oder eine Katze?",
     options: [
-      { label: "🐕 Ja, einen Hund", value: "hund" },
+      { label: "🐕 Ja, einen Hund", value: "hund", popular: true },
       { label: "🐈 Ja, eine Katze", value: "katze" },
       { label: "🐾 Beides", value: "beides" },
       { label: "💭 Nein, aber ich liebe Tiere", value: "keins" },
@@ -20,7 +20,7 @@ const STEPS = [
   {
     question: "Was beschreibt dich am besten?",
     options: [
-      { label: "💰 Ich suche einen flexiblen Nebenverdienst", value: "nebenverdienst" },
+      { label: "💰 Ich suche einen flexiblen Nebenverdienst", value: "nebenverdienst", popular: true },
       { label: "🤝 Ich suche eine sinnvolle Tätigkeit", value: "sinnvoll" },
       { label: "🔄 Ich möchte mich beruflich verändern", value: "berufswechsel" },
       { label: "🐾 Ich arbeite bereits mit Tieren", value: "tierprofi" },
@@ -29,7 +29,7 @@ const STEPS = [
   {
     question: "Wie viel Zeit könntest du pro Woche investieren?",
     options: [
-      { label: "⏱️ 2–5 Stunden", value: "wenig" },
+      { label: "⏱️ 2–5 Stunden", value: "wenig", popular: true },
       { label: "⏰ 5–10 Stunden", value: "mittel" },
       { label: "🕐 10+ Stunden", value: "viel" },
       { label: "🤷 Weiß ich noch nicht", value: "unsicher" },
@@ -273,10 +273,17 @@ export default function QuizFunnel() {
               <button
                 key={opt.value}
                 onClick={() => handleAnswer(opt.value)}
-                className="w-full text-left px-5 py-4 rounded-xl border-2 border-gray-200 hover:border-brand-400 hover:bg-brand-50 transition-all duration-200 text-gray-700 font-medium group"
+                className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-200 text-gray-700 font-medium group ${opt.popular ? "border-brand-200 bg-brand-50/30 hover:border-brand-400 hover:bg-brand-50" : "border-gray-200 hover:border-brand-400 hover:bg-brand-50"}`}
               >
-                <span className="group-hover:translate-x-1 inline-block transition-transform duration-200">
-                  {opt.label}
+                <span className="flex items-center justify-between gap-2">
+                  <span className="group-hover:translate-x-1 inline-block transition-transform duration-200">
+                    {opt.label}
+                  </span>
+                  {opt.popular && (
+                    <span className="flex-shrink-0 text-[10px] font-semibold text-brand-700 bg-brand-100 px-2 py-0.5 rounded-full whitespace-nowrap">
+                      Beliebteste Wahl
+                    </span>
+                  )}
                 </span>
               </button>
             ))}

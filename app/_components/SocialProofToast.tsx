@@ -33,6 +33,7 @@ export default function SocialProofToast() {
   const [visible, setVisible] = useState(false);
   const [index, setIndex] = useState(-1);
   const [dismissed, setDismissed] = useState(false);
+  const [consentResolved, setConsentResolved] = useState(false);
   const mountTime = useRef(Date.now());
   const entriesRef = useRef<{ name: string; location: string; baseMin: number }[]>([]);
 
@@ -47,6 +48,23 @@ export default function SocialProofToast() {
     }));
   }, []);
 
+  // Wait until cookie banner is dismissed before showing toasts
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie_consent");
+    if (consent !== null) {
+      setConsentResolved(true);
+      return;
+    }
+    // Poll for consent resolution (banner dismiss)
+    const interval = setInterval(() => {
+      if (localStorage.getItem("cookie_consent") !== null) {
+        setConsentResolved(true);
+        clearInterval(interval);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const showNext = useCallback(() => {
     if (dismissed) return;
     setIndex((prev) => {
@@ -59,6 +77,7 @@ export default function SocialProofToast() {
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.pathname === "/danke") return;
+    if (!consentResolved) return;
 
     const firstTimer = setTimeout(showNext, 15000);
     const interval = setInterval(showNext, 35000);
@@ -67,7 +86,7 @@ export default function SocialProofToast() {
       clearTimeout(firstTimer);
       clearInterval(interval);
     };
-  }, [showNext]);
+  }, [showNext, consentResolved]);
 
   if (dismissed || index < 0 || !entriesRef.current.length) return null;
 

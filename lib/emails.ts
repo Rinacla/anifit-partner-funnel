@@ -149,7 +149,7 @@ export function firstCustomersEmail(name: string) {
 // ── Email 5 / Tag 7: Letzter Push + FOMO ──
 export function ctaEmail(name: string) {
   return {
-    subject: "${name}, dein Willkommenspaket wartet",
+    subject: `${name}, dein Willkommenspaket wartet`,
     html: WRAPPER(`
       <h1>${name}, kurzes Recap:</h1>
       <ul>
@@ -166,7 +166,7 @@ export function ctaEmail(name: string) {
       <p style="text-align:center;margin:24px 0">
         <a href="${REG_LINK}" class="btn">Jetzt registrieren + Willkommenspaket sichern \u2192</a>
       </p>
-      <p>Oder ruf an: <a href="tel:+4932212619379" style="color:#4CAF50;font-weight:700">+49 322 126 19 379</a>. Lisa beantwortet alle Fragen sofort.</p>
+      <p>Oder ruf an: <a href="tel:+4932212619379" style="color:#4CAF50;font-weight:700">+49 322 126 19 379</a>. Ich beantworte alle Fragen pers\u00f6nlich.</p>
       <p>Enrico</p>
     `),
   };
@@ -185,7 +185,7 @@ export function followUp1Email(name: string) {
       Musst du nicht sein. Hundebesitzer suchen aktiv nach besserem Futter. Du hilfst bei der Entscheidung. Das Produkt verkauft sich durch Qualit\u00e4t.</p>
       <p><strong>"Ich habe keine Zeit."</strong><br>
       2\u20133 Stunden pro Woche reichen. Kein B\u00fcro, keine festen Zeiten. Du bestimmst.</p>
-      <p>\u{1f4de} <strong>Ruf einfach an:</strong> <a href="tel:+4932212619379" style="color:#4CAF50">+49 322 126 19 379</a>. Lisa kl\u00e4rt alles in 5 Minuten.</p>
+      <p>\u{1f4de} <strong>Ruf einfach an:</strong> <a href="tel:+4932212619379" style="color:#4CAF50">+49 322 126 19 379</a>. Ich kl\u00e4re alles in 5 Minuten.</p>
       <p>Oder antworte auf diese Mail. Ich beantworte jede Frage pers\u00f6nlich.</p>
       <p>Enrico</p>
     `),
@@ -195,7 +195,7 @@ export function followUp1Email(name: string) {
 // ── Email 7 / Tag 14: Letzte Nachricht ──
 export function followUp2Email(name: string) {
   return {
-    subject: "Letzte Nachricht von mir, ${name}",
+    subject: `Letzte Nachricht von mir, ${name}`,
     html: WRAPPER(`
       <h1>${name}, eine letzte Mail.</h1>
       <p>Nicht jeder ist f\u00fcr diesen Weg gemacht. Aber wenn du bis hierhin gelesen hast, interessiert es dich.</p>

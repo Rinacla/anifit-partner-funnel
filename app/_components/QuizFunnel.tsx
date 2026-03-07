@@ -390,8 +390,25 @@ export default function QuizFunnel() {
             );
           })()}
 
+          {/* What happens next — reduces post-submit anxiety */}
+          <div className="bg-gray-50 rounded-xl p-4 mt-5">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Was passiert als Nächstes?</p>
+            <div className="space-y-2.5">
+              {[
+                { icon: "📧", text: "Erste Email kommt in 2 Minuten" },
+                { icon: "📱", text: "Enrico meldet sich persönlich bei dir" },
+                { icon: "✅", text: "Du entscheidest danach in Ruhe" },
+              ].map((step, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="text-base flex-shrink-0" aria-hidden="true">{step.icon}</span>
+                  <p className="text-sm text-gray-600">{step.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Form */}
-          <div className="border-t border-gray-200 pt-6">
+          <div className="border-t border-gray-200 pt-6 mt-5">
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-brand-700 bg-brand-100 px-3 py-1 rounded-full uppercase tracking-wide">
                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>

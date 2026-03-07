@@ -1,30 +1,34 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import LeadForm from "./LeadForm";
 
 export default function ExitIntentPopup() {
   const [show, setShow] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const pageLoadTime = useRef(Date.now());
+  const lastScrollY = useRef(0);
+  const maxScrollPercent = useRef(0);
+
+  const shouldSuppress = useCallback(() => {
+    if (dismissed) return true;
+    if (typeof sessionStorage !== "undefined" && sessionStorage.getItem("exit-popup-dismissed")) return true;
+    if (typeof window !== "undefined" && window.location.pathname === "/danke") return true;
+    return false;
+  }, [dismissed]);
 
   const handleMouseLeave = useCallback(
     (e: MouseEvent) => {
-      // Only trigger when mouse exits through the top of the viewport
       if (e.clientY > 5) return;
-      // Don't show if already dismissed or already converted
-      if (dismissed) return;
-      if (sessionStorage.getItem("exit-popup-dismissed")) return;
-      // Don't show if user already submitted the form (on /danke)
-      if (window.location.pathname === "/danke") return;
+      if (shouldSuppress()) return;
       setShow(true);
     },
-    [dismissed]
+    [shouldSuppress]
   );
 
+  // Desktop: mouse leave detection
   useEffect(() => {
-    // Don't run on mobile (no mouse leave events anyway)
     if (window.matchMedia("(pointer: coarse)").matches) return;
-    // Wait 10s before enabling — don't annoy quick visitors
     const timer = setTimeout(() => {
       document.addEventListener("mouseleave", handleMouseLeave);
     }, 10000);
@@ -35,11 +39,77 @@ export default function ExitIntentPopup() {
     };
   }, [handleMouseLeave]);
 
+  // Mobile: scroll-up exit intent detection
+  // Triggers when user scrolls up rapidly after being 40%+ down the page
+  // and has been on the page for at least 30 seconds
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: coarse)").matches) return;
+
+    let scrollUpDistance = 0;
+    let lastY = window.scrollY;
+    const SCROLL_UP_THRESHOLD = 300; // px of rapid scroll-up to trigger
+    const MIN_TIME_ON_PAGE = 30000; // 30 seconds
+    const MIN_SCROLL_DEPTH = 0.4; // 40% of page
+
+    function handleScroll() {
+      const currentY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const currentPercent = docHeight > 0 ? currentY / docHeight : 0;
+
+      // Track max scroll depth
+      if (currentPercent > maxScrollPercent.current) {
+        maxScrollPercent.current = currentPercent;
+      }
+
+      // Detect scroll-up
+      if (currentY < lastY) {
+        scrollUpDistance += lastY - currentY;
+      } else {
+        scrollUpDistance = 0; // reset on scroll down
+      }
+
+      lastY = currentY;
+
+      // Trigger conditions: scrolled up enough, was deep enough, on page long enough
+      if (
+        scrollUpDistance >= SCROLL_UP_THRESHOLD &&
+        maxScrollPercent.current >= MIN_SCROLL_DEPTH &&
+        Date.now() - pageLoadTime.current >= MIN_TIME_ON_PAGE
+      ) {
+        if (!shouldSuppress()) {
+          setShow(true);
+          scrollUpDistance = 0; // reset to prevent re-trigger
+        }
+      }
+    }
+
+    // Delay enabling to avoid false triggers during initial page load
+    const timer = setTimeout(() => {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }, MIN_TIME_ON_PAGE);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [shouldSuppress]);
+
   function dismiss() {
     setShow(false);
     setDismissed(true);
     sessionStorage.setItem("exit-popup-dismissed", "1");
   }
+
+  // Track exit intent popup display via Meta Pixel
+  useEffect(() => {
+    if (!show) return;
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const w = window as any;
+    if (typeof w.fbq === "function") {
+      w.fbq("trackCustom", "ExitIntentShown", { device: isMobile ? "mobile" : "desktop" });
+    }
+  }, [show]);
 
   if (!show) return null;
 

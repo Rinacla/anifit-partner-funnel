@@ -1,10 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+import LeadForm from "../_components/LeadForm";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Guide: Dein Start als Anifit-Tierernährungsberater",
   description: "Alles was du wissen musst um als Anifit-Fachberater zu starten: Verdienst, Voraussetzungen, Ablauf und Tipps vom erfahrenen Mentor.",
-  alternates: { canonical: "/guide" },
+  alternates: { canonical: "https://partner.anifutter-shop.de/guide" },
+  openGraph: {
+    title: "Guide: Dein Start als Anifit-Tierernährungsberater",
+    description: "Verdienst, Voraussetzungen, Ablauf und Tipps vom erfahrenen Mentor. Kostenlos per Email.",
+    locale: "de_DE",
+  },
 };
 
 export default function GuidePage() {
@@ -187,6 +194,20 @@ export default function GuidePage() {
                 <p className="text-gray-600">{item.a}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Inline LeadForm for visitors who found this page via search */}
+        <section className="bg-green-50 rounded-2xl p-6 sm:p-8 border border-green-100">
+          <div className="text-center mb-6">
+            <p className="text-xs font-bold tracking-widest uppercase text-green-700 bg-green-100 px-3 py-1 rounded-full inline-block mb-3">Kompakt per Email</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Alle 5 Guide-Teile per Email erhalten</h2>
+            <p className="text-sm text-gray-600 max-w-md mx-auto">
+              Du hast hier die Kurzversion gelesen. Der vollständige Guide kommt in 5 kompakten Emails mit konkreten Rechenbeispielen, Vorlagen und deinem persönlichen Registrierungslink.
+            </p>
+          </div>
+          <div className="max-w-md mx-auto">
+            <LeadForm source="guide" />
           </div>
         </section>
 

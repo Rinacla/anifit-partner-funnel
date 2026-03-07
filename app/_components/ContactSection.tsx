@@ -16,14 +16,7 @@ function getAvailability(): { label: string; online: boolean } {
     new Intl.DateTimeFormat("en-US", { hour: "numeric", hour12: false, timeZone: "Europe/Berlin" }).format(now),
     10
   );
-  const berlinDay = parseInt(
-    new Intl.DateTimeFormat("en-US", { weekday: "narrow", timeZone: "Europe/Berlin" }).format(now) === "S"
-      ? // Need proper weekday number
-        new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: "Europe/Berlin" }).format(now)
-      : "",
-    10
-  );
-  // Get actual weekday (0=Sun, 6=Sat)
+  // Get actual weekday in Berlin timezone (0=Sun, 6=Sat)
   const weekday = new Date(
     now.toLocaleString("en-US", { timeZone: "Europe/Berlin" })
   ).getDay();

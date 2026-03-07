@@ -296,6 +296,7 @@ export default function QuizFunnel() {
           <div className="flex items-center justify-between mb-2">
             <p className="text-xs font-medium text-brand-600">
               Frage {step + 1} von {STEPS.length}
+              {step === 0 && <span className="text-gray-400 font-normal ml-2">· ⏱ ~30 Sek.</span>}
             </p>
             {step > 0 && (
               <button

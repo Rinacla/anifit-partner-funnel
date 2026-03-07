@@ -9,6 +9,7 @@ import AnimatedStats from "./_components/AnimatedStats";
 import ContactSection from "./_components/ContactSection";
 import VideoSection from "./_components/VideoSection";
 import BenefitIcons from "./_components/BenefitIcons";
+import FirstMonthTimeline from "./_components/FirstMonthTimeline";
 import ClientOverlays from "./_components/ClientOverlays";
 import StartbonusMini from "./_components/StartbonusMini";
 import AnnouncementBar from "./_components/AnnouncementBar";
@@ -261,6 +262,22 @@ export default function Home() {
                 <p className="text-gray-600 text-sm leading-relaxed">{s.text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Dein erster Monat */}
+      <section className="py-20 border-t border-gray-200">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-bold text-center mb-4">Dein erster Monat als Berater</h2>
+          <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
+            Du brauchst keinen Plan. Wir haben schon einen. So sehen die ersten 4 Wochen aus:
+          </p>
+          <FirstMonthTimeline />
+          <div className="mt-10 text-center">
+            <a href="#quiz" className="btn-brand py-3 px-8 shadow-lg">
+              Jetzt den ersten Schritt machen
+            </a>
           </div>
         </div>
       </section>

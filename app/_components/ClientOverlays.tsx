@@ -7,6 +7,7 @@ const StickyMobileCTA = dynamic(() => import("./StickyMobileCTA"), { ssr: false 
 const ScrollTracker = dynamic(() => import("./ScrollTracker"), { ssr: false });
 const LeadProofBubble = dynamic(() => import("./LeadProofBubble"), { ssr: false });
 const ScrollProgressBar = dynamic(() => import("./ScrollProgressBar"), { ssr: false });
+const ScrollToTop = dynamic(() => import("./ScrollToTop"), { ssr: false });
 
 export default function ClientOverlays() {
   return (
@@ -16,6 +17,7 @@ export default function ClientOverlays() {
       <StickyMobileCTA />
       <ScrollTracker />
       <LeadProofBubble />
+      <ScrollToTop />
     </>
   );
 }

@@ -12,6 +12,7 @@ import BenefitIcons from "./_components/BenefitIcons";
 import FirstMonthTimeline from "./_components/FirstMonthTimeline";
 import ClientOverlays from "./_components/ClientOverlays";
 import StartbonusMini from "./_components/StartbonusMini";
+import QuizEarningsReminder from "./_components/QuizEarningsReminder";
 import AnnouncementBar from "./_components/AnnouncementBar";
 import Footer from "./_components/Footer";
 
@@ -573,6 +574,7 @@ export default function Home() {
         <div className="mx-auto max-w-md px-6">
           <h2 className="text-2xl font-bold text-white text-center mb-3">Klingt nach dir?</h2>
           <p className="text-brand-100 text-center mb-2">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
+          <QuizEarningsReminder />
           <StartbonusMini />
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
             <LeadForm idPrefix="bottom-" source="bottom" />

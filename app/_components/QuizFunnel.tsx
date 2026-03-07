@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useUtmParams } from "@/lib/useUtmParams";
+import { suggestEmailCorrection } from "@/lib/email-typo";
 
 const STORAGE_KEY = "anifit_quiz_progress";
 
@@ -104,6 +105,8 @@ export default function QuizFunnel() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
   const [restored, setRestored] = useState(false);
+  const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
   const utm = useUtmParams();
 
@@ -169,13 +172,15 @@ export default function QuizFunnel() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!consent || !name.trim() || !email.trim()) return;
+    // Honeypot check — real users never fill this
+    if (honeypot) return;
     setLoading(true);
     setError("");
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm, source: "quiz" }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || undefined, wantsCall, quiz: answers, utm, source: "quiz", _hp: honeypot }),
       });
       if (!res.ok) throw new Error("server");
       // Lead pixel fires on /danke page (single source of truth)
@@ -314,10 +319,25 @@ export default function QuizFunnel() {
                   placeholder="sarah@beispiel.de"
                   autoComplete="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
+                  onBlur={() => setEmailSuggestion(suggestEmailCorrection(email))}
                   required
                   className="input text-sm"
                 />
+                {emailSuggestion && (
+                  <button
+                    type="button"
+                    onClick={() => { setEmail(emailSuggestion); setEmailSuggestion(null); }}
+                    className="text-xs text-brand-700 mt-1 hover:underline"
+                  >
+                    Meintest du <strong>{emailSuggestion}</strong>?
+                  </button>
+                )}
+              </div>
+              {/* Honeypot — hidden from real users, catches bots */}
+              <div className="absolute opacity-0 -z-10 h-0 overflow-hidden" aria-hidden="true" tabIndex={-1}>
+                <label htmlFor="quiz-website">Website</label>
+                <input id="quiz-website" type="text" name="website" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
               </div>
               <label htmlFor="quiz-callback" className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer">
                 <input

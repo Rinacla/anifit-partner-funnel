@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
   }
 
-  const { name, email, source, beruf, message, phone, wantsCall, quiz, utm } = body as {
+  const { name, email, source, beruf, message, phone, wantsCall, quiz, utm, _hp } = body as {
     name?: string;
     email?: string;
     source?: string;
@@ -36,7 +36,14 @@ export async function POST(req: NextRequest) {
     wantsCall?: boolean;
     quiz?: string[];
     utm?: Record<string, string>;
+    _hp?: string;
   };
+
+  // Honeypot: if filled, it's a bot — return success silently
+  if (_hp) {
+    console.warn(`[HONEYPOT] Bot caught from ${clientIp}`);
+    return NextResponse.json({ success: true });
+  }
 
   if (!name || typeof name !== "string" || name.trim().length < 2) {
     return NextResponse.json({ error: "Bitte gib deinen Namen ein." }, { status: 400 });

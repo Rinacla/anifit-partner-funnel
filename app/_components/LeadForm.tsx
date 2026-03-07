@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, FormEvent, useCallback } from "react";
+import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
+import { suggestEmailCorrection } from "@/lib/email-typo";
 
 function trackPixel(event: string, params?: Record<string, unknown>, standard = false) {
   if (typeof window !== "undefined" && (window as any).fbq) {
@@ -24,10 +25,13 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [consent, setConsent] = useState(false);
+  const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
   const utm = useUtmParams();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (honeypot) return; // bot trap
     setError(null);
     setLoading(true);
 
@@ -35,7 +39,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone: phone.trim() || undefined, wantsCall, utm, source }),
+        body: JSON.stringify({ name, email, phone: phone.trim() || undefined, wantsCall, utm, source, _hp: honeypot }),
       });
 
       const data = await res.json();
@@ -89,10 +93,25 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           autoComplete="email"
           placeholder="sarah@beispiel.de"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => { setEmail(e.target.value); setEmailSuggestion(null); }}
+          onBlur={() => setEmailSuggestion(suggestEmailCorrection(email))}
           className="input"
           disabled={loading}
         />
+        {emailSuggestion && (
+          <button
+            type="button"
+            onClick={() => { setEmail(emailSuggestion); setEmailSuggestion(null); }}
+            className="text-xs text-brand-700 mt-1 hover:underline"
+          >
+            Meintest du <strong>{emailSuggestion}</strong>?
+          </button>
+        )}
+      </div>
+      {/* Honeypot — invisible to real users, catches bots */}
+      <div className="absolute opacity-0 -z-10 h-0 overflow-hidden" aria-hidden="true" tabIndex={-1}>
+        <label htmlFor={`${idPrefix}website`}>Website</label>
+        <input id={`${idPrefix}website`} type="text" name="website" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
       </div>
       <div className="flex items-start gap-3">
         <input

@@ -107,19 +107,52 @@ export async function POST(req: NextRequest) {
   // Notify Enrico about every new lead (not just tierberufe/callback)
   if (!isTierberufe) {
     const quizSummary = quiz?.length ? quiz.join(" → ") : "kein Quiz";
-    const callbackInfo = wantsCall && phone ? `<p><strong>📞 Rückruf:</strong> ${phone}</p>` : "";
+    const callbackInfo = wantsCall && phone
+      ? `<p style="background:#fef3c7;padding:12px;border-radius:8px;border-left:4px solid #f59e0b"><strong>📞 Rückruf gewünscht:</strong> <a href="tel:${phone.replace(/\s/g, "")}">${phone}</a></p>`
+      : "";
+
+    // Decode quiz answers for human-readable context
+    const quizLabels: Record<string, string> = {
+      hund: "🐕 Hund", katze: "🐈 Katze", beides: "🐾 Beides", keins: "💭 Kein Tier",
+      nebenverdienst: "💰 Nebenverdienst", sinnvoll: "🤝 Sinnvolle Tätigkeit",
+      berufswechsel: "🔄 Berufswechsel", tierprofi: "🐾 Tierprofi",
+      wenig: "⏱️ 2–5h/Woche", mittel: "⏰ 5–10h/Woche", viel: "🕐 10h+/Woche", unsicher: "🤷 Noch unsicher",
+    };
+    const quizReadable = quiz?.length
+      ? quiz.map((a) => quizLabels[a] || a).join(" · ")
+      : "kein Quiz";
+
+    // Source label for subject line
+    const sourceLabel = source === "quiz" ? "Quiz" : source === "bottom" ? "Formular" : source === "exit-intent" ? "Exit-Intent" : source || "direkt";
+
+    // WhatsApp deep link for instant reply
+    const waText = encodeURIComponent(`Hallo ${cleanName.split(" ")[0]}, danke für dein Interesse am Anifit-Guide! Ich bin Enrico — hast du schon Fragen?`);
+    const waLink = phone
+      ? `https://wa.me/${phone.replace(/\D/g, "").replace(/^0/, "49")}?text=${waText}`
+      : `mailto:${cleanEmail}?subject=${encodeURIComponent("Dein Anifit-Guide")}`;
+
     const notifyHtml = `
-      <h2>Neuer Lead: ${cleanName}</h2>
-      <p><strong>Email:</strong> ${cleanEmail}</p>
-      <p><strong>Quiz:</strong> ${quizSummary}</p>
-      <p><strong>Quelle:</strong> ${source || "unbekannt"} · ${utmLine}</p>
-      ${callbackInfo}
+      <div style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:480px">
+        <h2 style="margin:0 0 16px">Neuer Lead: ${cleanName}</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:14px">
+          <tr><td style="padding:6px 12px;color:#6b7280">Quelle</td><td style="padding:6px 12px;font-weight:600">${sourceLabel} · ${utmLine}</td></tr>
+          <tr style="background:#f9fafb"><td style="padding:6px 12px;color:#6b7280">Email</td><td style="padding:6px 12px"><a href="mailto:${cleanEmail}">${cleanEmail}</a></td></tr>
+          <tr><td style="padding:6px 12px;color:#6b7280">Quiz</td><td style="padding:6px 12px">${quizReadable}</td></tr>
+        </table>
+        ${callbackInfo}
+        <div style="margin:20px 0">
+          <a href="${waLink}" style="display:inline-block;background:#25D366;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px">
+            ${phone ? "📱 Direkt per WhatsApp antworten" : "✉️ Direkt antworten"}
+          </a>
+        </div>
+        <p style="font-size:12px;color:#9ca3af;margin-top:16px">Lead eingegangen am ${new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin", dateStyle: "medium", timeStyle: "short" })}</p>
+      </div>
     `;
     // Fire-and-forget — don't block the response
-    sendEmail("partner@anifutter-shop.de", `Neuer Lead: ${cleanName}`, notifyHtml).catch((err) =>
+    sendEmail("partner@anifutter-shop.de", `[${sourceLabel}] Neuer Lead: ${cleanName}`, notifyHtml).catch((err) =>
       console.error("Lead notification error:", err)
     );
-    console.log(`[LEAD] ${cleanName} <${cleanEmail}> | quiz: ${quiz?.join(",") || "-"} | utm: ${utmLine}`);
+    console.log(`[LEAD] ${cleanName} <${cleanEmail}> | source: ${sourceLabel} | quiz: ${quiz?.join(",") || "-"} | utm: ${utmLine}`);
   }
 
   if (!sent) {

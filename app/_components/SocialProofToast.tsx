@@ -1,46 +1,67 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 
-interface ProofEntry {
-  name: string;
-  location: string;
-  timeAgo: string;
+const NAMES = [
+  "Sarah M.", "Julia H.", "Sandra K.", "Thomas R.", "Lisa W.",
+  "Melanie F.", "Christina B.", "Anna S.", "Michael K.", "Janina P.",
+  "Kevin B.", "Svenja L.", "Andreas W.", "Stefanie H.", "Markus D.",
+];
+const LOCATIONS = [
+  "Bayern", "NRW", "Baden-Württemberg", "Niedersachsen", "Hessen",
+  "Sachsen", "Hamburg", "Berlin", "Rheinland-Pfalz", "Schleswig-Holstein",
+  "Brandenburg", "Thüringen", "Bremen",
+];
+
+function dynamicTimeAgo(baseMinutes: number, elapsedSec: number): string {
+  const totalMin = baseMinutes + Math.floor(elapsedSec / 60);
+  if (totalMin < 60) return `vor ${totalMin} Minuten`;
+  const hours = Math.floor(totalMin / 60);
+  return hours === 1 ? "vor 1 Stunde" : `vor ${hours} Stunden`;
 }
 
-const ENTRIES: ProofEntry[] = [
-  { name: "Sarah M.", location: "Bayern", timeAgo: "vor 12 Minuten" },
-  { name: "Julia H.", location: "NRW", timeAgo: "vor 23 Minuten" },
-  { name: "Sandra K.", location: "Baden-Württemberg", timeAgo: "vor 34 Minuten" },
-  { name: "Thomas R.", location: "Niedersachsen", timeAgo: "vor 1 Stunde" },
-  { name: "Lisa W.", location: "Hessen", timeAgo: "vor 2 Stunden" },
-  { name: "Melanie F.", location: "Sachsen", timeAgo: "vor 3 Stunden" },
-  { name: "Christina B.", location: "Hamburg", timeAgo: "vor 4 Stunden" },
-  { name: "Anna S.", location: "Berlin", timeAgo: "vor 5 Stunden" },
-];
+function shuffled<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 export default function SocialProofToast() {
   const [visible, setVisible] = useState(false);
   const [index, setIndex] = useState(-1);
   const [dismissed, setDismissed] = useState(false);
+  const mountTime = useRef(Date.now());
+  const entriesRef = useRef<{ name: string; location: string; baseMin: number }[]>([]);
+
+  // Generate randomized entries once on mount
+  useEffect(() => {
+    const names = shuffled(NAMES);
+    const locations = shuffled(LOCATIONS);
+    entriesRef.current = names.slice(0, 8).map((name, i) => ({
+      name,
+      location: locations[i % locations.length],
+      baseMin: 3 + Math.floor(Math.random() * 45), // 3-47 minutes ago at page load
+    }));
+  }, []);
 
   const showNext = useCallback(() => {
     if (dismissed) return;
     setIndex((prev) => {
-      const next = (prev + 1) % ENTRIES.length;
+      const next = (prev + 1) % 8;
       return next;
     });
     setVisible(true);
-    setTimeout(() => setVisible(false), 4000);
+    setTimeout(() => setVisible(false), 4500);
   }, [dismissed]);
 
   useEffect(() => {
-    // Don't show on /danke (already converted)
     if (typeof window !== "undefined" && window.location.pathname === "/danke") return;
 
-    // First toast after 15s, then every 30s
     const firstTimer = setTimeout(showNext, 15000);
-    const interval = setInterval(showNext, 30000);
+    const interval = setInterval(showNext, 35000);
 
     return () => {
       clearTimeout(firstTimer);
@@ -48,9 +69,10 @@ export default function SocialProofToast() {
     };
   }, [showNext]);
 
-  if (dismissed || index < 0) return null;
+  if (dismissed || index < 0 || !entriesRef.current.length) return null;
 
-  const entry = ENTRIES[index];
+  const entry = entriesRef.current[index];
+  const elapsedSec = Math.floor((Date.now() - mountTime.current) / 1000);
 
   return (
     <div
@@ -60,7 +82,7 @@ export default function SocialProofToast() {
           : "translate-y-4 opacity-0 pointer-events-none"
       }`}
     >
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 px-4 py-3 flex items-start gap-3">
+      <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 px-4 py-3 flex items-start gap-3">
         <div className="flex-shrink-0 w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center text-sm">
           📩
         </div>
@@ -69,7 +91,7 @@ export default function SocialProofToast() {
             {entry.name} aus {entry.location}
           </p>
           <p className="text-xs text-gray-500 mt-0.5">
-            hat den Guide angefordert · {entry.timeAgo}
+            hat den Guide angefordert · {dynamicTimeAgo(entry.baseMin, elapsedSec)}
           </p>
         </div>
         <button

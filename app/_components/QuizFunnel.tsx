@@ -97,6 +97,7 @@ export default function QuizFunnel() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [showResult, setShowResult] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
@@ -172,10 +173,15 @@ export default function QuizFunnel() {
       setStep(step + 1);
       persistProgress(step + 1, newAnswers, false);
     } else {
-      setShowResult(true);
-      persistProgress(step + 1, newAnswers, true);
+      // Show analyzing animation before revealing result
+      setAnalyzing(true);
       trackPixel("QuizComplete", { answers: newAnswers.join(",") });
-      setTimeout(() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }), 300);
+      setTimeout(() => {
+        setAnalyzing(false);
+        setShowResult(true);
+        persistProgress(step + 1, newAnswers, true);
+        setTimeout(() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }), 300);
+      }, 2000);
     }
   };
 
@@ -209,7 +215,7 @@ export default function QuizFunnel() {
 
   if (done) return null;
 
-  const progress = showResult ? 100 : Math.round(((step) / STEPS.length) * 100);
+  const progress = analyzing ? 90 : showResult ? 100 : Math.round(((step) / STEPS.length) * 100);
 
   return (
     <div className="w-full">
@@ -221,7 +227,18 @@ export default function QuizFunnel() {
         />
       </div>
 
-      {!showResult ? (
+      {analyzing ? (
+        <div className="animate-fade-in text-center py-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 mb-4">
+            <svg className="animate-spin w-10 h-10 text-brand-600" viewBox="0 0 24 24" fill="none">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+          </div>
+          <p className="text-lg font-bold text-gray-900 mb-1">Dein Ergebnis wird berechnet…</p>
+          <p className="text-sm text-gray-500">Basierend auf deinen Antworten und aktuellen Berater-Daten</p>
+        </div>
+      ) : !showResult ? (
         <div className="animate-fade-in" key={step}>
           {restored && step > 0 && (
             <div className="flex items-center justify-between bg-brand-50 border border-brand-100 rounded-lg px-3 py-2 mb-4 text-xs text-brand-700">

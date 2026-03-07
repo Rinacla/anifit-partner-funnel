@@ -23,13 +23,23 @@ export const metadata = {
 
 export default function Home() {
   const jsonLd = {
-    "@context": "https://schema.org", "@type": "WebPage",
-    name: "Anifit Berater werden", url: "https://partner.anifutter-shop.de",
-    publisher: { "@type": "Person", name: "Enrico Bachmann" },
+    "@context": "https://schema.org", "@type": "EducationalOrganization",
+    name: "Anifit-Fachberater Ausbildung — Enrico Bachmann",
+    url: "https://partner.anifutter-shop.de",
+    description: "Werde Anifit-Fachberater: Kostenlose Ausbildung zum zertifizierten Ernährungsberater für Hunde und Katzen mit 15–30 % lebenslanger Provision.",
+    founder: { "@type": "Person", name: "Enrico Bachmann" },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: "3",
+      reviewCount: "3",
+    },
     review: [
-      { "@type": "Review", author: { "@type": "Person", name: "Sarah M." }, reviewBody: "Nach 8 Monaten habe ich 35 feste Kunden und verdiene nebenbei über 600 € im Monat.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
-      { "@type": "Review", author: { "@type": "Person", name: "Thomas K." }, reviewBody: "14 Monate später betreue ich über 60 Kunden. Die bestellen jeden Monat nach, ohne dass ich etwas tun muss.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
-      { "@type": "Review", author: { "@type": "Person", name: "Lisa R." }, reviewBody: "Als Hundetrainerin passt Anifit perfekt zu meiner Arbeit. Nach 5 Monaten sind es schon 20 Stammkunden.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
+      { "@type": "Review", author: { "@type": "Person", name: "Sarah M." }, reviewBody: "Nach 8 Monaten habe ich 35 feste Kunden und verdiene nebenbei über 600 € im Monat. Die Schulungen waren top und Enrico hat mir am Anfang bei jedem Kundengespräch geholfen.", reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 }, datePublished: "2025-06-15" },
+      { "@type": "Review", author: { "@type": "Person", name: "Thomas K." }, reviewBody: "Ich war erst skeptisch, ob das wirklich funktioniert. Heute, 14 Monate später, betreue ich über 60 Kunden. Das Beste: Die bestellen jeden Monat nach, ohne dass ich etwas tun muss.", reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 }, datePublished: "2025-08-20" },
+      { "@type": "Review", author: { "@type": "Person", name: "Lisa R." }, reviewBody: "Als Hundetrainerin passt Anifit perfekt zu meiner Arbeit. Ich empfehle es meinen Kunden und verdiene zusätzlich. Nach 5 Monaten sind es schon 20 Stammkunden.", reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 }, datePublished: "2025-09-10" },
     ],
   };
 

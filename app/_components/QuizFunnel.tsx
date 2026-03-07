@@ -142,7 +142,7 @@ export default function QuizFunnel() {
   return (
     <div className="w-full">
       {/* Progress bar */}
-      <div className="h-1.5 bg-gray-100 rounded-full mb-8 overflow-hidden">
+      <div className="h-1.5 bg-gray-100 rounded-full mb-8 overflow-hidden" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label="Quiz-Fortschritt">
         <div
           className="h-full bg-green-500 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
@@ -229,24 +229,35 @@ export default function QuizFunnel() {
               Hol dir deinen persönlichen Guide. Kostenlos:
             </p>
             <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="text"
-                placeholder="Dein Vorname"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
-              />
-              <input
-                type="email"
-                placeholder="Deine E-Mail-Adresse"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
-              />
-              <label className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer">
+              <div>
+                <label htmlFor="quiz-name" className="block text-xs font-medium text-gray-600 mb-1">Dein Vorname</label>
                 <input
+                  id="quiz-name"
+                  type="text"
+                  placeholder="z. B. Sarah"
+                  autoComplete="given-name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
+                />
+              </div>
+              <div>
+                <label htmlFor="quiz-email" className="block text-xs font-medium text-gray-600 mb-1">Deine E-Mail-Adresse</label>
+                <input
+                  id="quiz-email"
+                  type="email"
+                  placeholder="sarah@beispiel.de"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
+                />
+              </div>
+              <label htmlFor="quiz-callback" className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer">
+                <input
+                  id="quiz-callback"
                   type="checkbox"
                   checked={wantsCall}
                   onChange={(e) => setWantsCall(e.target.checked)}
@@ -255,18 +266,23 @@ export default function QuizFunnel() {
                 <span>Ja, ich möchte einen kurzen Rückruf (optional)</span>
               </label>
               {wantsCall && (
-                <input
-                  type="tel"
-                  inputMode="tel"
-                  autoComplete="tel"
-                  placeholder="z. B. 0170 1234567"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
-                />
+                <div>
+                  <label htmlFor="quiz-phone" className="block text-xs font-medium text-gray-600 mb-1">Deine Telefonnummer</label>
+                  <input
+                    id="quiz-phone"
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    placeholder="z. B. 0170 1234567"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-green-400 focus:ring-2 focus:ring-green-100 outline-none text-sm"
+                  />
+                </div>
               )}
-              <label className="flex items-start gap-2 text-xs text-gray-500 cursor-pointer">
+              <label htmlFor="quiz-consent" className="flex items-start gap-2 text-xs text-gray-500 cursor-pointer">
                 <input
+                  id="quiz-consent"
                   type="checkbox"
                   checked={consent}
                   onChange={(e) => setConsent(e.target.checked)}

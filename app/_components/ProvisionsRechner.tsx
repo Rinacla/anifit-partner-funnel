@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const STUFEN = [
   { min: 0, max: 9, rate: 0.15, label: "Einsteiger" },
@@ -164,6 +165,17 @@ export default function ProvisionsRechner() {
       <p className="text-[10px] text-gray-500 text-center mt-4 italic leading-relaxed">
         Echte Werte aus der Berater-Statistik. Provisionsstufen gelten lebenslang für alle Folgebestellungen.
       </p>
+
+      {/* Cross-link to /provision detail page */}
+      <div className="mt-5 pt-4 border-t border-gray-100 text-center">
+        <Link
+          href="/provision"
+          className="inline-flex items-center gap-1.5 text-brand-700 font-semibold text-sm hover:text-brand-800 transition-colors"
+        >
+          Alle Provisionsstufen im Detail
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </Link>
+      </div>
     </div>
   );
 }

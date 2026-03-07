@@ -76,7 +76,29 @@ function getResult(answers: string[]) {
 
   const emoji = time === "viel" ? "🚀" : time === "mittel" ? "💪" : "✨";
 
-  return { emoji, headline, petText, motivationText, earnings };
+  // Matched micro-testimonial based on quiz profile
+  const testimonial = time === "viel" || time === "mittel"
+    ? {
+        name: "Thomas K.",
+        location: "NRW",
+        quote: "14 Monate später betreue ich über 60 Kunden. Die bestellen jeden Monat nach, ohne dass ich etwas tun muss.",
+        detail: "60+ Kunden · passives Einkommen",
+      }
+    : motivation === "tierprofi"
+    ? {
+        name: "Lisa R.",
+        location: "Niedersachsen",
+        quote: "Als Hundetrainerin passt Anifit perfekt zu meiner Arbeit. Nach 5 Monaten sind es schon 20 Stammkunden.",
+        detail: "20 Kunden nach 5 Monaten",
+      }
+    : {
+        name: "Sarah M.",
+        location: "Bayern",
+        quote: "Nach 8 Monaten habe ich 35 feste Kunden und verdiene nebenbei über 600 € im Monat.",
+        detail: "35 Kunden · ~600 €/Monat",
+      };
+
+  return { emoji, headline, petText, motivationText, earnings, testimonial };
 }
 
 function loadSavedProgress(): { step: number; answers: string[]; showResult: boolean } | null {
@@ -340,6 +362,23 @@ export default function QuizFunnel() {
                   </div>
                   <p className="text-xs text-gray-600 leading-relaxed">{result.petText}</p>
                   <p className="text-xs text-gray-600 leading-relaxed mt-2">{result.motivationText}</p>
+                </div>
+
+                {/* Matched micro-testimonial — social proof at conversion moment */}
+                <div className="bg-white rounded-xl p-3 border border-gray-100 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 text-xs font-bold flex-shrink-0 mt-0.5">
+                      {result.testimonial.name.split(" ").map(n => n[0]).join("")}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-gray-700 leading-relaxed italic">
+                        &bdquo;{result.testimonial.quote}&ldquo;
+                      </p>
+                      <p className="text-[10px] text-gray-500 mt-1.5 font-medium">
+                        {result.testimonial.name}, {result.testimonial.location} · {result.testimonial.detail}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

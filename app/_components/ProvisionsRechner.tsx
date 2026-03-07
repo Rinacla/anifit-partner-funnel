@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 const STUFEN = [
-  { min: 0, max: 9, rate: 0.15 },
-  { min: 10, max: 24, rate: 0.19 },
-  { min: 25, max: 49, rate: 0.23 },
-  { min: 50, max: 95, rate: 0.27 },
-  { min: 96, max: 999, rate: 0.30 },
+  { min: 0, max: 9, rate: 0.15, label: "Einsteiger" },
+  { min: 10, max: 24, rate: 0.19, label: "Aufsteiger" },
+  { min: 25, max: 49, rate: 0.23, label: "Profi" },
+  { min: 50, max: 95, rate: 0.27, label: "Experte" },
+  { min: 96, max: 999, rate: 0.30, label: "Top-Berater" },
 ];
 
 function getRate(kunden: number): number {
@@ -15,15 +15,24 @@ function getRate(kunden: number): number {
   return stufe?.rate ?? 0.15;
 }
 
+function getStufeIndex(kunden: number): number {
+  return STUFEN.findIndex((s) => kunden >= s.min && kunden <= s.max);
+}
+
 export default function ProvisionsRechner() {
   const [kunden, setKunden] = useState(25);
   const [avgOrder, setAvgOrder] = useState(105);
   const rate = getRate(kunden);
+  const currentIdx = getStufeIndex(kunden);
   const monatlich = Math.round(kunden * avgOrder * rate);
   const jaehrlich = monatlich * 12;
 
   // For the start bonus mention (30% for 3 months)
   const bonusMonatlich = Math.round(kunden * avgOrder * 0.30);
+
+  // Next tier info
+  const nextStufe = currentIdx < STUFEN.length - 1 ? STUFEN[currentIdx + 1] : null;
+  const kundenBisNaechsteStufe = nextStufe ? nextStufe.min - kunden : 0;
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-8">
@@ -105,6 +114,51 @@ export default function ProvisionsRechner() {
         <p className="text-xs text-warm-800 leading-snug">
           Mit dem <strong>Startbonus (30%)</strong> wären es in den ersten 3 Monaten sogar <strong className="text-warm-900">{bonusMonatlich} €</strong> pro Monat!
         </p>
+      </div>
+
+      {/* Provisionsstufen-Leiter */}
+      <div className="mt-6 pt-5 border-t border-gray-100">
+        <p className="text-xs font-semibold text-gray-700 mb-3 text-center">Deine Provisionsstufe</p>
+        <div className="flex items-center gap-1">
+          {STUFEN.map((stufe, i) => {
+            const isActive = i === currentIdx;
+            const isPast = i < currentIdx;
+            return (
+              <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                <div
+                  className={`w-full h-2 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? "bg-brand-500 ring-2 ring-brand-200"
+                      : isPast
+                        ? "bg-brand-300"
+                        : "bg-gray-200"
+                  }`}
+                />
+                <span
+                  className={`text-[9px] leading-tight text-center transition-colors duration-300 ${
+                    isActive
+                      ? "text-brand-700 font-bold"
+                      : isPast
+                        ? "text-brand-400"
+                        : "text-gray-400"
+                  }`}
+                >
+                  {Math.round(stufe.rate * 100)}%
+                </span>
+              </div>
+            );
+          })}
+        </div>
+        {nextStufe && kundenBisNaechsteStufe > 0 && (
+          <p className="text-[10px] text-gray-500 text-center mt-2">
+            Noch <strong className="text-brand-600">{kundenBisNaechsteStufe} {kundenBisNaechsteStufe === 1 ? "Kunde" : "Kunden"}</strong> bis {Math.round(nextStufe.rate * 100)}% ({nextStufe.label})
+          </p>
+        )}
+        {!nextStufe && (
+          <p className="text-[10px] text-brand-600 text-center mt-2 font-semibold">
+            Höchste Stufe erreicht
+          </p>
+        )}
       </div>
 
       <p className="text-[10px] text-gray-500 text-center mt-4 italic leading-relaxed">

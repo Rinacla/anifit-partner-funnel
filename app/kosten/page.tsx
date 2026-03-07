@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Anifit Berater werden: Kosten & Einstieg im Detail",
@@ -79,9 +80,7 @@ export default function KostenPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-brand-50 via-white to-brand-50/30 py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <Link href="/" className="text-sm text-brand-700 hover:underline mb-6 inline-block">
-            ← Zurück zur Hauptseite
-          </Link>
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Kosten & Einstieg" }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-4">
             Was kostet der Einstieg als{" "}
             <span className="text-brand-600">Anifit-Fachberater?</span>

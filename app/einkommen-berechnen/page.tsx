@@ -3,6 +3,7 @@ import LeadForm from "../_components/LeadForm";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Verdienst-Rechner für Anifit-Berater | Enrico Bachmann",
@@ -46,36 +47,9 @@ export default function EarningsCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
-      <header className="border-b border-gray-200 py-6">
-        <div className="mx-auto max-w-3xl px-6 flex justify-between items-center">
-          <Link
-            href="/"
-            className="font-bold text-gray-900 border-2 border-brand-600 px-3 py-1 rounded-lg"
-          >
-            Anifit-Partner
-          </Link>
-          <Link
-            href="/"
-            className="text-sm text-gray-500 hover:text-brand-600"
-          >
-            &larr; Zurück
-          </Link>
-        </div>
-      </header>
-
       <main className="py-20">
         <div className="mx-auto max-w-xl px-6">
-          {/* Breadcrumb */}
-          <nav
-            aria-label="Breadcrumb"
-            className="text-xs text-gray-500 mb-8 flex gap-1"
-          >
-            <Link href="/" className="hover:text-brand-600">
-              Startseite
-            </Link>
-            <span>/</span>
-            <span className="text-gray-600">Verdienst-Rechner</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Verdienst-Rechner" }]} />
 
           <h1 className="text-3xl font-extrabold text-center mb-4 leading-tight">
             Wie viel kannst du als{" "}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Über Enrico Bachmann — Dein Anifit-Mentor",
@@ -168,19 +169,9 @@ export default function UeberMichPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Breadcrumb */}
-      <nav
-        aria-label="Breadcrumb"
-        className="mx-auto max-w-3xl px-6 pt-6 text-sm text-gray-500"
-      >
-        <Link href="/" className="hover:text-brand-600">
-          Start
-        </Link>{" "}
-        / <span className="text-gray-600">Über Enrico</span>
-      </nav>
-
       {/* Hero */}
       <section className="mx-auto max-w-3xl px-6 py-12">
+        <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Über Enrico Bachmann" }]} />
         <div className="flex flex-col sm:flex-row items-center gap-8 mb-10">
           <Image
             src="/enrico.webp"

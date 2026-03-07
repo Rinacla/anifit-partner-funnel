@@ -3,6 +3,7 @@ import ContactForm from "../_components/ContactForm";
 import FAQAccordion from "../_components/FAQAccordion";
 import type { FAQItem } from "../_components/FAQAccordion";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 const tierberufeFaqs: FAQItem[] = [
   {
@@ -41,21 +42,11 @@ export const metadata = {
 export default function TierberufePage() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      {/* Back nav */}
-      <nav className="border-b border-gray-200 bg-white relative z-10">
-        <div className="mx-auto max-w-5xl px-6 py-3 flex items-center justify-between">
-          <a href="/" className="text-sm text-gray-500 hover:text-brand-600 transition-colors inline-flex items-center gap-1">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
-            Fachberater werden
-          </a>
-          <span className="text-sm text-gray-500">Für Tierärzte, THP &amp; Züchter</span>
-        </div>
-      </nav>
-
       {/* Hero with Form */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-brand-50/30" />
         <div className="relative mx-auto max-w-5xl px-6 pt-12 pb-16">
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Für Tierärzte, THP & Züchter" }]} />
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1 text-center lg:text-left">
               <p className="inline-block mb-4 text-xs font-bold tracking-widest uppercase text-brand-700 bg-brand-100 px-4 py-1.5 rounded-full">

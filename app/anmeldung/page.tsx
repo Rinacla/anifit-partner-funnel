@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import FAQAccordion from "../_components/FAQAccordion";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Anifit Berater Anmeldung: So funktioniert die Registrierung",
@@ -94,22 +95,9 @@ const checklistItems = [
 export default function AnmeldungPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="border-b border-gray-200 py-6">
-        <div className="mx-auto max-w-3xl px-6 flex justify-between items-center">
-          <Link
-            href="/"
-            className="font-bold text-gray-900 border-2 border-brand-600 px-3 py-1 rounded-lg"
-          >
-            Anifit-Partner
-          </Link>
-          <Link href="/" className="text-sm text-gray-500 hover:text-brand-600">
-            &larr; Zurück
-          </Link>
-        </div>
-      </header>
-
       <main className="py-20">
         <div className="mx-auto max-w-3xl px-6">
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Anmeldung & Registrierung" }]} />
           {/* Hero */}
           <div className="text-center mb-16">
             <p className="text-sm font-medium text-brand-600 uppercase tracking-wider mb-3">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Guide: Dein Start als Anifit-Tierernährungsberater",
@@ -53,18 +54,10 @@ export default function GuidePage() {
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-      {/* Back nav */}
-      <nav className="border-b border-gray-200 bg-white">
-        <div className="mx-auto max-w-2xl px-6 py-3">
-          <a href="/" className="text-sm text-gray-500 hover:text-brand-600 transition-colors inline-flex items-center gap-1">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
-            Zurück zur Startseite
-          </a>
-        </div>
-      </nav>
       {/* Header */}
       <div className="bg-gradient-to-br from-brand-50 to-white py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Guide" }]} />
           <p className="text-sm font-semibold text-brand-700 bg-brand-100 inline-block px-4 py-1.5 rounded-full mb-4">Dein Gratis-Guide</p>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
             Dein Start als Anifit-Tierernährungsberater

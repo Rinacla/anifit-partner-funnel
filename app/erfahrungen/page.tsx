@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Erfahrungen als Anifit-Berater | Echte Berichte aus dem Team",
@@ -153,13 +154,7 @@ export default function ErfahrungenPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-brand-50 via-white to-brand-50/30">
         <div className="mx-auto max-w-4xl px-6 pt-12 pb-10">
-          <nav className="text-sm text-gray-500 mb-6">
-            <Link href="/" className="hover:text-brand-700 transition-colors">
-              Startseite
-            </Link>
-            <span className="mx-2">›</span>
-            <span className="text-gray-700">Erfahrungen</span>
-          </nav>
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Erfahrungen" }]} />
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
             Echte Erfahrungen von{" "}
             <span className="text-brand-600">Anifit-Beratern</span>

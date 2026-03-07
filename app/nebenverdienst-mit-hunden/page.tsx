@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Nebenverdienst mit Hunden: 7 Wege im Vergleich (2026)",
@@ -138,35 +139,10 @@ export default function NebenverdienstMitHunden() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Nav */}
-      <nav className="border-b border-gray-200 bg-white relative z-10">
-        <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-sm text-gray-500 hover:text-brand-600 transition-colors inline-flex items-center gap-1"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
-            </svg>
-            Fachberater werden
-          </Link>
-          <span className="text-sm text-gray-500">Ratgeber</span>
-        </div>
-      </nav>
-
       {/* Hero */}
       <header className="py-20 bg-gradient-to-b from-brand-50/50 to-white">
         <div className="mx-auto max-w-3xl px-6">
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Nebenverdienst mit Hunden" }]} />
           <p className="text-xs font-bold tracking-widest uppercase text-brand-700 mb-4">
             Ratgeber · Aktualisiert März 2026
           </p>

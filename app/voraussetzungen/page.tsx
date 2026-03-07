@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
+import Breadcrumb from "../_components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Voraussetzungen als Anifit-Berater — Was du wirklich brauchst",
@@ -113,16 +114,10 @@ export default function VoraussetzungenPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      {/* Breadcrumb */}
-      <nav className="mx-auto max-w-3xl px-6 pt-8 text-xs text-gray-500">
-        <a href="/" className="hover:text-brand-600 transition-colors">Start</a>
-        <span className="mx-1.5">/</span>
-        <span className="text-gray-600">Voraussetzungen</span>
-      </nav>
-
       {/* Hero */}
       <section className="pt-8 pb-16">
         <div className="mx-auto max-w-3xl px-6">
+          <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Voraussetzungen" }]} />
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-5">
             Was brauchst du, um Anifit-Berater zu werden?
           </h1>

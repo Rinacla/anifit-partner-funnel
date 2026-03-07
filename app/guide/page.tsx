@@ -24,9 +24,34 @@ export default function GuidePage() {
     ],
   };
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Dein Start als Anifit-Tierernährungsberater",
+    description: "Alles was du wissen musst um als Anifit-Fachberater zu starten: Verdienst, Voraussetzungen, Ablauf und Tipps vom erfahrenen Mentor.",
+    author: { "@type": "Person", name: "Enrico Bachmann", url: "https://partner.anifutter-shop.de" },
+    publisher: { "@type": "Person", name: "Enrico Bachmann" },
+    datePublished: "2025-12-01",
+    dateModified: "2026-03-07",
+    mainEntityOfPage: "https://partner.anifutter-shop.de/guide",
+    image: "https://partner.anifutter-shop.de/images/sortiment.jpg",
+    wordCount: 1200,
+    timeRequired: "PT6M",
+  };
+
+  const tocItems = [
+    { id: "was-ist-anifit", label: "Was ist Anifit?" },
+    { id: "geschaeftsmodell", label: "Geschäftsmodell" },
+    { id: "verdienst", label: "Verdienst" },
+    { id: "voraussetzungen", label: "Voraussetzungen" },
+    { id: "mentor", label: "Dein Mentor" },
+    { id: "bedenken", label: "Häufige Bedenken" },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       {/* Back nav */}
       <nav className="border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-2xl px-6 py-3">
@@ -46,13 +71,34 @@ export default function GuidePage() {
           <p className="mt-4 text-lg text-gray-600">
             Von Enrico Bachmann. Anifit-Fachberater seit 2018, 1.000+ Kunden
           </p>
+          <p className="mt-3 text-sm text-gray-400">⏱ Lesezeit: ca. 6 Minuten</p>
         </div>
       </div>
+
+      {/* Table of Contents */}
+      <nav aria-label="Inhaltsverzeichnis" className="max-w-2xl mx-auto px-6 pt-8 pb-4">
+        <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
+          <p className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-3">Inhalt</p>
+          <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+            {tocItems.map((item, i) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className="text-sm text-gray-600 hover:text-green-600 transition-colors inline-flex items-baseline gap-2"
+                >
+                  <span className="text-green-600 font-semibold">{i + 1}.</span>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </nav>
 
       <div className="max-w-2xl mx-auto px-6 py-12 space-y-16">
 
         {/* 1. Was ist Anifit */}
-        <section>
+        <section id="was-ist-anifit" className="scroll-mt-24">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Was ist Anifit?</h2>
           <div className="rounded-2xl overflow-hidden mb-6">
             <Image src="/images/sortiment.jpg" alt="Anifit Produktsortiment" width={700} height={400} className="w-full h-auto" />
@@ -69,7 +115,7 @@ export default function GuidePage() {
         </section>
 
         {/* 2. Geschäftsmodell */}
-        <section>
+        <section id="geschaeftsmodell" className="scroll-mt-24">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Wie funktioniert das Geschäftsmodell?</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Du bist selbstständiger Handelsvertreter. Deine Aufgabe: Hundebesitzer beraten und ihnen Anifit empfehlen.
@@ -91,7 +137,7 @@ export default function GuidePage() {
         </section>
 
         {/* 3. Verdienst */}
-        <section>
+        <section id="verdienst" className="scroll-mt-24">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Was verdienst du konkret?</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Deine Provision steigt mit der Anzahl deiner Kunden (Provisionsstufen).
@@ -133,7 +179,7 @@ export default function GuidePage() {
         </section>
 
         {/* 4. Voraussetzungen */}
-        <section>
+        <section id="voraussetzungen" className="scroll-mt-24">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Was brauchst du für den Start?</h2>
           <div className="space-y-4">
             {[
@@ -153,7 +199,7 @@ export default function GuidePage() {
         </section>
 
         {/* 5. Mentor */}
-        <section>
+        <section id="mentor" className="scroll-mt-24">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Dein Mentor: Enrico Bachmann</h2>
           <div className="bg-gray-50 rounded-xl p-6 flex flex-col sm:flex-row gap-6 items-start">
             <Image src="/images/enrico-bachmann.jpg" alt="Enrico Bachmann" width={120} height={120} className="rounded-full w-24 h-24 object-cover border-4 border-white shadow-lg flex-shrink-0" />
@@ -180,7 +226,7 @@ export default function GuidePage() {
         </section>
 
         {/* 6. FAQ */}
-        <section>
+        <section id="bedenken" className="scroll-mt-24">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Ehrliche Antworten auf häufige Bedenken</h2>
           <div className="space-y-6">
             {[

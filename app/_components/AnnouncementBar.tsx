@@ -33,8 +33,18 @@ export default function AnnouncementBar() {
       <span className="inline-flex items-center gap-2">
         <span aria-hidden="true">🔥</span>
         <span>
-          <strong>Startbonus:</strong> Jetzt registrieren und 3 Monate lang{' '}
-          <strong>30 % Provision</strong> sichern
+          <strong>Startbonus:</strong>{' '}
+          {daysLeft > 0 ? (
+            <>
+              Noch <strong>{daysLeft} {daysLeft === 1 ? 'Tag' : 'Tage'}</strong> für 3 Monate{' '}
+              <strong>30 % Provision</strong>
+            </>
+          ) : (
+            <>
+              Jetzt registrieren und 3 Monate lang{' '}
+              <strong>30 % Provision</strong> sichern
+            </>
+          )}
         </span>
         <a
           href="#quiz"

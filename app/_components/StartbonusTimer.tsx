@@ -1,32 +1,31 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useStartbonusDeadline } from "@/lib/useStartbonusDeadline";
 
 export default function StartbonusTimer() {
-  const [deadline, setDeadline] = useState<Date | null>(null);
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
-
-  useEffect(() => {
-    const d = new Date();
-    d.setDate(d.getDate() + 30);
-    d.setHours(23, 59, 59, 0);
-    setDeadline(d);
-  }, []);
+  const deadline = useStartbonusDeadline();
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     if (!deadline) return;
     function calc() {
-      const now = new Date();
-      const diff = deadline!.getTime() - now.getTime();
-      if (diff <= 0) return { days: 0, hours: 0, minutes: 0 };
+      const diff = deadline!.getTime() - Date.now();
+      if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
       return {
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
       };
     }
     setTimeLeft(calc());
-    const interval = setInterval(() => setTimeLeft(calc()), 60000);
+    const interval = setInterval(() => setTimeLeft(calc()), 1000);
     return () => clearInterval(interval);
   }, [deadline]);
 
@@ -40,17 +39,18 @@ export default function StartbonusTimer() {
 
   return (
     <div className="mt-6">
-      <div className="inline-flex gap-3 sm:gap-4">
+      <div className="inline-flex gap-2 sm:gap-3">
         {[
           { value: timeLeft.days, label: "Tage" },
           { value: timeLeft.hours, label: "Stunden" },
           { value: timeLeft.minutes, label: "Minuten" },
+          { value: timeLeft.seconds, label: "Sekunden" },
         ].map((unit, i) => (
           <div key={i} className="flex flex-col items-center">
-            <span className="bg-white rounded-lg shadow-sm border border-amber-200 text-2xl sm:text-3xl font-bold text-amber-900 w-16 sm:w-20 py-2 tabular-nums">
+            <span className="bg-white rounded-lg shadow-sm border border-amber-200 text-2xl sm:text-3xl font-bold text-amber-900 w-14 sm:w-18 py-2 tabular-nums">
               {String(unit.value).padStart(2, "0")}
             </span>
-            <span className="text-[10px] sm:text-xs text-amber-700 mt-1 font-medium uppercase tracking-wide">
+            <span className="text-[9px] sm:text-xs text-amber-700 mt-1 font-medium uppercase tracking-wide">
               {unit.label}
             </span>
           </div>

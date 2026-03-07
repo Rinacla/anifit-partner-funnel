@@ -1,30 +1,25 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
-function getDeadline(): Date {
-  const now = new Date();
-  const deadline = new Date(now);
-  deadline.setDate(deadline.getDate() + 30);
-  deadline.setHours(23, 59, 59, 999);
-  return deadline;
-}
-
-function getDaysLeft(): number {
-  const now = new Date();
-  const deadline = getDeadline();
-  return Math.max(0, Math.ceil((deadline.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)));
-}
+import { useStartbonusDeadline } from '@/lib/useStartbonusDeadline';
 
 export default function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const deadline = useStartbonusDeadline();
+  const [daysLeft, setDaysLeft] = useState(30);
 
   useEffect(() => {
     setMounted(true);
     const wasDismissed = sessionStorage.getItem('announcement-dismissed');
     if (wasDismissed) setDismissed(true);
   }, []);
+
+  useEffect(() => {
+    if (!deadline) return;
+    const diff = deadline.getTime() - Date.now();
+    setDaysLeft(Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24))));
+  }, [deadline]);
 
   const handleDismiss = () => {
     setDismissed(true);

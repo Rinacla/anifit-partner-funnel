@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useStartbonusDeadline } from "@/lib/useStartbonusDeadline";
 
 export default function StartbonusMini() {
+  const deadline = useStartbonusDeadline();
   const [days, setDays] = useState<number | null>(null);
 
   useEffect(() => {
-    const d = new Date();
-    d.setDate(d.getDate() + 30);
-    d.setHours(23, 59, 59, 0);
-    const diff = d.getTime() - Date.now();
-    setDays(Math.floor(diff / (1000 * 60 * 60 * 24)));
-  }, []);
+    if (!deadline) return;
+    const diff = deadline.getTime() - Date.now();
+    setDays(Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24))));
+  }, [deadline]);
 
   if (days === null) return null;
 

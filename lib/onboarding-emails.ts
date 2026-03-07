@@ -1,4 +1,4 @@
-const WRAPPER = (content: string) => `
+const WRAPPER = (content: string, preheader?: string) => `
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <style>body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;background:#f9fafb}
@@ -14,7 +14,7 @@ ul{padding-left:20px}li{margin-bottom:8px;color:#4b5563}
 .checklist{list-style:none;padding-left:0}
 .checklist li{padding:8px 0;border-bottom:1px solid #f3f4f6}
 .checklist li:last-child{border:none}
-</style></head><body><div class="container"><div class="card">${content}</div>
+</style></head><body>${preheader ? `<div style="display:none;font-size:1px;color:#f9fafb;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden">${preheader}${'&#847; &zwnj; '.repeat(30)}</div>` : ''}<div class="container"><div class="card">${content}</div>
 <div class="footer">Enrico Bachmann · Dein Anifit-Mentor<br>
 <a href="https://partner.anifutter-shop.de" style="color:#9ca3af">partner.anifutter-shop.de</a><br>
 WhatsApp: <a href="https://wa.me/4915204000990" style="color:#9ca3af">0152 0400 0990</a></div>
@@ -39,7 +39,7 @@ export function onboarding1Welcome(name: string) {
       </div>
       <p>Antworte einfach auf diese Mail oder schreib mir per WhatsApp (0152 0400 0990), wenn du Fragen hast.</p>
       <p>Enrico</p>
-    `),
+    `, "Deine ersten 3 Schritte als Anifit-Berater. Startschulung + 60 Gratis-Dosen."),
   };
 }
 
@@ -62,7 +62,7 @@ export function onboarding2Training(name: string) {
       </div>
       <p>Fragen? Antwort auf diese Mail oder WhatsApp.</p>
       <p>Enrico</p>
-    `),
+    `, "25 Minuten Online-Schulung. Danach bist du zertifiziert."),
   };
 }
 
@@ -84,7 +84,7 @@ export function onboarding3FirstCustomers(name: string) {
       </div>
       <p><strong>Der wichtigste Satz:</strong> "Ich bin zertifizierter Ernaehrungsberater und kann dir kostenlos zeigen, ob das Futter zu deinem Hund passt."</p>
       <p>Enrico</p>
-    `),
+    `, "3 Kunden in 30 Tagen = 30 % Provision. So findest du sie."),
   };
 }
 
@@ -108,7 +108,7 @@ export function onboarding4Tools(name: string) {
       </div>
       <p>Schreib mir, wenn du Hilfe brauchst.</p>
       <p>Enrico</p>
-    `),
+    `, "Dein persönlicher Shop-Link, Rabattcode und alle Werkzeuge."),
   };
 }
 
@@ -130,6 +130,6 @@ export function onboarding5Growth(name: string) {
       </div>
       <p>Dein naechstes Ziel: Jeden Neukunden fragen, ob ein Lieferservice-Abo sinnvoll waere. Bei den meisten ist es das.</p>
       <p>Auf deinen Erfolg,<br><strong>Enrico</strong></p>
-    `),
+    `, "25 Stammkunden = 460 €/Monat automatisch. So baust du auf."),
   };
 }

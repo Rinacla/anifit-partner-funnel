@@ -1,4 +1,4 @@
-const WRAPPER = (content: string) => `
+const WRAPPER = (content: string, preheader?: string) => `
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <style>body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;background:#f9fafb}
@@ -12,7 +12,7 @@ ul{padding-left:20px}li{margin-bottom:8px;color:#4b5563}
 .highlight{background:#f0fdf4;border-left:4px solid #4CAF50;padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
 .urgency{background:#fef3c7;border-left:4px solid #f59e0b;padding:16px 20px;border-radius:0 8px 8px 0;margin:16px 0}
 .step{background:#f9fafb;border-radius:8px;padding:16px 20px;margin:12px 0}
-</style></head><body><div class="container"><div class="card">${content}</div>
+</style></head><body>${preheader ? `<div style="display:none;font-size:1px;color:#f9fafb;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden">${preheader}${'&#847; &zwnj; '.repeat(30)}</div>` : ''}<div class="container"><div class="card">${content}</div>
 <div class="footer">\u{1f4de} Fragen? Ruf an: <a href="tel:+4932212619379" style="color:#4CAF50;font-weight:700">+49 322 126 19 379</a><br>Enrico Bachmann \u00b7 Anifit-Fachberater<br>
 <a href="https://partner.anifutter-shop.de" style="color:#9ca3af">partner.anifutter-shop.de</a></div>
 </div></body></html>`;
@@ -44,7 +44,7 @@ export function welcomeEmail(name: string) {
       <p style="text-align:center;margin:16px 0"><a href="https://partner.anifutter-shop.de/guide?utm_source=email&utm_medium=sequence&utm_campaign=welcome" class="btn">Guide lesen \u2192</a></p>
       <p>Morgen zeige ich dir die konkreten Verdienst-Zahlen.</p>
       <p>Enrico</p>
-    `),
+    `, "15–30 % Provision, lebenslanger Kundenschutz, kein Lager. So funktioniert Anifit."),
   };
 }
 
@@ -72,7 +72,7 @@ export function earningsEmail(name: string) {
       <p>Zus\u00e4tzlich gibt\u2019s: Neukundenbonus, Wiederholungsbonus, Autobonus, Wachstumsbonus.</p>
       <p>\u00dcbermorgen erkl\u00e4re ich dir Schritt f\u00fcr Schritt, wie du startest.</p>
       <p>Enrico</p>
-    `),
+    `, "25 Kunden = 460 €/Monat automatisch. Echte Berater-Zahlen."),
   };
 }
 
@@ -108,7 +108,7 @@ export function registrationEmail(name: string) {
         <a href="${REG_LINK}" class="btn">Jetzt registrieren \u2192</a>
       </p>
       <p>Enrico</p>
-    `),
+    `, "5 Minuten Registrierung + Willkommenspaket im Wert von 160 €."),
   };
 }
 
@@ -142,7 +142,7 @@ export function firstCustomersEmail(name: string) {
         <a href="${REG_LINK}" class="btn">Jetzt starten \u2192</a>
       </p>
       <p>Enrico</p>
-    `),
+    `, "5 Wege zu deinen ersten Kunden + persönliches Mentoring von Enrico."),
   };
 }
 
@@ -168,7 +168,7 @@ export function ctaEmail(name: string) {
       </p>
       <p>Oder ruf an: <a href="tel:+4932212619379" style="color:#4CAF50;font-weight:700">+49 322 126 19 379</a>. Ich beantworte alle Fragen pers\u00f6nlich.</p>
       <p>Enrico</p>
-    `),
+    `, "Alle Vorteile auf einen Blick. Dein Willkommenspaket wartet."),
   };
 }
 
@@ -188,7 +188,7 @@ export function followUp1Email(name: string) {
       <p>\u{1f4de} <strong>Ruf einfach an:</strong> <a href="tel:+4932212619379" style="color:#4CAF50">+49 322 126 19 379</a>. Ich kl\u00e4re alles in 5 Minuten.</p>
       <p>Oder antworte auf diese Mail. Ich beantworte jede Frage pers\u00f6nlich.</p>
       <p>Enrico</p>
-    `),
+    `, "Die 3 häufigsten Bedenken — und ehrliche Antworten."),
   };
 }
 
@@ -211,7 +211,7 @@ export function followUp2Email(name: string) {
         <a href="${REG_LINK}" class="btn">Jetzt registrieren \u2192</a>
       </p>
       <p>Alles Gute,<br>Enrico</p>
-    `),
+    `, "Alles Wichtige in 30 Sekunden. Dein letzter Impuls."),
   };
 }
 

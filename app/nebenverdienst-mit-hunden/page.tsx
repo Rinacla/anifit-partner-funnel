@@ -138,11 +138,11 @@ export default function NebenverdienstMitHunden() {
       />
 
       {/* Nav */}
-      <nav className="border-b border-gray-100 bg-white relative z-10">
+      <nav className="border-b border-gray-200 bg-white relative z-10">
         <div className="mx-auto max-w-3xl px-6 py-3 flex items-center justify-between">
           <Link
             href="/"
-            className="text-sm text-gray-500 hover:text-green-600 transition-colors inline-flex items-center gap-1"
+            className="text-sm text-gray-500 hover:text-brand-600 transition-colors inline-flex items-center gap-1"
           >
             <svg
               className="w-4 h-4"
@@ -159,14 +159,14 @@ export default function NebenverdienstMitHunden() {
             </svg>
             Fachberater werden
           </Link>
-          <span className="text-sm text-gray-400">Ratgeber</span>
+          <span className="text-sm text-gray-500">Ratgeber</span>
         </div>
       </nav>
 
       {/* Hero */}
-      <header className="py-16 bg-gradient-to-b from-green-50/50 to-white">
+      <header className="py-20 bg-gradient-to-b from-brand-50/50 to-white">
         <div className="mx-auto max-w-3xl px-6">
-          <p className="text-xs font-bold tracking-widest uppercase text-green-700 mb-4">
+          <p className="text-xs font-bold tracking-widest uppercase text-brand-700 mb-4">
             Ratgeber · Aktualisiert März 2026
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-5">
@@ -181,7 +181,7 @@ export default function NebenverdienstMitHunden() {
       </header>
 
       {/* Intro */}
-      <section className="py-12 border-t border-gray-100">
+      <section className="py-12 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold mb-4">
             Worauf es beim Nebenverdienst mit Hunden ankommt
@@ -210,8 +210,8 @@ export default function NebenverdienstMitHunden() {
               key={i}
               className={`rounded-2xl p-6 sm:p-8 ${
                 way.passive
-                  ? "bg-green-50 border-2 border-green-200"
-                  : "bg-gray-50 border border-gray-100"
+                  ? "bg-brand-50 border-2 border-brand-200"
+                  : "bg-gray-50 border border-gray-200"
               }`}
             >
               <div className="flex items-start justify-between gap-4 mb-4">
@@ -219,7 +219,7 @@ export default function NebenverdienstMitHunden() {
                   {i + 1}. {way.title}
                 </h3>
                 {way.passive && (
-                  <span className="flex-shrink-0 text-xs font-bold bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                  <span className="flex-shrink-0 text-xs font-bold bg-brand-100 text-brand-800 px-3 py-1 rounded-full">
                     Passives Einkommen
                   </span>
                 )}
@@ -227,23 +227,23 @@ export default function NebenverdienstMitHunden() {
 
               <div className="grid grid-cols-3 gap-4 mb-5">
                 <div>
-                  <p className="text-xs text-gray-400 mb-1">Zeitaufwand</p>
+                  <p className="text-xs text-gray-500 mb-1">Zeitaufwand</p>
                   <p className="text-sm font-semibold text-gray-700">
                     {way.hours}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 mb-1">Verdienst</p>
+                  <p className="text-xs text-gray-500 mb-1">Verdienst</p>
                   <p
                     className={`text-sm font-semibold ${
-                      way.passive ? "text-green-700" : "text-gray-700"
+                      way.passive ? "text-brand-700" : "text-gray-700"
                     }`}
                   >
                     {way.income}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 mb-1">Startkosten</p>
+                  <p className="text-xs text-gray-500 mb-1">Startkosten</p>
                   <p className="text-sm font-semibold text-gray-700">
                     {way.startup}
                   </p>
@@ -261,7 +261,7 @@ export default function NebenverdienstMitHunden() {
                         key={j}
                         className="text-sm text-gray-600 flex items-start gap-2"
                       >
-                        <span className="text-green-500 mt-0.5">+</span>
+                        <span className="text-brand-500 mt-0.5">+</span>
                         {pro}
                       </li>
                     ))}
@@ -277,7 +277,7 @@ export default function NebenverdienstMitHunden() {
                         key={j}
                         className="text-sm text-gray-600 flex items-start gap-2"
                       >
-                        <span className="text-red-400 mt-0.5">–</span>
+                        <span className="text-danger-400 mt-0.5">–</span>
                         {con}
                       </li>
                     ))}
@@ -290,7 +290,7 @@ export default function NebenverdienstMitHunden() {
       </section>
 
       {/* Summary */}
-      <section className="py-16 bg-gray-50 border-t border-gray-100">
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold mb-4">Unser Fazit</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -310,7 +310,7 @@ export default function NebenverdienstMitHunden() {
             investieren, baust du dir etwas auf, das bleibt.
           </p>
 
-          <div className="bg-green-50 rounded-2xl border border-green-100 p-6 sm:p-8">
+          <div className="bg-brand-50 rounded-2xl border border-brand-100 p-6 sm:p-8">
             <h3 className="text-xl font-bold mb-3 text-center">
               Klingt nach dem Richtigen für dich?
             </h3>
@@ -319,7 +319,7 @@ export default function NebenverdienstMitHunden() {
               Provision, Produkten und Ablauf.
             </p>
             <LeadForm idPrefix="nebenverdienst-" source="nebenverdienst" />
-            <p className="text-xs text-gray-400 mt-4 text-center">
+            <p className="text-xs text-gray-500 mt-4 text-center">
               Kein Abo. Jederzeit abbestellbar.
             </p>
           </div>
@@ -327,7 +327,7 @@ export default function NebenverdienstMitHunden() {
       </section>
 
       {/* Author */}
-      <section className="py-12 border-t border-gray-100">
+      <section className="py-12 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6">
           <div className="flex items-center gap-4">
             <Image
@@ -350,15 +350,15 @@ export default function NebenverdienstMitHunden() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8">
-        <div className="mx-auto max-w-3xl px-6 flex flex-col sm:flex-row sm:justify-between gap-4 text-sm text-gray-400">
+      <footer className="border-t border-gray-200 py-8">
+        <div className="mx-auto max-w-3xl px-6 flex flex-col sm:flex-row sm:justify-between gap-4 text-sm text-gray-500">
           <div className="flex gap-4">
-            <Link href="/" className="hover:text-green-600 transition-colors">
+            <Link href="/" className="hover:text-brand-600 transition-colors">
               Fachberater werden
             </Link>
             <Link
               href="/tierberufe"
-              className="hover:text-green-600 transition-colors"
+              className="hover:text-brand-600 transition-colors"
             >
               Für Tierärzte
             </Link>
@@ -366,13 +366,13 @@ export default function NebenverdienstMitHunden() {
           <div className="flex gap-4">
             <Link
               href="/impressum"
-              className="hover:text-green-600 transition-colors"
+              className="hover:text-brand-600 transition-colors"
             >
               Impressum
             </Link>
             <Link
               href="/datenschutz"
-              className="hover:text-green-600 transition-colors"
+              className="hover:text-brand-600 transition-colors"
             >
               Datenschutz
             </Link>

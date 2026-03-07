@@ -150,18 +150,18 @@ export default function ErfahrungenPage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-green-50 via-white to-green-50/30">
+      <section className="bg-gradient-to-br from-brand-50 via-white to-brand-50/30">
         <div className="mx-auto max-w-4xl px-6 pt-12 pb-10">
           <nav className="text-sm text-gray-500 mb-6">
-            <Link href="/" className="hover:text-green-700 transition-colors">
+            <Link href="/" className="hover:text-brand-700 transition-colors">
               Startseite
             </Link>
             <span className="mx-2">›</span>
-            <span className="text-gray-800">Erfahrungen</span>
+            <span className="text-gray-700">Erfahrungen</span>
           </nav>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
             Echte Erfahrungen von{" "}
-            <span className="text-green-600">Anifit-Beratern</span>
+            <span className="text-brand-600">Anifit-Beratern</span>
           </h1>
           <p className="mt-5 text-lg text-gray-600 leading-relaxed max-w-2xl">
             Keine Werbeversprechen. Hier berichten Berater aus Enricos Team, wie
@@ -177,10 +177,10 @@ export default function ErfahrungenPage() {
           {experiences.map((exp, i) => (
             <article
               key={i}
-              className="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 sm:p-8 hover:shadow-md transition-shadow"
+              className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 sm:p-8 hover:shadow-md transition-shadow"
             >
               <div className="flex flex-col sm:flex-row sm:items-start gap-4 mb-5">
-                <div className="w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
                   {exp.name.charAt(0)}
                 </div>
                 <div>
@@ -191,7 +191,7 @@ export default function ErfahrungenPage() {
                 </div>
                 <div className="sm:ml-auto flex gap-4 text-center">
                   <div>
-                    <p className="text-2xl font-extrabold text-green-700">
+                    <p className="text-2xl font-extrabold text-brand-700">
                       {exp.customers}
                     </p>
                     <p className="text-[11px] text-gray-500 uppercase tracking-wide">
@@ -199,7 +199,7 @@ export default function ErfahrungenPage() {
                     </p>
                   </div>
                   <div>
-                    <p className="text-2xl font-extrabold text-green-700">
+                    <p className="text-2xl font-extrabold text-brand-700">
                       {exp.income} €
                     </p>
                     <p className="text-[11px] text-gray-500 uppercase tracking-wide">
@@ -207,7 +207,7 @@ export default function ErfahrungenPage() {
                     </p>
                   </div>
                   <div>
-                    <p className="text-2xl font-extrabold text-gray-400">
+                    <p className="text-2xl font-extrabold text-gray-500">
                       {exp.months}
                     </p>
                     <p className="text-[11px] text-gray-500 uppercase tracking-wide">
@@ -217,19 +217,19 @@ export default function ErfahrungenPage() {
                 </div>
               </div>
 
-              <blockquote className="text-gray-700 leading-relaxed border-l-4 border-green-200 pl-4 mb-5 italic">
+              <blockquote className="text-gray-700 leading-relaxed border-l-4 border-brand-200 pl-4 mb-5 italic">
                 &ldquo;{exp.quote}&rdquo;
               </blockquote>
 
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-green-50/60 rounded-lg p-4">
-                  <p className="text-xs font-bold text-green-800 uppercase tracking-wide mb-1">
+                <div className="bg-brand-50/60 rounded-lg p-4">
+                  <p className="text-xs font-bold text-brand-800 uppercase tracking-wide mb-1">
                     Die ersten Monate
                   </p>
                   <p className="text-sm text-gray-700">{exp.firstMonths}</p>
                 </div>
-                <div className="bg-amber-50/60 rounded-lg p-4">
-                  <p className="text-xs font-bold text-amber-800 uppercase tracking-wide mb-1">
+                <div className="bg-warm-50/60 rounded-lg p-4">
+                  <p className="text-xs font-bold text-warm-800 uppercase tracking-wide mb-1">
                     Grösster Vorteil
                   </p>
                   <p className="text-sm text-gray-700">{exp.highlight}</p>
@@ -241,30 +241,30 @@ export default function ErfahrungenPage() {
       </section>
 
       {/* Stats Summary */}
-      <section className="bg-gray-50 border-y border-gray-100">
-        <div className="mx-auto max-w-4xl px-6 py-10">
+      <section className="bg-gray-50 border-y border-gray-200">
+        <div className="mx-auto max-w-4xl px-6 py-12">
           <h2 className="text-2xl font-bold text-center mb-8">
             In Zahlen: Was Berater nach 12 Monaten erreichen
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             <div>
-              <p className="text-3xl font-extrabold text-green-700">67 %</p>
+              <p className="text-3xl font-extrabold text-brand-700">67 %</p>
               <p className="text-sm text-gray-600 mt-1">Wiederkaufrate</p>
             </div>
             <div>
-              <p className="text-3xl font-extrabold text-green-700">107 €</p>
+              <p className="text-3xl font-extrabold text-brand-700">107 €</p>
               <p className="text-sm text-gray-600 mt-1">Ø Bestellwert</p>
             </div>
             <div>
-              <p className="text-3xl font-extrabold text-green-700">25+</p>
+              <p className="text-3xl font-extrabold text-brand-700">25+</p>
               <p className="text-sm text-gray-600 mt-1">Kunden nach 12 Mon.</p>
             </div>
             <div>
-              <p className="text-3xl font-extrabold text-green-700">600 €</p>
+              <p className="text-3xl font-extrabold text-brand-700">600 €</p>
               <p className="text-sm text-gray-600 mt-1">Ø Monatsverdienst</p>
             </div>
           </div>
-          <p className="text-xs text-gray-400 text-center mt-4">
+          <p className="text-xs text-gray-500 text-center mt-4">
             Durchschnittswerte aus Enricos Berater-Team. Individuelle Ergebnisse
             variieren je nach Einsatz.
           </p>
@@ -277,7 +277,7 @@ export default function ErfahrungenPage() {
           Typischer Verlauf: Dein erstes Jahr
         </h2>
         <div className="relative">
-          <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 bg-green-100" />
+          <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 bg-brand-100" />
           {[
             {
               month: "Monat 1-2",
@@ -301,8 +301,8 @@ export default function ErfahrungenPage() {
             },
           ].map((step, i) => (
             <div key={i} className="relative pl-12 sm:pl-16 pb-8 last:pb-0">
-              <div className="absolute left-2 sm:left-4 w-4 h-4 rounded-full bg-green-500 border-4 border-white shadow-sm top-1" />
-              <p className="text-xs font-bold text-green-700 uppercase tracking-wide">
+              <div className="absolute left-2 sm:left-4 w-4 h-4 rounded-full bg-brand-600 border-4 border-white shadow-sm top-1" />
+              <p className="text-xs font-bold text-brand-700 uppercase tracking-wide">
                 {step.month}
               </p>
               <h3 className="text-lg font-bold mt-1">{step.title}</h3>
@@ -313,7 +313,7 @@ export default function ErfahrungenPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-gray-50 border-y border-gray-100">
+      <section className="bg-gray-50 border-y border-gray-200">
         <div className="mx-auto max-w-3xl px-6 py-12">
           <h2 className="text-2xl font-bold mb-8 text-center">
             Häufige Fragen zum Einstieg
@@ -322,11 +322,11 @@ export default function ErfahrungenPage() {
             {timelineFaqs.map((faq, i) => (
               <details
                 key={i}
-                className="group bg-white rounded-xl border border-gray-100 shadow-sm"
+                className="group bg-white rounded-xl border border-gray-200 shadow-sm"
               >
-                <summary className="px-5 py-4 cursor-pointer font-semibold text-gray-900 flex items-center justify-between hover:text-green-700 transition-colors">
+                <summary className="px-5 py-4 cursor-pointer font-semibold text-gray-900 flex items-center justify-between hover:text-brand-700 transition-colors">
                   {faq.q}
-                  <span className="ml-3 text-gray-400 group-open:rotate-45 transition-transform text-xl">
+                  <span className="ml-3 text-gray-500 group-open:rotate-45 transition-transform text-xl">
                     +
                   </span>
                 </summary>
@@ -341,7 +341,7 @@ export default function ErfahrungenPage() {
 
       {/* Inline Lead Form */}
       <section className="mx-auto max-w-xl px-6 py-14">
-        <div className="bg-green-50 border border-green-100 rounded-2xl p-6 sm:p-8">
+        <div className="bg-brand-50 border border-brand-100 rounded-2xl p-6 sm:p-8">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-center">
             Bereit für deine eigene Erfolgsgeschichte?
           </h2>
@@ -350,57 +350,57 @@ export default function ErfahrungenPage() {
             persönlichen Fahrplan.
           </p>
           <LeadForm idPrefix="erfahrungen-" source="erfahrungen" />
-          <p className="text-xs text-gray-400 mt-4 text-center">
+          <p className="text-xs text-gray-500 mt-4 text-center">
             Kein Spam. Kein Abo. Jederzeit abmeldbar.
           </p>
         </div>
       </section>
 
       {/* Footer Nav */}
-      <footer className="border-t border-gray-100 bg-gray-50">
+      <footer className="border-t border-gray-200 bg-gray-50">
         <div className="mx-auto max-w-4xl px-6 py-8">
           <nav aria-label="Footer-Navigation" className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
-            <Link href="/" className="hover:text-green-700 transition-colors">
+            <Link href="/" className="hover:text-brand-700 transition-colors">
               Startseite
             </Link>
             <Link
               href="/guide"
-              className="hover:text-green-700 transition-colors"
+              className="hover:text-brand-700 transition-colors"
             >
               Guide
             </Link>
             <Link
               href="/einkommen-berechnen"
-              className="hover:text-green-700 transition-colors"
+              className="hover:text-brand-700 transition-colors"
             >
               Verdienst-Rechner
             </Link>
             <Link
               href="/nebenverdienst-mit-hunden"
-              className="hover:text-green-700 transition-colors"
+              className="hover:text-brand-700 transition-colors"
             >
               Nebenverdienst mit Hunden
             </Link>
             <Link
               href="/tierberufe"
-              className="hover:text-green-700 transition-colors"
+              className="hover:text-brand-700 transition-colors"
             >
               Für Tierberufe
             </Link>
             <Link
               href="/impressum"
-              className="hover:text-green-700 transition-colors"
+              className="hover:text-brand-700 transition-colors"
             >
               Impressum
             </Link>
             <Link
               href="/datenschutz"
-              className="hover:text-green-700 transition-colors"
+              className="hover:text-brand-700 transition-colors"
             >
               Datenschutz
             </Link>
           </nav>
-          <p className="text-center text-xs text-gray-400 mt-4">
+          <p className="text-center text-xs text-gray-500 mt-4">
             © 2026 Enrico Bachmann · Anifit-Fachberater
           </p>
         </div>

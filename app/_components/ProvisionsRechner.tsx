@@ -26,7 +26,7 @@ export default function ProvisionsRechner() {
   const bonusMonatlich = Math.round(kunden * avgOrder * 0.30);
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-8">
       <h3 className="font-bold text-lg text-center mb-6">
         Berechne deinen Verdienst
       </h3>
@@ -45,10 +45,10 @@ export default function ProvisionsRechner() {
           onChange={(e) => setKunden(Number(e.target.value))}
           className="w-full h-2 rounded-lg appearance-none cursor-pointer"
           style={{
-            background: `linear-gradient(to right, #4CAF50 ${(kunden / 150) * 100}%, #e5e7eb ${(kunden / 150) * 100}%)`,
+            background: `linear-gradient(to right, var(--brand) ${(kunden / 150) * 100}%, #e5e7eb ${(kunden / 150) * 100}%)`,
           }}
         />
-        <div className="flex justify-between text-xs text-gray-400 mt-1">
+        <div className="flex justify-between text-xs text-gray-500 mt-1">
           <span>1</span>
           <span>150</span>
         </div>
@@ -69,45 +69,45 @@ export default function ProvisionsRechner() {
           onChange={(e) => setAvgOrder(Number(e.target.value))}
           className="w-full h-2 rounded-lg appearance-none cursor-pointer"
           style={{
-            background: `linear-gradient(to right, #4CAF50 ${((avgOrder - 50) / 200) * 100}%, #e5e7eb ${((avgOrder - 50) / 200) * 100}%)`,
+            background: `linear-gradient(to right, var(--brand) ${((avgOrder - 50) / 200) * 100}%, #e5e7eb ${((avgOrder - 50) / 200) * 100}%)`,
           }}
         />
-        <div className="flex justify-between text-xs text-gray-400 mt-1">
+        <div className="flex justify-between text-xs text-gray-500 mt-1">
           <span>50 €</span>
           <span>250 € (z.B. 2 Hunde)</span>
         </div>
       </div>
 
       <div className="grid grid-cols-3 gap-3 text-center mb-6">
-        <div className="bg-green-50 rounded-xl p-3 sm:p-4">
+        <div className="bg-brand-50 rounded-xl p-3 sm:p-4">
           <p className="text-[10px] text-gray-500 mb-1 leading-tight">Provisionsstufe</p>
-          <p className="text-xl sm:text-2xl font-extrabold text-green-600">
+          <p className="text-xl sm:text-2xl font-extrabold text-brand-600">
             {Math.round(rate * 100)}%
           </p>
         </div>
-        <div className="bg-green-50 rounded-xl p-3 sm:p-4 border-2 border-green-200 ring-4 ring-green-50">
+        <div className="bg-brand-50 rounded-xl p-3 sm:p-4 border-2 border-brand-200 ring-4 ring-brand-50">
           <p className="text-[10px] text-gray-500 mb-1 leading-tight">Pro Monat</p>
-          <p className="text-xl sm:text-2xl font-extrabold text-green-600">
+          <p className="text-xl sm:text-2xl font-extrabold text-brand-600">
             {monatlich} €
           </p>
         </div>
-        <div className="bg-green-50 rounded-xl p-3 sm:p-4">
+        <div className="bg-brand-50 rounded-xl p-3 sm:p-4">
           <p className="text-[10px] text-gray-500 mb-1 leading-tight">Pro Jahr</p>
-          <p className="text-xl sm:text-2xl font-extrabold text-green-600">
+          <p className="text-xl sm:text-2xl font-extrabold text-brand-600">
             {jaehrlich.toLocaleString("de-DE")} €
           </p>
         </div>
       </div>
 
       {/* Bonus Callout */}
-      <div className="bg-amber-50 rounded-xl px-4 py-3 border border-amber-100 flex items-center gap-3">
+      <div className="bg-warm-50 rounded-xl px-4 py-3 border border-warm-100 flex items-center gap-3">
         <span className="text-xl">🚀</span>
-        <p className="text-xs text-amber-800 leading-snug">
-          Mit dem <strong>Startbonus (30%)</strong> wären es in den ersten 3 Monaten sogar <strong className="text-amber-900">{bonusMonatlich} €</strong> pro Monat!
+        <p className="text-xs text-warm-800 leading-snug">
+          Mit dem <strong>Startbonus (30%)</strong> wären es in den ersten 3 Monaten sogar <strong className="text-warm-900">{bonusMonatlich} €</strong> pro Monat!
         </p>
       </div>
 
-      <p className="text-[10px] text-gray-400 text-center mt-4 italic leading-relaxed">
+      <p className="text-[10px] text-gray-500 text-center mt-4 italic leading-relaxed">
         Echte Werte aus der Berater-Statistik. Provisionsstufen gelten lebenslang für alle Folgebestellungen.
       </p>
     </div>

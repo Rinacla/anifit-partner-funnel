@@ -10,7 +10,7 @@ const VIDEO_ID = "jx_Bl4dWkQk";
 
 export default function DankePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-green-50 to-white" />}>
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-brand-50 to-white" />}>
       <DankeContent />
     </Suspense>
   );
@@ -51,7 +51,7 @@ function DankeContent() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-white flex items-center justify-center px-6 py-16">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-white flex items-center justify-center px-6 py-20">
         <div className="max-w-lg">
           <div className="text-center mb-10">
             <div className="text-6xl mb-6">✅</div>
@@ -64,7 +64,7 @@ function DankeContent() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-8">
             <h2 className="font-bold text-lg mb-4 text-gray-900">
               Was dich in den nächsten Tagen erwartet:
             </h2>
@@ -78,7 +78,7 @@ function DankeContent() {
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-16 text-center">
-                    <span className="text-xs font-semibold text-green-700 bg-green-100 px-2 py-1 rounded-full">
+                    <span className="text-xs font-semibold text-brand-700 bg-brand-100 px-2 py-1 rounded-full">
                       {item.day}
                     </span>
                   </div>
@@ -92,9 +92,9 @@ function DankeContent() {
           </div>
 
           {/* Next Step: Watch the video */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sm:p-8 mb-8">
             <div className="text-center mb-4">
-              <p className="text-xs font-bold tracking-widest uppercase text-green-700 bg-green-100 px-3 py-1 rounded-full inline-block mb-3">Empfohlener nächster Schritt</p>
+              <p className="text-xs font-bold tracking-widest uppercase text-brand-700 bg-brand-100 px-3 py-1 rounded-full inline-block mb-3">Empfohlener nächster Schritt</p>
               <h2 className="font-bold text-lg text-gray-900 mb-2">
                 Schau dir das Geschäftsmodell an (30 Min.)
               </h2>
@@ -118,7 +118,7 @@ function DankeContent() {
                 />
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
                   <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg className="w-7 h-7 text-green-600 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg className="w-7 h-7 text-brand-600 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                   </div>
                 </div>
                 <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs font-mono px-2 py-1 rounded">
@@ -136,13 +136,13 @@ function DankeContent() {
                 />
               </div>
             )}
-            <p className="text-xs text-gray-400 text-center mt-3">
+            <p className="text-xs text-gray-500 text-center mt-3">
               Offizielle Provital/Anifit Geschäftspräsentation
             </p>
           </div>
 
           {/* Referral / Share */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-8">
             <h3 className="font-bold text-gray-900 mb-2 text-center">Kennst du jemanden, der das auch interessiert?</h3>
             <p className="text-sm text-gray-500 text-center mb-5">
               Teile den Guide mit Freunden, die Hunde lieben und sich ein Nebeneinkommen wünschen.
@@ -153,7 +153,7 @@ function DankeContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-white text-sm transition-colors"
-                style={{ background: "#25D366" }}
+                style={{ background: "var(--color-whatsapp)" }}
                 onClick={() => {
                   if ((window as any).fbq) (window as any).fbq("trackCustom", "ShareWhatsApp");
                 }}
@@ -178,7 +178,7 @@ function DankeContent() {
             >
               {copied ? (
                 <>
-                  <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <svg className="w-4 h-4 text-brand-500" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                   Link kopiert!
                 </>
               ) : (
@@ -191,7 +191,7 @@ function DankeContent() {
           </div>
 
           {/* Direct Contact CTAs */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8 text-center">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-8 text-center">
             <p className="text-2xl mb-2">💬</p>
             <h3 className="font-bold text-gray-900 mb-2">{userName ? `${userName}, noch Fragen? Schreib Enrico direkt.` : "Fragen? Schreib Enrico direkt."}</h3>
             <p className="text-sm text-gray-600 mb-4">
@@ -203,7 +203,7 @@ function DankeContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold text-white text-sm transition-colors"
-                style={{ background: "#25D366" }}
+                style={{ background: "var(--color-whatsapp)" }}
                 onClick={() => {
                   if ((window as any).fbq) (window as any).fbq("trackCustom", "WhatsAppContact");
                 }}
@@ -219,11 +219,11 @@ function DankeContent() {
                 Anrufen
               </a>
             </div>
-            <p className="text-xs text-gray-400 mt-3">Mo–Fr, deutschsprachig · Antwort innerhalb von 24h</p>
+            <p className="text-xs text-gray-500 mt-3">Mo–Fr, deutschsprachig · Antwort innerhalb von 24h</p>
           </div>
 
-          <div className="bg-green-50 rounded-xl p-6 border border-green-100 mb-8">
-            <p className="text-sm text-green-800 leading-relaxed">
+          <div className="bg-brand-50 rounded-xl p-6 border border-brand-100 mb-8">
+            <p className="text-sm text-brand-800 leading-relaxed">
               <strong>Tipp:</strong> Speichere die Absenderadresse{" "}
               <span className="font-mono text-xs">partner@anifutter-shop.de</span>{" "}
               in deinen Kontakten, damit keine Mail im Spam landet.
@@ -233,7 +233,7 @@ function DankeContent() {
           <div className="text-center">
             <a
               href="https://www.anifutter-shop.de"
-              className="inline-block py-3 px-8 rounded-xl font-semibold text-green-700 border-2 border-green-200 hover:bg-green-50 transition-colors text-sm"
+              className="inline-block py-3 px-8 rounded-xl font-semibold text-brand-700 border-2 border-brand-200 hover:bg-brand-50 transition-colors text-sm"
             >
               Zum Anifit-Shop →
             </a>

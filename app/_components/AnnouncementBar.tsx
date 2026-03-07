@@ -29,7 +29,7 @@ export default function AnnouncementBar() {
   if (dismissed || !mounted) return null;
 
   return (
-    <div className="bg-amber-500 text-white text-center text-xs sm:text-sm font-medium py-2 px-4 relative z-50">
+    <div className="bg-warm-500 text-white text-center text-xs sm:text-sm font-medium py-2 px-4 relative z-50">
       <span className="inline-flex items-center gap-2">
         <span aria-hidden="true">🔥</span>
         <span>

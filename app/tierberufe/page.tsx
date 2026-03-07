@@ -41,13 +41,13 @@ export default function TierberufePage() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Back nav */}
-      <nav className="border-b border-gray-100 bg-white relative z-10">
+      <nav className="border-b border-gray-200 bg-white relative z-10">
         <div className="mx-auto max-w-5xl px-6 py-3 flex items-center justify-between">
           <a href="/" className="text-sm text-gray-500 hover:text-blue-600 transition-colors inline-flex items-center gap-1">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
             Fachberater werden
           </a>
-          <span className="text-sm text-gray-400">Für Tierärzte, THP &amp; Züchter</span>
+          <span className="text-sm text-gray-500">Für Tierärzte, THP &amp; Züchter</span>
         </div>
       </nav>
 
@@ -77,7 +77,7 @@ export default function TierberufePage() {
 
             {/* Form */}
             <div className="w-full lg:w-[400px] flex-shrink-0">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8" id="kontakt">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8" id="kontakt">
                 <p className="font-bold text-gray-900 text-center mb-1">Unverbindlich anfragen</p>
                 <p className="text-xs text-gray-500 text-center mb-5">Antwort innerhalb von 24 Stunden.</p>
                 <ContactForm />
@@ -107,7 +107,7 @@ export default function TierberufePage() {
       </section>
 
       {/* Produkt + Warum Anifit */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-2xl font-bold text-center mb-10">Futter, das Sie guten Gewissens empfehlen können</h2>
           <div className="grid sm:grid-cols-2 gap-8 items-center">
@@ -220,8 +220,8 @@ export default function TierberufePage() {
         </div>
       </section>
 
-      <footer className="border-t border-gray-100 py-8">
-        <div className="mx-auto max-w-3xl px-6 text-center text-sm text-gray-400">
+      <footer className="border-t border-gray-200 py-8">
+        <div className="mx-auto max-w-3xl px-6 text-center text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
           <p className="mt-2">
             <a href="/" className="hover:text-blue-600">Fachberater werden</a>

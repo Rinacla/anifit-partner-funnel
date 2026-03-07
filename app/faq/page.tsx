@@ -215,11 +215,11 @@ export default function FAQPage() {
       />
 
       {/* Back nav */}
-      <nav className="border-b border-gray-100 bg-white">
+      <nav className="border-b border-gray-200 bg-white">
         <div className="mx-auto max-w-3xl px-6 py-3">
           <a
             href="/"
-            className="text-sm text-gray-500 hover:text-green-600 transition-colors inline-flex items-center gap-1"
+            className="text-sm text-gray-500 hover:text-brand-600 transition-colors inline-flex items-center gap-1"
           >
             <svg
               className="w-4 h-4"
@@ -240,9 +240,9 @@ export default function FAQPage() {
       </nav>
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-green-50 to-white py-16 px-6">
+      <div className="bg-gradient-to-br from-brand-50 to-white py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-sm font-semibold text-green-700 bg-green-100 inline-block px-4 py-1.5 rounded-full mb-4">
+          <p className="text-sm font-semibold text-brand-700 bg-brand-100 inline-block px-4 py-1.5 rounded-full mb-4">
             Alle Antworten auf einen Blick
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
@@ -256,13 +256,13 @@ export default function FAQPage() {
       </div>
 
       {/* Quick Jump Nav */}
-      <div className="border-b border-gray-100 bg-white sticky top-0 z-10">
+      <div className="border-b border-gray-200 bg-white sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-6 py-3 flex gap-3 overflow-x-auto no-scrollbar">
           {categories.map((cat, i) => (
             <a
               key={i}
               href={`#cat-${i}`}
-              className="flex-shrink-0 text-sm text-gray-600 hover:text-green-700 hover:bg-green-50 px-3 py-1.5 rounded-full border border-gray-200 hover:border-green-200 transition-colors whitespace-nowrap"
+              className="flex-shrink-0 text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50 px-3 py-1.5 rounded-full border border-gray-200 hover:border-brand-200 transition-colors whitespace-nowrap"
             >
               {cat.icon} {cat.title}
             </a>
@@ -285,7 +285,7 @@ export default function FAQPage() {
         ))}
 
         {/* CTA with inline LeadForm */}
-        <section className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 sm:p-12 text-center">
+        <section className="bg-gradient-to-br from-brand-50 to-white rounded-2xl p-8 sm:p-12 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">
             Noch mehr Fragen? Der Guide hat die Antworten.
           </h2>
@@ -297,7 +297,7 @@ export default function FAQPage() {
         </section>
 
         {/* Internal links for SEO */}
-        <section className="border-t border-gray-100 pt-8">
+        <section className="border-t border-gray-200 pt-8">
           <h3 className="font-bold text-gray-900 mb-4">
             Weitere Infos zum Einstieg
           </h3>
@@ -316,10 +316,10 @@ export default function FAQPage() {
               <a
                 key={link.href}
                 href={link.href}
-                className="flex items-center gap-2 text-sm text-gray-700 hover:text-green-700 py-2 px-3 rounded-lg hover:bg-green-50 transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-700 hover:text-brand-700 py-2 px-3 rounded-lg hover:bg-brand-50 transition-colors"
               >
                 <svg
-                  className="w-4 h-4 text-green-500 flex-shrink-0"
+                  className="w-4 h-4 text-brand-500 flex-shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={2}

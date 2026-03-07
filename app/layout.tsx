@@ -12,7 +12,7 @@ const geistSans = Geist({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#4CAF50",
+  themeColor: "var(--brand)",
 };
 
 export const metadata: Metadata = {

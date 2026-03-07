@@ -153,7 +153,7 @@ export default function UeberMichPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-gray-800">
+    <main className="min-h-screen bg-white text-gray-700">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
@@ -170,9 +170,9 @@ export default function UeberMichPage() {
       {/* Breadcrumb */}
       <nav
         aria-label="Breadcrumb"
-        className="mx-auto max-w-3xl px-6 pt-6 text-sm text-gray-400"
+        className="mx-auto max-w-3xl px-6 pt-6 text-sm text-gray-500"
       >
-        <Link href="/" className="hover:text-green-600">
+        <Link href="/" className="hover:text-brand-600">
           Start
         </Link>{" "}
         / <span className="text-gray-600">Über Enrico</span>
@@ -186,11 +186,11 @@ export default function UeberMichPage() {
             alt="Enrico Bachmann — Anifit-Fachberater"
             width={180}
             height={180}
-            className="rounded-full border-4 border-green-100 shadow-md"
+            className="rounded-full border-4 border-brand-100 shadow-md"
             priority
           />
           <div>
-            <p className="text-sm font-medium text-green-700 mb-1">
+            <p className="text-sm font-medium text-brand-700 mb-1">
               Dein Mentor
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
@@ -240,11 +240,11 @@ export default function UeberMichPage() {
             Mein Weg mit Anifit
           </h2>
           <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-green-200" />
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-brand-200" />
             <div className="space-y-8">
               {TIMELINE.map((item) => (
                 <div key={item.year} className="relative pl-12">
-                  <div className="absolute left-0 top-1 w-9 h-9 bg-green-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm">
+                  <div className="absolute left-0 top-1 w-9 h-9 bg-brand-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm">
                     {item.year.slice(2)}
                   </div>
                   <h3 className="font-bold text-gray-900 text-lg">
@@ -268,7 +268,7 @@ export default function UeberMichPage() {
             {VALUES.map((v) => (
               <div
                 key={v.title}
-                className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm"
+                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
               >
                 <div className="text-3xl mb-3">{v.icon}</div>
                 <h3 className="font-bold text-gray-900 mb-2">{v.title}</h3>
@@ -296,9 +296,9 @@ export default function UeberMichPage() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="text-center bg-green-50 rounded-xl py-5 px-3"
+                className="text-center bg-brand-50 rounded-xl py-5 px-3"
               >
-                <p className="text-2xl font-bold text-green-700">{s.value}</p>
+                <p className="text-2xl font-bold text-brand-700">{s.value}</p>
                 <p className="text-xs text-gray-500 mt-1">{s.label}</p>
               </div>
             ))}
@@ -316,11 +316,11 @@ export default function UeberMichPage() {
             {FAQS.map((f) => (
               <details
                 key={f.q}
-                className="bg-white rounded-xl border border-gray-100 overflow-hidden group"
+                className="bg-white rounded-xl border border-gray-200 overflow-hidden group"
               >
                 <summary className="px-6 py-4 cursor-pointer font-medium text-gray-900 flex items-center justify-between hover:bg-gray-50 transition-colors">
                   {f.q}
-                  <span className="text-gray-400 group-open:rotate-180 transition-transform ml-3">
+                  <span className="text-gray-500 group-open:rotate-180 transition-transform ml-3">
                     ▾
                   </span>
                 </summary>
@@ -347,7 +347,7 @@ export default function UeberMichPage() {
       </section>
 
       {/* Weiterlesen */}
-      <section className="bg-gray-50 py-10">
+      <section className="bg-gray-50 py-12">
         <div className="mx-auto max-w-3xl px-6">
           <h3 className="font-bold text-gray-900 mb-4">Weiterlesen</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -366,7 +366,7 @@ export default function UeberMichPage() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="block bg-white rounded-lg px-4 py-3 text-sm text-gray-700 hover:text-green-700 hover:border-green-200 border border-gray-100 transition-colors"
+                className="block bg-white rounded-lg px-4 py-3 text-sm text-gray-700 hover:text-brand-700 hover:border-brand-200 border border-gray-200 transition-colors"
               >
                 {l.label} →
               </Link>
@@ -376,7 +376,7 @@ export default function UeberMichPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8">
+      <footer className="border-t border-gray-200 py-8">
         <div className="mx-auto max-w-3xl px-6">
           <nav
             aria-label="Footer-Navigation"
@@ -388,12 +388,12 @@ export default function UeberMichPage() {
               </p>
               <ul className="space-y-1 text-sm text-gray-500">
                 <li>
-                  <Link href="/" className="hover:text-green-600">
+                  <Link href="/" className="hover:text-brand-600">
                     Startseite
                   </Link>
                 </li>
                 <li>
-                  <Link href="/guide" className="hover:text-green-600">
+                  <Link href="/guide" className="hover:text-brand-600">
                     Guide lesen
                   </Link>
                 </li>
@@ -407,23 +407,23 @@ export default function UeberMichPage() {
                 <li>
                   <Link
                     href="/einkommen-berechnen"
-                    className="hover:text-green-600 font-semibold text-green-700"
+                    className="hover:text-brand-600 font-semibold text-brand-700"
                   >
                     Verdienst-Rechner
                   </Link>
                 </li>
                 <li>
-                  <Link href="/erfahrungen" className="hover:text-green-600">
+                  <Link href="/erfahrungen" className="hover:text-brand-600">
                     Berater-Erfahrungen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/kosten" className="hover:text-green-600">
+                  <Link href="/kosten" className="hover:text-brand-600">
                     Kosten &amp; Einstieg
                   </Link>
                 </li>
                 <li>
-                  <Link href="/faq" className="hover:text-green-600">
+                  <Link href="/faq" className="hover:text-brand-600">
                     Häufige Fragen
                   </Link>
                 </li>
@@ -435,19 +435,19 @@ export default function UeberMichPage() {
               </p>
               <ul className="space-y-1 text-sm text-gray-500">
                 <li>
-                  <Link href="/impressum" className="hover:text-green-600">
+                  <Link href="/impressum" className="hover:text-brand-600">
                     Impressum
                   </Link>
                 </li>
                 <li>
-                  <Link href="/datenschutz" className="hover:text-green-600">
+                  <Link href="/datenschutz" className="hover:text-brand-600">
                     Datenschutz
                   </Link>
                 </li>
               </ul>
             </div>
           </nav>
-          <p className="text-center text-xs text-gray-400 border-t border-gray-50 pt-4">
+          <p className="text-center text-xs text-gray-500 border-t border-gray-50 pt-4">
             © {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater
           </p>
         </div>

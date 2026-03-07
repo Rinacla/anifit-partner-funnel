@@ -16,8 +16,8 @@ export default function StartbonusMini() {
   if (days === null) return null;
 
   return (
-    <div className="flex items-center justify-center gap-2 text-green-100 text-sm mt-4 mb-2">
-      <span className="inline-flex items-center gap-1.5 bg-green-700/60 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-medium">
+    <div className="flex items-center justify-center gap-2 text-brand-100 text-sm mt-4 mb-2">
+      <span className="inline-flex items-center gap-1.5 bg-brand-700/60 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-medium">
         <span className="text-amber-300">⏳</span>
         Noch <strong className="text-white">{days} Tage</strong> für den 30%-Startbonus
       </span>

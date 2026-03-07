@@ -30,7 +30,7 @@ export default function CookieBanner() {
       <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <p className="text-sm text-gray-600 flex-1">
           Wir nutzen Cookies und das Meta Pixel, um unsere Seite zu verbessern und relevante Werbung zu zeigen.{" "}
-          <a href="/datenschutz" className="text-green-600 underline">Mehr erfahren</a>
+          <a href="/datenschutz" className="text-brand-600 underline">Mehr erfahren</a>
         </p>
         <div className="flex gap-3">
           <button
@@ -42,7 +42,7 @@ export default function CookieBanner() {
           <button
             onClick={accept}
             className="px-4 py-2 text-sm text-white font-semibold rounded-lg"
-            style={{ background: "#4CAF50" }}
+            style={{ background: "var(--brand)" }}
           >
             Akzeptieren
           </button>

@@ -47,16 +47,16 @@ export default function StartbonusTimer() {
           { value: timeLeft.seconds, label: "Sekunden" },
         ].map((unit, i) => (
           <div key={i} className="flex flex-col items-center">
-            <span className="bg-white rounded-lg shadow-sm border border-amber-200 text-2xl sm:text-3xl font-bold text-amber-900 w-14 sm:w-18 py-2 tabular-nums">
+            <span className="bg-white rounded-lg shadow-sm border border-warm-200 text-2xl sm:text-3xl font-bold text-warm-900 w-14 sm:w-18 py-2 tabular-nums">
               {String(unit.value).padStart(2, "0")}
             </span>
-            <span className="text-[9px] sm:text-xs text-amber-700 mt-1 font-medium uppercase tracking-wide">
+            <span className="text-[9px] sm:text-xs text-warm-700 mt-1 font-medium uppercase tracking-wide">
               {unit.label}
             </span>
           </div>
         ))}
       </div>
-      <p className="text-xs text-amber-700 mt-4">
+      <p className="text-xs text-warm-700 mt-4">
         Registrierst du dich heute, hast du bis <strong>{dateStr}</strong> Zeit.
       </p>
     </div>

@@ -60,8 +60,8 @@ export default function SocialProofToast() {
           : "translate-y-4 opacity-0 pointer-events-none"
       }`}
     >
-      <div className="bg-white rounded-xl shadow-lg border border-gray-100 px-4 py-3 flex items-start gap-3">
-        <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-sm">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 px-4 py-3 flex items-start gap-3">
+        <div className="flex-shrink-0 w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center text-sm">
           📩
         </div>
         <div className="flex-1 min-w-0">

@@ -113,8 +113,8 @@ export default function VoraussetzungenPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       {/* Breadcrumb */}
-      <nav className="mx-auto max-w-3xl px-6 pt-8 text-xs text-gray-400">
-        <a href="/" className="hover:text-green-600 transition-colors">Start</a>
+      <nav className="mx-auto max-w-3xl px-6 pt-8 text-xs text-gray-500">
+        <a href="/" className="hover:text-brand-600 transition-colors">Start</a>
         <span className="mx-1.5">/</span>
         <span className="text-gray-600">Voraussetzungen</span>
       </nav>
@@ -139,7 +139,7 @@ export default function VoraussetzungenPage() {
           <div className="space-y-5">
             {REQUIREMENTS.map((r, i) => (
               <div key={i} className="flex gap-4 items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm">
+                <div className="flex-shrink-0 w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center text-brand-600 font-bold text-sm">
                   {r.icon}
                 </div>
                 <div>
@@ -153,13 +153,13 @@ export default function VoraussetzungenPage() {
       </section>
 
       {/* Was du NICHT brauchst */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold mb-8">Was du nicht brauchst</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {NOT_NEEDED.map((item, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">
-                <span className="text-red-400 font-bold text-lg flex-shrink-0">{item.icon}</span>
+              <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-200">
+                <span className="text-danger-400 font-bold text-lg flex-shrink-0">{item.icon}</span>
                 <p className="text-sm text-gray-700">{item.text}</p>
               </div>
             ))}
@@ -168,7 +168,7 @@ export default function VoraussetzungenPage() {
       </section>
 
       {/* Ideal für */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold mb-4">Besonders geeignet für</h2>
           <p className="text-gray-500 mb-8">
@@ -176,7 +176,7 @@ export default function VoraussetzungenPage() {
           </p>
           <div className="grid sm:grid-cols-2 gap-5">
             {IDEAL_FOR.map((p, i) => (
-              <div key={i} className="rounded-xl border border-gray-100 p-5 hover:border-green-200 transition-colors">
+              <div key={i} className="rounded-xl border border-gray-200 p-5 hover:border-brand-200 transition-colors">
                 <div className="text-2xl mb-2">{p.emoji}</div>
                 <h3 className="font-bold text-gray-900 text-sm mb-1">{p.title}</h3>
                 <p className="text-xs text-gray-600 leading-relaxed">{p.text}</p>
@@ -187,23 +187,23 @@ export default function VoraussetzungenPage() {
       </section>
 
       {/* Quick Facts */}
-      <section className="bg-green-50 py-12">
+      <section className="bg-brand-50 py-12">
         <div className="mx-auto max-w-3xl px-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             <div>
-              <p className="text-2xl font-extrabold text-green-700">0 €</p>
+              <p className="text-2xl font-extrabold text-brand-700">0 €</p>
               <p className="text-xs text-gray-600 mt-1">Registrierungskosten</p>
             </div>
             <div>
-              <p className="text-2xl font-extrabold text-green-700">78 €</p>
+              <p className="text-2xl font-extrabold text-brand-700">78 €</p>
               <p className="text-xs text-gray-600 mt-1">Einstiegspaket (einmalig)</p>
             </div>
             <div>
-              <p className="text-2xl font-extrabold text-green-700">5 Min.</p>
+              <p className="text-2xl font-extrabold text-brand-700">5 Min.</p>
               <p className="text-xs text-gray-600 mt-1">Anmeldung</p>
             </div>
             <div>
-              <p className="text-2xl font-extrabold text-green-700">24h</p>
+              <p className="text-2xl font-extrabold text-brand-700">24h</p>
               <p className="text-xs text-gray-600 mt-1">Mentor meldet sich</p>
             </div>
           </div>
@@ -211,16 +211,16 @@ export default function VoraussetzungenPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="mx-auto max-w-2xl px-6">
           <h2 className="text-2xl font-bold mb-8 text-center">Häufige Fragen zu den Voraussetzungen</h2>
           <div className="space-y-4">
             {FAQ_ITEMS.map((faq, i) => (
-              <details key={i} className="group rounded-xl border border-gray-100 overflow-hidden">
+              <details key={i} className="group rounded-xl border border-gray-200 overflow-hidden">
                 <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-semibold text-gray-900 text-sm hover:bg-gray-50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                   {faq.q}
                   <svg
-                    className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+                    className="w-4 h-4 text-gray-500 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="2"
@@ -237,12 +237,12 @@ export default function VoraussetzungenPage() {
       </section>
 
       {/* CTA + LeadForm */}
-      <section className="bg-green-600 py-16">
+      <section className="bg-brand-600 py-20">
         <div className="mx-auto max-w-md px-6">
           <h2 className="text-2xl font-bold text-white text-center mb-3">
             Erfüllst du die Voraussetzungen?
           </h2>
-          <p className="text-green-100 text-center mb-6">
+          <p className="text-brand-100 text-center mb-6">
             Dann hol dir den kostenlosen Guide und erfahre, wie der Start konkret aussieht:
           </p>
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
@@ -252,23 +252,23 @@ export default function VoraussetzungenPage() {
       </section>
 
       {/* Internal Links */}
-      <section className="py-12 border-t border-gray-100">
+      <section className="py-12 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="font-bold text-gray-900 mb-4">Weiterlesen</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            <a href="/kosten" className="block rounded-xl border border-gray-100 p-4 hover:border-green-200 transition-colors">
+            <a href="/kosten" className="block rounded-xl border border-gray-200 p-4 hover:border-brand-200 transition-colors">
               <p className="font-semibold text-sm text-gray-900">Kosten &amp; Einstieg</p>
               <p className="text-xs text-gray-500 mt-1">Was der Start kostet und ab wann er sich rechnet</p>
             </a>
-            <a href="/anmeldung" className="block rounded-xl border border-gray-100 p-4 hover:border-green-200 transition-colors">
+            <a href="/anmeldung" className="block rounded-xl border border-gray-200 p-4 hover:border-brand-200 transition-colors">
               <p className="font-semibold text-sm text-gray-900">Anmeldung &amp; Registrierung</p>
               <p className="text-xs text-gray-500 mt-1">Schritt-für-Schritt-Anleitung zum Start</p>
             </a>
-            <a href="/erfahrungen" className="block rounded-xl border border-gray-100 p-4 hover:border-green-200 transition-colors">
+            <a href="/erfahrungen" className="block rounded-xl border border-gray-200 p-4 hover:border-brand-200 transition-colors">
               <p className="font-semibold text-sm text-gray-900">Berater-Erfahrungen</p>
               <p className="text-xs text-gray-500 mt-1">Was andere Berater über den Einstieg berichten</p>
             </a>
-            <a href="/einkommen-berechnen" className="block rounded-xl border border-gray-100 p-4 hover:border-green-200 transition-colors">
+            <a href="/einkommen-berechnen" className="block rounded-xl border border-gray-200 p-4 hover:border-brand-200 transition-colors">
               <p className="font-semibold text-sm text-gray-900">Verdienst-Rechner</p>
               <p className="text-xs text-gray-500 mt-1">Berechne dein monatliches Einkommen</p>
             </a>
@@ -278,7 +278,7 @@ export default function VoraussetzungenPage() {
 
       {/* Footer nav back */}
       <div className="pb-8 text-center">
-        <a href="/" className="text-sm text-green-700 font-semibold hover:text-green-800 transition-colors">
+        <a href="/" className="text-sm text-brand-700 font-semibold hover:text-brand-800 transition-colors">
           ← Zurück zur Startseite
         </a>
       </div>

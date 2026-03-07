@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function DatenschutzPage() {
   return (
-    <div className="min-h-screen bg-white py-16 px-6">
+    <div className="min-h-screen bg-white py-20 px-6">
       <div className="max-w-2xl mx-auto prose prose-gray">
         <h1>Datenschutzerklärung</h1>
 
@@ -41,7 +41,7 @@ export default function DatenschutzPage() {
           Diese Website nutzt das Meta Pixel (Facebook Pixel) der Meta Platforms
           Ireland Limited. Dabei werden pseudonymisierte Nutzungsdaten erhoben,
           um Werbeanzeigen zu optimieren. Du kannst der Nutzung widersprechen
-          unter: <a href="https://www.facebook.com/settings/?tab=ads" className="text-green-600">Facebook Ad-Einstellungen</a>.
+          unter: <a href="https://www.facebook.com/settings/?tab=ads" className="text-brand-600">Facebook Ad-Einstellungen</a>.
         </p>
 
         <h2>5. Hosting</h2>
@@ -72,7 +72,7 @@ export default function DatenschutzPage() {
         </p>
 
         <p className="mt-8">
-          <a href="/" className="text-green-600 hover:underline">← Zurück zur Startseite</a>
+          <a href="/" className="text-brand-600 hover:underline">← Zurück zur Startseite</a>
         </p>
       </div>
     </div>

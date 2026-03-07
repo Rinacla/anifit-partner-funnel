@@ -58,7 +58,7 @@ function FAQItemRow({ faq, isOpen, onToggle }: { faq: FAQItem; isOpen: boolean; 
         <span
           className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-200"
           style={{
-            background: isOpen ? "#4CAF50" : "#E8F5E9",
+            background: isOpen ? "var(--brand)" : "var(--color-brand-100, #dcfce7)",
             transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
           }}
         >
@@ -67,7 +67,7 @@ function FAQItemRow({ faq, isOpen, onToggle }: { faq: FAQItem; isOpen: boolean; 
             height="12"
             viewBox="0 0 12 12"
             fill="none"
-            style={{ color: isOpen ? "#fff" : "#4CAF50" }}
+            style={{ color: isOpen ? "#fff" : "var(--brand)" }}
           >
             <path
               d="M6 2v8M2 6h8"

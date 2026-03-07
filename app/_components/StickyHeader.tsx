@@ -25,12 +25,12 @@ export default function StickyHeader() {
       <div className="bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm mt-[3px]">
         <div className="mx-auto max-w-5xl px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-green-600 font-bold text-lg">Anifit</span>
-            <span className="text-gray-400 text-sm hidden md:inline">Fachberater werden</span>
+            <span className="text-brand-600 font-bold text-lg">Anifit</span>
+            <span className="text-gray-500 text-sm hidden md:inline">Fachberater werden</span>
           </div>
           <a
             href="#quiz"
-            className="inline-flex items-center gap-2 bg-green-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-green-700 transition-colors text-sm shadow-sm"
+            className="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-brand-700 transition-colors text-sm shadow-sm"
           >
             Gratis-Guide anfordern
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">

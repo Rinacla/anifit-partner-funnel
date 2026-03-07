@@ -27,8 +27,8 @@ export default function StickyMobileCTA() {
         href="#quiz"
         className="block w-full py-3 rounded-xl font-bold text-white text-center text-base transition-all"
         style={{
-          background: "#4CAF50",
-          boxShadow: "0 4px 14px rgba(76,175,80,0.4)",
+          background: "var(--brand)",
+          boxShadow: "0 4px 14px var(--brand-shadow)",
         }}
         onClick={() => setVisible(false)}
       >

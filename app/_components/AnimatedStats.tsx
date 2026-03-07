@@ -56,7 +56,7 @@ function StatCounter({ item, visible, hydrated }: { item: StatItem; visible: boo
 
   return (
     <div>
-      <p className="text-3xl font-extrabold text-green-600 tabular-nums">{display}</p>
+      <p className="text-3xl font-extrabold text-brand-600 tabular-nums">{display}</p>
       <p className="text-xs text-gray-500 mt-1">{item.label}</p>
     </div>
   );

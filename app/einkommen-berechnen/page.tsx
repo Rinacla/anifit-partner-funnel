@@ -45,31 +45,31 @@ export default function EarningsCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
-      <header className="border-b border-gray-100 py-6">
+      <header className="border-b border-gray-200 py-6">
         <div className="mx-auto max-w-3xl px-6 flex justify-between items-center">
           <Link
             href="/"
-            className="font-bold text-gray-900 border-2 border-green-600 px-3 py-1 rounded-lg"
+            className="font-bold text-gray-900 border-2 border-brand-600 px-3 py-1 rounded-lg"
           >
             Anifit-Partner
           </Link>
           <Link
             href="/"
-            className="text-sm text-gray-500 hover:text-green-600"
+            className="text-sm text-gray-500 hover:text-brand-600"
           >
             &larr; Zurück
           </Link>
         </div>
       </header>
 
-      <main className="py-16">
+      <main className="py-20">
         <div className="mx-auto max-w-xl px-6">
           {/* Breadcrumb */}
           <nav
             aria-label="Breadcrumb"
-            className="text-xs text-gray-400 mb-8 flex gap-1"
+            className="text-xs text-gray-500 mb-8 flex gap-1"
           >
-            <Link href="/" className="hover:text-green-600">
+            <Link href="/" className="hover:text-brand-600">
               Startseite
             </Link>
             <span>/</span>
@@ -78,7 +78,7 @@ export default function EarningsCalculatorPage() {
 
           <h1 className="text-3xl font-extrabold text-center mb-4 leading-tight">
             Wie viel kannst du als{" "}
-            <span className="text-green-600">Anifit-Berater</span> verdienen?
+            <span className="text-brand-600">Anifit-Berater</span> verdienen?
           </h1>
           <p className="text-center text-gray-500 mb-12">
             Nutze unseren interaktiven Rechner, um dein potenzielles Einkommen
@@ -88,7 +88,7 @@ export default function EarningsCalculatorPage() {
 
           <ProvisionsRechner />
 
-          <section className="mt-20 border-t border-gray-100 pt-16">
+          <section className="mt-20 border-t border-gray-200 pt-16">
             <h2 className="text-2xl font-bold mb-6 text-center">
               So setzen sich deine Einnahmen zusammen
             </h2>
@@ -109,8 +109,8 @@ export default function EarningsCalculatorPage() {
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                <h4 className="font-bold text-sm mb-4 text-gray-400 uppercase tracking-wider">
+              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                <h4 className="font-bold text-sm mb-4 text-gray-500 uppercase tracking-wider">
                   Provisionsstufen
                 </h4>
                 <div className="grid grid-cols-2 gap-4">
@@ -123,10 +123,10 @@ export default function EarningsCalculatorPage() {
                   ].map((s, i) => (
                     <div
                       key={i}
-                      className="flex justify-between items-center border-b border-gray-100 pb-2"
+                      className="flex justify-between items-center border-b border-gray-200 pb-2"
                     >
                       <span className="text-sm text-gray-600">{s.k}</span>
-                      <span className="font-bold text-green-600">{s.p}</span>
+                      <span className="font-bold text-brand-600">{s.p}</span>
                     </div>
                   ))}
                 </div>
@@ -152,7 +152,7 @@ export default function EarningsCalculatorPage() {
                   Provital belohnt Fleiß am Anfang besonders stark: Wenn du in
                   deinen ersten 30 Tagen nur 3 Kunden gewinnst, wirst du für 3
                   Monate sofort auf die{" "}
-                  <span className="font-bold text-green-600">30 % Stufe</span>{" "}
+                  <span className="font-bold text-brand-600">30 % Stufe</span>{" "}
                   gesetzt. Das hilft dir, dein Investment für das Einstiegspaket
                   sofort wieder einzuspielen.
                 </p>
@@ -161,7 +161,7 @@ export default function EarningsCalculatorPage() {
           </section>
 
           {/* Inline Lead Form */}
-          <div className="mt-16 bg-green-50 rounded-2xl p-8 border border-green-100">
+          <div className="mt-16 bg-brand-50 rounded-2xl p-8 border border-brand-100">
             <h2 className="text-xl font-bold text-center mb-2">
               Überzeugt? Hol dir den kostenlosen Guide
             </h2>
@@ -173,16 +173,16 @@ export default function EarningsCalculatorPage() {
           </div>
 
           {/* Internal Links */}
-          <div className="mt-12 border-t border-gray-100 pt-8">
+          <div className="mt-12 border-t border-gray-200 pt-8">
             <h3 className="font-bold text-sm text-gray-500 uppercase tracking-wider mb-4">
               Weiterlesen
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
               <Link
                 href="/kosten"
-                className="block p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-green-50 hover:border-green-100 transition-colors"
+                className="block p-4 rounded-xl bg-gray-50 border border-gray-200 hover:bg-brand-50 hover:border-brand-100 transition-colors"
               >
-                <p className="font-bold text-sm text-gray-800 mb-1">
+                <p className="font-bold text-sm text-gray-700 mb-1">
                   Kosten & Einstieg
                 </p>
                 <p className="text-xs text-gray-500">
@@ -191,9 +191,9 @@ export default function EarningsCalculatorPage() {
               </Link>
               <Link
                 href="/erfahrungen"
-                className="block p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-green-50 hover:border-green-100 transition-colors"
+                className="block p-4 rounded-xl bg-gray-50 border border-gray-200 hover:bg-brand-50 hover:border-brand-100 transition-colors"
               >
-                <p className="font-bold text-sm text-gray-800 mb-1">
+                <p className="font-bold text-sm text-gray-700 mb-1">
                   Berater-Erfahrungen
                 </p>
                 <p className="text-xs text-gray-500">
@@ -202,9 +202,9 @@ export default function EarningsCalculatorPage() {
               </Link>
               <Link
                 href="/voraussetzungen"
-                className="block p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-green-50 hover:border-green-100 transition-colors"
+                className="block p-4 rounded-xl bg-gray-50 border border-gray-200 hover:bg-brand-50 hover:border-brand-100 transition-colors"
               >
-                <p className="font-bold text-sm text-gray-800 mb-1">
+                <p className="font-bold text-sm text-gray-700 mb-1">
                   Voraussetzungen
                 </p>
                 <p className="text-xs text-gray-500">
@@ -213,9 +213,9 @@ export default function EarningsCalculatorPage() {
               </Link>
               <Link
                 href="/anmeldung"
-                className="block p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-green-50 hover:border-green-100 transition-colors"
+                className="block p-4 rounded-xl bg-gray-50 border border-gray-200 hover:bg-brand-50 hover:border-brand-100 transition-colors"
               >
-                <p className="font-bold text-sm text-gray-800 mb-1">
+                <p className="font-bold text-sm text-gray-700 mb-1">
                   Anmeldung & Registrierung
                 </p>
                 <p className="text-xs text-gray-500">
@@ -228,8 +228,8 @@ export default function EarningsCalculatorPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8 mt-20">
-        <div className="mx-auto max-w-3xl px-6 text-center text-xs text-gray-400">
+      <footer className="border-t border-gray-200 py-8 mt-20">
+        <div className="mx-auto max-w-3xl px-6 text-center text-xs text-gray-500">
           <nav
             aria-label="Footer-Navigation"
             className="flex flex-wrap justify-center gap-4 mb-3"

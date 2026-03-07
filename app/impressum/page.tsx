@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="min-h-screen bg-white py-16 px-6">
+    <div className="min-h-screen bg-white py-20 px-6">
       <div className="max-w-2xl mx-auto prose prose-gray">
         <h1>Impressum</h1>
 
@@ -53,7 +53,7 @@ export default function ImpressumPage() {
         </p>
 
         <p className="mt-8">
-          <a href="/" className="text-green-600 hover:underline">← Zurück zur Startseite</a>
+          <a href="/" className="text-brand-600 hover:underline">← Zurück zur Startseite</a>
         </p>
       </div>
     </div>

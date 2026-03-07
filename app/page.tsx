@@ -116,7 +116,7 @@ export default function Home() {
   return (
     <main id="main" className="min-h-screen bg-white text-gray-900">
       <AnnouncementBar />
-      <a href="#quiz" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-green-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-semibold">
+      <a href="#quiz" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-brand-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-semibold">
         Zum Quiz springen
       </a>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -127,14 +127,14 @@ export default function Home() {
 
       {/* Hero with Quiz */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-green-50/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-brand-50/30" />
         <div className="relative mx-auto max-w-5xl px-6 pt-12 pb-16">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1 text-center lg:text-left">
-              <p className="inline-block mb-4 text-xs font-bold tracking-widest uppercase text-green-700 bg-green-100 px-4 py-1.5 rounded-full">Kostenloser Guide</p>
+              <p className="inline-block mb-4 text-xs font-bold tracking-widest uppercase text-brand-700 bg-brand-100 px-4 py-1.5 rounded-full">Kostenloser Guide</p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
                 Du liebst Hunde und willst dabei{" "}
-                <span className="text-green-600">etwas Sinnvolles verdienen?</span>
+                <span className="text-brand-600">etwas Sinnvolles verdienen?</span>
               </h1>
               <p className="mt-5 text-lg text-gray-600 leading-relaxed max-w-xl">
                 Als Anifit-Fachberater hilfst du Hundebesitzern bei der Futterumstellung
@@ -150,8 +150,8 @@ export default function Home() {
               <BenefitIcons />
             </div>
             <div className="w-full lg:w-[420px] flex-shrink-0">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8 relative" id="quiz">
-                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg transform rotate-6 z-10 animate-bounce-3x">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8 relative" id="quiz">
+                <div className="absolute -top-3 -right-3 bg-danger-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg transform rotate-6 z-10 animate-bounce-3x">
                   HEUTE: 0€ STARTKOSTEN
                 </div>
                 <QuizFunnel />
@@ -162,17 +162,17 @@ export default function Home() {
       </section>
 
       {/* Testsieger Trust Strip */}
-      <section className="bg-gradient-to-r from-amber-50 via-amber-50/80 to-amber-50 border-y border-amber-100/60 py-4">
+      <section className="bg-gradient-to-r from-warm-50 via-warm-50/80 to-warm-50 border-y border-warm-100/60 py-4">
         <div className="mx-auto max-w-4xl px-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
             <div className="flex items-center gap-2">
               <span className="text-xl" aria-hidden="true">🏆</span>
-              <p className="text-sm font-bold text-amber-900">
+              <p className="text-sm font-bold text-warm-900">
                 Testsieger 2026
               </p>
             </div>
-            <p className="text-xs sm:text-sm text-amber-800/80 text-center">
-              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="underline decoration-amber-300 hover:decoration-amber-500 transition-colors">
+            <p className="text-xs sm:text-sm text-warm-800/80 text-center">
+              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="underline decoration-amber-300 hover:decoration-warm-500 transition-colors">
                 hundeo.com
               </a>{" "}
               — 52 Marken im Vergleich, tierärztlich geprüft · 93 % Fleisch, schwedische Produktion
@@ -185,13 +185,13 @@ export default function Home() {
       <section className="relative bg-gray-900 overflow-hidden">
         <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund und Anifit Produkten" width={800} height={450} className="absolute inset-0 w-full h-full object-cover opacity-40" sizes="100vw" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/40" />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 sm:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-20 sm:py-20">
           <blockquote className="max-w-lg">
             <p className="text-xl sm:text-2xl font-bold text-white leading-snug">
               &bdquo;Was als Nebenverdienst mit 5 Kunden begann, ist heute mein Haupteinkommen mit&nbsp;über&nbsp;1.000&nbsp;Stammkunden.&ldquo;
             </p>
             <footer className="mt-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-green-500/20 border-2 border-green-400/40 flex items-center justify-center text-green-400 text-sm font-bold">EB</div>
+              <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-sm font-bold">EB</div>
               <div>
                 <p className="text-sm font-semibold text-white">Enrico Bachmann</p>
                 <p className="text-xs text-gray-300">Anifit-Berater seit 2018</p>
@@ -200,7 +200,7 @@ export default function Home() {
           </blockquote>
           <a
             href="#quiz"
-            className="mt-8 inline-flex items-center gap-2 bg-green-500 text-white font-bold py-3 px-6 rounded-xl hover:bg-green-400 transition-colors text-sm shadow-lg shadow-green-500/30"
+            className="mt-8 inline-flex items-center gap-2 bg-brand-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-brand-700 transition-colors text-sm shadow-lg shadow-brand-600/20"
           >
             Deine Geschichte starten
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
@@ -209,7 +209,7 @@ export default function Home() {
       </section>
 
       {/* Was du im Guide erfährst */}
-      <section className="py-20 border-t border-gray-100">
+      <section className="py-20 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-3xl font-bold text-center mb-4">Was du im Guide erfährst</h2>
           <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
@@ -224,7 +224,7 @@ export default function Home() {
               { num: "5", title: "Enricos persönliche Einladung", text: "Registrierungslink, Startschulung und wie dein Mentor dich in den ersten Wochen begleitet." },
             ].map((item, i) => (
               <div key={i} className={`flex gap-4 ${i === 4 ? "sm:col-span-2 sm:max-w-md sm:mx-auto" : ""}`}>
-                <div className="flex-shrink-0 w-10 h-10 bg-green-100 text-green-700 font-bold rounded-full flex items-center justify-center text-sm">
+                <div className="flex-shrink-0 w-10 h-10 bg-brand-100 text-brand-700 font-bold rounded-full flex items-center justify-center text-sm">
                   {item.num}
                 </div>
                 <div>
@@ -235,10 +235,10 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <a href="#quiz" className="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-green-700 transition-colors text-sm shadow-lg shadow-green-600/20">
+            <a href="#quiz" className="inline-block bg-brand-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-brand-700 transition-colors text-sm shadow-lg shadow-brand-600/20">
               Guide jetzt anfordern
             </a>
-            <p className="text-xs text-gray-400 mt-3">Kostenlos. Kein Abo. Jederzeit abbestellbar.</p>
+            <p className="text-xs text-gray-500 mt-3">Kostenlos. Kein Abo. Jederzeit abbestellbar.</p>
           </div>
         </div>
       </section>
@@ -314,14 +314,14 @@ export default function Home() {
       </section>
 
       {/* Hundeo Testsieger */}
-      <section className="py-12 border-t border-gray-100">
+      <section className="py-12 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 flex flex-col sm:flex-row gap-6 items-center">
+          <div className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col sm:flex-row gap-6 items-center">
             <div className="flex-shrink-0 text-center">
-              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="inline-block font-extrabold text-2xl tracking-tight text-gray-800 hover:text-green-700 transition-colors">
+              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="inline-block font-extrabold text-2xl tracking-tight text-gray-700 hover:text-brand-700 transition-colors">
                 hundeo
               </a>
-              <p className="text-xs text-gray-400">52 Marken getestet</p>
+              <p className="text-xs text-gray-500">52 Marken getestet</p>
             </div>
             <div>
               <p className="text-gray-700 leading-relaxed">
@@ -337,7 +337,7 @@ export default function Home() {
 
 
       {/* Startbonus FOMO */}
-      <section className="bg-amber-50 py-12 border-y border-amber-100">
+      <section className="bg-warm-50 py-12 border-y border-warm-100">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Startbonus: 3 Monate lang 30 % Provision</h2>
           <p className="text-gray-700 max-w-lg mx-auto">
@@ -349,7 +349,7 @@ export default function Home() {
       </section>
 
       {/* Verdienst Rechner */}
-      <section className="bg-green-50 py-20">
+      <section className="bg-brand-50 py-20">
         <div className="mx-auto max-w-md px-6">
           <h2 className="text-3xl font-bold text-center mb-4">Wie viel bleibt bei dir hängen?</h2>
           <p className="text-center text-gray-600 mb-8 text-sm">Schieb den Regler auf deine Wunsch-Kundenzahl:</p>
@@ -358,7 +358,7 @@ export default function Home() {
       </section>
 
       {/* Nebenverdienst-Vergleich */}
-      <section className="py-20 border-t border-gray-100">
+      <section className="py-20 border-t border-gray-200">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-3xl font-bold text-center mb-4">Warum nicht einfach Nachhilfe geben?</h2>
           <p className="text-center text-gray-500 mb-12 max-w-lg mx-auto">
@@ -371,27 +371,27 @@ export default function Home() {
               { job: "Dropshipping / Etsy", hours: "10-20 h/Woche", income: "0-500 €/Monat", passive: false, note: "Hohe Startkosten, viel Konkurrenz" },
               { job: "Anifit-Fachberater", hours: "2-5 h/Woche", income: "300-2.000+ €/Monat", passive: true, note: "Kunden bestellen von selbst weiter" },
             ].map((item, i) => (
-              <div key={i} className={`rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 ${item.passive ? "bg-green-50 border-2 border-green-200 ring-1 ring-green-100" : "bg-gray-50 border border-gray-100"}`}>
+              <div key={i} className={`rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 ${item.passive ? "bg-brand-50 border-2 border-brand-200 ring-1 ring-brand-100" : "bg-gray-50 border border-gray-200"}`}>
                 <div className="sm:w-1/4">
-                  <p className={`font-bold text-sm ${item.passive ? "text-green-800" : "text-gray-800"}`}>{item.job}</p>
+                  <p className={`font-bold text-sm ${item.passive ? "text-brand-800" : "text-gray-700"}`}>{item.job}</p>
                 </div>
                 <div className="sm:w-1/5">
-                  <p className="text-xs text-gray-400 sm:hidden">Zeitaufwand</p>
+                  <p className="text-xs text-gray-500 sm:hidden">Zeitaufwand</p>
                   <p className="text-sm text-gray-600">{item.hours}</p>
                 </div>
                 <div className="sm:w-1/5">
-                  <p className="text-xs text-gray-400 sm:hidden">Verdienst</p>
-                  <p className={`text-sm font-semibold ${item.passive ? "text-green-700" : "text-gray-700"}`}>{item.income}</p>
+                  <p className="text-xs text-gray-500 sm:hidden">Verdienst</p>
+                  <p className={`text-sm font-semibold ${item.passive ? "text-brand-700" : "text-gray-700"}`}>{item.income}</p>
                 </div>
                 <div className="sm:w-1/3">
-                  <span className={`inline-block text-xs px-2 py-1 rounded-full ${item.passive ? "bg-green-100 text-green-800 font-semibold" : "bg-gray-100 text-gray-500"}`}>
+                  <span className={`inline-block text-xs px-2 py-1 rounded-full ${item.passive ? "bg-brand-100 text-brand-800 font-semibold" : "bg-gray-100 text-gray-500"}`}>
                     {item.passive ? "✓ Passives Einkommen" : item.note}
                   </span>
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-xs text-gray-400 text-center mt-6">
+          <p className="text-xs text-gray-500 text-center mt-6">
             Basierend auf typischen Nebenverdiensten in Deutschland. Anifit-Werte aus der tatsächlichen Berater-Statistik.
           </p>
         </div>
@@ -401,7 +401,7 @@ export default function Home() {
       <section className="py-12 text-center">
         <div className="mx-auto max-w-xl px-6">
           <p className="text-lg text-gray-700 mb-5">Klingt nach dem richtigen Nebenverdienst?</p>
-          <a href="#quiz" className="inline-block bg-green-600 text-white font-bold py-3.5 px-10 rounded-xl hover:bg-green-700 transition-colors text-sm shadow-lg shadow-green-600/20">
+          <a href="#quiz" className="inline-block bg-brand-600 text-white font-bold py-3.5 px-10 rounded-xl hover:bg-brand-700 transition-colors text-sm shadow-lg shadow-brand-600/20">
             Kostenlosen Guide holen
           </a>
         </div>
@@ -433,7 +433,7 @@ export default function Home() {
       <VideoSection />
 
       {/* Zahlen (animated counters) */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-3xl px-6">
           <AnimatedStats />
         </div>
@@ -448,7 +448,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <a
               href="/erfahrungen"
-              className="inline-flex items-center gap-1.5 text-green-700 font-semibold text-sm hover:text-green-800 transition-colors"
+              className="inline-flex items-center gap-1.5 text-brand-700 font-semibold text-sm hover:text-brand-800 transition-colors"
             >
               Alle Erfahrungsberichte lesen
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
@@ -467,7 +467,7 @@ export default function Home() {
           <p className="text-center text-gray-500 mb-10">Die wichtigsten Fragen zum Einstieg als Anifit-Berater.</p>
           <FAQAccordion />
           <div className="text-center mt-8">
-            <a href="/faq" className="inline-flex items-center gap-2 text-green-700 font-semibold hover:text-green-800 transition-colors">
+            <a href="/faq" className="inline-flex items-center gap-2 text-brand-700 font-semibold hover:text-brand-800 transition-colors">
               Alle 30 Fragen und Antworten lesen
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </a>
@@ -492,8 +492,8 @@ export default function Home() {
               { text: "Du bist bereit, 2-5 Stunden pro Woche zu investieren" },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                  <svg className="w-4 h-4 text-green-600 animate-draw-check" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center mt-0.5">
+                  <svg className="w-4 h-4 text-brand-600 animate-draw-check" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -507,7 +507,7 @@ export default function Home() {
               { text: "Du hast kein Interesse an Tieren" },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4">
-                <span className="text-red-400 font-bold text-lg mt-0.5">✗</span>
+                <span className="text-danger-400 font-bold text-lg mt-0.5">✗</span>
                 <p className="text-gray-500">{item.text}</p>
               </div>
             ))}
@@ -518,32 +518,32 @@ export default function Home() {
       {/* Guarantee / Versprechen */}
       <section className="py-12">
         <div className="mx-auto max-w-2xl px-6">
-          <div className="rounded-2xl border-2 border-green-100 bg-green-50/50 p-6 sm:p-8">
+          <div className="rounded-2xl border-2 border-brand-100 bg-brand-50/50 p-6 sm:p-8">
             <h2 className="text-xl font-bold text-gray-900 text-center mb-6">Mein Versprechen an dich</h2>
             <div className="grid sm:grid-cols-3 gap-5 text-center">
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+                <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
                 </div>
-                <p className="text-sm font-semibold text-gray-800">100 % kostenlos</p>
+                <p className="text-sm font-semibold text-gray-700">100 % kostenlos</p>
                 <p className="text-xs text-gray-500">Kein Abo, keine Kreditkarte, keine versteckten Kosten</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
                 </div>
-                <p className="text-sm font-semibold text-gray-800">5 Emails, dann Schluss</p>
+                <p className="text-sm font-semibold text-gray-700">5 Emails, dann Schluss</p>
                 <p className="text-xs text-gray-500">Kein endloser Newsletter, jederzeit abmeldbar</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                <div className="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
                 </div>
-                <p className="text-sm font-semibold text-gray-800">Persönlich von Enrico</p>
+                <p className="text-sm font-semibold text-gray-700">Persönlich von Enrico</p>
                 <p className="text-xs text-gray-500">Kein Chatbot, kein Callcenter. Ich antworte selbst.</p>
               </div>
             </div>
-            <p className="text-xs text-gray-400 text-center mt-5">
+            <p className="text-xs text-gray-500 text-center mt-5">
               Passt es nicht? Dann löschst du die Emails und gut ist. Kein Nachhaken, kein Kleingedrucktes.
             </p>
           </div>
@@ -551,10 +551,10 @@ export default function Home() {
       </section>
 
       {/* Bottom Inline Lead Form */}
-      <section className="bg-green-600 py-16">
+      <section className="bg-brand-600 py-20">
         <div className="mx-auto max-w-md px-6">
           <h2 className="text-2xl font-bold text-white text-center mb-3">Klingt nach dir?</h2>
-          <p className="text-green-100 text-center mb-2">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
+          <p className="text-brand-100 text-center mb-2">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
           <StartbonusMini />
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
             <LeadForm idPrefix="bottom-" source="bottom" />
@@ -562,40 +562,40 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-gray-100 py-10">
+      <footer className="border-t border-gray-200 py-12">
         <div className="mx-auto max-w-3xl px-6">
           <nav aria-label="Footer-Navigation" className="flex flex-col sm:flex-row sm:justify-between gap-6 mb-6">
             <div>
               <p className="font-bold text-gray-900 text-sm mb-2">Anifit-Fachberater werden</p>
               <ul className="space-y-1 text-sm text-gray-500">
-                <li><a href="#quiz" className="hover:text-green-600 transition-colors">Gratis-Guide anfordern</a></li>
-                <li><a href="/guide" className="hover:text-green-600 transition-colors">Guide-Vorschau lesen</a></li>
+                <li><a href="#quiz" className="hover:text-brand-600 transition-colors">Gratis-Guide anfordern</a></li>
+                <li><a href="/guide" className="hover:text-brand-600 transition-colors">Guide-Vorschau lesen</a></li>
               </ul>
             </div>
             <div>
               <p className="font-bold text-gray-900 text-sm mb-2">Weitere Infos</p>
               <ul className="space-y-1 text-sm text-gray-500">
-                <li><a href="/einkommen-berechnen" className="hover:text-green-600 transition-colors font-semibold text-green-700">Verdienst-Rechner</a></li>
-                <li><a href="/nebenverdienst-mit-hunden" className="hover:text-green-600 transition-colors">Nebenverdienst mit Hunden</a></li>
-                <li><a href="/erfahrungen" className="hover:text-green-600 transition-colors">Berater-Erfahrungen</a></li>
-                <li><a href="/kosten" className="hover:text-green-600 transition-colors">Kosten &amp; Einstieg</a></li>
-                <li><a href="/anmeldung" className="hover:text-green-600 transition-colors">Anmeldung &amp; Registrierung</a></li>
-                <li><a href="/voraussetzungen" className="hover:text-green-600 transition-colors">Voraussetzungen</a></li>
-                <li><a href="/ueber-mich" className="hover:text-green-600 transition-colors">Über Enrico Bachmann</a></li>
-                <li><a href="/tierberufe" className="hover:text-green-600 transition-colors">Für Tierärzte, THP &amp; Züchter</a></li>
-                <li><a href="/faq" className="hover:text-green-600 transition-colors">Häufige Fragen (FAQ)</a></li>
-                <li><a href="https://www.anifutter-shop.de" target="_blank" rel="noopener noreferrer" className="hover:text-green-600 transition-colors">Zum Anifit-Shop →</a></li>
+                <li><a href="/einkommen-berechnen" className="hover:text-brand-600 transition-colors font-semibold text-brand-700">Verdienst-Rechner</a></li>
+                <li><a href="/nebenverdienst-mit-hunden" className="hover:text-brand-600 transition-colors">Nebenverdienst mit Hunden</a></li>
+                <li><a href="/erfahrungen" className="hover:text-brand-600 transition-colors">Berater-Erfahrungen</a></li>
+                <li><a href="/kosten" className="hover:text-brand-600 transition-colors">Kosten &amp; Einstieg</a></li>
+                <li><a href="/anmeldung" className="hover:text-brand-600 transition-colors">Anmeldung &amp; Registrierung</a></li>
+                <li><a href="/voraussetzungen" className="hover:text-brand-600 transition-colors">Voraussetzungen</a></li>
+                <li><a href="/ueber-mich" className="hover:text-brand-600 transition-colors">Über Enrico Bachmann</a></li>
+                <li><a href="/tierberufe" className="hover:text-brand-600 transition-colors">Für Tierärzte, THP &amp; Züchter</a></li>
+                <li><a href="/faq" className="hover:text-brand-600 transition-colors">Häufige Fragen (FAQ)</a></li>
+                <li><a href="https://www.anifutter-shop.de" target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors">Zum Anifit-Shop →</a></li>
               </ul>
             </div>
             <div>
               <p className="font-bold text-gray-900 text-sm mb-2">Rechtliches</p>
               <ul className="space-y-1 text-sm text-gray-500">
-                <li><a href="/impressum" className="hover:text-green-600 transition-colors">Impressum</a></li>
-                <li><a href="/datenschutz" className="hover:text-green-600 transition-colors">Datenschutz</a></li>
+                <li><a href="/impressum" className="hover:text-brand-600 transition-colors">Impressum</a></li>
+                <li><a href="/datenschutz" className="hover:text-brand-600 transition-colors">Datenschutz</a></li>
               </ul>
             </div>
           </nav>
-          <p className="text-center text-xs text-gray-400 border-t border-gray-50 pt-4">© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
+          <p className="text-center text-xs text-gray-500 border-t border-gray-50 pt-4">© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
         </div>
       </footer>
       <ClientOverlays />

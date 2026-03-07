@@ -17,7 +17,7 @@ export default function VideoSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-white border-t border-gray-100">
+    <section className="py-20 bg-white border-t border-gray-200">
       <div className="mx-auto max-w-3xl px-6">
         <h2 className="text-3xl font-bold text-center mb-4">
           Das Anifit-Geschäftsmodell in 30 Minuten
@@ -59,7 +59,7 @@ export default function VideoSection() {
               {/* Play button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 bg-white/90 group-hover:bg-white rounded-full flex items-center justify-center shadow-xl transition-all group-hover:scale-110">
-                  <svg className="w-8 h-8 text-green-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-brand-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -73,13 +73,13 @@ export default function VideoSection() {
           )}
         </div>
 
-        <p className="text-center text-xs text-gray-400 mt-4">
+        <p className="text-center text-xs text-gray-500 mt-4">
           Offizielle Provital/Anifit Geschäftspräsentation · Auch als{" "}
           <a
             href={`https://www.youtube.com/watch?v=${VIDEO_ID}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-green-600 transition-colors"
+            className="underline hover:text-brand-600 transition-colors"
           >
             YouTube-Link
           </a>

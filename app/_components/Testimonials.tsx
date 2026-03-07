@@ -28,7 +28,7 @@ export default function Testimonials() {
       {testimonials.map((t, i) => (
         <div
           key={i}
-          className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm"
+          className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
         >
           <div className="flex items-center gap-1 mb-3">
             {[...Array(5)].map((_, j) => (
@@ -40,10 +40,10 @@ export default function Testimonials() {
           <p className="text-gray-600 text-sm leading-relaxed mb-4">
             &ldquo;{t.text}&rdquo;
           </p>
-          <div className="border-t border-gray-100 pt-3">
+          <div className="border-t border-gray-200 pt-3">
             <p className="font-semibold text-sm text-gray-900">{t.name}</p>
-            <p className="text-xs text-gray-400">{t.location}</p>
-            <p className="text-xs font-semibold text-green-600 mt-1">{t.highlight}</p>
+            <p className="text-xs text-gray-500">{t.location}</p>
+            <p className="text-xs font-semibold text-brand-600 mt-1">{t.highlight}</p>
           </div>
         </div>
       ))}

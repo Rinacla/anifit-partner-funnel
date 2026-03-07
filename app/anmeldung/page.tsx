@@ -93,30 +93,30 @@ const checklistItems = [
 export default function AnmeldungPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="border-b border-gray-100 py-6">
+      <header className="border-b border-gray-200 py-6">
         <div className="mx-auto max-w-3xl px-6 flex justify-between items-center">
           <Link
             href="/"
-            className="font-bold text-gray-900 border-2 border-green-600 px-3 py-1 rounded-lg"
+            className="font-bold text-gray-900 border-2 border-brand-600 px-3 py-1 rounded-lg"
           >
             Anifit-Partner
           </Link>
-          <Link href="/" className="text-sm text-gray-500 hover:text-green-600">
+          <Link href="/" className="text-sm text-gray-500 hover:text-brand-600">
             &larr; Zurück
           </Link>
         </div>
       </header>
 
-      <main className="py-16">
+      <main className="py-20">
         <div className="mx-auto max-w-3xl px-6">
           {/* Hero */}
           <div className="text-center mb-16">
-            <p className="text-sm font-medium text-green-600 uppercase tracking-wider mb-3">
+            <p className="text-sm font-medium text-brand-600 uppercase tracking-wider mb-3">
               Anmeldung &amp; Registrierung
             </p>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
               In 5 Schritten zum{" "}
-              <span className="text-green-600">Anifit-Fachberater</span>
+              <span className="text-brand-600">Anifit-Fachberater</span>
             </h1>
             <p className="text-lg text-gray-500 max-w-xl mx-auto">
               Die Registrierung dauert 5 Minuten und ist kostenlos. Danach wirst
@@ -133,12 +133,12 @@ export default function AnmeldungPage() {
                   {/* Vertical line */}
                   {i < steps.length - 1 && (
                     <div
-                      className="absolute left-6 top-14 w-0.5 bg-green-100"
+                      className="absolute left-6 top-14 w-0.5 bg-brand-100"
                       style={{ height: "calc(100% - 2rem)" }}
                     />
                   )}
                   {/* Number circle */}
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center text-lg font-bold shadow-md shadow-green-600/20 relative z-10">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-600 text-white flex items-center justify-center text-lg font-bold shadow-md shadow-brand-600/20 relative z-10">
                     {step.num}
                   </div>
                   {/* Content */}
@@ -159,7 +159,7 @@ export default function AnmeldungPage() {
           </section>
 
           {/* What you need */}
-          <section className="mb-20 bg-gray-50 rounded-2xl p-8 border border-gray-100">
+          <section className="mb-20 bg-gray-50 rounded-2xl p-8 border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
               Was du für die Anmeldung brauchst
             </h2>
@@ -191,7 +191,7 @@ export default function AnmeldungPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100"
+                  className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-200"
                 >
                   <span className="text-2xl">{item.icon}</span>
                   <div>
@@ -237,7 +237,7 @@ export default function AnmeldungPage() {
               Jeder neue Berater in meinem Team bekommt persönliche Einarbeitung.
               Keine Onlinekurse, keine Videos — ein echtes Gespräch mit mir.
             </p>
-            <div className="bg-green-50 rounded-2xl p-8 border border-green-100 max-w-lg mx-auto">
+            <div className="bg-brand-50 rounded-2xl p-8 border border-brand-100 max-w-lg mx-auto">
               <div className="space-y-4 text-left">
                 {[
                   "Persönliches Startgespräch (Telefon oder Video)",
@@ -247,7 +247,7 @@ export default function AnmeldungPage() {
                   "Zugang zur Berater-Community",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-5 h-5 bg-green-600 rounded-full flex items-center justify-center mt-0.5">
+                    <span className="flex-shrink-0 w-5 h-5 bg-brand-600 rounded-full flex items-center justify-center mt-0.5">
                       <svg
                         width="10"
                         height="8"
@@ -366,9 +366,9 @@ export default function AnmeldungPage() {
         }}
       />
 
-      <footer className="border-t border-gray-100 py-10 mt-4">
+      <footer className="border-t border-gray-200 py-12 mt-4">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater
           </p>
         </div>

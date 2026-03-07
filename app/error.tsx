@@ -18,7 +18,7 @@ export default function Error({
       <div className="max-w-md text-center">
         <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-6">
           <svg
-            className="w-8 h-8 text-red-500"
+            className="w-8 h-8 text-danger-500"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="2"
@@ -40,7 +40,7 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={reset}
-            className="inline-flex items-center justify-center gap-2 bg-green-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-green-500 transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-brand-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-brand-700 transition-colors"
           >
             Nochmal versuchen
           </button>

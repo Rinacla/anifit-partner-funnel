@@ -181,12 +181,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Lifestyle Photo */}
-      <section className="bg-white py-12">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="rounded-2xl overflow-hidden shadow-lg">
-            <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund und Anifit Produkten" width={800} height={450} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 768px" loading="lazy" />
-          </div>
+      {/* Lifestyle Hero Quote */}
+      <section className="relative bg-gray-900 overflow-hidden">
+        <Image src="/images/magazin-hero.jpg" alt="Enrico Bachmann mit Hund und Anifit Produkten" width={800} height={450} className="absolute inset-0 w-full h-full object-cover opacity-40" sizes="100vw" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/40" />
+        <div className="relative mx-auto max-w-4xl px-6 py-16 sm:py-20">
+          <blockquote className="max-w-lg">
+            <p className="text-xl sm:text-2xl font-bold text-white leading-snug">
+              &bdquo;Was als Nebenverdienst mit 5 Kunden begann, ist heute mein Haupteinkommen mit&nbsp;über&nbsp;1.000&nbsp;Stammkunden.&ldquo;
+            </p>
+            <footer className="mt-4 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-green-500/20 border-2 border-green-400/40 flex items-center justify-center text-green-400 text-sm font-bold">EB</div>
+              <div>
+                <p className="text-sm font-semibold text-white">Enrico Bachmann</p>
+                <p className="text-xs text-gray-300">Anifit-Berater seit 2018</p>
+              </div>
+            </footer>
+          </blockquote>
+          <a
+            href="#quiz"
+            className="mt-8 inline-flex items-center gap-2 bg-green-500 text-white font-bold py-3 px-6 rounded-xl hover:bg-green-400 transition-colors text-sm shadow-lg shadow-green-500/30"
+          >
+            Deine Geschichte starten
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
         </div>
       </section>
 
@@ -300,8 +318,8 @@ export default function Home() {
         <div className="mx-auto max-w-3xl px-6">
           <div className="bg-white rounded-2xl border border-gray-100 p-8 flex flex-col sm:flex-row gap-6 items-center">
             <div className="flex-shrink-0 text-center">
-              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer">
-                <Image src="https://www.hundeo.com/wp-content/uploads/hundeo-logo.svg" alt="Hundeo" width={120} height={40} className="h-8 w-auto mx-auto mb-2" unoptimized />
+              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="inline-block font-extrabold text-2xl tracking-tight text-gray-800 hover:text-green-700 transition-colors">
+                hundeo
               </a>
               <p className="text-xs text-gray-400">52 Marken getestet</p>
             </div>

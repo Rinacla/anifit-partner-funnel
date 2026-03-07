@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useUtmParams } from "@/lib/useUtmParams";
+
+const STORAGE_KEY = "anifit_quiz_progress";
 
 const STEPS = [
   {
@@ -64,6 +66,31 @@ function getResult(answers: string[]) {
   return { emoji, headline, petText, earnings };
 }
 
+function loadSavedProgress(): { step: number; answers: string[]; showResult: boolean } | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const data = JSON.parse(raw);
+    if (data && Array.isArray(data.answers) && typeof data.step === "number") {
+      return { step: data.step, answers: data.answers, showResult: !!data.showResult };
+    }
+  } catch { /* ignore corrupt data */ }
+  return null;
+}
+
+function saveProgress(step: number, answers: string[], showResult: boolean) {
+  if (typeof window === "undefined") return;
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ step, answers, showResult }));
+  } catch { /* storage full or unavailable */ }
+}
+
+function clearProgress() {
+  if (typeof window === "undefined") return;
+  try { sessionStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+}
+
 export default function QuizFunnel() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
@@ -76,8 +103,25 @@ export default function QuizFunnel() {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
+  const [restored, setRestored] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const utm = useUtmParams();
+
+  // Restore quiz progress from sessionStorage on mount
+  useEffect(() => {
+    const saved = loadSavedProgress();
+    if (saved && saved.answers.length > 0) {
+      setStep(saved.step);
+      setAnswers(saved.answers);
+      setShowResult(saved.showResult);
+      setRestored(true);
+    }
+  }, []);
+
+  // Persist quiz progress on every change
+  const persistProgress = useCallback((s: number, a: string[], sr: boolean) => {
+    saveProgress(s, a, sr);
+  }, []);
 
   const trackPixel = (event: string, params?: Record<string, unknown>, standard = false) => {
     if (typeof window !== "undefined" && (window as any).fbq) {
@@ -92,23 +136,31 @@ export default function QuizFunnel() {
 
   const handleBack = () => {
     if (showResult) {
+      const newAnswers = answers.slice(0, -1);
       setShowResult(false);
-      setAnswers(answers.slice(0, -1));
+      setAnswers(newAnswers);
       setStep(STEPS.length - 1);
+      persistProgress(STEPS.length - 1, newAnswers, false);
     } else if (step > 0) {
-      setAnswers(answers.slice(0, -1));
+      const newAnswers = answers.slice(0, -1);
+      setAnswers(newAnswers);
       setStep(step - 1);
+      persistProgress(step - 1, newAnswers, false);
     }
+    setRestored(false);
   };
 
   const handleAnswer = (value: string) => {
+    setRestored(false);
     const newAnswers = [...answers, value];
     setAnswers(newAnswers);
     trackPixel("QuizAnswer", { step: step + 1, question: STEPS[step].question, answer: value });
     if (step < STEPS.length - 1) {
       setStep(step + 1);
+      persistProgress(step + 1, newAnswers, false);
     } else {
       setShowResult(true);
+      persistProgress(step + 1, newAnswers, true);
       trackPixel("QuizComplete", { answers: newAnswers.join(",") });
       setTimeout(() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }), 300);
     }
@@ -127,6 +179,7 @@ export default function QuizFunnel() {
       });
       if (!res.ok) throw new Error("server");
       // Lead pixel fires on /danke page (single source of truth)
+      clearProgress();
       setDone(true);
       window.location.href = `/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`;
     } catch {
@@ -151,6 +204,17 @@ export default function QuizFunnel() {
 
       {!showResult ? (
         <div className="animate-fade-in" key={step}>
+          {restored && step > 0 && (
+            <div className="flex items-center justify-between bg-green-50 border border-green-100 rounded-lg px-3 py-2 mb-4 text-xs text-green-700">
+              <span>Willkommen zurück! Dein Quiz-Fortschritt wurde gespeichert.</span>
+              <button
+                onClick={() => { setStep(0); setAnswers([]); setShowResult(false); setRestored(false); clearProgress(); }}
+                className="ml-2 underline hover:text-green-900 whitespace-nowrap"
+              >
+                Neu starten
+              </button>
+            </div>
+          )}
           <div className="flex items-center justify-between mb-2">
             <p className="text-xs font-medium text-green-600">
               Frage {step + 1} von {STEPS.length}

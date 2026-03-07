@@ -579,6 +579,12 @@ export default function Home() {
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
             <LeadForm idPrefix="bottom-" source="bottom" />
           </div>
+          {/* Post-submit preview — reduces form anxiety for non-quiz visitors */}
+          <div className="mt-4 flex items-center justify-center gap-6 text-brand-200 text-xs">
+            <span className="flex items-center gap-1.5"><span aria-hidden="true">📧</span> Email in 2 Min</span>
+            <span className="flex items-center gap-1.5"><span aria-hidden="true">📱</span> Enrico meldet sich</span>
+            <span className="flex items-center gap-1.5"><span aria-hidden="true">✅</span> Du entscheidest</span>
+          </div>
         </div>
       </section>
 

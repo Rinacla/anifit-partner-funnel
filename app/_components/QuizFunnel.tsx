@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
 import { suggestEmailCorrection } from "@/lib/email-typo";
 
@@ -103,11 +104,13 @@ export default function QuizFunnel() {
   const [wantsCall, setWantsCall] = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [restored, setRestored] = useState(false);
   const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const utm = useUtmParams();
 
   // Restore quiz progress from sessionStorage on mount
@@ -120,6 +123,13 @@ export default function QuizFunnel() {
       setRestored(true);
     }
   }, []);
+
+  // Prefetch /danke when form appears for instant post-submit navigation
+  useEffect(() => {
+    if (showResult) {
+      router.prefetch("/danke");
+    }
+  }, [showResult, router]);
 
   // Persist quiz progress on every change
   const persistProgress = useCallback((s: number, a: string[], sr: boolean) => {
@@ -185,8 +195,12 @@ export default function QuizFunnel() {
       if (!res.ok) throw new Error("server");
       // Lead pixel fires on /danke page (single source of truth)
       clearProgress();
-      setDone(true);
-      window.location.href = `/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`;
+      setSuccess(true);
+      // Brief success feedback before client-side navigation (no full page reload)
+      setTimeout(() => {
+        setDone(true);
+        router.push(`/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`);
+      }, 600);
     } catch {
       setLoading(false);
       setError("Das hat leider nicht geklappt. Bitte versuch es nochmal.");
@@ -399,11 +413,16 @@ export default function QuizFunnel() {
               )}
               <button
                 type="submit"
-                disabled={loading || !consent}
-                className="w-full py-4 rounded-xl font-bold text-white text-base transition-all disabled:opacity-50"
-                style={{ background: "var(--brand)", boxShadow: "0 4px 14px var(--brand-shadow)" }}
+                disabled={loading || success || !consent}
+                className={`w-full py-4 rounded-xl font-bold text-white text-base transition-all disabled:opacity-50 ${success ? "!opacity-100 !bg-green-500" : ""}`}
+                style={{ background: success ? "#22c55e" : "var(--brand)", boxShadow: success ? "0 4px 14px rgba(34,197,94,0.3)" : "0 4px 14px var(--brand-shadow)" }}
               >
-                {loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Meinen Guide anfordern →"}
+                {success ? (
+                  <span className="inline-flex items-center gap-2">
+                    <svg className="w-5 h-5 animate-bounce-once" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                    Guide ist unterwegs!
+                  </span>
+                ) : loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Meinen Guide anfordern →"}
               </button>
             </form>
             <p className="text-center text-xs text-gray-500 mt-3">

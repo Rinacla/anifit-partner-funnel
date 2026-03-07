@@ -223,11 +223,23 @@ html {
   animation: fade-in-up 0.5s ease-out forwards;
 }
 
+/* ─── Success checkmark bounce animation ─── */
+@keyframes bounce-once {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.3); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-bounce-once {
+  animation: bounce-once 0.5s ease-out forwards;
+}
+
 /* ─── a11y: Respect reduced motion (WCAG 2.1 AA) ─── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .animate-draw-check,
   .animate-bounce-3x,
+  .animate-bounce-once,
   .animate-fade-in,
   .animate-fade-in-up {
     animation: none !important;

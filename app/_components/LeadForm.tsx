@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
 import { suggestEmailCorrection } from "@/lib/email-typo";
@@ -23,11 +23,17 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
   const [phone, setPhone] = useState("");
   const [wantsCall, setWantsCall] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [consent, setConsent] = useState(false);
   const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState("");
   const utm = useUtmParams();
+
+  // Prefetch /danke for instant post-submit navigation
+  useEffect(() => {
+    router.prefetch("/danke");
+  }, [router]);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -51,7 +57,11 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
       }
 
       // Lead pixel fires on /danke page (single source of truth)
-      router.push(`/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`);
+      setSuccess(true);
+      // Brief success feedback before client-side navigation
+      setTimeout(() => {
+        router.push(`/danke?name=${encodeURIComponent(name.trim().split(" ")[0])}`);
+      }, 600);
     } catch {
       setError("Netzwerkfehler. Bitte prüfe deine Verbindung.");
       setLoading(false);
@@ -169,14 +179,19 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
       )}
       <button
         type="submit"
-        disabled={loading || !consent}
-        className="w-full py-4 px-6 rounded-xl font-bold text-white text-lg transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
+        disabled={loading || success || !consent}
+        className={`w-full py-4 px-6 rounded-xl font-bold text-white text-lg transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed ${success ? "!opacity-100" : ""}`}
         style={{
-          background: loading ? "var(--brand-light)" : "var(--brand)",
-          boxShadow: loading ? "none" : "0 4px 14px var(--brand-shadow)",
+          background: success ? "#22c55e" : loading ? "var(--brand-light)" : "var(--brand)",
+          boxShadow: success ? "0 4px 14px rgba(34,197,94,0.3)" : loading ? "none" : "0 4px 14px var(--brand-shadow)",
         }}
       >
-        {loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Gratis-Guide anfordern →"}
+        {success ? (
+          <span className="inline-flex items-center justify-center gap-2">
+            <svg className="w-5 h-5 animate-bounce-once" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            Guide ist unterwegs!
+          </span>
+        ) : loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Gratis-Guide anfordern →"}
       </button>
       <p className="text-xs text-center text-gray-500">
         Kein Spam. Keine Weitergabe deiner Daten. Jederzeit abmeldbar.

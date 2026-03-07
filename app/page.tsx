@@ -390,7 +390,12 @@ export default function Home() {
               { job: "Dropshipping / Etsy", hours: "10-20 h/Woche", income: "0-500 €/Monat", passive: false, note: "Hohe Startkosten, viel Konkurrenz" },
               { job: "Anifit-Fachberater", hours: "2-5 h/Woche", income: "300-2.000+ €/Monat", passive: true, note: "Kunden bestellen von selbst weiter" },
             ].map((item, i) => (
-              <div key={i} className={`rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 ${item.passive ? "bg-brand-50 border-2 border-brand-200 ring-1 ring-brand-100" : "bg-gray-50 border border-gray-200"}`}>
+              <div key={i} className={`relative rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 ${item.passive ? "bg-brand-50 border-2 border-brand-200 ring-1 ring-brand-100" : "bg-gray-50 border border-gray-200"}`}>
+                {item.passive && (
+                  <span className="absolute -top-3 left-5 bg-brand-600 text-white text-[10px] font-bold tracking-wide uppercase px-3 py-0.5 rounded-full shadow-sm">
+                    Empfehlung
+                  </span>
+                )}
                 <div className="sm:w-1/4">
                   <p className={`font-bold text-sm ${item.passive ? "text-brand-800" : "text-gray-700"}`}>{item.job}</p>
                 </div>
@@ -403,9 +408,18 @@ export default function Home() {
                   <p className={`text-sm font-semibold ${item.passive ? "text-brand-700" : "text-gray-700"}`}>{item.income}</p>
                 </div>
                 <div className="sm:w-1/3">
-                  <span className={`inline-block text-xs px-2 py-1 rounded-full ${item.passive ? "bg-brand-100 text-brand-800 font-semibold" : "bg-gray-100 text-gray-500"}`}>
-                    {item.passive ? "✓ Passives Einkommen" : item.note}
-                  </span>
+                  {item.passive ? (
+                    <div className="space-y-1">
+                      <span className="inline-block text-xs px-2 py-1 rounded-full bg-brand-100 text-brand-800 font-semibold">
+                        ✓ Passives Einkommen
+                      </span>
+                      <p className="text-[11px] text-brand-700">{item.note}</p>
+                    </div>
+                  ) : (
+                    <span className="inline-block text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-500">
+                      {item.note}
+                    </span>
+                  )}
                 </div>
               </div>
             ))}

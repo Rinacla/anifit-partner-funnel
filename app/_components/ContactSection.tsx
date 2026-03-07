@@ -1,12 +1,73 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 function trackPixel(event: string, params?: Record<string, unknown>) {
   if (typeof window !== "undefined" && (window as any).fbq) {
     (window as any).fbq("trackCustom", event, params);
   }
 }
 
+/** Returns availability info based on Berlin time (target audience is DACH). */
+function getAvailability(): { label: string; online: boolean } {
+  const now = new Date();
+  // Convert to Europe/Berlin local hour (audience timezone)
+  const berlinHour = parseInt(
+    new Intl.DateTimeFormat("en-US", { hour: "numeric", hour12: false, timeZone: "Europe/Berlin" }).format(now),
+    10
+  );
+  const berlinDay = parseInt(
+    new Intl.DateTimeFormat("en-US", { weekday: "narrow", timeZone: "Europe/Berlin" }).format(now) === "S"
+      ? // Need proper weekday number
+        new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: "Europe/Berlin" }).format(now)
+      : "",
+    10
+  );
+  // Get actual weekday (0=Sun, 6=Sat)
+  const weekday = new Date(
+    now.toLocaleString("en-US", { timeZone: "Europe/Berlin" })
+  ).getDay();
+
+  const isWeekday = weekday >= 1 && weekday <= 5;
+  const isBusinessHours = berlinHour >= 9 && berlinHour < 18;
+  const isEvening = berlinHour >= 18 && berlinHour < 22;
+
+  if (isWeekday && isBusinessHours) {
+    return { label: "Jetzt erreichbar · Antwort in Minuten", online: true };
+  }
+  if (isWeekday && isEvening) {
+    return { label: "Antwort heute Abend oder morgen früh", online: false };
+  }
+  if (weekday === 5 && berlinHour >= 18) {
+    return { label: "Antwort am Montag", online: false };
+  }
+  if (weekday === 6) {
+    return { label: "Antwort am Montag", online: false };
+  }
+  if (weekday === 0) {
+    return { label: "Antwort morgen früh", online: false };
+  }
+  // Early morning weekday
+  if (isWeekday && berlinHour < 9) {
+    return { label: "Antwort ab 9 Uhr", online: false };
+  }
+  // Late night
+  return { label: "Antwort morgen früh", online: false };
+}
+
 export default function ContactSection() {
+  const [availability, setAvailability] = useState<{ label: string; online: boolean } | null>(null);
+
+  useEffect(() => {
+    setAvailability(getAvailability());
+    // Update every minute
+    const id = setInterval(() => setAvailability(getAvailability()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+
+  // SSR fallback
+  const fallbackLabel = "Deutschsprachig · Antwort innerhalb von 24h";
+
   return (
     <section className="py-16 border-t border-gray-200">
       <div className="mx-auto max-w-2xl px-6 text-center">
@@ -43,7 +104,18 @@ export default function ContactSection() {
             E-Mail
           </a>
         </div>
-        <p className="text-xs text-gray-500 mt-4">Mo–Fr · Deutschsprachig · Antwort innerhalb von 24h</p>
+        <p className="text-xs text-gray-500 mt-4">
+          {availability ? (
+            <>
+              {availability.online && (
+                <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-1.5 align-middle animate-pulse" aria-hidden="true" />
+              )}
+              {availability.label}
+            </>
+          ) : (
+            fallbackLabel
+          )}
+        </p>
       </div>
     </section>
   );

@@ -30,7 +30,12 @@ export default function Home() {
       { "@type": "Review", author: { "@type": "Person", name: "Thomas K." }, reviewBody: "14 Monate später betreue ich über 60 Kunden. Die bestellen jeden Monat nach, ohne dass ich etwas tun muss.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
       { "@type": "Review", author: { "@type": "Person", name: "Lisa R." }, reviewBody: "Als Hundetrainerin passt Anifit perfekt zu meiner Arbeit. Nach 5 Monaten sind es schon 20 Stammkunden.", reviewRating: { "@type": "Rating", ratingValue: 5 } },
     ],
-    mainEntity: { "@type": "FAQPage", mainEntity: [
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
       { "@type": "Question", name: "Was kostet der Einstieg?", acceptedAnswer: { "@type": "Answer", text: "Das Einstiegspaket kostet ab 78 € und enthält Warenproben zum Selbsttesten. Nach der Startschulung bekommst du Werbematerial im Wert von 80–100 € gratis dazu." } },
       { "@type": "Question", name: "Brauche ich Vorkenntnisse?", acceptedAnswer: { "@type": "Answer", text: "Nein. Du bekommst kostenlose Schulungen und einen persönlichen Mentor, der dich einarbeitet." } },
       { "@type": "Question", name: "Was bedeutet lebenslanger Kundenschutz?", acceptedAnswer: { "@type": "Answer", text: "Jeder Kunde, den du gewinnst, bleibt dauerhaft dir zugeordnet. Auch bei Nachbestellungen Jahre später verdienst du mit." } },
@@ -38,7 +43,21 @@ export default function Home() {
       { "@type": "Question", name: "Wie viel Zeit brauche ich?", acceptedAnswer: { "@type": "Answer", text: "Die meisten starten mit 2-5 Stunden pro Woche neben dem Hauptjob." } },
       { "@type": "Question", name: "Wie läuft die Anmeldung ab?", acceptedAnswer: { "@type": "Answer", text: "Registrierungsformular ausfüllen, Einstiegspaket bestellen, Startschulung absolvieren. Das dauert keine 5 Minuten. Danach meldet sich dein Mentor persönlich bei dir." } },
       { "@type": "Question", name: "Brauche ich ein Gewerbe anmelden?", acceptedAnswer: { "@type": "Answer", text: "Nicht sofort. Du kannst dich erst registrieren und alles kennenlernen. Sobald du regelmäßig Provision verdienst, meldest du ein Kleingewerbe an. Das dauert 15 Minuten beim Ordnungsamt und kostet je nach Stadt 20–60 €." } },
-    ]}
+    ],
+  };
+
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "Anifit-Fachberater werden — So funktioniert's",
+    description: "In 3 Schritten zum Anifit-Fachberater: Guide lesen, registrieren und erste Kunden gewinnen. Kein Lager, kein Versand, kein Risiko.",
+    totalTime: "PT30M",
+    estimatedCost: { "@type": "MonetaryAmount", currency: "EUR", value: "78" },
+    step: [
+      { "@type": "HowToStep", position: 1, name: "Guide lesen", text: "Fordere den kostenlosen 5-Email-Guide an mit allen Infos zu Provision, Produkten und Ablauf.", url: "https://partner.anifutter-shop.de/#quiz" },
+      { "@type": "HowToStep", position: 2, name: "Registrieren und Einstiegspaket bestellen", text: "Melde dich als Anifit-Fachberater an und bestelle dein Einstiegspaket ab 78 €, inklusive Warenproben zum Selbsttesten." },
+      { "@type": "HowToStep", position: 3, name: "Erste Kunden gewinnen", text: "Mit persönlicher Einarbeitung durch deinen Mentor Enrico, fertigen Vorlagen und einem Fahrplan für deine ersten 5 Kunden startest du sofort." },
+    ],
   };
 
   const personJsonLd = {
@@ -89,6 +108,8 @@ export default function Home() {
         Zum Quiz springen
       </a>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
 

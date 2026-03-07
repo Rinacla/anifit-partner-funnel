@@ -27,6 +27,10 @@ const defaultFaqs = [
     q: "Wie läuft die Anmeldung ab?",
     a: "Klick auf den Registrierungslink, fülle das kurze Formular aus – fertig. Das dauert keine 5 Minuten. Danach bekommst du Zugang zu deinem Beraterbereich und ich melde mich persönlich bei dir für das erste Gespräch.",
   },
+  {
+    q: "Brauche ich ein Gewerbe anmelden?",
+    a: "Nicht sofort. Du kannst dich erst registrieren und alles kennenlernen. Sobald du regelmäßig Provision verdienst, meldest du ein Kleingewerbe an. Das dauert 15 Minuten beim Ordnungsamt und kostet je nach Stadt 20–60 €. Ich helfe dir dabei.",
+  },
 ];
 
 export type FAQItem = { q: string; a: string };

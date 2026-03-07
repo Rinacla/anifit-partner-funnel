@@ -2,6 +2,7 @@ import Image from "next/image";
 import ContactForm from "../_components/ContactForm";
 import FAQAccordion from "../_components/FAQAccordion";
 import type { FAQItem } from "../_components/FAQAccordion";
+import Footer from "@/app/_components/Footer";
 
 const tierberufeFaqs: FAQItem[] = [
   {
@@ -43,7 +44,7 @@ export default function TierberufePage() {
       {/* Back nav */}
       <nav className="border-b border-gray-200 bg-white relative z-10">
         <div className="mx-auto max-w-5xl px-6 py-3 flex items-center justify-between">
-          <a href="/" className="text-sm text-gray-500 hover:text-blue-600 transition-colors inline-flex items-center gap-1">
+          <a href="/" className="text-sm text-gray-500 hover:text-brand-600 transition-colors inline-flex items-center gap-1">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
             Fachberater werden
           </a>
@@ -53,15 +54,15 @@ export default function TierberufePage() {
 
       {/* Hero with Form */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-brand-50/30" />
         <div className="relative mx-auto max-w-5xl px-6 pt-12 pb-16">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1 text-center lg:text-left">
-              <p className="inline-block mb-4 text-xs font-bold tracking-widest uppercase text-blue-700 bg-blue-100 px-4 py-1.5 rounded-full">
+              <p className="inline-block mb-4 text-xs font-bold tracking-widest uppercase text-brand-700 bg-brand-100 px-4 py-1.5 rounded-full">
                 Für Tierärzte, THP & Züchter
               </p>
               <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold leading-tight tracking-tight">
-                30 % Rabatt auf <span className="text-blue-600">Anifit Premium-Tiernahrung</span> für Ihre Praxis
+                30 % Rabatt auf <span className="text-brand-600">Anifit Premium-Tiernahrung</span> für Ihre Praxis
               </h1>
               <p className="mt-5 text-lg text-gray-600 leading-relaxed max-w-xl">
                 Testsieger bei hundeo.com (52 Marken, tierärztlich geprüft). 90 bis 99 % Fleisch in Lebensmittelqualität. Als Partner bestellen Sie zum Einkaufspreis und verdienen 5 % auf Kundenempfehlungen.
@@ -137,19 +138,19 @@ export default function TierberufePage() {
       </section>
 
       {/* Für wen */}
-      <section className="bg-blue-50 py-14">
+      <section className="bg-brand-50 py-14">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-2xl font-bold text-center mb-10">Wer kann Partner werden?</h2>
           <div className="grid sm:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl p-6 border border-blue-100">
+            <div className="bg-white rounded-xl p-6 border border-brand-100">
               <h3 className="font-bold text-gray-900 mb-2">Tierärzte</h3>
               <p className="text-gray-600 text-sm">Sie sehen täglich Hunde mit Futterproblemen. Empfehlen Sie ein Futter, bei dem Sie wissen was drin ist. 30 % günstiger für Ihre Praxis.</p>
             </div>
-            <div className="bg-white rounded-xl p-6 border border-blue-100">
+            <div className="bg-white rounded-xl p-6 border border-brand-100">
               <h3 className="font-bold text-gray-900 mb-2">Tierheilpraktiker</h3>
               <p className="text-gray-600 text-sm">Ganzheitliche Behandlung beginnt beim Futter. Anifit passt zu einem naturnahen Therapiekonzept. Ihre Kunden vertrauen Ihrer Empfehlung.</p>
             </div>
-            <div className="bg-white rounded-xl p-6 border border-blue-100">
+            <div className="bg-white rounded-xl p-6 border border-brand-100">
               <h3 className="font-bold text-gray-900 mb-2">Züchter</h3>
               <p className="text-gray-600 text-sm">Spezielle Welpen- und Kittenpakete für Ihre Käufer. Statt einem Zettel mit Futterempfehlung geben Sie ein hochwertiges Starterpaket mit.</p>
             </div>
@@ -169,7 +170,7 @@ export default function TierberufePage() {
               "Ab sofort 30 % Rabatt auf alle eigenen Bestellungen",
             ].map((s, i) => (
               <div key={i} className="flex gap-4 items-start bg-gray-50 rounded-xl p-4">
-                <span className="text-blue-600 font-bold text-lg flex-shrink-0">{i + 1}.</span>
+                <span className="text-brand-600 font-bold text-lg flex-shrink-0">{i + 1}.</span>
                 <p className="text-gray-700 text-sm">{s}</p>
               </div>
             ))}
@@ -205,12 +206,12 @@ export default function TierberufePage() {
       />
 
       {/* Bottom CTA */}
-      <section className="bg-blue-600 py-14">
+      <section className="bg-brand-600 py-14">
         <div className="mx-auto max-w-lg px-6 text-center">
           <h2 className="text-2xl font-bold text-white mb-4">Fragen zum Partner-Programm?</h2>
-          <p className="text-blue-100 mb-6">Ich erkläre Ihnen alles persönlich. Unverbindlich.</p>
+          <p className="text-brand-100 mb-6">Ich erkläre Ihnen alles persönlich. Unverbindlich.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+4932212619379" className="inline-block py-3 px-8 rounded-xl font-bold text-blue-700 bg-white hover:bg-blue-50 transition-colors shadow-lg">
+            <a href="tel:+4932212619379" className="inline-block py-3 px-8 rounded-xl font-bold text-brand-700 bg-white hover:bg-brand-50 transition-colors shadow-lg">
               Anrufen: +49 322 126 19 379
             </a>
             <a href="#kontakt" className="inline-block py-3 px-8 rounded-xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-colors">
@@ -220,21 +221,7 @@ export default function TierberufePage() {
         </div>
       </section>
 
-      <footer className="border-t border-gray-200 py-8">
-        <div className="mx-auto max-w-3xl px-6 text-center text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
-          <p className="mt-2">
-            <a href="/" className="hover:text-blue-600">Fachberater werden</a>
-            {" · "}
-            <a href="/guide" className="hover:text-blue-600">Guide-Vorschau</a>
-          </p>
-          <p className="mt-1">
-            <a href="/impressum" className="hover:text-gray-600">Impressum</a>
-            {" · "}
-            <a href="/datenschutz" className="hover:text-gray-600">Datenschutz</a>
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -12,6 +12,7 @@ import BenefitIcons from "./_components/BenefitIcons";
 import ClientOverlays from "./_components/ClientOverlays";
 import StartbonusMini from "./_components/StartbonusMini";
 import AnnouncementBar from "./_components/AnnouncementBar";
+import Footer from "./_components/Footer";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -172,7 +173,7 @@ export default function Home() {
               </p>
             </div>
             <p className="text-xs sm:text-sm text-warm-800/80 text-center">
-              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="underline decoration-amber-300 hover:decoration-warm-500 transition-colors">
+              <a href="https://www.hundeo.com/hundefutter" target="_blank" rel="noopener noreferrer" className="underline decoration-warm-200 hover:decoration-warm-500 transition-colors">
                 hundeo.com
               </a>{" "}
               — 52 Marken im Vergleich, tierärztlich geprüft · 93 % Fleisch, schwedische Produktion
@@ -235,7 +236,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <a href="#quiz" className="inline-block bg-brand-600 text-white font-bold py-3 px-8 rounded-xl hover:bg-brand-700 transition-colors text-sm shadow-lg shadow-brand-600/20">
+            <a href="#quiz" className="btn-brand py-3 px-8 shadow-lg">
               Guide jetzt anfordern
             </a>
             <p className="text-xs text-gray-500 mt-3">Kostenlos. Kein Abo. Jederzeit abbestellbar.</p>
@@ -401,7 +402,7 @@ export default function Home() {
       <section className="py-12 text-center">
         <div className="mx-auto max-w-xl px-6">
           <p className="text-lg text-gray-700 mb-5">Klingt nach dem richtigen Nebenverdienst?</p>
-          <a href="#quiz" className="inline-block bg-brand-600 text-white font-bold py-3.5 px-10 rounded-xl hover:bg-brand-700 transition-colors text-sm shadow-lg shadow-brand-600/20">
+          <a href="#quiz" className="btn-brand py-3.5 px-10 shadow-lg">
             Kostenlosen Guide holen
           </a>
         </div>
@@ -562,42 +563,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-gray-200 py-12">
-        <div className="mx-auto max-w-3xl px-6">
-          <nav aria-label="Footer-Navigation" className="flex flex-col sm:flex-row sm:justify-between gap-6 mb-6">
-            <div>
-              <p className="font-bold text-gray-900 text-sm mb-2">Anifit-Fachberater werden</p>
-              <ul className="space-y-1 text-sm text-gray-500">
-                <li><a href="#quiz" className="hover:text-brand-600 transition-colors">Gratis-Guide anfordern</a></li>
-                <li><a href="/guide" className="hover:text-brand-600 transition-colors">Guide-Vorschau lesen</a></li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-bold text-gray-900 text-sm mb-2">Weitere Infos</p>
-              <ul className="space-y-1 text-sm text-gray-500">
-                <li><a href="/einkommen-berechnen" className="hover:text-brand-600 transition-colors font-semibold text-brand-700">Verdienst-Rechner</a></li>
-                <li><a href="/nebenverdienst-mit-hunden" className="hover:text-brand-600 transition-colors">Nebenverdienst mit Hunden</a></li>
-                <li><a href="/erfahrungen" className="hover:text-brand-600 transition-colors">Berater-Erfahrungen</a></li>
-                <li><a href="/kosten" className="hover:text-brand-600 transition-colors">Kosten &amp; Einstieg</a></li>
-                <li><a href="/anmeldung" className="hover:text-brand-600 transition-colors">Anmeldung &amp; Registrierung</a></li>
-                <li><a href="/voraussetzungen" className="hover:text-brand-600 transition-colors">Voraussetzungen</a></li>
-                <li><a href="/ueber-mich" className="hover:text-brand-600 transition-colors">Über Enrico Bachmann</a></li>
-                <li><a href="/tierberufe" className="hover:text-brand-600 transition-colors">Für Tierärzte, THP &amp; Züchter</a></li>
-                <li><a href="/faq" className="hover:text-brand-600 transition-colors">Häufige Fragen (FAQ)</a></li>
-                <li><a href="https://www.anifutter-shop.de" target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors">Zum Anifit-Shop →</a></li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-bold text-gray-900 text-sm mb-2">Rechtliches</p>
-              <ul className="space-y-1 text-sm text-gray-500">
-                <li><a href="/impressum" className="hover:text-brand-600 transition-colors">Impressum</a></li>
-                <li><a href="/datenschutz" className="hover:text-brand-600 transition-colors">Datenschutz</a></li>
-              </ul>
-            </div>
-          </nav>
-          <p className="text-center text-xs text-gray-500 border-t border-gray-50 pt-4">© {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater</p>
-        </div>
-      </footer>
+      <Footer guideHref="#quiz" />
       <ClientOverlays />
     </main>
   );

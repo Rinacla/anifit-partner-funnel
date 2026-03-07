@@ -1,3 +1,5 @@
+import Footer from "@/app/_components/Footer";
+
 export const metadata = {
   title: "Impressum",
   robots: { index: false, follow: false },
@@ -56,6 +58,7 @@ export default function ImpressumPage() {
           <a href="/" className="text-brand-600 hover:underline">← Zurück zur Startseite</a>
         </p>
       </div>
+      <Footer />
     </div>
   );
 }

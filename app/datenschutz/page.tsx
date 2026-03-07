@@ -1,3 +1,5 @@
+import Footer from "@/app/_components/Footer";
+
 export const metadata = {
   title: "Datenschutzerklärung",
   robots: { index: false, follow: false },
@@ -75,6 +77,7 @@ export default function DatenschutzPage() {
           <a href="/" className="text-brand-600 hover:underline">← Zurück zur Startseite</a>
         </p>
       </div>
+      <Footer />
     </div>
   );
 }

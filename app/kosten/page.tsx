@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Anifit Berater werden: Kosten & Einstieg im Detail",
@@ -153,7 +154,7 @@ export default function KostenPage() {
             </div>
 
             {/* Was du NICHT brauchst */}
-            <div className="bg-danger-50/50 rounded-2xl p-6 border border-red-100/50">
+            <div className="bg-danger-50/50 rounded-2xl p-6 border border-danger-400/50">
               <h3 className="font-bold text-gray-700 text-lg mb-3">Was du NICHT brauchst</h3>
               <div className="space-y-2 text-sm text-gray-700">
                 <div className="flex items-start gap-3">
@@ -200,7 +201,7 @@ export default function KostenPage() {
               <div className="text-center pt-2">
                 <Link
                   href="/einkommen-berechnen"
-                  className="inline-block text-sm font-semibold text-brand-700 hover:text-brand-800 underline decoration-green-300 underline-offset-4"
+                  className="inline-block text-sm font-semibold text-brand-700 hover:text-brand-800 underline decoration-brand-200 underline-offset-4"
                 >
                   → Verdienst mit dem Provisionsrechner berechnen
                 </Link>
@@ -326,17 +327,7 @@ export default function KostenPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-8">
-        <div className="mx-auto max-w-3xl px-6 text-center text-xs text-gray-500">
-          <nav aria-label="Footer-Navigation" className="flex flex-wrap justify-center gap-4 mb-3">
-            <Link href="/" className="hover:text-gray-600">Startseite</Link>
-            <Link href="/guide" className="hover:text-gray-600">Guide</Link>
-            <Link href="/impressum" className="hover:text-gray-600">Impressum</Link>
-            <Link href="/datenschutz" className="hover:text-gray-600">Datenschutz</Link>
-          </nav>
-          <p>© 2026 Enrico Bachmann · Anifit-Fachberater</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

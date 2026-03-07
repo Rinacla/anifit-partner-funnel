@@ -1,6 +1,7 @@
 import FAQAccordion from "../_components/FAQAccordion";
 import LeadForm from "../_components/LeadForm";
 import type { Metadata } from "next";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Häufige Fragen zum Einstieg als Anifit-Berater",
@@ -337,6 +338,7 @@ export default function FAQPage() {
           </div>
         </section>
       </div>
+      <Footer />
     </div>
   );
 }

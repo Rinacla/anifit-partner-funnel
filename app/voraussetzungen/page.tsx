@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Voraussetzungen als Anifit-Berater — Was du wirklich brauchst",
@@ -276,12 +277,7 @@ export default function VoraussetzungenPage() {
         </div>
       </section>
 
-      {/* Footer nav back */}
-      <div className="pb-8 text-center">
-        <a href="/" className="text-sm text-brand-700 font-semibold hover:text-brand-800 transition-colors">
-          ← Zurück zur Startseite
-        </a>
-      </div>
+      <Footer />
     </main>
   );
 }

@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Footer from "@/app/_components/Footer";
 
 const SHARE_URL = "https://partner.anifutter-shop.de";
 const SHARE_TEXT = "Ich hab mir gerade einen Guide geholt, wie man als Anifit-Fachberater nebenbei Geld verdienen kann. Schau mal rein:";
@@ -240,6 +241,7 @@ function DankeContent() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

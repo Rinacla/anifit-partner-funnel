@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import FAQAccordion from "../_components/FAQAccordion";
 import LeadForm from "../_components/LeadForm";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Anifit Berater Anmeldung: So funktioniert die Registrierung",
@@ -366,13 +367,7 @@ export default function AnmeldungPage() {
         }}
       />
 
-      <footer className="border-t border-gray-200 py-12 mt-4">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

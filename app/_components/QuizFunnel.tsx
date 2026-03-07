@@ -209,7 +209,7 @@ export default function QuizFunnel() {
               <span>Willkommen zurück! Dein Quiz-Fortschritt wurde gespeichert.</span>
               <button
                 onClick={() => { setStep(0); setAnswers([]); setShowResult(false); setRestored(false); clearProgress(); }}
-                className="ml-2 underline hover:text-green-900 whitespace-nowrap"
+                className="ml-2 underline hover:text-brand-800 whitespace-nowrap"
               >
                 Neu starten
               </button>

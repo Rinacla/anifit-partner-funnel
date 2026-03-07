@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import LeadForm from "../_components/LeadForm";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Über Enrico Bachmann — Dein Anifit-Mentor",
@@ -376,82 +377,7 @@ export default function UeberMichPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-8">
-        <div className="mx-auto max-w-3xl px-6">
-          <nav
-            aria-label="Footer-Navigation"
-            className="flex flex-col sm:flex-row sm:justify-between gap-6 mb-4"
-          >
-            <div>
-              <p className="font-bold text-gray-900 text-sm mb-2">
-                Anifit-Fachberater werden
-              </p>
-              <ul className="space-y-1 text-sm text-gray-500">
-                <li>
-                  <Link href="/" className="hover:text-brand-600">
-                    Startseite
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/guide" className="hover:text-brand-600">
-                    Guide lesen
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-bold text-gray-900 text-sm mb-2">
-                Weitere Infos
-              </p>
-              <ul className="space-y-1 text-sm text-gray-500">
-                <li>
-                  <Link
-                    href="/einkommen-berechnen"
-                    className="hover:text-brand-600 font-semibold text-brand-700"
-                  >
-                    Verdienst-Rechner
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/erfahrungen" className="hover:text-brand-600">
-                    Berater-Erfahrungen
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/kosten" className="hover:text-brand-600">
-                    Kosten &amp; Einstieg
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/faq" className="hover:text-brand-600">
-                    Häufige Fragen
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-bold text-gray-900 text-sm mb-2">
-                Rechtliches
-              </p>
-              <ul className="space-y-1 text-sm text-gray-500">
-                <li>
-                  <Link href="/impressum" className="hover:text-brand-600">
-                    Impressum
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/datenschutz" className="hover:text-brand-600">
-                    Datenschutz
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <p className="text-center text-xs text-gray-500 border-t border-gray-50 pt-4">
-            © {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

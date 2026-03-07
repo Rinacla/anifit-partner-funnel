@@ -2,6 +2,7 @@ import ProvisionsRechner from "../_components/ProvisionsRechner";
 import LeadForm from "../_components/LeadForm";
 import Link from "next/link";
 import type { Metadata } from "next";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Verdienst-Rechner für Anifit-Berater | Enrico Bachmann",
@@ -228,31 +229,7 @@ export default function EarningsCalculatorPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-8 mt-20">
-        <div className="mx-auto max-w-3xl px-6 text-center text-xs text-gray-500">
-          <nav
-            aria-label="Footer-Navigation"
-            className="flex flex-wrap justify-center gap-4 mb-3"
-          >
-            <Link href="/" className="hover:text-gray-600">
-              Startseite
-            </Link>
-            <Link href="/guide" className="hover:text-gray-600">
-              Guide
-            </Link>
-            <Link href="/faq" className="hover:text-gray-600">
-              FAQ
-            </Link>
-            <Link href="/impressum" className="hover:text-gray-600">
-              Impressum
-            </Link>
-            <Link href="/datenschutz" className="hover:text-gray-600">
-              Datenschutz
-            </Link>
-          </nav>
-          <p>© 2026 Enrico Bachmann · Anifit-Fachberater</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

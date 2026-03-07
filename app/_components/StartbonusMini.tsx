@@ -18,7 +18,7 @@ export default function StartbonusMini() {
   return (
     <div className="flex items-center justify-center gap-2 text-brand-100 text-sm mt-4 mb-2">
       <span className="inline-flex items-center gap-1.5 bg-brand-700/60 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-medium">
-        <span className="text-amber-300">⏳</span>
+        <span className="text-warm-200">⏳</span>
         Noch <strong className="text-white">{days} Tage</strong> für den 30%-Startbonus
       </span>
     </div>

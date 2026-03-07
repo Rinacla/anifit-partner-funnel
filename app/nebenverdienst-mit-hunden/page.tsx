@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Nebenverdienst mit Hunden: 7 Wege im Vergleich (2026)",
@@ -350,35 +351,7 @@ export default function NebenverdienstMitHunden() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-8">
-        <div className="mx-auto max-w-3xl px-6 flex flex-col sm:flex-row sm:justify-between gap-4 text-sm text-gray-500">
-          <div className="flex gap-4">
-            <Link href="/" className="hover:text-brand-600 transition-colors">
-              Fachberater werden
-            </Link>
-            <Link
-              href="/tierberufe"
-              className="hover:text-brand-600 transition-colors"
-            >
-              Für Tierärzte
-            </Link>
-          </div>
-          <div className="flex gap-4">
-            <Link
-              href="/impressum"
-              className="hover:text-brand-600 transition-colors"
-            >
-              Impressum
-            </Link>
-            <Link
-              href="/datenschutz"
-              className="hover:text-brand-600 transition-colors"
-            >
-              Datenschutz
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

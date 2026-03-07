@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
+import Footer from "@/app/_components/Footer";
 
 export const metadata: Metadata = {
   title: "Erfahrungen als Anifit-Berater | Echte Berichte aus dem Team",
@@ -357,54 +358,7 @@ export default function ErfahrungenPage() {
       </section>
 
       {/* Footer Nav */}
-      <footer className="border-t border-gray-200 bg-gray-50">
-        <div className="mx-auto max-w-4xl px-6 py-8">
-          <nav aria-label="Footer-Navigation" className="flex flex-wrap gap-6 justify-center text-sm text-gray-500">
-            <Link href="/" className="hover:text-brand-700 transition-colors">
-              Startseite
-            </Link>
-            <Link
-              href="/guide"
-              className="hover:text-brand-700 transition-colors"
-            >
-              Guide
-            </Link>
-            <Link
-              href="/einkommen-berechnen"
-              className="hover:text-brand-700 transition-colors"
-            >
-              Verdienst-Rechner
-            </Link>
-            <Link
-              href="/nebenverdienst-mit-hunden"
-              className="hover:text-brand-700 transition-colors"
-            >
-              Nebenverdienst mit Hunden
-            </Link>
-            <Link
-              href="/tierberufe"
-              className="hover:text-brand-700 transition-colors"
-            >
-              Für Tierberufe
-            </Link>
-            <Link
-              href="/impressum"
-              className="hover:text-brand-700 transition-colors"
-            >
-              Impressum
-            </Link>
-            <Link
-              href="/datenschutz"
-              className="hover:text-brand-700 transition-colors"
-            >
-              Datenschutz
-            </Link>
-          </nav>
-          <p className="text-center text-xs text-gray-500 mt-4">
-            © 2026 Enrico Bachmann · Anifit-Fachberater
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

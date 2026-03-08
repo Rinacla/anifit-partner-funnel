@@ -77,6 +77,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
       }
 
       // Lead pixel fires on /danke page (single source of truth)
+      try { localStorage.setItem("anifit_converted", "1"); } catch { /* ignore */ }
       setSuccess(true);
       // Brief success feedback before client-side navigation
       const provider = getEmailProvider(email.trim());
@@ -111,13 +112,15 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
             value={name}
             onChange={(e) => setName(e.target.value)}
             onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+            aria-invalid={nameInvalid || undefined}
+            aria-describedby={nameInvalid ? `${idPrefix}name-error` : undefined}
             className={`input ${nameValid ? "input-valid" : ""} ${nameInvalid ? "input-invalid" : ""}`}
             disabled={loading}
           />
           <ValidationIcon valid={nameValid} />
         </div>
         {nameInvalid && (
-          <p className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib deinen Namen ein.</p>
+          <p id={`${idPrefix}name-error`} role="alert" className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib deinen Namen ein.</p>
         )}
       </div>
       <div>
@@ -153,7 +156,7 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           </button>
         )}
         {emailInvalid && !emailSuggestion && (
-          <p className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib eine gültige E-Mail-Adresse ein.</p>
+          <p id={`${idPrefix}email-error`} role="alert" className="text-xs text-red-500 mt-1 animate-fade-in">Bitte gib eine gültige E-Mail-Adresse ein.</p>
         )}
       </div>
       {/* Honeypot — invisible to real users, catches bots */}
@@ -210,11 +213,13 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
           <a href="/datenschutz" className="text-brand-600 underline">Datenschutz</a>
         </label>
       </div>
-      {error && (
-        <p className="text-sm text-danger-600 bg-danger-50 px-4 py-3 rounded-lg">
-          {error}
-        </p>
-      )}
+      <div aria-live="assertive" aria-atomic="true">
+        {error && (
+          <p role="alert" className="text-sm text-danger-600 bg-danger-50 px-4 py-3 rounded-lg">
+            {error}
+          </p>
+        )}
+      </div>
       <button
         type="submit"
         disabled={loading || success || !consent}
@@ -225,11 +230,11 @@ export default function LeadForm({ idPrefix = "", source = "inline" }: { idPrefi
         }}
       >
         {success ? (
-          <span className="inline-flex items-center justify-center gap-2">
+          <span className="inline-flex items-center justify-center gap-2" role="status">
             <svg className="w-5 h-5 animate-bounce-once" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
             Guide ist unterwegs!
           </span>
-        ) : loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Gratis-Guide anfordern →"}
+        ) : loading ? <span aria-live="polite">Wird gesendet…</span> : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Gratis-Guide anfordern →"}
       </button>
       <p className="text-xs text-center text-gray-500">
         Kein Spam. Keine Weitergabe deiner Daten. Jederzeit abmeldbar.

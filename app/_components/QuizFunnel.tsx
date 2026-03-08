@@ -250,6 +250,7 @@ export default function QuizFunnel() {
       if (!res.ok) throw new Error("server");
       // Lead pixel fires on /danke page (single source of truth)
       clearProgress();
+      try { localStorage.setItem("anifit_converted", "1"); } catch { /* ignore */ }
       setSuccess(true);
       // Brief success feedback before client-side navigation (no full page reload)
       const provider = getEmailProvider(email.trim());
@@ -559,9 +560,11 @@ export default function QuizFunnel() {
                   <a href="/datenschutz" className="underline">Datenschutz</a>
                 </span>
               </label>
-              {error && (
-                <p className="text-sm text-danger-600 bg-danger-50 rounded-lg px-4 py-2 text-center">{error}</p>
-              )}
+              <div aria-live="assertive" aria-atomic="true">
+                {error && (
+                  <p role="alert" className="text-sm text-danger-600 bg-danger-50 rounded-lg px-4 py-2 text-center">{error}</p>
+                )}
+              </div>
               <button
                 type="submit"
                 disabled={loading || success || !consent}
@@ -569,11 +572,11 @@ export default function QuizFunnel() {
                 style={{ background: success ? "#22c55e" : "var(--brand)", boxShadow: success ? "0 4px 14px rgba(34,197,94,0.3)" : "0 4px 14px var(--brand-shadow)" }}
               >
                 {success ? (
-                  <span className="inline-flex items-center gap-2">
+                  <span className="inline-flex items-center gap-2" role="status">
                     <svg className="w-5 h-5 animate-bounce-once" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                     Guide ist unterwegs!
                   </span>
-                ) : loading ? "Wird gesendet…" : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Meinen Guide anfordern →"}
+                ) : loading ? <span aria-live="polite">Wird gesendet…</span> : name.trim() ? `${name.trim().split(" ")[0]}, hol dir deinen Guide →` : "Meinen Guide anfordern →"}
               </button>
             </form>
             <p className="text-center text-xs text-gray-500 mt-3">

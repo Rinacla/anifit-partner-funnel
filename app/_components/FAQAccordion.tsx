@@ -31,6 +31,10 @@ const defaultFaqs = [
     q: "Brauche ich ein Gewerbe anmelden?",
     a: "Nicht sofort. Du kannst dich erst registrieren und alles kennenlernen. Sobald du regelmäßig Provision verdienst, meldest du ein Kleingewerbe an. Das dauert 15 Minuten beim Ordnungsamt und kostet je nach Stadt 20–60 €. Ich helfe dir dabei.",
   },
+  {
+    q: "Was passiert, wenn es nicht klappt?",
+    a: "Nichts. Du hast keine laufenden Kosten, keine Mindestabnahme und keine Vertragsbindung. Wenn du merkst, dass es nicht zu dir passt, hörst du einfach auf. Dein Einstiegspaket hast du dann als hochwertiges Hundefutter genutzt. Kein Risiko, kein Kleingedrucktes.",
+  },
 ];
 
 export type FAQItem = { q: string; a: string };

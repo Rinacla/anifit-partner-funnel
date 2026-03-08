@@ -98,6 +98,10 @@ const categories = [
         q: "Kann ich mich wieder abmelden?",
         a: "Ja, jederzeit. Keine Mindestlaufzeit, keine Kündigungsfrist. Wenn es nicht passt, hörst du einfach auf. Deine bestehende Kundenbasis bleibt aber erhalten falls du später weitermachen willst.",
       },
+      {
+        q: "Was passiert, wenn es nicht klappt?",
+        a: "Nichts. Du hast keine laufenden Kosten, keine Mindestabnahme und keine Vertragsbindung. Wenn du merkst, dass es nicht zu dir passt, hörst du einfach auf. Dein Einstiegspaket hast du dann als hochwertiges Hundefutter genutzt. Kein Risiko, kein Kleingedrucktes.",
+      },
     ],
   },
   {

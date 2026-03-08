@@ -9,6 +9,7 @@ import AnimatedStats from "./_components/AnimatedStats";
 import ContactSection from "./_components/ContactSection";
 import VideoSection from "./_components/VideoSection";
 import BenefitIcons from "./_components/BenefitIcons";
+import ObjectionTicker from "./_components/ObjectionTicker";
 import FirstMonthTimeline from "./_components/FirstMonthTimeline";
 import ClientOverlays from "./_components/ClientOverlays";
 import StartbonusMini from "./_components/StartbonusMini";
@@ -153,6 +154,7 @@ export default function Home() {
                 </div>
               </div>
               <BenefitIcons />
+              <ObjectionTicker />
             </div>
             <div className="w-full lg:w-[420px] flex-shrink-0">
               <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8 relative" id="quiz">

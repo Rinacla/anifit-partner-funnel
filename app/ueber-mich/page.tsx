@@ -114,7 +114,7 @@ export default function UeberMichPage() {
     "@type": "Person",
     name: "Enrico Bachmann",
     url: "https://partner.anifutter-shop.de/ueber-mich",
-    image: "https://partner.anifutter-shop.de/enrico.webp",
+    image: "https://partner.anifutter-shop.de/images/enrico-bachmann.jpg",
     jobTitle: "Anifit-Fachberater & Mentor",
     description:
       "Anifit-Berater seit 2018 mit über 1.000 betreuten Kunden. Persönlicher Mentor für neue Fachberater im deutschsprachigen Raum.",
@@ -174,7 +174,7 @@ export default function UeberMichPage() {
         <Breadcrumb items={[{ label: "Startseite", href: "/" }, { label: "Über Enrico Bachmann" }]} />
         <div className="flex flex-col sm:flex-row items-center gap-8 mb-10">
           <Image
-            src="/enrico.webp"
+            src="/images/enrico-bachmann.jpg"
             alt="Enrico Bachmann — Anifit-Fachberater"
             width={180}
             height={180}

@@ -54,7 +54,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Enrico Bachmann — Anifit-Fachberater",
               url: "https://partner.anifutter-shop.de",
-              logo: "https://partner.anifutter-shop.de/enrico.webp",
+              logo: "https://partner.anifutter-shop.de/images/enrico-bachmann.jpg",
               description:
                 "Werde Anifit-Fachberater: 15–30 % Provision auf Premium-Hundefutter mit lebenslangem Kundenschutz. Persönliche Einarbeitung durch Enrico Bachmann.",
               contactPoint: {

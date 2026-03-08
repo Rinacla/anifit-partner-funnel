@@ -7,7 +7,7 @@ export default function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(false);
   const [mounted, setMounted] = useState(false);
   const deadline = useStartbonusDeadline();
-  const [daysLeft, setDaysLeft] = useState(30);
+  const [daysLeft, setDaysLeft] = useState<number | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -34,7 +34,12 @@ export default function AnnouncementBar() {
         <span aria-hidden="true">🔥</span>
         <span>
           <strong>Startbonus:</strong>{' '}
-          {daysLeft > 0 ? (
+          {daysLeft === null ? (
+            <>
+              Jetzt registrieren und 3 Monate lang{' '}
+              <strong>30 % Provision</strong> sichern
+            </>
+          ) : daysLeft > 0 ? (
             <>
               Noch <strong>{daysLeft} {daysLeft === 1 ? 'Tag' : 'Tage'}</strong> für 3 Monate{' '}
               <strong>30 % Provision</strong>

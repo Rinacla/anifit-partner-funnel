@@ -38,7 +38,7 @@ function getAvailability(): { label: string; online: boolean } {
     return { label: "Antwort am Montag", online: false };
   }
   if (weekday === 0) {
-    return { label: "Antwort morgen früh", online: false };
+    return { label: "Antwort am Montag", online: false };
   }
   // Early morning weekday
   if (isWeekday && berlinHour < 9) {

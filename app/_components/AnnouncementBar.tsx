@@ -18,7 +18,7 @@ export default function AnnouncementBar() {
   useEffect(() => {
     if (!deadline) return;
     const diff = deadline.getTime() - Date.now();
-    setDaysLeft(Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24))));
+    setDaysLeft(Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24))));
   }, [deadline]);
 
   const handleDismiss = () => {

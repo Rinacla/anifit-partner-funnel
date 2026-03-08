@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useUtmParams } from "@/lib/useUtmParams";
 import { suggestEmailCorrection } from "@/lib/email-typo";
 import { getEmailProvider } from "@/lib/email-provider";
+import { useStartbonusDeadline } from "@/lib/useStartbonusDeadline";
 
 const STORAGE_KEY = "anifit_quiz_progress";
 
@@ -147,6 +148,8 @@ export default function QuizFunnel() {
   const formRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const utm = useUtmParams();
+  const bonusDeadline = useStartbonusDeadline();
+  const [bonusDays, setBonusDays] = useState<number | null>(null);
 
   const nameValid = name.trim().length >= 2;
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
@@ -170,6 +173,13 @@ export default function QuizFunnel() {
       router.prefetch("/danke");
     }
   }, [showResult, router]);
+
+  // Startbonus countdown for urgency in quiz result
+  useEffect(() => {
+    if (!bonusDeadline) return;
+    const diff = bonusDeadline.getTime() - Date.now();
+    setBonusDays(Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24))));
+  }, [bonusDeadline]);
 
   // Persist quiz progress on every change
   const persistProgress = useCallback((s: number, a: string[], sr: boolean) => {
@@ -407,6 +417,16 @@ export default function QuizFunnel() {
               ))}
             </div>
           </div>
+
+          {/* Startbonus urgency reminder */}
+          {bonusDays !== null && bonusDays > 0 && (
+            <div className="flex items-center justify-center mt-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-warm-700 bg-warm-50 border border-warm-200 rounded-full px-3 py-1.5">
+                <span className="text-warm-500" aria-hidden="true">⏳</span>
+                Noch <strong className="text-warm-800">{bonusDays} {bonusDays === 1 ? "Tag" : "Tage"}</strong> für 30% Startbonus
+              </span>
+            </div>
+          )}
 
           {/* Form */}
           <div className="border-t border-gray-200 pt-6 mt-5">

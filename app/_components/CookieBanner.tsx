@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { setConsent, loadMetaPixel, disableMetaPixel } from "../../lib/consent";
+import { setConsent, loadMetaPixel, loadGoogleAdsTag, disableMetaPixel } from "../../lib/consent";
 
 export default function CookieBanner() {
   const [show, setShow] = useState(false);
@@ -14,6 +14,7 @@ export default function CookieBanner() {
   function accept() {
     setConsent(true);
     loadMetaPixel();
+    loadGoogleAdsTag();
     setShow(false);
   }
 

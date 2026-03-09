@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { hasConsent, loadMetaPixel } from "../../lib/consent";
+import { hasConsent, loadMetaPixel, loadGoogleAdsTag } from "../../lib/consent";
 
 /**
- * DSGVO-compliant Meta Pixel loader.
- * Only loads the pixel if user has previously given consent.
- * New users see CookieBanner first — pixel loads only after "Akzeptieren".
+ * DSGVO-compliant tracking loader.
+ * Only loads Meta Pixel + Google Ads gtag if user has previously given consent.
+ * New users see CookieBanner first — tracking loads only after "Akzeptieren".
  */
 export default function ConsentGatedPixel() {
   useEffect(() => {
     if (hasConsent()) {
       loadMetaPixel();
+      loadGoogleAdsTag();
     }
   }, []);
 

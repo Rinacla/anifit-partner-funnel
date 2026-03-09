@@ -27,8 +27,17 @@ function DankeContent() {
   const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
+    // Meta Pixel Lead event
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq("track", "Lead");
+    }
+    // Google Ads Conversion: TP Lead
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-17578752566/epMGCP28h4UcELb0mb5B",
+        value: 1.0,
+        currency: "EUR",
+      });
     }
   }, []);
 

@@ -48,6 +48,51 @@ export function loadMetaPixel(): void {
 }
 
 /**
+ * Load Google Ads gtag dynamically after consent.
+ * Safe to call multiple times — will only load once.
+ */
+export function loadGoogleAdsTag(): void {
+  if (typeof window === "undefined") return;
+  if ((window as any).__gtagLoaded) return;
+  (window as any).__gtagLoaded = true;
+
+  // Load gtag.js script
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=AW-17578752566";
+  document.head.appendChild(script);
+
+  // Initialize gtag
+  const initScript = document.createElement("script");
+  initScript.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17578752566');
+  `;
+  document.head.appendChild(initScript);
+}
+
+/**
+ * Fire Google Ads conversion event.
+ * Only fires if consent was given and gtag is loaded.
+ */
+export function trackGoogleAdsConversion(
+  sendTo: string,
+  value?: number,
+  currency?: string
+): void {
+  if (!hasConsent()) return;
+  const gtag = (window as any).gtag;
+  if (typeof gtag !== "function") return;
+  gtag("event", "conversion", {
+    send_to: sendTo,
+    value: value || 1.0,
+    currency: currency || "EUR",
+  });
+}
+
+/**
  * Disable Meta Pixel (replace fbq with noop).
  */
 export function disableMetaPixel(): void {

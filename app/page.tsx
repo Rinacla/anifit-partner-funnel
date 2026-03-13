@@ -17,6 +17,7 @@ import QuizEarningsReminder from "./_components/QuizEarningsReminder";
 import AnnouncementBar from "./_components/AnnouncementBar";
 import ReturningVisitorBanner from "./_components/ReturningVisitorBanner";
 import Footer from "./_components/Footer";
+import StarterPaketCTA from "@/app/_components/StarterPaketCTA";
 
 export const metadata = {
   title: "Zertifizierter Ernährungsberater für Hunde werden | Enrico Bachmann",
@@ -606,6 +607,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+      {/* Starter-Paket CTA */}
+      <div className="max-w-2xl mx-auto px-4 my-12">
+        <StarterPaketCTA />
+      </div>
 
       <Footer guideHref="#quiz" />
       <ClientOverlays />

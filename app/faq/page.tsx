@@ -3,6 +3,7 @@ import LeadForm from "../_components/LeadForm";
 import type { Metadata } from "next";
 import Footer from "@/app/_components/Footer";
 import Breadcrumb from "../_components/Breadcrumb";
+import StarterPaketCTA from "@/app/_components/StarterPaketCTA";
 
 export const metadata: Metadata = {
   title: "Häufige Fragen zum Einstieg als Anifit-Berater",
@@ -319,6 +320,12 @@ export default function FAQPage() {
           </div>
         </section>
       </div>
+
+      {/* Starter-Paket CTA */}
+      <div className="max-w-2xl mx-auto px-4 my-12">
+        <StarterPaketCTA />
+      </div>
+
       <Footer />
     </div>
   );

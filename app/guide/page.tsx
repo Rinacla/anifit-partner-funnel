@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
 import Breadcrumb from "../_components/Breadcrumb";
+import StarterPaketCTA from "@/app/_components/StarterPaketCTA";
 
 export const metadata: Metadata = {
   title: "Guide: Dein Start als Anifit-Tierernährungsberater",
@@ -314,6 +315,12 @@ export default function GuidePage() {
           </div>
         </div>
       </section>
+
+
+      {/* Starter-Paket CTA */}
+      <div className="max-w-2xl mx-auto px-4 my-12">
+        <StarterPaketCTA />
+      </div>
 
       <Footer />
     </div>

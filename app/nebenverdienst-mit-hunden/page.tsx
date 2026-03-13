@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
 import Breadcrumb from "../_components/Breadcrumb";
+import StarterPaketCTA from "@/app/_components/StarterPaketCTA";
 
 export const metadata: Metadata = {
   title: "Nebenverdienst mit Hunden: 7 Wege im Vergleich (2026)",
@@ -327,6 +328,12 @@ export default function NebenverdienstMitHunden() {
       </section>
 
       {/* Footer */}
+
+      {/* Starter-Paket CTA */}
+      <div className="max-w-2xl mx-auto px-4 my-12">
+        <StarterPaketCTA />
+      </div>
+
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Footer from "@/app/_components/Footer";
 import Breadcrumb from "../_components/Breadcrumb";
+import StarterPaketCTA from "@/app/_components/StarterPaketCTA";
 
 export const metadata: Metadata = {
   title: "Verdienst-Rechner für Anifit-Berater | Enrico Bachmann",
@@ -203,6 +204,12 @@ export default function EarningsCalculatorPage() {
       </main>
 
       {/* Footer */}
+
+      {/* Starter-Paket CTA */}
+      <div className="max-w-2xl mx-auto px-4 my-12">
+        <StarterPaketCTA />
+      </div>
+
       <Footer />
     </div>
   );

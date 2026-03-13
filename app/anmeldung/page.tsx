@@ -4,6 +4,7 @@ import FAQAccordion from "../_components/FAQAccordion";
 import LeadForm from "../_components/LeadForm";
 import Footer from "@/app/_components/Footer";
 import Breadcrumb from "../_components/Breadcrumb";
+import StarterPaketCTA from "@/app/_components/StarterPaketCTA";
 
 export const metadata: Metadata = {
   title: "Anifit Berater Anmeldung: So funktioniert die Registrierung",
@@ -354,6 +355,12 @@ export default function AnmeldungPage() {
           }),
         }}
       />
+
+
+      {/* Starter-Paket CTA */}
+      <div className="max-w-2xl mx-auto px-4 my-12">
+        <StarterPaketCTA />
+      </div>
 
       <Footer />
     </div>

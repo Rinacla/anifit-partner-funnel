@@ -89,8 +89,8 @@ export function registrationEmail(name: string) {
       <div class="step"><strong>4. Loslegen!</strong> Erste Kunden ansprechen mit meinen fertigen Vorlagen</div>
       <div class="highlight">
         <strong>\u{1f381} Willkommens-Deal:</strong><br>
-        Du kaufst ein Einstiegspaket (ab 78 \u20ac) und bekommst nach der Startschulung ein <strong>zus\u00e4tzliches Warenproben-Paket im Wert von 80\u2013100 \u20ac GRATIS</strong> dazu.<br><br>
-        Du investierst 78 \u20ac und bekommst Ware f\u00fcr ~160\u2013180 \u20ac. Das ist ein echtes 2-f\u00fcr-1.
+        Du kaufst ein Einstiegspaket (ab 78 \u20ac) und bekommst nach der Startschulung ein <strong>zus\u00e4tzliches Warenproben-Paket im GLEICHEN WERT \u20ac GRATIS</strong> dazu.<br><br>
+        Du investierst 78 \u20ac und bekommst Ware f\u00fcr im Doppelten \u20ac. Das ist ein echtes 2-fach bezahlt bekommen.
       </div>
       <p><strong>Übrigens:</strong> Als Berater bekommst du auch auf deine eigenen Einkäufe Provision, das sind mindestens 15 % Rabatt auf das Futter für deinen eigenen Hund. Für viele lohnt sich allein das schon.</p>
       <p><strong>Gewerbeschein?</strong> Brauchst du, ist aber in 15 Min. erledigt (online m\u00f6glich). Gewerbesteuer f\u00e4llt erst ab 24.500 \u20ac Jahresgewinn an \u2014 als Nebent\u00e4tigkeit bist du weit darunter. Ich helfe dir mit dem genauen Wortlaut.</p>
@@ -108,7 +108,7 @@ export function registrationEmail(name: string) {
         <a href="${REG_LINK}" class="btn">Jetzt registrieren \u2192</a>
       </p>
       <p>Enrico</p>
-    `, "5 Minuten Registrierung + Willkommenspaket im Wert von 160 €."),
+    `, "5 Minuten Registrierung + Willkommenspaket im GLEICHEN Wert €."),
   };
 }
 
@@ -154,7 +154,7 @@ export function ctaEmail(name: string) {
       <h1>${name}, kurzes Recap:</h1>
       <ul>
         <li>\u2705 15\u201330 % Provision, lebenslang</li>
-        <li>\u2705 Einstiegspaket ab 78 \u20ac + 80\u2013100 \u20ac Willkommenspaket GRATIS</li>
+        <li>\u2705 Einstiegspaket ab 78 \u20ac + im gleichen Wert GRATIS</li>
         <li>\u2705 Startbonus: 30 % f\u00fcr 3 Monate (bei 3 NK in 30 Tagen)</li>
         <li>\u2705 Kein Lager, kein Versand, kein Mindestumsatz</li>
         <li>\u2705 Gewerbeschein in 15 Min., Steuern erst ab 24.500 \u20ac Gewinn</li>
@@ -180,7 +180,7 @@ export function followUp1Email(name: string) {
       <h1>Hallo ${name},</h1>
       <p>Vielleicht z\u00f6gerst du noch. Das ist normal. Hier sind die drei h\u00e4ufigsten Bedenken:</p>
       <p><strong>"78 \u20ac f\u00fcr das Einstiegspaket sind mir zu viel."</strong><br>
-      Du bekommst echte Produkte + 80\u2013100 \u20ac Werbematerial gratis. Mit deinen ersten 3\u20134 Kunden hast du die Kosten drin. Und mit dem Startbonus verdienst du sofort 30 %.</p>
+      Du bekommst echte Produkte + im GLEICHEN WERT Warenproben gratis. Mit deinen ersten 3\u20134 Kunden hast du die Kosten drin. Und mit dem Startbonus verdienst du sofort 30 %.</p>
       <p><strong>"Ich bin kein Verk\u00e4ufer."</strong><br>
       Musst du nicht sein. Hundebesitzer suchen aktiv nach besserem Futter. Du hilfst bei der Entscheidung. Das Produkt verkauft sich durch Qualit\u00e4t.</p>
       <p><strong>"Ich habe keine Zeit."</strong><br>
@@ -202,7 +202,7 @@ export function followUp2Email(name: string) {
       <p><strong>Die Kurzversion:</strong></p>
       <ul>
         <li>Premium-Hundefutter empfehlen, 15\u201330 % Provision</li>
-        <li>78 \u20ac Einstieg + 80\u2013100 \u20ac Willkommenspaket gratis</li>
+        <li>78 \u20ac Einstieg + Warenproben im GLEICHEN WERT gratis</li>
         <li>Startbonus: 30 % f\u00fcr 3 Monate</li>
         <li>Pers\u00f6nliches Mentoring nach Startschulung</li>
         <li>Kein Lager, kein Versand, kein Risiko</li>

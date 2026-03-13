@@ -35,7 +35,7 @@ export function onboarding1Welcome(name: string) {
         <li><span class="step-number">3</span> <strong>Erste Produkte testen</strong>. Bestelle dir ein Startpaket und probiere das Futter selbst. Du kannst nur empfehlen, was du kennst.</li>
       </ul>
       <div class="highlight">
-        <strong>Tipp:</strong> Die Startschulung ist der wichtigste Schritt. Buchst du sie im gleichen Monat wie deine Registrierung, bekommst du das 60-Dosen-Paket kostenlos dazu.
+        <strong>Tipp:</strong> Die Startschulung ist der wichtigste Schritt. Buchst du sie im gleichen Monat wie deine Registrierung, bekommst du Waren im <strong>gleichen Wert</strong> oben drauf.
       </div>
       <p>Antworte einfach auf diese Mail oder schreib mir per WhatsApp (0152 0400 0990), wenn du Fragen hast.</p>
       <p>Enrico</p>

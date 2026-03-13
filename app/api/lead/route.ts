@@ -77,8 +77,9 @@ export async function POST(req: NextRequest) {
     }),
   }).catch((err) => console.error("[LEAD_DB] Hetzner persist failed:", err.message));
 
+  const today = new Date().toISOString().split('T')[0];
   try {
-    await createContact(cleanEmail, cleanName);
+    await createContact(cleanEmail, cleanName, 1, today);  // step=1, today as signup date
   } catch (err) {
     console.error("createContact error:", err);
   }

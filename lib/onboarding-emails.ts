@@ -30,7 +30,7 @@ export function onboarding1Welcome(name: string) {
       <p>Ich bin Enrico, dein Mentor. Ich begleite dich durch die ersten Wochen und stehe dir bei jeder Frage zur Seite.</p>
       <p><strong>Deine naechsten 3 Schritte:</strong></p>
       <ul>
-        <li><span class="step-number">1</span> <strong>Startschulung buchen</strong>. Ca. 25 Minuten, online. Danach bekommst du dein Willkommenspaket (60 Dosen gratis).</li>
+        <li><span class="step-number">1</span> <strong>Startschulung buchen</strong>. Ca. 25 Minuten, online. Danach bekommst du Waren im <strong>gleichen Wert</strong> wie deine Bestellung oben drauf.</li>
         <li><span class="step-number">2</span> <strong>Fachberaterbereich kennenlernen</strong>. Unter <a href="https://provital.com/content/fachberaterbereich/">provital.com</a> findest du dein CRM, Bestelluebersichten und Schulungsmaterial.</li>
         <li><span class="step-number">3</span> <strong>Erste Produkte testen</strong>. Bestelle dir ein Startpaket und probiere das Futter selbst. Du kannst nur empfehlen, was du kennst.</li>
       </ul>

@@ -291,7 +291,7 @@ function DankeContent() {
               Jetzt Starter-Paket bestellen →
             </a>
             <p className="text-xs text-gray-500 text-center mt-3">
-              <strong>Bonus:</strong> Nach Bestellung + Startschulung erhältst du zusätzlich Waren im Wert von 80 EUR
+              <strong>Bonus:</strong> Nach Bestellung + Startschulung erhältst du Waren im <strong>gleichen Wert</strong> oben drauf. Bestellst du für 80 EUR, bekommst du 80 EUR extra. Bestellst du für 160 EUR, bekommst du 160 EUR extra.
             </p>
           </div>
 

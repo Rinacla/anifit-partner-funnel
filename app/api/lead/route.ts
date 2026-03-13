@@ -124,6 +124,18 @@ export async function POST(req: NextRequest) {
       <p><strong>Quelle:</strong> ${utmLine}</p>
     `;
     await sendEmail("partner@anifutter-shop.de", `Rückruf gewünscht: ${cleanName} (${phone})`, phoneHtml);
+
+    // ALSO notify via Discord webhook for immediate attention
+    const discordWebhook = process.env.DISCORD_WEBHOOK_TP_LEADS;
+    if (discordWebhook) {
+      await fetch(discordWebhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: `📞 **Rückruf gewünscht!**\n\n**Name:** ${cleanName}\n**Telefon:** ${phone}\n**Email:** ${cleanEmail}\n**Quelle:** ${utmLine}`
+        })
+      }).catch(() => {});
+    }
   }
 
   // Notify Enrico about every new lead (not just tierberufe/callback)

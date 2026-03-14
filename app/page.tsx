@@ -56,7 +56,7 @@ export default function Home() {
       { "@type": "Question", name: "Was kostet der Einstieg?", acceptedAnswer: { "@type": "Answer", text: "Das Einstiegspaket kostet ab 78 € und enthält Warenproben zum Selbsttesten. Nach der Startschulung bekommst du Werbematerial im Wert von 80–100 € gratis dazu." } },
       { "@type": "Question", name: "Brauche ich Vorkenntnisse?", acceptedAnswer: { "@type": "Answer", text: "Nein. Du bekommst kostenlose Schulungen und einen persönlichen Mentor, der dich einarbeitet." } },
       { "@type": "Question", name: "Was bedeutet lebenslanger Kundenschutz?", acceptedAnswer: { "@type": "Answer", text: "Jeder Kunde, den du gewinnst, bleibt dauerhaft dir zugeordnet. Auch bei Nachbestellungen Jahre später verdienst du mit." } },
-      { "@type": "Question", name: "Ist das MLM?", acceptedAnswer: { "@type": "Answer", text: "Nein. 100% der Provision kommt aus echten Produktverkäufen. Du verdienst an deinen Kunden, nicht am Recruiting." } },
+      { "@type": "Question", name: "Ist das ein Schneeballsystem?", acceptedAnswer: { "@type": "Answer", text: "Nein. Anifit ist Direktvertrieb. Dein Einkommen kommt aus echten Produktverkäufen, nicht aus dem Anwerben anderer Berater." } },
       { "@type": "Question", name: "Wie viel Zeit brauche ich?", acceptedAnswer: { "@type": "Answer", text: "Die meisten starten mit 2-5 Stunden pro Woche neben dem Hauptjob." } },
       { "@type": "Question", name: "Wie läuft die Anmeldung ab?", acceptedAnswer: { "@type": "Answer", text: "Registrierungsformular ausfüllen, Einstiegspaket bestellen, Startschulung absolvieren. Das dauert keine 5 Minuten. Danach meldet sich dein Mentor persönlich bei dir." } },
       { "@type": "Question", name: "Brauche ich ein Gewerbe anmelden?", acceptedAnswer: { "@type": "Answer", text: "Nicht sofort. Du kannst dich erst registrieren und alles kennenlernen. Sobald du regelmäßig Provision verdienst, meldest du ein Kleingewerbe an. Das dauert 15 Minuten beim Ordnungsamt und kostet je nach Stadt 20–60 €." } },
@@ -160,8 +160,8 @@ export default function Home() {
             </div>
             <div className="w-full lg:w-[420px] flex-shrink-0">
               <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8 relative" id="quiz">
-                <div className="absolute -top-3 -right-3 bg-danger-500 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg transform rotate-6 z-10 animate-bounce-3x">
-                  HEUTE: 0€ STARTKOSTEN
+                <div className="absolute -top-3 -right-3 bg-brand-600 text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-lg transform rotate-6 z-10">
+                  STARTPAKET AB 78€
                 </div>
                 <QuizFunnel />
               </div>

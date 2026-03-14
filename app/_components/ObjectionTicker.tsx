@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const OBJECTIONS = [
-  { q: "Ist das MLM?", a: "Nein — 100 % Provision aus echten Produktverkäufen." },
+  { q: "Ist das MLM?", a: "Anifit ist Direktvertrieb. Dein Einkommen kommt aus echten Produktverkäufen, nicht aus dem Anwerben." },
   { q: "Was kostet der Einstieg?", a: "Registrierung kostenlos. Einstiegspaket ab 78 €." },
   { q: "Brauche ich Vorkenntnisse?", a: "Nein. Schulung + Mentor bekommst du von Enrico." },
   { q: "Wie viel Zeit brauche ich?", a: "2–5 Stunden pro Woche reichen für den Start." },

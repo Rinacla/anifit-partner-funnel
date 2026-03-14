@@ -225,7 +225,7 @@ export default function GuidePage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Ehrliche Antworten auf häufige Bedenken</h2>
           <div className="space-y-6">
             {[
-              { q: "Ist das nicht so ein MLM / Schneeballsystem?", a: "Nein. Du verdienst an echten Produktverkäufen deiner Kunden. Es gibt keine Pflicht, andere Berater zu rekrutieren. 100 % deiner Provision kommt aus Produktumsatz." },
+              { q: "Ist das ein Schneeballsystem?", a: "Nein. Anifit ist Direktvertrieb — du verdienst an echten Produktverkäufen. Es gibt die Möglichkeit, ein Team aufzubauen, aber dein Einkommen kommt aus dem Verkauf, nicht aus dem Anwerben." },
               { q: "Ich kenne mich nicht mit Tierernährung aus.", a: "Musst du auch nicht. Anifit bietet kostenlose Online-Schulungen, Webinare und einen vollständigen Zertifizierungskurs. Du lernst alles, was du brauchst." },
               { q: "Ich habe keine Zeit für einen Nebenjob.", a: "Die meisten starten mit 2–3 Stunden pro Woche. Du empfiehlst bei Gesprächen, die du ohnehin führst. Es gibt keine Mindestanforderungen." },
               { q: "Ich bin kein Verkäufer.", a: "Musst du nicht sein. Du berätst Hundebesitzer, die aktiv nach besserem Futter suchen. Das Produkt verkauft sich durch Qualität. Du hilfst nur bei der Entscheidung." },

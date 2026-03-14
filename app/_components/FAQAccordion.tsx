@@ -16,8 +16,8 @@ const defaultFaqs = [
     a: "Sobald ein Kunde über deinen Link bestellt, ist er dauerhaft dir zugeordnet. Jede Nachbestellung – auch Monate oder Jahre später – bringt dir Provision. Du baust echtes passives Einkommen auf, das mit jedem Kunden wächst.",
   },
   {
-    q: "Ist das ein MLM- oder Schneeballsystem?",
-    a: "Nein. Du verdienst ausschließlich an deinen eigenen Kunden und deren Bestellungen. Es gibt keine Verpflichtung, andere Berater zu rekrutieren. Deine Provision entsteht zu 100% aus echten Produktverkäufen.",
+    q: "Ist das ein Schneeballsystem?",
+    a: "Nein. Anifit ist Direktvertrieb — du verdienst an echten Produktverkäufen deiner Kunden. Es gibt die Möglichkeit, ein Team aufzubauen, aber dein Haupteinkommen kommt aus dem Verkauf von Premium-Tierfutter, nicht aus dem Anwerben.",
   },
   {
     q: "Wie viel Zeit muss ich investieren?",

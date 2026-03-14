@@ -101,7 +101,7 @@ export default function QuizFunnel() {
   const [restored, setRestored] = useState(false);
   const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState("");
-  const [touched, setTouched] = useState<{ firstName?: boolean; lastName?: boolean; email?: boolean; plz?: boolean }>({});
+  const [touched, setTouched] = useState<{ firstName?: boolean; lastName?: boolean; email?: boolean; plz?: boolean; phone?: boolean }>({});
 
   const formRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -113,6 +113,7 @@ export default function QuizFunnel() {
   const lastNameValid = lastName.trim().length >= 2;
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
   const plzValid = /^\d{4,5}$/.test(plz.trim());
+  const phoneValid = phone.trim().replace(/\D/g, "").length >= 6;
 
   // Restore progress
   useEffect(() => {
@@ -205,7 +206,7 @@ export default function QuizFunnel() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!consent || !firstName.trim() || !lastName.trim() || !email.trim()) return;
+    if (!consent || !firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) return;
     if (honeypot) return;
     setLoading(true);
     setError("");
@@ -218,7 +219,7 @@ export default function QuizFunnel() {
           name: fullName,
           email: email.trim(),
           phone: phone.trim() || undefined,
-          wantsCall,
+          wantsCall: true,
           plz: plz.trim() || undefined,
           quiz: answers,
           utm,
@@ -464,9 +465,9 @@ export default function QuizFunnel() {
               )}
             </div>
 
-            {/* Telefon + Rückruf */}
+            {/* Telefon (Pflicht) */}
             <div>
-              <label htmlFor="quiz-phone" className="block text-xs font-medium text-gray-600 mb-1">Handy-Nummer</label>
+              <label htmlFor="quiz-phone" className="block text-xs font-medium text-gray-600 mb-1">Handy-Nummer *</label>
               <input
                 id="quiz-phone"
                 type="tel"
@@ -476,13 +477,11 @@ export default function QuizFunnel() {
                 placeholder="z. B. 0170 1234567"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="input text-sm"
+                onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
+                required
+                className={`input text-sm ${phoneValid ? "input-valid" : ""} ${touched.phone && !phoneValid && phone.trim().length > 0 ? "input-invalid" : ""}`}
               />
             </div>
-            <label htmlFor="quiz-callback" className="flex items-start gap-2 text-xs text-gray-600 cursor-pointer">
-              <input id="quiz-callback" type="checkbox" checked={wantsCall} onChange={(e) => setWantsCall(e.target.checked)} className="mt-0.5 rounded" />
-              <span>Ja, ich möchte einen kurzen Rückruf (optional)</span>
-            </label>
 
             {/* Honeypot */}
             <div className="absolute opacity-0 -z-10 h-0 overflow-hidden" aria-hidden="true" tabIndex={-1}>

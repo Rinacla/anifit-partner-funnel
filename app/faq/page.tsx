@@ -136,8 +136,8 @@ const categories = [
     icon: "🐕",
     faqs: [
       {
-        q: "Ist das ein MLM- oder Schneeballsystem?",
-        a: "Nein. Du verdienst ausschließlich an deinen eigenen Kunden und deren Bestellungen. Es gibt keine Verpflichtung, andere Berater zu rekrutieren. 100 % der Provision kommt aus echten Produktverkäufen.",
+        q: "Ist das ein Schneeballsystem?",
+        a: "Nein. Anifit ist Direktvertrieb — du verdienst an echten Produktverkäufen deiner Kunden. Es gibt die Möglichkeit, ein Team aufzubauen und an deren Umsätzen mitzuverdienen, aber dein Haupteinkommen kommt aus dem Verkauf von Premium-Tierfutter, nicht aus dem Anwerben.",
       },
       {
         q: "Brauche ich Vorkenntnisse in Tierernährung?",

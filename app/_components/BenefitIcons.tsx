@@ -5,7 +5,7 @@ export default function BenefitIcons() {
     { icon: '💰', label: 'Verdienst', text: '15-30% lebenslang' },
     { icon: '🏠', label: 'Flexibilität', text: 'Freie Zeiteinteilung' },
     { icon: '🐕', label: 'Sinnhaftigkeit', text: 'Tieren aktiv helfen' },
-    { icon: '📉', label: 'Sicherheit', text: '0€ Risiko, kein Lager' }
+    { icon: '📉', label: 'Sicherheit', text: 'Kein Lager, kein Risiko' }
   ];
 
   return (

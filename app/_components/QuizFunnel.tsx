@@ -20,6 +20,15 @@ const STEPS = [
     ],
   },
   {
+    question: "Was machst du aktuell beruflich?",
+    options: [
+      { label: "💼 Angestellt (Voll- oder Teilzeit)", value: "angestellt", popular: true },
+      { label: "🏠 Selbstständig / Freiberuflich", value: "selbststaendig" },
+      { label: "👶 In Elternzeit oder Teilzeit", value: "elternzeit" },
+      { label: "🔍 Aktuell auf Jobsuche", value: "jobsuche" },
+    ],
+  },
+  {
     question: "Was beschreibt dich am besten?",
     options: [
       { label: "💰 Ich suche einen flexiblen Nebenverdienst", value: "nebenverdienst", popular: true },
@@ -41,8 +50,9 @@ const STEPS = [
 
 function getResult(answers: string[]) {
   const pet = answers[0];
-  const motivation = answers[1];
-  const time = answers[2];
+  const job = answers[1]; // angestellt, selbststaendig, elternzeit, jobsuche
+  const motivation = answers[2];
+  const time = answers[3];
 
   // Earnings estimate based on time investment
   const earnings = time === "viel"

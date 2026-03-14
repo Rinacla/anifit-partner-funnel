@@ -62,13 +62,14 @@ export function loadGoogleAdsTag(): void {
   script.src = "https://www.googletagmanager.com/gtag/js?id=AW-17578752566";
   document.head.appendChild(script);
 
-  // Initialize gtag
+  // Initialize gtag (Google Ads + GA4)
   const initScript = document.createElement("script");
   initScript.innerHTML = `
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-17578752566');
+    gtag('config', 'G-NYF5LVWNHF', { cookie_domain: '.anifutter-shop.de' });
   `;
   document.head.appendChild(initScript);
 }

@@ -148,6 +148,7 @@ export async function POST(req: NextRequest) {
     // Decode quiz answers for human-readable context
     const quizLabels: Record<string, string> = {
       hund: "🐕 Hund", katze: "🐈 Katze", beides: "🐾 Beides", keins: "💭 Kein Tier",
+      angestellt: "💼 Angestellt", selbststaendig: "🏠 Selbstständig", elternzeit: "👶 Elternzeit", jobsuche: "🔍 Jobsuche",
       nebenverdienst: "💰 Nebenverdienst", sinnvoll: "🤝 Sinnvolle Tätigkeit",
       berufswechsel: "🔄 Berufswechsel", tierprofi: "🐾 Tierprofi",
       wenig: "⏱️ 2–5h/Woche", mittel: "⏰ 5–10h/Woche", viel: "🕐 10h+/Woche", unsicher: "🤷 Noch unsicher",

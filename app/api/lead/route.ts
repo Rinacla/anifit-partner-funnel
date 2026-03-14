@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
   }
 
-  const { name, email, source, beruf, message, phone, wantsCall, quiz, utm, _hp } = body as {
+  const { name, email, source, beruf, message, phone, wantsCall, plz, quiz, utm, _hp } = body as {
     name?: string;
     email?: string;
     source?: string;
@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
     message?: string;
     phone?: string;
     wantsCall?: boolean;
+    plz?: string;
     quiz?: string[];
     utm?: Record<string, string>;
     _hp?: string;
@@ -68,6 +69,7 @@ export async function POST(req: NextRequest) {
       source: source || null,
       phone: phone || null,
       wantsCall: !!wantsCall,
+      plz: plz || null,
       quiz: quiz || null,
       utm_source: utm?.utm_source || null,
       utm_medium: utm?.utm_medium || null,
@@ -147,11 +149,12 @@ export async function POST(req: NextRequest) {
 
     // Decode quiz answers for human-readable context
     const quizLabels: Record<string, string> = {
-      hund: "🐕 Hund", katze: "🐈 Katze", beides: "🐾 Beides", keins: "💭 Kein Tier",
-      angestellt: "💼 Angestellt", selbststaendig: "🏠 Selbstständig", elternzeit: "👶 Elternzeit", jobsuche: "🔍 Jobsuche",
-      nebenverdienst: "💰 Nebenverdienst", sinnvoll: "🤝 Sinnvolle Tätigkeit",
-      berufswechsel: "🔄 Berufswechsel", tierprofi: "🐾 Tierprofi",
-      wenig: "⏱️ 2–5h/Woche", mittel: "⏰ 5–10h/Woche", viel: "🕐 10h+/Woche", unsicher: "🤷 Noch unsicher",
+      hund: "🐕 Hund", katze: "🐈 Katze", beides: "🐾 Beides", keins: "Kein Tier",
+      angestellt: "💼 Angestellt", beamte: "👔 Beamte", selbststaendig: "🏠 Selbständig",
+      elternzeit: "👶 Elternzeit", student: "🎓 Student", hausfrau: "🏡 Hausfrau/-mann",
+      rentner: "👴 Rentner", arbeitssuchend: "🔍 Arbeitssuchend", sonstiges: "📋 Sonstiges",
+      ja_verstanden: "✅ Selbständigkeit verstanden", suche_anstellung: "❌ Sucht Anstellung",
+      ja_erfahrung: "DV-Erfahrung", nein_offen: "Kein DV, aber offen", nein_unsicher: "Kein DV, unsicher",
     };
     const quizReadable = quiz?.length
       ? quiz.map((a) => quizLabels[a] || a).join(" · ")
@@ -172,7 +175,8 @@ export async function POST(req: NextRequest) {
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr><td style="padding:6px 12px;color:#6b7280">Quelle</td><td style="padding:6px 12px;font-weight:600">${sourceLabel} · ${utmLine}</td></tr>
           <tr style="background:#f9fafb"><td style="padding:6px 12px;color:#6b7280">Email</td><td style="padding:6px 12px"><a href="mailto:${cleanEmail}">${cleanEmail}</a></td></tr>
-          <tr><td style="padding:6px 12px;color:#6b7280">Quiz</td><td style="padding:6px 12px">${quizReadable}</td></tr>
+          ${plz ? `<tr><td style="padding:6px 12px;color:#6b7280">PLZ</td><td style="padding:6px 12px;font-weight:600">${plz}</td></tr>` : ""}
+          <tr style="background:#f9fafb"><td style="padding:6px 12px;color:#6b7280">Quiz</td><td style="padding:6px 12px">${quizReadable}</td></tr>
         </table>
         ${callbackInfo}
         <div style="margin:20px 0">

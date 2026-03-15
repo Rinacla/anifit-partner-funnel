@@ -592,19 +592,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bottom Inline Lead Form */}
+      {/* Bottom CTA — scrolls to quiz */}
       <section className="bg-brand-600 py-20">
-        <div className="mx-auto max-w-md px-6">
-          <h2 className="text-2xl font-bold text-white text-center mb-3">Klingt nach dir?</h2>
-          <p className="text-brand-100 text-center mb-2">Hol dir den kostenlosen Guide mit allen Details per Mail:</p>
-          <QuizEarningsReminder />
-          <StartbonusMini />
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
-            <LeadForm idPrefix="bottom-" source="bottom" />
-          </div>
-          {/* Post-submit preview — reduces form anxiety for non-quiz visitors */}
-          <div className="mt-4 flex items-center justify-center gap-6 text-brand-200 text-xs">
-            <span className="flex items-center gap-1.5"><span aria-hidden="true">📧</span> Email in 2 Min</span>
+        <div className="mx-auto max-w-md px-6 text-center">
+          <h2 className="text-2xl font-bold text-white mb-3">Klingt nach dir?</h2>
+          <p className="text-brand-100 mb-8">Finde in 4 kurzen Fragen heraus, ob die Anifit-Beratertätigkeit zu dir passt.</p>
+          <a
+            href="#quiz"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-brand-700 bg-white shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105"
+          >
+            Jetzt Quiz starten →
+          </a>
+          <div className="mt-6 flex items-center justify-center gap-6 text-brand-200 text-xs">
+            <span className="flex items-center gap-1.5"><span aria-hidden="true">⏱</span> ~1 Minute</span>
             <span className="flex items-center gap-1.5"><span aria-hidden="true">📱</span> Enrico meldet sich</span>
             <span className="flex items-center gap-1.5"><span aria-hidden="true">✅</span> Du entscheidest</span>
           </div>

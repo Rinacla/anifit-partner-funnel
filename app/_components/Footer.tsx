@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface FooterProps {
   /** On the landing page, show "#quiz" for guide CTA; on subpages, link to "/#quiz" */
@@ -155,9 +156,12 @@ export default function Footer({ guideHref = "/#quiz" }: FooterProps) {
             </ul>
           </div>
         </nav>
-        <p className="text-center text-xs text-gray-500 border-t border-gray-50 pt-4">
-          © {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater
-        </p>
+        <div className="flex items-center justify-center gap-2 border-t border-gray-50 pt-4">
+          <Image src="/images/anifit-logo.png" alt="Anifit" width={20} height={20} className="w-5 h-5 object-contain opacity-60" />
+          <p className="text-xs text-gray-500">
+            © {new Date().getFullYear()} Enrico Bachmann · Anifit-Fachberater
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -6,6 +6,7 @@ import { useUtmParams } from "@/lib/useUtmParams";
 import { suggestEmailCorrection } from "@/lib/email-typo";
 import { getEmailProvider } from "@/lib/email-provider";
 import { useStartbonusDeadline } from "@/lib/useStartbonusDeadline";
+import Image from "next/image";
 
 const STORAGE_KEY = "anifit_quiz_progress";
 
@@ -293,7 +294,7 @@ export default function QuizFunnel() {
           <div className="h-full bg-gray-400 rounded-full" style={{ width: `${progress}%` }} />
         </div>
         <div className="text-center py-8">
-          <span className="text-4xl mb-4 block">🤝</span>
+          <Image src="/images/anifit-logo.png" alt="Anifit" width={40} height={40} className="w-10 h-10 mx-auto mb-3 object-contain" />
           <h3 className="text-xl font-bold text-gray-900 mb-3">
             Danke für deine Ehrlichkeit!
           </h3>
@@ -350,7 +351,7 @@ export default function QuizFunnel() {
       /* Intermediate: "Du wurdest ausgewählt" */
       ) : showIntermediate ? (
         <div className="animate-fade-in text-center py-6">
-          <span className="text-4xl mb-4 block">🎉</span>
+          <Image src="/images/anifit-logo.png" alt="Anifit" width={48} height={48} className="w-12 h-12 mx-auto mb-3 object-contain" />
           <h3 className="text-xl font-bold text-gray-900 mb-3">
             Super! Wir möchten dich gerne persönlich kennenlernen.
           </h3>

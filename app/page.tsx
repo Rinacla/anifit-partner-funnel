@@ -139,7 +139,10 @@ export default function Home() {
         <div className="relative mx-auto max-w-5xl px-6 pt-12 pb-16">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1 text-center lg:text-left">
-              <p className="inline-block mb-4 text-xs font-bold tracking-widest uppercase text-brand-700 bg-brand-100 px-4 py-1.5 rounded-full">Kostenloser Guide</p>
+              <div className="flex items-center gap-3 mb-4">
+                <Image src="/images/anifit-logo.png" alt="Anifit" width={32} height={32} className="w-8 h-8 object-contain" />
+                <p className="inline-block text-xs font-bold tracking-widest uppercase text-brand-700 bg-brand-100 px-4 py-1.5 rounded-full">Kostenloser Guide</p>
+              </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
                 Du liebst Hunde und willst dabei{" "}
                 <span className="text-brand-600">etwas Sinnvolles verdienen?</span>

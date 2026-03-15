@@ -92,7 +92,7 @@ export default function QuizFunnel() {
   const [plz, setPlz] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [wantsCall, setWantsCall] = useState(false);
+  const [callbackSlot, setCallbackSlot] = useState("");
   const [consent, setConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
@@ -102,6 +102,40 @@ export default function QuizFunnel() {
   const [emailSuggestion, setEmailSuggestion] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState("");
   const [touched, setTouched] = useState<{ firstName?: boolean; lastName?: boolean; email?: boolean; plz?: boolean; phone?: boolean }>({});
+
+  // Generate next 5 weekdays with 3 time slots each (German timezone)
+  const callbackSlots = (() => {
+    const slots: { label: string; value: string; day: string }[] = [];
+    const now = new Date();
+    // Start from tomorrow
+    const start = new Date(now);
+    start.setDate(start.getDate() + 1);
+    let daysAdded = 0;
+    const dayNames = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+    const times = [
+      { label: "Vormittag (10:00)", hour: "10:00" },
+      { label: "Mittag (14:00)", hour: "14:00" },
+      { label: "Abend (18:00)", hour: "18:00" },
+    ];
+    while (daysAdded < 5) {
+      const d = new Date(start);
+      d.setDate(start.getDate() + daysAdded + Math.floor(daysAdded / 5) * 2);
+      // Skip weekends
+      const dow = d.getDay();
+      if (dow === 0 || dow === 6) { start.setDate(start.getDate() + 1); continue; }
+      const dateStr = `${d.getDate().toString().padStart(2, "0")}.${(d.getMonth() + 1).toString().padStart(2, "0")}`;
+      const dayLabel = `${dayNames[dow]}, ${dateStr}`;
+      for (const t of times) {
+        slots.push({
+          label: `${dayLabel} · ${t.label}`,
+          value: `${dateStr} ${t.hour}`,
+          day: dayLabel,
+        });
+      }
+      daysAdded++;
+    }
+    return slots;
+  })();
 
   const formRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -220,6 +254,7 @@ export default function QuizFunnel() {
           email: email.trim(),
           phone: phone.trim() || undefined,
           wantsCall: true,
+          callbackSlot: callbackSlot || undefined,
           plz: plz.trim() || undefined,
           quiz: answers,
           utm,
@@ -481,6 +516,42 @@ export default function QuizFunnel() {
                 required
                 className={`input text-sm ${phoneValid ? "input-valid" : ""} ${touched.phone && !phoneValid && phone.trim().length > 0 ? "input-invalid" : ""}`}
               />
+            </div>
+
+            {/* Wunschtermin für Rückruf */}
+            <div>
+              <label className="block text-xs font-medium text-gray-600 mb-2">Wann sollen wir dich anrufen? <span className="text-gray-400 font-normal">(deutsche Zeit)</span></label>
+              <div className="grid grid-cols-1 gap-1.5 max-h-48 overflow-y-auto pr-1">
+                {(() => {
+                  // Group by day
+                  const days = new Map<string, typeof callbackSlots>();
+                  for (const s of callbackSlots) {
+                    if (!days.has(s.day)) days.set(s.day, []);
+                    days.get(s.day)!.push(s);
+                  }
+                  return Array.from(days.entries()).map(([day, daySlots]) => (
+                    <div key={day}>
+                      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide mt-2 mb-1">{day}</p>
+                      <div className="grid grid-cols-3 gap-1.5">
+                        {daySlots.map((s) => (
+                          <button
+                            key={s.value}
+                            type="button"
+                            onClick={() => setCallbackSlot(s.value)}
+                            className={`text-xs py-2 px-2 rounded-lg border transition-all text-center ${
+                              callbackSlot === s.value
+                                ? "border-brand-500 bg-brand-50 text-brand-700 font-semibold"
+                                : "border-gray-200 text-gray-600 hover:border-brand-300"
+                            }`}
+                          >
+                            {s.label.split("· ")[1]}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ));
+                })()}
+              </div>
             </div>
 
             {/* Honeypot */}

@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
   }
 
-  const { name, email, source, beruf, message, phone, wantsCall, plz, quiz, utm, _hp } = body as {
+  const { name, email, source, beruf, message, phone, wantsCall, callbackSlot, plz, quiz, utm, _hp } = body as {
     name?: string;
     email?: string;
     source?: string;
@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
     message?: string;
     phone?: string;
     wantsCall?: boolean;
+    callbackSlot?: string;
     plz?: string;
     quiz?: string[];
     utm?: Record<string, string>;
@@ -70,6 +71,7 @@ export async function POST(req: NextRequest) {
       phone: phone || null,
       wantsCall: !!wantsCall,
       plz: plz || null,
+      callbackSlot: callbackSlot || null,
       quiz: quiz || null,
       utm_source: utm?.utm_source || null,
       utm_medium: utm?.utm_medium || null,
@@ -134,7 +136,7 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          content: `📞 **Rückruf gewünscht!**\n\n**Name:** ${cleanName}\n**Telefon:** ${phone}\n**Email:** ${cleanEmail}\n**Quelle:** ${utmLine}`
+          content: `📞 **Rückruf gewünscht!**\n\n**Name:** ${cleanName}\n**Telefon:** ${phone}\n**Email:** ${cleanEmail}${callbackSlot ? `\n**Wunschtermin:** ${callbackSlot} Uhr (DE)` : ""}\n**Quelle:** ${utmLine}`
         })
       }).catch(() => {});
     }
@@ -143,8 +145,8 @@ export async function POST(req: NextRequest) {
   // Notify Enrico about every new lead (not just tierberufe/callback)
   if (!isTierberufe) {
     const quizSummary = quiz?.length ? quiz.join(" → ") : "kein Quiz";
-    const callbackInfo = wantsCall && phone
-      ? `<p style="background:#fef3c7;padding:12px;border-radius:8px;border-left:4px solid #f59e0b"><strong>📞 Rückruf gewünscht:</strong> <a href="tel:${phone.replace(/\s/g, "")}">${phone}</a></p>`
+    const callbackInfo = phone
+      ? `<p style="background:#fef3c7;padding:12px;border-radius:8px;border-left:4px solid #f59e0b"><strong>📞 Rückruf:</strong> <a href="tel:${phone.replace(/\s/g, "")}">${phone}</a>${callbackSlot ? ` · <strong>Wunschtermin: ${callbackSlot} Uhr (DE)</strong>` : ""}</p>`
       : "";
 
     // Decode quiz answers for human-readable context
